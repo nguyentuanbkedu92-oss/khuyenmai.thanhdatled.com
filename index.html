@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thành Đạt LED (TDL) - Giải Pháp Chiếu Sáng Công Nghiệp Hàng Đầu</title>
+    <style>
+        :root {
+            --primary: #0ea5e9;
+            --primary-dark: #0284c7;
+            --accent: #f59e0b;
+            --bg: #0f172a;
+            --card-bg: #1e293b;
+            --text-main: #f8fafc;
+            --text-dim: #94a3b8;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text-main); line-height: 1.6; }
+
+        /* HEADER & NAVIGATION */
+        nav { background: rgba(15, 23, 42, 0.9); padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid #334155; }
+        .logo { font-size: 1.5rem; font-weight: 800; color: var(--primary); letter-spacing: 1px; }
+        .hotline-nav { color: var(--accent); font-weight: bold; text-decoration: none; }
+
+        /* HERO SECTION */
+        .hero {
+            padding: 100px 5% 150px;
+            background: radial-gradient(circle at top right, rgba(14, 165, 233, 0.15), transparent),
+                        radial-gradient(circle at bottom left, rgba(245, 158, 11, 0.05), transparent);
+            text-align: center;
+        }
+        .hero h1 { font-size: 3rem; margin-bottom: 20px; line-height: 1.2; text-transform: uppercase; }
+        .hero p { max-width: 800px; margin: 0 auto 30px; font-size: 1.1rem; color: var(--text-dim); }
+        .btn-main { background: var(--primary); color: white; padding: 15px 40px; border-radius: 50px; text-decoration: none; font-weight: bold; transition: 0.3s; box-shadow: 0 10px 20px rgba(14, 165, 233, 0.3); }
+        .btn-main:hover { background: var(--primary-dark); transform: translateY(-3px); }
+
+        /* SECTION TIÊU CHUẨN */
+        section { padding: 80px 5%; max-width: 1200px; margin: 0 auto; }
+        .section-title { text-align: center; margin-bottom: 50px; }
+        .section-title h2 { font-size: 2rem; margin-bottom: 15px; color: var(--primary); text-transform: uppercase; }
+        .section-title .line { width: 80px; height: 4px; background: var(--accent); margin: 0 auto; }
+
+        /* GRID SẢN PHẨM & GIẢI PHÁP */
+        .solutions-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .solution-card { background: var(--card-bg); border: 1px solid #334155; border-radius: 20px; padding: 30px; transition: 0.3s; text-decoration: none; color: inherit; }
+        .solution-card:hover { border-color: var(--primary); transform: translateY(-10px); }
+        .solution-card .icon { font-size: 40px; margin-bottom: 20px; display: block; }
+        .solution-card h3 { margin-bottom: 15px; font-size: 1.4rem; }
+        .solution-card p { color: var(--text-dim); font-size: 0.95rem; margin-bottom: 20px; }
+
+        /* TẦM NHÌN & SỨ MỆNH */
+        .mission-bg { background: #161e2f; border-radius: 30px; padding: 50px; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+        .mission-item h3 { color: var(--accent); margin-bottom: 15px; text-transform: uppercase; }
+        .mission-item ul { list-style: none; }
+        .mission-item ul li { margin-bottom: 10px; padding-left: 20px; position: relative; color: var(--text-dim); }
+        .mission-item ul li::before { content: '✓'; position: absolute; left: 0; color: var(--primary); font-weight: bold; }
+
+        /* THÔNG TIN LIÊN HỆ */
+        .contact-bar { background: var(--card-bg); padding: 40px; border-radius: 20px; text-align: center; margin-top: 50px; border: 1px solid var(--primary); }
+        .contact-bar p { font-size: 1.2rem; margin-bottom: 15px; }
+
+        footer { text-align: center; padding: 50px 5%; border-top: 1px solid #334155; color: var(--text-dim); font-size: 0.9rem; }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2rem; }
+            .mission-bg { grid-template-columns: 1fr; padding: 30px; }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="logo">TDL - THÀNH ĐẠT LED</div>
+    <a href="tel:0986474671" class="hotline-nav">📞 0986.474.671</a>
+</nav>
+
+<div class="hero">
+    <h1>Giải Pháp Chiếu Sáng Chuyên Nghiệp</h1>
+    <p>Thành Đạt LED tự hào là đơn vị hàng đầu sản xuất và phân phối đèn LED ngoài trời tại Việt Nam. Chúng tôi mang đến ánh sáng bền bỉ, tiết kiệm năng lượng và tối ưu hiệu suất cho mọi công trình.</p>
+    <a href="#solutions" class="btn-main">KHÁM PHÁ GIẢI PHÁP</a>
+</div>
+
+<section id="solutions">
+    <div class="section-title">
+        <h2>Sản Phẩm & Dự Án Chủ Lực</h2>
+        <div class="line"></div>
+    </div>
+    <div class="solutions-grid">
+        <a href="module200w/index.html" class="solution-card">
+            <span class="icon">💡</span>
+            <h3>Đèn Module 200W</h3>
+            <p>Dòng đèn quốc dân cho sân Pickleball, sân bóng đá 7 người. Sử dụng Chip LED Bridgelux/Philips siêu sáng.</p>
+            <span style="color: var(--primary); font-weight: bold;">Xem thông số →</span>
+        </a>
+
+        <a href="module200w/san-pickleball.html" class="solution-card">
+            <span class="icon">🎾</span>
+            <h3>Giải Pháp Sân Pickleball</h3>
+            <p>Tư vấn trọn gói hệ thống chiếu sáng sân Pickleball tiêu chuẩn, chống chói, phủ sáng đồng đều toàn sân.</p>
+            <span style="color: var(--primary); font-weight: bold;">Xem báo giá →</span>
+        </a>
+
+        <div class="solution-card">
+            <span class="icon">🏗️</span>
+            <h3>Đèn LED Nhà Xưởng</h3>
+            <p>Giải pháp tối ưu cho kho bãi, xưởng sản xuất với độ bền cao và khả năng tiết kiệm điện vượt trội.</p>
+            <span style="color: var(--text-dim);">Đang cập nhật...</span>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="mission-bg">
+        <div class="mission-item">
+            <h3>Tầm Nhìn</h3>
+            <p>Hướng tới trở thành công ty hàng đầu tại Việt Nam và Đông Nam Á trong cung cấp giải pháp chiếu sáng LED tiên tiến. Chúng tôi không ngừng đổi mới công nghệ để đáp ứng bối cảnh phát triển bền vững quốc tế.</p>
+        </div>
+        <div class="mission-item">
+            <h3>Sứ Mệnh</h3>
+            <ul>
+                <li>Mang lại giải pháp chiếu sáng hiệu quả, an toàn, thân thiện môi trường.</li>
+                <li>Đảm bảo sản phẩm chất lượng cao với giá cả cạnh tranh nhất.</li>
+                <li>Phát triển đội ngũ chuyên nghiệp, tận tâm và sáng tạo.</li>
+                <li>Đóng góp vào nguồn năng lượng bền vững tại Việt Nam.</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="contact-bar">
+        <h3>CÔNG TY TNHH TM & DV THÀNH ĐẠT LED</h3>
+        <p>Số 938 đường Quang Trung, P.Yên Nghĩa, TP Hà Nội</p>
+        <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+            <a href="https://www.thanhdatled.com" target="_blank" class="btn-main" style="background: transparent; border: 1px solid var(--primary);">🌐 WEBSITE CHÍNH</a>
+            <a href="tel:0986474671" class="btn-main">📞 GỌI TƯ VẤN NGAY</a>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <p>© 2026 Thành Đạt LED - TDL. Thiết kế và vận hành bởi đội ngũ kỹ sư TDL.</p>
+    <p>Hotline: 0986.474.671 | Email: thanhdatled@gmail.com</p>
+</footer>
+
+</body>
+</html>
