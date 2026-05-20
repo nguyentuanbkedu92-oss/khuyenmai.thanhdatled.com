@@ -1536,6 +1536,117 @@ Hỗ trợ sửa chữa và kỹ thuật lâu dài.
 
 </section>
 
+<!-- ================================================
+     PHẦN 1: CAM KẾT ĐỔI TRẢ
+     VỊ TRÍ DÁN: Tìm dòng -->
+
+<style>
+.guarantee-bar {
+  background: linear-gradient(90deg, #07111e 0%, #0d1f38 50%, #07111e 100%);
+  border-top: 1px solid rgba(245,166,35,.2);
+  border-bottom: 1px solid rgba(245,166,35,.2);
+  padding: 0;
+}
+
+.guarantee-inner {
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0;
+}
+
+.guarantee-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 28px 36px;
+  border-right: 1px solid rgba(255,255,255,.07);
+  flex: 1;
+  min-width: 220px;
+  transition: .25s;
+}
+
+.guarantee-item:last-child { border-right: none; }
+.guarantee-item:hover { background: rgba(245,166,35,.05); }
+
+.guarantee-icon-wrap {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  background: rgba(245,166,35,.12);
+  border: 1px solid rgba(245,166,35,.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  flex-shrink: 0;
+}
+
+.guarantee-text h4 {
+  font-size: 15px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 3px;
+  line-height: 1.3;
+}
+
+.guarantee-text p {
+  font-size: 12px;
+  color: rgba(255,255,255,.55);
+  line-height: 1.5;
+}
+
+@media(max-width: 768px) {
+  .guarantee-item {
+    padding: 20px 24px;
+    border-right: none;
+    border-bottom: 1px solid rgba(255,255,255,.07);
+    flex: 100%;
+  }
+  .guarantee-item:last-child { border-bottom: none; }
+}
+</style>
+
+<section class="guarantee-bar">
+  <div class="container">
+    <div class="guarantee-inner">
+
+      <div class="guarantee-item">
+        <div class="guarantee-icon-wrap">🔄</div>
+        <div class="guarantee-text">
+          <h4>Đổi mới trong 7 ngày</h4>
+          <p>Nếu đèn lỗi do sản xuất – đổi mới 100%, không hỏi thêm</p>
+        </div>
+      </div>
+
+      <div class="guarantee-item">
+        <div class="guarantee-icon-wrap">🛡️</div>
+        <div class="guarantee-text">
+          <h4>Bảo hành 2 năm chính hãng</h4>
+          <p>Thay linh kiện, sửa driver & chip LED tại xưởng</p>
+        </div>
+      </div>
+
+      <div class="guarantee-item">
+        <div class="guarantee-icon-wrap">🔧</div>
+        <div class="guarantee-text">
+          <h4>Hỗ trợ sau bảo hành trọn đời</h4>
+          <p>Hết bảo hành vẫn hỗ trợ sửa chữa, có linh kiện thay thế</p>
+        </div>
+      </div>
+
+      <div class="guarantee-item">
+        <div class="guarantee-icon-wrap">🏭</div>
+        <div class="guarantee-text">
+          <h4>Sản xuất tại Việt Nam</h4>
+          <p>Xưởng Hà Nội – không qua trung gian, giá minh bạch</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
 <!-- CÓ NGƯỜI VỪA ĐẶT HÀNG -->
 
 <div id="orderToast" class="order-toast"></div>
@@ -1587,6 +1698,211 @@ function showOrder(){
 setInterval(showOrder, 25000);
 
 </script>
+
+<!-- ================================================
+     PHẦN 2: BẢNG SO SÁNH ĐÈN THƯỜNG vs TDL
+     VỊ TRÍ DÁN: Tìm dòng <!-- FAQ CHỐT SALE
+     Dán TOÀN BỘ đoạn này VÀO TRƯỚC dòng đó
+     ================================================ -->
+
+<style>
+.compare-section {
+  background: #07111e;
+  padding: 90px 0;
+}
+
+.compare-wrap {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  margin-top: 50px;
+  border-radius: 22px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,.08);
+}
+
+.compare-col-header {
+  padding: 22px 28px;
+  text-align: center;
+  font-family: 'Oswald', sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: .5px;
+}
+
+.compare-col-header.bad {
+  background: rgba(239,68,68,.10);
+  color: #f87171;
+  border-bottom: 1px solid rgba(239,68,68,.2);
+}
+
+.compare-col-header.good {
+  background: rgba(245,166,35,.12);
+  color: #f5a623;
+  border-bottom: 1px solid rgba(245,166,35,.3);
+  border-left: 1px solid rgba(255,255,255,.06);
+}
+
+.compare-row-label {
+  grid-column: 1 / -1;
+  background: rgba(255,255,255,.03);
+  border-top: 1px solid rgba(255,255,255,.05);
+  padding: 9px 28px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.35);
+}
+
+.compare-cell {
+  padding: 16px 24px;
+  border-top: 1px solid rgba(255,255,255,.05);
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+.compare-cell.bad {
+  background: rgba(239,68,68,.04);
+  color: rgba(255,255,255,.7);
+}
+
+.compare-cell.good {
+  background: rgba(245,166,35,.04);
+  color: rgba(255,255,255,.85);
+  border-left: 1px solid rgba(255,255,255,.05);
+}
+
+.compare-cell .ico { font-size: 16px; margin-top: 1px; flex-shrink: 0; }
+.compare-cell .ico.x { color: #f87171; }
+.compare-cell .ico.v { color: #4ade80; }
+.compare-cell strong { display: block; font-size: 13px; margin-bottom: 1px; }
+
+.compare-cta { text-align: center; margin-top: 44px; }
+.compare-cta p { color: rgba(255,255,255,.6); font-size: 15px; margin-bottom: 18px; }
+
+@media(max-width: 640px) {
+  .compare-wrap { grid-template-columns: 1fr; border-radius: 16px; }
+  .compare-col-header.good,
+  .compare-cell.good { border-left: none; border-top: 2px solid rgba(245,166,35,.35); }
+  .compare-row-label { grid-column: 1; }
+}
+</style>
+
+<section class="compare-section" id="so-sanh">
+  <div class="container">
+
+    <h2 class="section-title">
+      Đèn Thường vs <span style="color:#f5a623">Thành Đạt LED 200W</span>
+    </h2>
+    <p class="section-desc">
+      Cùng công suất – khác hoàn toàn về chất lượng và chi phí dài hạn.
+    </p>
+
+    <div class="compare-wrap">
+
+      <div class="compare-col-header bad">❌ Đèn Thường / Nhập Trôi Nổi</div>
+      <div class="compare-col-header good">✅ Thành Đạt LED 200W (TDL)</div>
+
+      <!-- ÁNH SÁNG -->
+      <div class="compare-row-label">Ánh sáng</div>
+
+      <div class="compare-cell bad">
+        <span class="ico x">✗</span>
+        <div><strong>Ánh sáng chói trực diện</strong>Người chơi pickleball bị lóa khi nhìn lên bóng cao</div>
+      </div>
+      <div class="compare-cell good">
+        <span class="ico v">✓</span>
+        <div><strong>Module chống chói chuyên dụng</strong>Góc chiếu kiểm soát, ánh sáng đều sân, không lóa mắt khi thi đấu</div>
+      </div>
+
+      <div class="compare-cell bad">
+        <span class="ico x">✗</span>
+        <div><strong>Độ sáng suy hao nhanh</strong>Sau 6–12 tháng ánh sáng yếu dần rõ rệt</div>
+      </div>
+      <div class="compare-cell good">
+        <span class="ico v">✓</span>
+        <div><strong>Chip SMD hiệu suất cao</strong>Duy trì 90%+ quang thông sau 3 năm sử dụng</div>
+      </div>
+
+      <!-- ĐỘ BỀN -->
+      <div class="compare-row-label">Độ bền & kỹ thuật</div>
+
+      <div class="compare-cell bad">
+        <span class="ico x">✗</span>
+        <div><strong>Driver rẻ tiền, dễ cháy</strong>Gây nhấp nháy và chết đèn sớm</div>
+      </div>
+      <div class="compare-cell good">
+        <span class="ico v">✓</span>
+        <div><strong>Driver DONE chính hãng</strong>Dòng điện ổn định, chống nhấp nháy, tuổi thọ ~50.000h</div>
+      </div>
+
+      <div class="compare-cell bad">
+        <span class="ico x">✗</span>
+        <div><strong>Vỏ nhôm mỏng, tản nhiệt kém</strong>Nhiệt cao làm LED xuống cấp nhanh khi dùng ngoài trời</div>
+      </div>
+      <div class="compare-cell good">
+        <span class="ico v">✓</span>
+        <div><strong>Hợp kim nhôm cao cấp</strong>Tản nhiệt tốt, chống oxy hóa, phù hợp ngoài trời 24/7</div>
+      </div>
+
+      <!-- BẢO HÀNH -->
+      <div class="compare-row-label">Bảo hành & hậu mãi</div>
+
+      <div class="compare-cell bad">
+        <span class="ico x">✗</span>
+        <div><strong>Bảo hành mờ nhạt, khó liên hệ</strong>Hỏng hóc phải thay toàn bộ đèn, không có linh kiện</div>
+      </div>
+      <div class="compare-cell good">
+        <span class="ico v">✓</span>
+        <div><strong>Bảo hành 2 năm + đổi mới 7 ngày</strong>Xưởng tại Hà Nội – sửa driver, thay chip LED, hỗ trợ nhanh</div>
+      </div>
+
+      <div class="compare-cell bad">
+        <span class="ico x">✗</span>
+        <div><strong>Không có linh kiện thay thế</strong>Hết bảo hành = bỏ đèn, mua lại từ đầu</div>
+      </div>
+      <div class="compare-cell good">
+        <span class="ico v">✓</span>
+        <div><strong>Linh kiện tồn kho đầy đủ</strong>Thay từng module, driver, chip – không cần bỏ nguyên bộ</div>
+      </div>
+
+      <!-- CHI PHÍ -->
+      <div class="compare-row-label">Chi phí thực tế</div>
+
+      <div class="compare-cell bad">
+        <span class="ico x">✗</span>
+        <div><strong>Giá rẻ nhưng thay 2–3 lần/5 năm</strong>Chi phí thực tế cao hơn do hỏng sớm</div>
+      </div>
+      <div class="compare-cell good">
+        <span class="ico v">✓</span>
+        <div><strong>Giá trực tiếp từ xưởng, dùng 10+ năm</strong>Không qua trung gian – tiết kiệm chi phí dài hạn rõ rệt</div>
+      </div>
+
+      <div class="compare-cell bad">
+        <span class="ico x">✗</span>
+        <div><strong>Không hỗ trợ layout, tự bố trí</strong>Dễ lắp sai, gây chói hoặc thiếu sáng một phần sân</div>
+      </div>
+      <div class="compare-cell good">
+        <span class="ico v">✓</span>
+        <div><strong>Hỗ trợ thiết kế layout miễn phí</strong>Tính đúng số bộ, góc chiếu phù hợp từng sân thực tế</div>
+      </div>
+
+    </div>
+
+    <div class="compare-cta">
+      <p>👉 Muốn biết sân của bạn cần bao nhiêu bộ đèn TDL?</p>
+      <a href="https://zalo.me/0986474671" target="_blank" class="btn btn-primary">
+        📩 Gửi Kích Thước Sân – Nhận Tư Vấn Ngay
+      </a>
+    </div>
+
+  </div>
+</section>
+
 
 <!-- FAQ CHỐT SALE -->
 
@@ -2188,6 +2504,525 @@ Gửi kích thước sân — Thành Đạt LED hỗ trợ bố trí đèn phù 
 
   </div>
 </div>
+
+<!-- ====================================================
+     BẢNG GIÁ COMBO ĐÈN PHA MODULE 200W - THÀNH ĐẠT LED
+     Nhúng vào landing page hiện tại, trước section #bao-gia
+     ==================================================== -->
+
+<style>
+/* ---- COMBO SECTION ---- */
+.combo-section {
+  background: linear-gradient(180deg, #07111e 0%, #0a1a2e 100%);
+  padding: 90px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.combo-section::before {
+  content: '';
+  position: absolute;
+  top: -120px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 700px;
+  height: 700px;
+  background: radial-gradient(circle, rgba(245,166,35,.07) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+/* ---- CALCULATOR ---- */
+.combo-calc {
+  max-width: 520px;
+  margin: 40px auto 50px;
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.09);
+  border-radius: 20px;
+  padding: 28px 32px;
+  text-align: center;
+}
+
+.combo-calc p {
+  color: rgba(255,255,255,.65);
+  font-size: 14px;
+  margin-bottom: 16px;
+}
+
+.combo-calc-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.combo-calc label {
+  color: rgba(255,255,255,.8);
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.combo-qty-input {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  border: 1px solid rgba(245,166,35,.5);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.combo-qty-btn {
+  width: 38px;
+  height: 38px;
+  background: rgba(245,166,35,.12);
+  border: none;
+  color: #f5a623;
+  font-size: 20px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: .2s;
+  line-height: 1;
+}
+
+.combo-qty-btn:hover { background: rgba(245,166,35,.25); }
+
+.combo-qty-num {
+  width: 48px;
+  text-align: center;
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 700;
+  font-family: 'Oswald', sans-serif;
+}
+
+.combo-result {
+  margin-top: 18px;
+  padding: 16px 20px;
+  background: rgba(245,166,35,.10);
+  border: 1px solid rgba(245,166,35,.35);
+  border-radius: 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.combo-result-label {
+  color: rgba(255,255,255,.75);
+  font-size: 14px;
+}
+
+.combo-result-price {
+  font-family: 'Oswald', sans-serif;
+  font-size: 30px;
+  color: #f5a623;
+  font-weight: 700;
+}
+
+.combo-result-save {
+  display: inline-block;
+  margin-top: 6px;
+  font-size: 13px;
+  padding: 4px 12px;
+  border-radius: 8px;
+  background: rgba(34,197,94,.12);
+  border: 1px solid rgba(34,197,94,.3);
+  color: #4ade80;
+  font-weight: 600;
+}
+
+/* ---- COMBO CARDS ---- */
+.combo-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-top: 10px;
+}
+
+.combo-card {
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.09);
+  border-radius: 22px;
+  padding: 28px 22px;
+  text-align: center;
+  position: relative;
+  transition: .3s;
+  cursor: pointer;
+}
+
+.combo-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(245,166,35,.45);
+  box-shadow: 0 20px 50px rgba(0,0,0,.35);
+}
+
+.combo-card.featured {
+  background: linear-gradient(160deg, rgba(245,166,35,.13), rgba(245,166,35,.04));
+  border: 2px solid rgba(245,166,35,.55);
+}
+
+.combo-badge {
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #f5a623;
+  color: #000;
+  font-size: 12px;
+  font-weight: 800;
+  padding: 5px 16px;
+  border-radius: 50px;
+  white-space: nowrap;
+  box-shadow: 0 6px 18px rgba(245,166,35,.4);
+  letter-spacing: .5px;
+}
+
+.combo-icon {
+  font-size: 36px;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.combo-title {
+  font-family: 'Oswald', sans-serif;
+  font-size: 26px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 4px;
+}
+
+.combo-sub {
+  font-size: 13px;
+  color: rgba(255,255,255,.55);
+  margin-bottom: 18px;
+}
+
+.combo-old-price {
+  font-size: 16px;
+  color: rgba(255,255,255,.35);
+  text-decoration: line-through;
+  margin-bottom: 4px;
+}
+
+.combo-new-price {
+  font-family: 'Oswald', sans-serif;
+  font-size: 36px;
+  color: #f5a623;
+  font-weight: 700;
+  line-height: 1;
+  margin-bottom: 6px;
+}
+
+.combo-per {
+  font-size: 13px;
+  color: rgba(255,255,255,.5);
+  margin-bottom: 16px;
+}
+
+.combo-save-tag {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 8px;
+  background: rgba(34,197,94,.12);
+  border: 1px solid rgba(34,197,94,.3);
+  color: #4ade80;
+  margin-bottom: 18px;
+}
+
+.combo-features {
+  list-style: none;
+  text-align: left;
+  margin-bottom: 22px;
+}
+
+.combo-features li {
+  font-size: 13px;
+  color: rgba(255,255,255,.72);
+  padding: 5px 0;
+  display: flex;
+  align-items: flex-start;
+  gap: 7px;
+  border-bottom: 1px solid rgba(255,255,255,.05);
+}
+
+.combo-features li:last-child { border-bottom: none; }
+
+.combo-features li span.ck {
+  color: #4ade80;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.combo-btn {
+  display: block;
+  width: 100%;
+  padding: 13px;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 14px;
+  text-align: center;
+  transition: .3s;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+}
+
+.combo-btn-primary {
+  background: #f5a623;
+  color: #000;
+}
+
+.combo-btn-primary:hover {
+  background: #d2870c;
+  transform: translateY(-2px);
+}
+
+.combo-btn-outline {
+  background: transparent;
+  color: #fff;
+  border: 1px solid rgba(255,255,255,.25);
+}
+
+.combo-btn-outline:hover {
+  border-color: #f5a623;
+  color: #f5a623;
+}
+
+/* NOTE BAR */
+.combo-note {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  flex-wrap: wrap;
+  margin-top: 40px;
+  padding: 20px;
+  background: rgba(255,255,255,.03);
+  border: 1px solid rgba(255,255,255,.07);
+  border-radius: 16px;
+}
+
+.combo-note-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: rgba(255,255,255,.7);
+}
+
+.combo-note-item span.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #f5a623;
+  flex-shrink: 0;
+}
+
+/* RESPONSIVE */
+@media(max-width: 992px) {
+  .combo-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media(max-width: 580px) {
+  .combo-grid {
+    grid-template-columns: 1fr;
+  }
+  .combo-card.featured {
+    order: -1;
+  }
+}
+</style>
+
+<!-- COMBO SECTION -->
+<section class="combo-section" id="combo">
+  <div class="container">
+
+    <h2 class="section-title">
+      Chọn Combo <span style="color:#f5a623">Phù Hợp Sân Của Bạn</span>
+    </h2>
+
+    <p class="section-desc">
+      Giá trực tiếp từ xưởng – mua càng nhiều giảm càng sâu.
+      Hỗ trợ layout bố trí đèn miễn phí theo từng combo.
+    </p>
+
+    <!-- CALCULATOR -->
+    <div class="combo-calc">
+      <p>🔢 Nhập số bộ đèn bạn cần – hệ thống tính giá ngay</p>
+      <div class="combo-calc-row">
+        <label>Số bộ đèn:</label>
+        <div class="combo-qty-input">
+          <button class="combo-qty-btn" onclick="changeQty(-1)">−</button>
+          <input class="combo-qty-num" id="qtyInput" type="number" value="6" min="1" max="99" oninput="calcPrice()">
+          <button class="combo-qty-btn" onclick="changeQty(1)">+</button>
+        </div>
+      </div>
+      <div class="combo-result">
+        <div>
+          <div class="combo-result-label">Tổng thanh toán</div>
+          <div><span class="combo-result-save" id="calcSave"></span></div>
+        </div>
+        <div>
+          <div class="combo-result-price" id="calcPrice">—</div>
+          <div style="font-size:12px;color:rgba(255,255,255,.4);text-align:right" id="calcPer"></div>
+        </div>
+      </div>
+      <a href="https://zalo.me/0986474671" target="_blank"
+         style="display:inline-block;margin-top:14px;padding:12px 28px;background:#f5a623;color:#000;border-radius:12px;font-weight:700;font-size:14px;transition:.3s;text-decoration:none">
+        📩 Nhận Báo Giá Combo Này Qua Zalo
+      </a>
+    </div>
+
+    <!-- COMBO CARDS -->
+    <div class="combo-grid">
+
+      <!-- COMBO 1 SÂN NHỎ -->
+      <div class="combo-card">
+        <span class="combo-icon">🏸</span>
+        <div class="combo-title">Combo 4 Bộ</div>
+        <div class="combo-sub">Sân pickleball 1 ô đơn</div>
+        <div class="combo-old-price">9.800.000đ</div>
+        <div class="combo-new-price">7.600.000đ</div>
+        <div class="combo-per">1.900.000đ / bộ</div>
+        <div class="combo-save-tag">Tiết kiệm 2.200.000đ</div>
+        <ul class="combo-features">
+          <li><span class="ck">✓</span> 4 bộ đèn pha 200W chống chói</li>
+          <li><span class="ck">✓</span> Layout bố trí miễn phí</li>
+          <li><span class="ck">✓</span> Bảo hành 2 năm chính hãng</li>
+          <li><span class="ck">✓</span> Giao hàng toàn quốc</li>
+          <li><span class="ck">✓</span> Hỗ trợ kỹ thuật lắp đặt</li>
+        </ul>
+        <a href="https://zalo.me/0986474671" target="_blank" class="combo-btn combo-btn-outline">
+          Tư vấn Combo 4 Bộ
+        </a>
+      </div>
+
+      <!-- COMBO 2 BÁN CHẠY NHẤT -->
+      <div class="combo-card featured">
+        <div class="combo-badge">🔥 BÁN CHẠY NHẤT</div>
+        <span class="combo-icon">🏟️</span>
+        <div class="combo-title">Combo 6 Bộ</div>
+        <div class="combo-sub">Chuẩn 1 sân pickleball đôi</div>
+        <div class="combo-old-price">14.700.000đ</div>
+        <div class="combo-new-price">11.100.000đ</div>
+        <div class="combo-per">1.850.000đ / bộ</div>
+        <div class="combo-save-tag">Tiết kiệm 3.600.000đ</div>
+        <ul class="combo-features">
+          <li><span class="ck">✓</span> 6 bộ đèn pha 200W chống chói</li>
+          <li><span class="ck">✓</span> Layout + sơ đồ bố trí miễn phí</li>
+          <li><span class="ck">✓</span> Bảo hành 2 năm + ưu tiên xử lý</li>
+          <li><span class="ck">✓</span> Giao hàng toàn quốc</li>
+          <li><span class="ck">✓</span> Hỗ trợ kỹ thuật tận nơi (HN)</li>
+        </ul>
+        <a href="https://zalo.me/0986474671" target="_blank" class="combo-btn combo-btn-primary">
+          🛒 Đặt Combo 6 Bộ Ngay
+        </a>
+      </div>
+
+      <!-- COMBO 2 SÂN -->
+      <div class="combo-card">
+        <span class="combo-icon">⚡</span>
+        <div class="combo-title">Combo 8 Bộ</div>
+        <div class="combo-sub">Phù hợp 2 sân ngoài trời</div>
+        <div class="combo-old-price">19.600.000đ</div>
+        <div class="combo-new-price">14.400.000đ</div>
+        <div class="combo-per">1.800.000đ / bộ</div>
+        <div class="combo-save-tag">Tiết kiệm 5.200.000đ</div>
+        <ul class="combo-features">
+          <li><span class="ck">✓</span> 8 bộ đèn pha 200W chống chói</li>
+          <li><span class="ck">✓</span> Layout 2 sân + thiết kế ánh sáng</li>
+          <li><span class="ck">✓</span> Bảo hành 2 năm + hỗ trợ lâu dài</li>
+          <li><span class="ck">✓</span> Ưu tiên giao nhanh cho công trình</li>
+          <li><span class="ck">✓</span> Hỗ trợ kỹ thuật tận nơi (HN)</li>
+        </ul>
+        <a href="https://zalo.me/0986474671" target="_blank" class="combo-btn combo-btn-outline">
+          Tư vấn Combo 8 Bộ
+        </a>
+      </div>
+
+      <!-- COMBO DỰ ÁN -->
+      <div class="combo-card">
+        <span class="combo-icon">🏢</span>
+        <div class="combo-title">Dự Án</div>
+        <div class="combo-sub">≥ 10 bộ – Báo giá riêng</div>
+        <div style="font-size:14px;color:rgba(255,255,255,.6);margin:14px 0 6px">Giá thương lượng trực tiếp</div>
+        <div class="combo-new-price" style="font-size:28px">Liên hệ</div>
+        <div class="combo-per">Giá tốt nhất theo số lượng</div>
+        <div class="combo-save-tag">Ưu đãi thêm cho nhà thầu</div>
+        <ul class="combo-features">
+          <li><span class="ck">✓</span> Thiết kế ánh sáng theo bản vẽ</li>
+          <li><span class="ck">✓</span> Báo giá chi tiết theo hạng mục</li>
+          <li><span class="ck">✓</span> Hỗ trợ thi công (khu vực HN)</li>
+          <li><span class="ck">✓</span> Ưu đãi đặc biệt cho nhà thầu</li>
+          <li><span class="ck">✓</span> Bảo hành theo hợp đồng</li>
+        </ul>
+        <a href="https://zalo.me/0986474671" target="_blank" class="combo-btn combo-btn-outline">
+          📞 Gọi Báo Giá Dự Án
+        </a>
+      </div>
+
+    </div>
+
+    <!-- NOTE BAR -->
+    <div class="combo-note">
+      <div class="combo-note-item"><span class="dot"></span>Giá áp dụng khi đặt đủ số lượng combo</div>
+      <div class="combo-note-item"><span class="dot"></span>Chưa bao gồm VAT</div>
+      <div class="combo-note-item"><span class="dot"></span>Giá có thể thay đổi theo thời điểm, liên hệ xác nhận</div>
+      <div class="combo-note-item"><span class="dot"></span>Hỗ trợ xuất hóa đơn VAT theo yêu cầu</div>
+    </div>
+
+  </div>
+</section>
+
+<script>
+/* CALCULATOR LOGIC */
+const PRICE_PER = 1950000;
+const TIERS = [
+  { min: 1,  max: 3,  price: 1950000, label: 'Giá lẻ' },
+  { min: 4,  max: 5,  price: 1900000, label: 'Giảm 2.6%' },
+  { min: 6,  max: 7,  price: 1850000, label: 'Giảm 5.1%' },
+  { min: 8,  max: 9,  price: 1800000, label: 'Giảm 7.7%' },
+  { min: 10, max: 999, price: 1750000, label: 'Giá dự án' },
+];
+
+function getTier(qty) {
+  return TIERS.find(t => qty >= t.min && qty <= t.max) || TIERS[TIERS.length - 1];
+}
+
+function fmt(n) {
+  return n.toLocaleString('vi-VN') + 'đ';
+}
+
+function calcPrice() {
+  const qty = parseInt(document.getElementById('qtyInput').value) || 1;
+  const tier = getTier(qty);
+  const total = qty * tier.price;
+  const saved = qty * (PRICE_PER - tier.price);
+
+  document.getElementById('calcPrice').textContent = fmt(total);
+  document.getElementById('calcPer').textContent = fmt(tier.price) + ' / bộ';
+  document.getElementById('calcSave').textContent =
+    saved > 0 ? '🎉 Tiết kiệm ' + fmt(saved) : tier.label;
+}
+
+function changeQty(delta) {
+  const inp = document.getElementById('qtyInput');
+  let val = parseInt(inp.value) || 1;
+  val = Math.max(1, Math.min(99, val + delta));
+  inp.value = val;
+  calcPrice();
+}
+
+calcPrice();
+</script>
+<!-- END COMBO SECTION -->
 
 <!-- CTA / BÁO GIÁ -->
 
