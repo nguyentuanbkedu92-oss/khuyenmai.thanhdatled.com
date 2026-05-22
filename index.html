@@ -1,147 +1,973 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="vi" prefix="og: https://ogp.me/ns#">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thành Đạt LED (TDL) - Giải Pháp Chiếu Sáng Công Nghiệp Hàng Đầu</title>
-    <style>
-        :root {
-            --primary: #0ea5e9;
-            --primary-dark: #0284c7;
-            --accent: #f59e0b;
-            --bg: #0f172a;
-            --card-bg: #1e293b;
-            --text-main: #f8fafc;
-            --text-dim: #94a3b8;
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- ═══ SEO CORE ═══ -->
+<title>Thành Đạt LED (TDL) | Đèn LED Công Nghiệp, Sân Vườn, Năng Lượng Mặt Trời – Hà Nội</title>
+<meta name="description" content="Thành Đạt LED (TDL) – Sản xuất & phân phối đèn LED công nghiệp, đèn sân vườn, đèn năng lượng mặt trời, linh kiện LED. Chip Bridgelux/Philips, bảo hành 5 năm. Hotline: 0986.474.671.">
+<meta name="keywords" content="đèn LED, đèn LED công nghiệp, đèn sân vườn, đèn năng lượng mặt trời, đèn sân pickleball, đèn nhà xưởng, đèn LED Hà Nội, Thành Đạt LED, TDL, đèn module 200W, linh kiện đèn LED, đèn chiếu cây, đèn highbay">
+<meta name="author" content="Công Ty TNHH TM & DV Thành Đạt LED">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta name="googlebot" content="index, follow">
+<link rel="canonical" href="https://khuyenmai.thanhdatled.com/">
+
+<!-- ═══ OPEN GRAPH (Facebook / Zalo) ═══ -->
+<meta property="og:type" content="website">
+<meta property="og:locale" content="vi_VN">
+<meta property="og:site_name" content="Thành Đạt LED – TDL">
+<meta property="og:title" content="Thành Đạt LED (TDL) | Giải Pháp Chiếu Sáng LED Chuyên Nghiệp">
+<meta property="og:description" content="Sản xuất & phân phối đèn LED công nghiệp, sân vườn, năng lượng mặt trời tại Việt Nam. Chip Bridgelux/Philips. Bảo hành 5 năm. Gọi 0986.474.671.">
+<meta property="og:url" content="https://khuyenmai.thanhdatled.com/">
+<meta property="og:image" content="https://khuyenmai.thanhdatled.com/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+
+<!-- ═══ TWITTER CARD ═══ -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Thành Đạt LED (TDL) | Đèn LED Công Nghiệp Hàng Đầu Việt Nam">
+<meta name="twitter:description" content="Sản xuất & phân phối đèn LED công nghiệp, sân vườn, năng lượng mặt trời. Chip Bridgelux/Philips. Hotline: 0986.474.671.">
+<meta name="twitter:image" content="https://khuyenmai.thanhdatled.com/og-image.jpg">
+
+<!-- ═══ GEO / LOCAL SEO ═══ -->
+<meta name="geo.region" content="VN-HN">
+<meta name="geo.placename" content="Hà Nội, Việt Nam">
+<meta name="geo.position" content="20.9517;105.7540">
+<meta name="ICBM" content="20.9517, 105.7540">
+
+<!-- ═══ SCHEMA.ORG STRUCTURED DATA ═══ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LocalBusiness",
+      "@id": "https://khuyenmai.thanhdatled.com/#business",
+      "name": "Công Ty TNHH TM & DV Thành Đạt LED",
+      "alternateName": ["Thành Đạt LED", "TDL", "Thanh Dat LED"],
+      "description": "Sản xuất và phân phối đèn LED công nghiệp, đèn sân vườn, đèn năng lượng mặt trời, linh kiện đèn LED chất lượng cao tại Việt Nam.",
+      "url": "https://www.thanhdatled.com",
+      "logo": "https://khuyenmai.thanhdatled.com/logo.png",
+      "image": "https://khuyenmai.thanhdatled.com/og-image.jpg",
+      "telephone": "+84986474671",
+      "email": "thanhdatled@gmail.com",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Số 938 đường Quang Trung",
+        "addressLocality": "Phường Yên Nghĩa",
+        "addressRegion": "Hà Nội",
+        "addressCountry": "VN"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 20.9517,
+        "longitude": 105.7540
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
+          "opens": "07:30",
+          "closes": "18:00"
         }
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text-main); line-height: 1.6; }
-
-        /* HEADER & NAVIGATION */
-        nav { background: rgba(15, 23, 42, 0.9); padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid #334155; }
-        .logo { font-size: 1.5rem; font-weight: 800; color: var(--primary); letter-spacing: 1px; }
-        .hotline-nav { color: var(--accent); font-weight: bold; text-decoration: none; }
-
-        /* HERO SECTION */
-        .hero {
-            padding: 100px 5% 150px;
-            background: radial-gradient(circle at top right, rgba(14, 165, 233, 0.15), transparent),
-                        radial-gradient(circle at bottom left, rgba(245, 158, 11, 0.05), transparent);
-            text-align: center;
+      ],
+      "sameAs": [
+        "https://www.thanhdatled.com",
+        "https://zalo.me/0986474671"
+      ],
+      "priceRange": "$$",
+      "currenciesAccepted": "VND",
+      "paymentAccepted": "Tiền mặt, Chuyển khoản",
+      "areaServed": {
+        "@type": "Country",
+        "name": "Việt Nam"
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://khuyenmai.thanhdatled.com/#website",
+      "url": "https://khuyenmai.thanhdatled.com/",
+      "name": "Thành Đạt LED – Giải Pháp Chiếu Sáng LED",
+      "publisher": { "@id": "https://khuyenmai.thanhdatled.com/#business" },
+      "inLanguage": "vi-VN"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Đèn LED TDL bảo hành bao lâu?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Thành Đạt LED bảo hành driver Meanwell 5 năm, thân đèn và chip LED 3 năm. Tuổi thọ thiết kế 50.000 giờ." }
+        },
+        {
+          "@type": "Question",
+          "name": "TDL có đèn LED cho sân Pickleball không?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Có. TDL cung cấp dòng Module LED 200W chip Bridgelux/Philips chuyên dụng cho sân Pickleball và sân bóng đá 7 người. Phủ sáng đồng đều, chống chói, tiết kiệm 50% điện." }
+        },
+        {
+          "@type": "Question",
+          "name": "Hotline tư vấn đèn LED Thành Đạt?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Hotline: 0986.474.671 – Hỗ trợ thứ 2 đến thứ 7, 7:30–18:00. Zalo: https://zalo.me/0986474671" }
         }
-        .hero h1 { font-size: 3rem; margin-bottom: 20px; line-height: 1.2; text-transform: uppercase; }
-        .hero p { max-width: 800px; margin: 0 auto 30px; font-size: 1.1rem; color: var(--text-dim); }
-        .btn-main { background: var(--primary); color: white; padding: 15px 40px; border-radius: 50px; text-decoration: none; font-weight: bold; transition: 0.3s; box-shadow: 0 10px 20px rgba(14, 165, 233, 0.3); }
-        .btn-main:hover { background: var(--primary-dark); transform: translateY(-3px); }
+      ]
+    }
+  ]
+}
+</script>
 
-        /* SECTION TIÊU CHUẨN */
-        section { padding: 80px 5%; max-width: 1200px; margin: 0 auto; }
-        .section-title { text-align: center; margin-bottom: 50px; }
-        .section-title h2 { font-size: 2rem; margin-bottom: 15px; color: var(--primary); text-transform: uppercase; }
-        .section-title .line { width: 80px; height: 4px; background: var(--accent); margin: 0 auto; }
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-        /* GRID SẢN PHẨM & GIẢI PHÁP */
-        .solutions-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-        .solution-card { background: var(--card-bg); border: 1px solid #334155; border-radius: 20px; padding: 30px; transition: 0.3s; text-decoration: none; color: inherit; }
-        .solution-card:hover { border-color: var(--primary); transform: translateY(-10px); }
-        .solution-card .icon { font-size: 40px; margin-bottom: 20px; display: block; }
-        .solution-card h3 { margin-bottom: 15px; font-size: 1.4rem; }
-        .solution-card p { color: var(--text-dim); font-size: 0.95rem; margin-bottom: 20px; }
+<style>
+:root {
+  --gold: #f5a623;
+  --blue: #00b4d8;
+  --blue-dark: #0077b6;
+  --bg: #090d14;
+  --bg2: #0d1520;
+  --card: #111b28;
+  --border: rgba(0,180,216,0.18);
+  --text: #e8f4fd;
+  --muted: #7a99b8;
+  --radius: 16px;
+}
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { font-family:'Barlow',sans-serif; background:var(--bg); color:var(--text); overflow-x:hidden; }
 
-        /* TẦM NHÌN & SỨ MỆNH */
-        .mission-bg { background: #161e2f; border-radius: 30px; padding: 50px; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
-        .mission-item h3 { color: var(--accent); margin-bottom: 15px; text-transform: uppercase; }
-        .mission-item ul { list-style: none; }
-        .mission-item ul li { margin-bottom: 10px; padding-left: 20px; position: relative; color: var(--text-dim); }
-        .mission-item ul li::before { content: '✓'; position: absolute; left: 0; color: var(--primary); font-weight: bold; }
+body::before {
+  content:''; position:fixed; inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events:none; z-index:9999; opacity:.5;
+}
 
-        /* THÔNG TIN LIÊN HỆ */
-        .contact-bar { background: var(--card-bg); padding: 40px; border-radius: 20px; text-align: center; margin-top: 50px; border: 1px solid var(--primary); }
-        .contact-bar p { font-size: 1.2rem; margin-bottom: 15px; }
+/* NAV */
+nav { position:sticky; top:0; z-index:1000; background:rgba(9,13,20,0.92); backdrop-filter:blur(20px); border-bottom:1px solid var(--border); padding:0 5%; display:flex; align-items:center; justify-content:space-between; height:68px; }
+.nav-logo { font-family:'Barlow Condensed',sans-serif; font-weight:900; font-size:1.6rem; letter-spacing:2px; background:linear-gradient(90deg,var(--blue),var(--gold)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; text-decoration:none; }
+.nav-links { display:flex; gap:28px; list-style:none; }
+.nav-links a { color:var(--muted); text-decoration:none; font-size:.9rem; font-weight:500; transition:color .2s; }
+.nav-links a:hover { color:var(--blue); }
+.nav-cta { background:linear-gradient(135deg,var(--blue-dark),var(--blue)); color:#fff!important; padding:8px 22px; border-radius:50px; font-weight:700; font-size:.9rem; text-decoration:none; transition:.25s; }
+.nav-cta:hover { box-shadow:0 0 20px rgba(0,180,216,.5); transform:translateY(-2px); }
 
-        footer { text-align: center; padding: 50px 5%; border-top: 1px solid #334155; color: var(--text-dim); font-size: 0.9rem; }
+/* HERO */
+.hero { min-height:92vh; display:grid; place-items:center; text-align:center; padding:80px 5% 60px; position:relative; overflow:hidden; }
+.hero-bg { position:absolute; inset:0; background:radial-gradient(ellipse 80% 60% at 50% -10%,rgba(0,180,216,.22),transparent),radial-gradient(ellipse 50% 40% at 80% 80%,rgba(245,166,35,.08),transparent); }
+.hero-grid { position:absolute; inset:0; z-index:0; background-image:linear-gradient(rgba(0,180,216,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(0,180,216,.05) 1px,transparent 1px); background-size:60px 60px; animation:gridMove 20s linear infinite; }
+@keyframes gridMove { from{background-position:0 0} to{background-position:60px 60px} }
+.hero-content { position:relative; z-index:1; max-width:900px; }
+.hero-tag { display:inline-block; background:rgba(0,180,216,.12); border:1px solid rgba(0,180,216,.3); color:var(--blue); font-size:.8rem; font-weight:600; letter-spacing:2px; text-transform:uppercase; padding:6px 18px; border-radius:50px; margin-bottom:24px; animation:fadeUp .8s ease both; }
+.hero h1 { font-family:'Barlow Condensed',sans-serif; font-weight:900; font-size:clamp(3rem,7vw,5.5rem); line-height:1; text-transform:uppercase; letter-spacing:-1px; animation:fadeUp .8s .15s ease both; }
+.hero h1 span { color:var(--gold); }
+.hero-sub { margin:24px auto 40px; color:var(--muted); font-size:1.1rem; max-width:680px; line-height:1.7; animation:fadeUp .8s .3s ease both; }
+.hero-btns { display:flex; gap:16px; justify-content:center; flex-wrap:wrap; animation:fadeUp .8s .45s ease both; }
+.btn-primary { background:linear-gradient(135deg,var(--blue-dark),var(--blue)); color:#fff; padding:14px 36px; border-radius:50px; text-decoration:none; font-weight:700; font-size:1rem; box-shadow:0 8px 32px rgba(0,180,216,.35); transition:.25s; }
+.btn-primary:hover { transform:translateY(-4px); box-shadow:0 14px 40px rgba(0,180,216,.5); }
+.btn-outline { border:1px solid var(--gold); color:var(--gold); padding:14px 36px; border-radius:50px; text-decoration:none; font-weight:600; font-size:1rem; transition:.25s; }
+.btn-outline:hover { background:rgba(245,166,35,.1); transform:translateY(-4px); }
+.stats-strip { display:flex; background:var(--card); border:1px solid var(--border); border-radius:20px; overflow:hidden; margin:60px auto 0; max-width:800px; flex-wrap:wrap; animation:fadeUp .8s .6s ease both; }
+.stat-item { flex:1; min-width:150px; padding:24px 20px; text-align:center; border-right:1px solid var(--border); }
+.stat-item:last-child { border-right:none; }
+.stat-num { font-family:'Barlow Condensed',sans-serif; font-size:2.2rem; font-weight:900; color:var(--blue); line-height:1; }
+.stat-label { font-size:.8rem; color:var(--muted); margin-top:4px; }
+@keyframes fadeUp { from{opacity:0;transform:translateY(24px)} to{opacity:1;transform:translateY(0)} }
 
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2rem; }
-            .mission-bg { grid-template-columns: 1fr; padding: 30px; }
-        }
-    </style>
+/* SECTION */
+.section { padding:90px 5%; }
+.wrap { max-width:1200px; margin:0 auto; }
+.sec-label { font-size:.75rem; font-weight:700; letter-spacing:3px; text-transform:uppercase; color:var(--blue); margin-bottom:12px; }
+.sec-title { font-family:'Barlow Condensed',sans-serif; font-weight:900; font-size:clamp(2rem,5vw,3.2rem); line-height:1; text-transform:uppercase; margin-bottom:16px; }
+.sec-title span { color:var(--gold); }
+.sec-desc { color:var(--muted); max-width:560px; line-height:1.7; }
+.sec-head { display:flex; justify-content:space-between; align-items:flex-end; gap:40px; margin-bottom:50px; flex-wrap:wrap; }
+
+/* CATALOG */
+.catalog { background:var(--bg2); }
+.cat-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:24px; }
+.cat-card { background:var(--card); border:1px solid var(--border); border-radius:var(--radius); padding:32px 28px; text-decoration:none; color:inherit; display:flex; flex-direction:column; gap:16px; position:relative; overflow:hidden; transition:.3s; }
+.cat-card::before { content:''; position:absolute; inset:0; background:linear-gradient(135deg,rgba(0,180,216,.06),transparent); opacity:0; transition:.3s; }
+.cat-card:hover { border-color:var(--blue); transform:translateY(-8px); box-shadow:0 20px 60px rgba(0,180,216,.15); }
+.cat-card:hover::before { opacity:1; }
+.cat-icon { width:56px; height:56px; border-radius:14px; display:grid; place-items:center; font-size:1.6rem; background:linear-gradient(135deg,rgba(0,180,216,.15),rgba(0,119,182,.2)); border:1px solid rgba(0,180,216,.2); }
+.cat-card h3 { font-family:'Barlow Condensed',sans-serif; font-weight:800; font-size:1.35rem; text-transform:uppercase; }
+.cat-card p { color:var(--muted); font-size:.9rem; line-height:1.6; flex:1; }
+.cat-link { color:var(--blue); font-size:.85rem; font-weight:600; display:flex; align-items:center; gap:6px; }
+.cat-link::after { content:'→'; transition:.2s; }
+.cat-card:hover .cat-link::after { transform:translateX(6px); }
+
+/* BÁO GIÁ */
+.baogiaSection { background:linear-gradient(135deg,var(--bg2),var(--bg)); }
+.baogia-box { background:var(--card); border:1px solid var(--border); border-radius:24px; padding:60px 50px; text-align:center; position:relative; overflow:hidden; }
+.baogia-box::before { content:''; position:absolute; top:-60px; right:-60px; width:260px; height:260px; border-radius:50%; background:radial-gradient(circle,rgba(0,180,216,.12),transparent); }
+.baogia-badge { display:inline-block; background:rgba(245,166,35,.12); border:1px solid rgba(245,166,35,.3); color:var(--gold); font-size:.75rem; font-weight:700; letter-spacing:2px; text-transform:uppercase; padding:6px 18px; border-radius:50px; margin-bottom:24px; }
+.baogia-box h2 { font-family:'Barlow Condensed',sans-serif; font-size:2.8rem; font-weight:900; text-transform:uppercase; margin-bottom:16px; }
+.baogia-box p { color:var(--muted); max-width:560px; margin:0 auto 40px; line-height:1.7; }
+.baogia-categories { display:flex; gap:16px; justify-content:center; flex-wrap:wrap; margin-bottom:40px; }
+.baogia-cat { background:var(--bg); border:1px solid var(--border); border-radius:12px; padding:20px 28px; min-width:160px; opacity:.7; position:relative; }
+.baogia-cat::after { content:'Sắp có'; position:absolute; top:-10px; right:10px; background:var(--gold); color:#000; font-size:.65rem; font-weight:800; letter-spacing:1px; text-transform:uppercase; padding:2px 10px; border-radius:50px; }
+.baogia-cat-icon { font-size:2rem; margin-bottom:8px; }
+.baogia-cat-name { font-weight:600; font-size:.9rem; }
+.baogia-cta { background:rgba(245,166,35,.1); border:1px solid rgba(245,166,35,.3); color:var(--gold); padding:16px 40px; border-radius:50px; text-decoration:none; font-weight:700; display:inline-flex; align-items:center; gap:10px; transition:.25s; }
+.baogia-cta:hover { background:rgba(245,166,35,.2); transform:translateY(-3px); }
+
+/* LANDING GRID */
+.landings-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:24px; }
+.landing-card { background:var(--card); border:1px solid var(--border); border-radius:var(--radius); overflow:hidden; text-decoration:none; color:inherit; transition:.3s; display:flex; flex-direction:column; }
+.landing-card:hover { border-color:var(--gold); transform:translateY(-8px); box-shadow:0 20px 60px rgba(245,166,35,.1); }
+.landing-thumb { height:140px; display:flex; align-items:center; justify-content:center; font-size:3.2rem; position:relative; overflow:hidden; }
+.landing-thumb-pickleball { background:linear-gradient(135deg,#0a2e1a,#0d4a2a); }
+.landing-thumb-chieucay { background:linear-gradient(135deg,#1a2e00,#2d4a0a); }
+.landing-thumb-nhaXuong { background:linear-gradient(135deg,#1a1a2e,#2a1a3e); }
+.landing-thumb-duong { background:linear-gradient(135deg,#2e1a00,#4a2e00); }
+.landing-thumb-nanglg { background:linear-gradient(135deg,#1a2a1a,#2a4a1a); }
+.landing-thumb-linhkien { background:linear-gradient(135deg,#1a1a1a,#2a2a2a); }
+.landing-thumb::after { content:''; position:absolute; inset:0; background:linear-gradient(to top,rgba(17,27,40,.9),transparent); }
+.landing-body { padding:24px; flex:1; display:flex; flex-direction:column; gap:10px; }
+.landing-body h3 { font-family:'Barlow Condensed',sans-serif; font-weight:800; font-size:1.25rem; text-transform:uppercase; }
+.landing-body p { color:var(--muted); font-size:.875rem; line-height:1.6; flex:1; }
+.landing-link { color:var(--gold); font-size:.82rem; font-weight:700; display:flex; align-items:center; gap:6px; }
+.landing-link::after { content:'→'; transition:.2s; }
+.landing-card:hover .landing-link::after { transform:translateX(6px); }
+.landing-coming { opacity:.6; pointer-events:none; }
+.coming-badge { display:inline-block; background:var(--muted); color:#000; font-size:.65rem; font-weight:800; letter-spacing:1px; text-transform:uppercase; padding:2px 10px; border-radius:50px; margin-bottom:4px; }
+
+/* MISSION */
+.mission { background:var(--bg2); }
+.mission-grid { display:grid; grid-template-columns:1fr 1fr; gap:40px; }
+.mission-card { background:var(--card); border:1px solid var(--border); border-radius:var(--radius); padding:40px; }
+.mission-card h3 { font-family:'Barlow Condensed',sans-serif; font-weight:800; font-size:1.5rem; text-transform:uppercase; margin-bottom:20px; }
+.mission-card h3.gold { color:var(--gold); }
+.mission-card h3.blue { color:var(--blue); }
+.mission-card p { color:var(--muted); line-height:1.8; margin-bottom:16px; }
+.mission-list { list-style:none; display:flex; flex-direction:column; gap:12px; }
+.mission-list li { display:flex; gap:12px; align-items:flex-start; color:var(--muted); line-height:1.5; }
+.mission-list li::before { content:'✦'; color:var(--blue); flex-shrink:0; margin-top:2px; }
+
+/* FAQ / SEO SECTION */
+.faq { background:var(--bg); }
+.faq-list { display:flex; flex-direction:column; gap:16px; max-width:800px; margin:0 auto; }
+.faq-item { background:var(--card); border:1px solid var(--border); border-radius:14px; overflow:hidden; }
+.faq-q { width:100%; background:none; border:none; color:var(--text); font-family:'Barlow',sans-serif; font-size:1rem; font-weight:600; padding:20px 24px; text-align:left; cursor:pointer; display:flex; justify-content:space-between; align-items:center; gap:16px; transition:.2s; }
+.faq-q:hover { color:var(--blue); }
+.faq-q .faq-arrow { font-size:.8rem; transition:.3s; flex-shrink:0; color:var(--blue); }
+.faq-q.open .faq-arrow { transform:rotate(180deg); }
+.faq-a { max-height:0; overflow:hidden; transition:max-height .4s ease, padding .3s; padding:0 24px; color:var(--muted); line-height:1.8; font-size:.95rem; }
+.faq-a.open { max-height:300px; padding:0 24px 20px; }
+.faq-a a { color:var(--blue); }
+
+/* CONTACT */
+.contact { background:var(--bg); }
+.contact-grid { display:grid; grid-template-columns:1fr 1fr; gap:32px; }
+.contact-info { background:var(--card); border:1px solid var(--border); border-radius:var(--radius); padding:40px; }
+.contact-info h3 { font-family:'Barlow Condensed',sans-serif; font-weight:800; font-size:1.6rem; text-transform:uppercase; margin-bottom:24px; color:var(--blue); }
+.contact-detail { display:flex; gap:14px; align-items:flex-start; margin-bottom:20px; }
+.contact-detail-icon { font-size:1.3rem; flex-shrink:0; margin-top:2px; }
+.contact-detail-text strong { display:block; font-size:.75rem; letter-spacing:1px; text-transform:uppercase; color:var(--muted); margin-bottom:4px; }
+.contact-detail-text a, .contact-detail-text span { color:var(--text); text-decoration:none; font-size:.95rem; }
+.contact-detail-text a:hover { color:var(--blue); }
+.contact-cta-box { background:var(--card); border:1px solid var(--border); border-radius:var(--radius); padding:40px; display:flex; flex-direction:column; gap:20px; justify-content:center; }
+.contact-cta-box h3 { font-family:'Barlow Condensed',sans-serif; font-weight:800; font-size:1.4rem; text-transform:uppercase; }
+.contact-cta-box p { color:var(--muted); font-size:.9rem; line-height:1.7; }
+.cta-btns { display:flex; flex-direction:column; gap:12px; }
+.cta-btn { display:flex; align-items:center; gap:12px; padding:14px 20px; border-radius:12px; text-decoration:none; font-weight:600; font-size:.95rem; transition:.2s; }
+.cta-btn:hover { transform:translateX(6px); }
+.cta-btn.phone { background:linear-gradient(135deg,var(--blue-dark),var(--blue)); color:#fff; box-shadow:0 4px 20px rgba(0,180,216,.3); }
+.cta-btn.zalo { background:#0068FF; color:#fff; box-shadow:0 4px 20px rgba(0,104,255,.3); }
+.cta-btn.web { background:var(--bg); border:1px solid var(--border); color:var(--text); }
+
+/* FOOTER */
+footer { background:var(--bg2); border-top:1px solid var(--border); padding:40px 5%; text-align:center; }
+.footer-logo { font-family:'Barlow Condensed',sans-serif; font-weight:900; font-size:1.8rem; letter-spacing:2px; background:linear-gradient(90deg,var(--blue),var(--gold)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; margin-bottom:12px; }
+footer p { color:var(--muted); font-size:.85rem; line-height:1.8; }
+footer a { color:var(--blue); text-decoration:none; }
+.footer-links { display:flex; gap:20px; justify-content:center; flex-wrap:wrap; margin:16px 0 8px; }
+.footer-links a { color:var(--muted); font-size:.82rem; text-decoration:none; transition:.2s; }
+.footer-links a:hover { color:var(--blue); }
+
+/* ═══ CHATBOT ═══ */
+#chatbot-trigger {
+  position:fixed; bottom:96px; right:24px; z-index:900;
+  width:58px; height:58px; border-radius:50%;
+  background:linear-gradient(135deg,var(--blue-dark),var(--blue));
+  border:none; cursor:pointer; font-size:1.4rem;
+  box-shadow:0 8px 30px rgba(0,180,216,.45);
+  display:flex; align-items:center; justify-content:center;
+  animation:pulseCb 2.5s infinite;
+  transition:transform .2s;
+}
+#chatbot-trigger:hover { transform:scale(1.1); }
+@keyframes pulseCb { 0%,100%{box-shadow:0 8px 30px rgba(0,180,216,.45)} 50%{box-shadow:0 8px 50px rgba(0,180,216,.75)} }
+
+.chatbot-window {
+  position:fixed; bottom:168px; right:24px; z-index:900;
+  width:380px; max-height:580px;
+  background:var(--card); border:1px solid var(--border); border-radius:22px;
+  display:none; flex-direction:column;
+  box-shadow:0 30px 80px rgba(0,0,0,.65);
+  overflow:hidden;
+}
+.chatbot-window.open { display:flex; animation:slideUp .3s ease; }
+@keyframes slideUp { from{opacity:0;transform:translateY(16px)} to{opacity:1;transform:translateY(0)} }
+
+.cb-header { background:linear-gradient(135deg,var(--blue-dark),var(--blue)); padding:14px 18px; display:flex; align-items:center; gap:12px; justify-content:space-between; }
+.cb-header-left { display:flex; align-items:center; gap:12px; }
+.cb-avatar { width:36px; height:36px; border-radius:50%; background:rgba(255,255,255,.18); display:grid; place-items:center; font-size:1.1rem; }
+.cb-name { font-weight:700; font-size:.9rem; }
+.cb-status { font-size:.72rem; opacity:.85; }
+.cb-close { background:none; border:none; color:#fff; cursor:pointer; font-size:1.1rem; opacity:.75; transition:.2s; padding:4px; }
+.cb-close:hover { opacity:1; }
+
+/* CHAT BODY — scrollable */
+.cb-body { flex:1; overflow-y:auto; display:flex; flex-direction:column; }
+.cb-body::-webkit-scrollbar { width:3px; }
+.cb-body::-webkit-scrollbar-thumb { background:var(--border); border-radius:4px; }
+
+.cb-messages { padding:16px 14px 8px; display:flex; flex-direction:column; gap:10px; }
+.msg { max-width:88%; padding:11px 15px; border-radius:16px; font-size:.875rem; line-height:1.55; }
+.msg-bot { background:var(--bg2); border:1px solid var(--border); align-self:flex-start; border-bottom-left-radius:4px; }
+.msg-user { background:linear-gradient(135deg,var(--blue-dark),var(--blue)); color:#fff; align-self:flex-end; border-bottom-right-radius:4px; }
+
+/* MENU TREE — the star of the show */
+.cb-menu { padding:8px 14px 14px; display:flex; flex-direction:column; gap:7px; }
+.cb-menu-label { font-size:.72rem; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:var(--muted); padding:4px 2px 6px; }
+
+.cb-btn {
+  background:var(--bg2); border:1px solid var(--border);
+  color:var(--text); padding:10px 14px; border-radius:10px;
+  font-size:.845rem; text-align:left; cursor:pointer; font-family:'Barlow',sans-serif;
+  display:flex; align-items:center; gap:10px;
+  transition:border-color .18s, background .18s, transform .15s;
+  position:relative;
+}
+.cb-btn:hover { border-color:var(--blue); background:rgba(0,180,216,.08); transform:translateX(3px); }
+.cb-btn .cb-btn-arrow { margin-left:auto; opacity:.5; font-size:.8rem; }
+.cb-btn.active { border-color:var(--blue); background:rgba(0,180,216,.1); }
+
+/* sub-level indent */
+.cb-sub { padding:4px 14px 14px 26px; display:flex; flex-direction:column; gap:7px; }
+.cb-sub .cb-btn { font-size:.82rem; border-left:2px solid rgba(0,180,216,.25); border-radius:0 10px 10px 0; }
+
+/* back button */
+.cb-back { background:none; border:none; color:var(--muted); font-size:.8rem; cursor:pointer; font-family:'Barlow',sans-serif; padding:6px 2px; display:flex; align-items:center; gap:6px; transition:.2s; }
+.cb-back:hover { color:var(--blue); }
+
+/* Typing indicator */
+.typing-dot { display:inline-flex; gap:4px; align-items:center; padding:4px 0; }
+.typing-dot span { width:7px; height:7px; border-radius:50%; background:var(--blue); animation:typingAnim 1.2s infinite; }
+.typing-dot span:nth-child(2) { animation-delay:.2s; }
+.typing-dot span:nth-child(3) { animation-delay:.4s; }
+@keyframes typingAnim { 0%,60%,100%{transform:translateY(0);opacity:.4} 30%{transform:translateY(-5px);opacity:1} }
+
+.cb-divider { height:1px; background:var(--border); margin:4px 0; }
+
+/* ZALO BTN */
+#zalo-btn { position:fixed; bottom:24px; right:24px; z-index:900; width:58px; height:58px; border-radius:50%; background:#0068FF; border:none; cursor:pointer; box-shadow:0 8px 30px rgba(0,104,255,.45); display:grid; place-items:center; text-decoration:none; animation:pulseZalo 2.5s 1.25s infinite; transition:.2s; }
+#zalo-btn:hover { transform:scale(1.1); }
+@keyframes pulseZalo { 0%,100%{box-shadow:0 8px 30px rgba(0,104,255,.45)} 50%{box-shadow:0 8px 50px rgba(0,104,255,.75)} }
+.zalo-tooltip { position:absolute; right:70px; bottom:50%; transform:translateY(50%); background:var(--card); border:1px solid var(--border); color:var(--text); font-size:.8rem; font-weight:600; padding:6px 14px; border-radius:8px; white-space:nowrap; opacity:0; transition:.25s; pointer-events:none; }
+#zalo-btn:hover .zalo-tooltip { opacity:1; }
+
+/* SCROLL REVEAL */
+.reveal { opacity:0; transform:translateY(28px); transition:opacity .6s, transform .6s; }
+.reveal.visible { opacity:1; transform:translateY(0); }
+
+@media(max-width:900px){
+  .nav-links{display:none;}
+  .mission-grid,.contact-grid{grid-template-columns:1fr;}
+}
+@media(max-width:600px){
+  .stats-strip{flex-direction:column;}
+  .stat-item{border-right:none;border-bottom:1px solid var(--border);}
+  .chatbot-window{width:calc(100vw - 32px);right:16px;}
+  .baogia-box{padding:40px 24px;}
+}
+</style>
 </head>
 <body>
 
+<!-- NAV -->
 <nav>
-    <div class="logo">TDL - THÀNH ĐẠT LED</div>
-    <a href="tel:0986474671" class="hotline-nav">📞 0986.474.671</a>
+  <a href="/" class="nav-logo" aria-label="Thành Đạt LED – Trang chủ">TDL • THÀNH ĐẠT LED</a>
+  <ul class="nav-links" role="navigation" aria-label="Menu chính">
+    <li><a href="#catalog">Catalog</a></li>
+    <li><a href="#baogia">Báo Giá</a></li>
+    <li><a href="#landings">Giải Pháp</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a href="#contact">Liên Hệ</a></li>
+  </ul>
+  <a href="tel:0986474671" class="nav-cta" aria-label="Gọi hotline 0986474671">📞 0986.474.671</a>
 </nav>
 
-<div class="hero">
-    <h1>Giải Pháp Chiếu Sáng Chuyên Nghiệp</h1>
-    <p>Thành Đạt LED tự hào là đơn vị hàng đầu sản xuất và phân phối đèn LED ngoài trời tại Việt Nam. Chúng tôi mang đến ánh sáng bền bỉ, tiết kiệm năng lượng và tối ưu hiệu suất cho mọi công trình.</p>
-    <a href="#solutions" class="btn-main">KHÁM PHÁ GIẢI PHÁP</a>
+<!-- HERO -->
+<header class="hero" role="banner">
+  <div class="hero-bg" aria-hidden="true"></div>
+  <div class="hero-grid" aria-hidden="true"></div>
+  <div class="hero-content">
+    <div class="hero-tag" aria-label="Hãng đèn LED hàng đầu Việt Nam">🏭 Sản Xuất & Phân Phối – Hàng Đầu Việt Nam</div>
+    <h1>Giải Pháp<br><span>Chiếu Sáng</span><br>Chuyên Nghiệp</h1>
+    <p class="hero-sub">Thành Đạt LED tự hào cung cấp đèn LED công nghiệp, sân vườn, năng lượng mặt trời và linh kiện chip Bridgelux/Philips — bền bỉ, tiết kiệm năng lượng, tối ưu mọi công trình tại Việt Nam.</p>
+    <div class="hero-btns">
+      <a href="#catalog" class="btn-primary">📦 Xem Catalog</a>
+      <a href="#landings" class="btn-outline">💡 Giải Pháp Theo Ngành</a>
+    </div>
+    <div class="stats-strip" role="list" aria-label="Thống kê Thành Đạt LED">
+      <div class="stat-item" role="listitem"><div class="stat-num">10+</div><div class="stat-label">Năm Kinh Nghiệm</div></div>
+      <div class="stat-item" role="listitem"><div class="stat-num">5.000+</div><div class="stat-label">Công Trình Hoàn Thành</div></div>
+      <div class="stat-item" role="listitem"><div class="stat-num">50+</div><div class="stat-label">Tỉnh Thành Phủ Sóng</div></div>
+      <div class="stat-item" role="listitem"><div class="stat-num">99%</div><div class="stat-label">Khách Hàng Hài Lòng</div></div>
+    </div>
+  </div>
+</header>
+
+<!-- CATALOG -->
+<section class="section catalog" id="catalog" aria-labelledby="catalog-title">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div>
+        <div class="sec-label">Tài Liệu Kỹ Thuật</div>
+        <h2 class="sec-title" id="catalog-title">Catalog <span>Sản Phẩm</span></h2>
+        <p class="sec-desc">Tải xuống catalog chi tiết thông số kỹ thuật, chủng loại và hình ảnh từng dòng đèn LED TDL.</p>
+      </div>
+    </div>
+    <div class="cat-grid">
+      <a href="https://drive.google.com/file/d/1hNpqi9tl1RhpDJVi2YSJysKjtKwM3Njg/view?usp=drive_link" target="_blank" rel="noopener" class="cat-card reveal" aria-label="Xem catalog đèn công nghiệp TDL">
+        <div class="cat-icon" aria-hidden="true">🏭</div>
+        <h3>Đèn Công Nghiệp</h3>
+        <p>Highbay, module, đèn kho bãi, nhà máy — chip Bridgelux/Philips, IP65, driver Meanwell, bảo hành 5 năm.</p>
+        <span class="cat-link">Xem & Tải Catalog</span>
+      </a>
+      <a href="https://drive.google.com/file/d/1hJ_VsgP8_Wdfb1BkiUnK61nXINPrQxpi/view?usp=drive_link" target="_blank" rel="noopener" class="cat-card reveal" aria-label="Xem catalog đèn sân vườn TDL">
+        <div class="cat-icon" aria-hidden="true">🌿</div>
+        <h3>Đèn Sân Vườn</h3>
+        <p>Đèn cột, chiếu cây, âm đất, trụ cảnh quan — thẩm mỹ cao, IP65+, ánh sáng ấm áp sang trọng.</p>
+        <span class="cat-link">Xem & Tải Catalog</span>
+      </a>
+      <a href="https://drive.google.com/file/d/1hIh-mzDHycwI8M5HaG5aBlLvT9IzZDUX/view?usp=drive_link" target="_blank" rel="noopener" class="cat-card reveal" aria-label="Xem catalog đèn năng lượng mặt trời TDL">
+        <div class="cat-icon" aria-hidden="true">☀️</div>
+        <h3>Đèn Năng Lượng Mặt Trời</h3>
+        <p>Đèn đường, sân vườn NLMT độc lập — pin lithium LiFePO4, cảm biến thông minh, 4.000 chu kỳ sạc.</p>
+        <span class="cat-link">Xem & Tải Catalog</span>
+      </a>
+      <a href="https://drive.google.com/file/d/1hH1QYI98mNRO1STrnp8h8DeQX437UzoQ/view?usp=drive_link" target="_blank" rel="noopener" class="cat-card reveal" aria-label="Xem catalog linh kiện đèn LED TDL">
+        <div class="cat-icon" aria-hidden="true">⚙️</div>
+        <h3>Linh Kiện Đèn LED</h3>
+        <p>Driver Meanwell, chip Bridgelux/Philips/Epistar, module lens, tản nhiệt, bo mạch điều khiển thay thế.</p>
+        <span class="cat-link">Xem & Tải Catalog</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- BÁO GIÁ -->
+<section class="section baogiaSection" id="baogia" aria-labelledby="baogia-title">
+  <div class="wrap">
+    <div class="baogia-box reveal">
+      <div class="baogia-badge">📊 Đang Cập Nhật 2026</div>
+      <h2 id="baogia-title">Bảng Báo Giá <span style="color:var(--gold)">Tham Khảo</span></h2>
+      <p>Bảng giá chi tiết đang được cập nhật để đảm bảo chính xác nhất. Liên hệ trực tiếp để nhận báo giá ưu đãi theo số lượng dự án.</p>
+      <div class="baogia-categories" aria-label="Danh mục sản phẩm">
+        <div class="baogia-cat"><div class="baogia-cat-icon">🏭</div><div class="baogia-cat-name">Đèn Công Nghiệp</div></div>
+        <div class="baogia-cat"><div class="baogia-cat-icon">🌿</div><div class="baogia-cat-name">Đèn Sân Vườn</div></div>
+        <div class="baogia-cat"><div class="baogia-cat-icon">☀️</div><div class="baogia-cat-name">Năng Lượng MT</div></div>
+        <div class="baogia-cat"><div class="baogia-cat-icon">⚙️</div><div class="baogia-cat-name">Linh Kiện</div></div>
+      </div>
+      <a href="tel:0986474671" class="baogia-cta" aria-label="Gọi hotline nhận báo giá ngay">📞 Nhận Báo Giá Trong 30 Phút</a>
+    </div>
+  </div>
+</section>
+
+<!-- LANDING PAGES -->
+<section class="section" id="landings" style="background:var(--bg);" aria-labelledby="landings-title">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div>
+        <div class="sec-label">Giải Pháp Theo Ngành</div>
+        <h2 class="sec-title" id="landings-title">Trang Tư Vấn <span>Chuyên Sâu</span></h2>
+        <p class="sec-desc">Mỗi ứng dụng có đặc thù riêng. Khám phá giải pháp chiếu sáng tối ưu cho từng công trình của bạn.</p>
+      </div>
+    </div>
+    <div class="landings-grid">
+      <a href="https://khuyenmai.thanhdatled.com/landing-pickleball-200w-tdl/" target="_blank" rel="noopener" class="landing-card reveal" aria-label="Giải pháp đèn sân Pickleball TDL">
+        <div class="landing-thumb landing-thumb-pickleball" aria-hidden="true">🎾</div>
+        <div class="landing-body">
+          <h3>Đèn Sân Pickleball</h3>
+          <p>Module LED 200W Bridgelux/Philips — chống chói, phủ sáng đồng đều, tiết kiệm 50% điện so với đèn Metal Halide.</p>
+          <span class="landing-link">Xem giải pháp & báo giá</span>
+        </div>
+      </a>
+      <a href="https://khuyenmai.thanhdatled.com/Landing-page-chieu-cay-18w/" target="_blank" rel="noopener" class="landing-card reveal" aria-label="Giải pháp đèn chiếu cây 18W TDL">
+        <div class="landing-thumb landing-thumb-chieucay" aria-hidden="true">🌳</div>
+        <div class="landing-body">
+          <h3>Đèn Chiếu Cây 18W</h3>
+          <p>Màu sắc trung thực CRI>90, IP65, sống động không gian cảnh quan ban đêm cho biệt thự và công trình công cộng.</p>
+          <span class="landing-link">Xem giải pháp & báo giá</span>
+        </div>
+      </a>
+      <div class="landing-card landing-coming reveal" aria-label="Đèn nhà xưởng – sắp ra mắt">
+        <div class="landing-thumb landing-thumb-nhaXuong" aria-hidden="true">🏗️</div>
+        <div class="landing-body">
+          <div class="coming-badge">Sắp ra mắt</div>
+          <h3>Đèn Nhà Xưởng</h3>
+          <p>Highbay LED 100W–300W, IP65, tuổi thọ 50.000h, tiết kiệm 60% điện năng so với đèn huỳnh quang cũ.</p>
+          <span style="color:var(--muted);font-size:.82rem;">Đang cập nhật...</span>
+        </div>
+      </div>
+      <div class="landing-card landing-coming reveal" aria-label="Đèn đường LED – sắp ra mắt">
+        <div class="landing-thumb landing-thumb-duong" aria-hidden="true">🛣️</div>
+        <div class="landing-body">
+          <div class="coming-badge">Sắp ra mắt</div>
+          <h3>Đèn Đường LED</h3>
+          <p>Đèn đường đô thị và khu dân cư — chuẩn TCVN chiếu sáng đường, đảm bảo độ sáng và an toàn giao thông.</p>
+          <span style="color:var(--muted);font-size:.82rem;">Đang cập nhật...</span>
+        </div>
+      </div>
+      <div class="landing-card landing-coming reveal" aria-label="Đèn năng lượng mặt trời – sắp ra mắt">
+        <div class="landing-thumb landing-thumb-nanglg" aria-hidden="true">☀️</div>
+        <div class="landing-body">
+          <div class="coming-badge">Sắp ra mắt</div>
+          <h3>Đèn Năng Lượng MT</h3>
+          <p>Hệ thống độc lập hoàn toàn, pin LiFePO4 4.000 cycles, tự động bật/tắt theo cảm biến chuyển động.</p>
+          <span style="color:var(--muted);font-size:.82rem;">Đang cập nhật...</span>
+        </div>
+      </div>
+      <a href="https://drive.google.com/file/d/1hH1QYI98mNRO1STrnp8h8DeQX437UzoQ/view?usp=drive_link" target="_blank" rel="noopener" class="landing-card reveal" aria-label="Xem catalog linh kiện đèn LED">
+        <div class="landing-thumb landing-thumb-linhkien" aria-hidden="true">⚙️</div>
+        <div class="landing-body">
+          <h3>Linh Kiện & Phụ Kiện</h3>
+          <p>Driver Meanwell, chip Bridgelux, module lens, tản nhiệt, bo mạch — phụ kiện thay thế và bảo trì đèn LED.</p>
+          <span class="landing-link">Xem catalog linh kiện</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- MISSION -->
+<section class="section mission" id="mission" aria-labelledby="mission-title">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div>
+        <div class="sec-label">Về Thành Đạt LED</div>
+        <h2 class="sec-title" id="mission-title">Tầm Nhìn &<br><span>Sứ Mệnh</span></h2>
+      </div>
+    </div>
+    <div class="mission-grid">
+      <div class="mission-card reveal">
+        <h3 class="gold">🎯 Tầm Nhìn</h3>
+        <p>Hướng tới trở thành công ty hàng đầu tại Việt Nam và Đông Nam Á trong cung cấp giải pháp chiếu sáng LED tiên tiến, không ngừng đổi mới công nghệ để đáp ứng phát triển bền vững quốc tế.</p>
+        <p>Mỗi sản phẩm TDL là cam kết về chất lượng, độ bền và hiệu suất — được kiểm định nghiêm ngặt trước khi đến tay khách hàng.</p>
+      </div>
+      <div class="mission-card reveal">
+        <h3 class="blue">⚡ Sứ Mệnh</h3>
+        <ul class="mission-list">
+          <li>Mang lại giải pháp chiếu sáng hiệu quả, an toàn, thân thiện với môi trường cho mọi công trình Việt Nam.</li>
+          <li>Đảm bảo sản phẩm chất lượng cao với giá cả cạnh tranh nhất thị trường, không qua trung gian.</li>
+          <li>Phát triển đội ngũ kỹ sư chuyên nghiệp, tận tâm tư vấn và hỗ trợ kỹ thuật tại công trình.</li>
+          <li>Đóng góp vào tiết kiệm năng lượng quốc gia và phát triển bền vững tại Việt Nam.</li>
+          <li>Liên tục R&D, ứng dụng chip LED thế hệ mới nhất từ Bridgelux, Philips, Cree.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ – SEO -->
+<section class="section faq" id="faq" aria-labelledby="faq-title">
+  <div class="wrap">
+    <div class="sec-head reveal" style="justify-content:center;text-align:center;">
+      <div>
+        <div class="sec-label">Câu Hỏi Thường Gặp</div>
+        <h2 class="sec-title" id="faq-title" style="max-width:100%">Khách Hàng<br><span>Hay Hỏi</span></h2>
+      </div>
+    </div>
+    <div class="faq-list reveal" itemscope itemtype="https://schema.org/FAQPage">
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">
+          <span itemprop="name">Đèn LED TDL bảo hành bao lâu?</span><span class="faq-arrow">▼</span>
+        </button>
+        <div class="faq-a" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+          <span itemprop="text">Driver Meanwell bảo hành <strong>5 năm</strong>, thân đèn và chip LED bảo hành <strong>3 năm</strong>. Tuổi thọ thiết kế 50.000 giờ. TDL hỗ trợ đổi trả tại công trình toàn quốc.</span>
+        </div>
+      </div>
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">
+          <span itemprop="name">Đèn sân Pickleball cần bao nhiêu cái, công suất bao nhiêu W?</span><span class="faq-arrow">▼</span>
+        </button>
+        <div class="faq-a" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+          <span itemprop="text">Sân Pickleball tiêu chuẩn (13.4m × 6.1m) thường dùng <strong>4–6 đèn Module 200W</strong> chip Bridgelux/Philips, lắp cao 4–6m. Độ rọi đạt 300–500 Lux, chống chói UGR&lt;22. TDL tư vấn thiết kế phụ thuộc số sân và chiều cao lắp đặt thực tế. Gọi <a href="tel:0986474671">0986.474.671</a> để được khảo sát miễn phí.</span>
+        </div>
+      </div>
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">
+          <span itemprop="name">TDL có giao hàng và lắp đặt toàn quốc không?</span><span class="faq-arrow">▼</span>
+        </button>
+        <div class="faq-a" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+          <span itemprop="text">Có. Thành Đạt LED giao hàng toàn quốc qua đường vận chuyển nhanh. Với dự án lớn (nhà xưởng, khu đô thị, sân thể thao), đội kỹ sư TDL hỗ trợ lắp đặt, nghiệm thu và vận hành tận công trình tại 50+ tỉnh thành.</span>
+        </div>
+      </div>
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">
+          <span itemprop="name">Đèn LED TDL tiết kiệm điện hơn đèn thường bao nhiêu?</span><span class="faq-arrow">▼</span>
+        </button>
+        <div class="faq-a" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+          <span itemprop="text">So với đèn Metal Halide hoặc HPS cùng độ sáng, đèn LED TDL tiết kiệm <strong>50–65% điện năng</strong>. Ví dụ: thay 400W Metal Halide bằng đèn Module 200W TDL, cùng độ rọi nhưng giảm một nửa điện tiêu thụ và chi phí bảo trì.</span>
+        </div>
+      </div>
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">
+          <span itemprop="name">Chip LED TDL dùng hãng nào? Có nguồn gốc xuất xứ không?</span><span class="faq-arrow">▼</span>
+        </button>
+        <div class="faq-a" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+          <span itemprop="text">TDL sử dụng chip LED chính hãng <strong>Bridgelux (USA)</strong> và <strong>Philips Lumileds (Netherlands)</strong> — hai thương hiệu chip hàng đầu thế giới. Toàn bộ sản phẩm có CO/CQ và giấy tờ kiểm định rõ ràng. Driver sử dụng Meanwell (Taiwan) — tiêu chuẩn công nghiệp toàn cầu.</span>
+        </div>
+      </div>
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">
+          <span itemprop="name">Làm sao để nhận báo giá nhanh nhất?</span><span class="faq-arrow">▼</span>
+        </button>
+        <div class="faq-a" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+          <span itemprop="text">Cách nhanh nhất: <strong>gọi hotline <a href="tel:0986474671">0986.474.671</a></strong> hoặc <strong>nhắn Zalo <a href="https://zalo.me/0986474671" target="_blank">zalo.me/0986474671</a></strong>. Cung cấp thông tin: loại đèn cần, số lượng, công trình — TDL báo giá trong <strong>30 phút</strong>.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section contact" id="contact" aria-labelledby="contact-title">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div>
+        <div class="sec-label">Liên Hệ Ngay</div>
+        <h2 class="sec-title" id="contact-title">Tư Vấn <span>Miễn Phí</span></h2>
+        <p class="sec-desc">Đội ngũ kỹ sư TDL sẵn sàng tư vấn giải pháp chiếu sáng phù hợp mọi quy mô dự án.</p>
+      </div>
+    </div>
+    <div class="contact-grid">
+      <address class="contact-info reveal" style="font-style:normal;">
+        <h3>Thông Tin Liên Hệ</h3>
+        <div class="contact-detail">
+          <div class="contact-detail-icon">🏢</div>
+          <div class="contact-detail-text">
+            <strong>Địa Chỉ</strong>
+            <span>Số 938 đường Quang Trung, P.Yên Nghĩa, TP Hà Nội</span>
+          </div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-detail-icon">📞</div>
+          <div class="contact-detail-text">
+            <strong>Hotline</strong>
+            <a href="tel:0986474671">0986.474.671</a>
+          </div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-detail-icon">📧</div>
+          <div class="contact-detail-text">
+            <strong>Email</strong>
+            <a href="mailto:thanhdatled@gmail.com">thanhdatled@gmail.com</a>
+          </div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-detail-icon">🌐</div>
+          <div class="contact-detail-text">
+            <strong>Website</strong>
+            <a href="https://www.thanhdatled.com" target="_blank" rel="noopener">www.thanhdatled.com</a>
+          </div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-detail-icon">🕐</div>
+          <div class="contact-detail-text">
+            <strong>Giờ Làm Việc</strong>
+            <span>Thứ 2 – Thứ 7: 7:30 – 18:00</span>
+          </div>
+        </div>
+      </address>
+      <div class="contact-cta-box reveal">
+        <h3>Kết Nối Với TDL</h3>
+        <p>Nhận tư vấn miễn phí, báo giá nhanh trong 30 phút, hỗ trợ kỹ thuật tận công trình trên toàn quốc.</p>
+        <div class="cta-btns">
+          <a href="tel:0986474671" class="cta-btn phone" aria-label="Gọi điện tư vấn">📞 <span>Gọi Ngay: 0986.474.671</span></a>
+          <a href="https://zalo.me/0986474671" target="_blank" rel="noopener" class="cta-btn zalo" aria-label="Chat Zalo tư vấn">
+            <svg width="22" height="22" viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="10" fill="white"/><text x="50%" y="55%" dominant-baseline="middle" text-anchor="middle" font-size="22" font-weight="900" fill="#0068FF">Z</text></svg>
+            <span>Chat Zalo Ngay</span>
+          </a>
+          <a href="https://www.thanhdatled.com" target="_blank" rel="noopener" class="cta-btn web" aria-label="Truy cập website chính Thành Đạt LED">🌐 <span>Truy Cập Website Chính</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer role="contentinfo">
+  <div class="footer-logo">TDL • THÀNH ĐẠT LED</div>
+  <nav class="footer-links" aria-label="Liên kết footer">
+    <a href="#catalog">Catalog</a>
+    <a href="#baogia">Báo Giá</a>
+    <a href="#landings">Giải Pháp</a>
+    <a href="#faq">FAQ</a>
+    <a href="#contact">Liên Hệ</a>
+    <a href="https://www.thanhdatled.com" target="_blank" rel="noopener">Website Chính</a>
+  </nav>
+  <p>© 2026 Công Ty TNHH TM & DV Thành Đạt LED — Giải pháp chiếu sáng LED hàng đầu Việt Nam</p>
+  <p>📍 938 Quang Trung, Yên Nghĩa, Hà Nội &nbsp;|&nbsp; 📞 <a href="tel:0986474671">0986.474.671</a> &nbsp;|&nbsp; ✉️ <a href="mailto:thanhdatled@gmail.com">thanhdatled@gmail.com</a></p>
+</footer>
+
+<!-- CHATBOT TRIGGER -->
+<button id="chatbot-trigger" onclick="toggleChat()" title="Tư vấn nhanh" aria-label="Mở chatbot tư vấn TDL" aria-expanded="false">💬</button>
+
+<!-- CHATBOT WINDOW -->
+<div class="chatbot-window" id="chatbot-window" role="dialog" aria-label="Chatbot tư vấn Thành Đạt LED" aria-modal="true">
+  <div class="cb-header">
+    <div class="cb-header-left">
+      <div class="cb-avatar" aria-hidden="true">🤖</div>
+      <div>
+        <div class="cb-name">Tư Vấn Viên TDL</div>
+        <div class="cb-status">🟢 Trực tuyến — Phản hồi ngay</div>
+      </div>
+    </div>
+    <button class="cb-close" onclick="toggleChat()" aria-label="Đóng chatbot">✕</button>
+  </div>
+
+  <div class="cb-body" id="cb-body">
+    <div class="cb-messages" id="cb-messages">
+      <div class="msg msg-bot">👋 Xin chào! Tôi là trợ lý tư vấn TDL.<br>Bạn đang cần tư vấn về sản phẩm nào?</div>
+    </div>
+    <!-- MAIN MENU rendered by JS -->
+    <div class="cb-menu" id="cb-menu"></div>
+  </div>
 </div>
 
-<section id="solutions">
-    <div class="section-title">
-        <h2>Sản Phẩm & Dự Án Chủ Lực</h2>
-        <div class="line"></div>
-    </div>
- <div class="solutions-grid">
-        <a href="https://khuyenmai.thanhdatled.com/landing-pickleball-200w-tdl/" class="solution-card" target="_blank">
-            <span class="icon">💡</span>
-            <h3>Đèn Module 200W</h3>
-            <p>Dòng đèn quốc dân cho sân Pickleball. Sử dụng Chip LED Bridgelux/Philips siêu sáng.</p>
-            <span style="color: var(--primary); font-weight: bold;">Xem thông số →</span>
-        </a>
+<!-- ZALO BUTTON -->
+<a href="https://zalo.me/0986474671" target="_blank" rel="noopener" id="zalo-btn" title="Chat Zalo TDL" aria-label="Nhắn tin Zalo Thành Đạt LED">
+  <div class="zalo-tooltip">Chat Zalo ngay</div>
+  <svg width="36" height="36" viewBox="0 0 48 48" aria-hidden="true">
+    <rect width="48" height="48" rx="12" fill="white"/>
+    <text x="50%" y="56%" dominant-baseline="middle" text-anchor="middle" font-size="28" font-weight="900" fill="#0068FF" font-family="Arial">Z</text>
+  </svg>
+</a>
 
-        <a href="landing-pickleball-200w-tdl/index.html" class="solution-card" target="_blank">
-            <span class="icon">🎾</span>
-            <h3>Giải Pháp Sân Pickleball</h3>
-            <p>Tư vấn trọn gói hệ thống chiếu sáng sân Pickleball tiêu chuẩn TDL.</p>
-            <span style="color: var(--primary); font-weight: bold;">Xem báo giá →</span>
-        </a>
+<script>
+/* ═══ SCROLL REVEAL ═══ */
+const revealObs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
 
-        <div class="solution-card">
-            <span class="icon">🏗️</span>
-            <h3>Đèn LED Nhà Xưởng</h3>
-            <p>Giải pháp tối ưu cho kho bãi, xưởng sản xuất với độ bền cao và khả năng tiết kiệm điện vượt trội.</p>
-            <span style="color: var(--text-dim);">Đang cập nhật...</span>
-        </div>
-    </div>
-</section>
+/* ═══ FAQ ACCORDION ═══ */
+function toggleFaq(btn) {
+  const a = btn.nextElementSibling;
+  const open = a.classList.contains('open');
+  document.querySelectorAll('.faq-a').forEach(x => x.classList.remove('open'));
+  document.querySelectorAll('.faq-q').forEach(x => { x.classList.remove('open'); x.setAttribute('aria-expanded','false'); });
+  if(!open) { a.classList.add('open'); btn.classList.add('open'); btn.setAttribute('aria-expanded','true'); }
+}
 
-<section>
-    <div class="mission-bg">
-        <div class="mission-item">
-            <h3>Tầm Nhìn</h3>
-            <p>Hướng tới trở thành công ty hàng đầu tại Việt Nam và Đông Nam Á trong cung cấp giải pháp chiếu sáng LED tiên tiến. Chúng tôi không ngừng đổi mới công nghệ để đáp ứng bối cảnh phát triển bền vững quốc tế.</p>
-        </div>
-        <div class="mission-item">
-            <h3>Sứ Mệnh</h3>
-            <ul>
-                <li>Mang lại giải pháp chiếu sáng hiệu quả, an toàn, thân thiện môi trường.</li>
-                <li>Đảm bảo sản phẩm chất lượng cao với giá cả cạnh tranh nhất.</li>
-                <li>Phát triển đội ngũ chuyên nghiệp, tận tâm và sáng tạo.</li>
-                <li>Đóng góp vào nguồn năng lượng bền vững tại Việt Nam.</li>
-            </ul>
-        </div>
-    </div>
-</section>
+/* ═══ CHATBOT — MENU TREE ═══ */
 
-<section>
-    <div class="contact-bar">
-        <h3>CÔNG TY TNHH TM & DV THÀNH ĐẠT LED</h3>
-        <p>Số 938 đường Quang Trung, P.Yên Nghĩa, TP Hà Nội</p>
-        <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
-            <a href="https://www.thanhdatled.com" target="_blank" class="btn-main" style="background: transparent; border: 1px solid var(--primary);">🌐 WEBSITE CHÍNH</a>
-            <a href="tel:0986474671" class="btn-main">📞 GỌI TƯ VẤN NGAY</a>
-        </div>
-    </div>
-</section>
+// ─── MENU DATA STRUCTURE ───
+// Each node: { label, icon, type: 'menu'|'answer'|'link', children?, msg?, url? }
+const MENU = {
+  label: 'Chọn chủ đề tư vấn:',
+  items: [
+    {
+      icon: '🎾', label: 'Đèn Sân Pickleball / Sân Bóng',
+      type: 'menu',
+      items: [
+        { icon: '💡', label: 'Cần bao nhiêu đèn cho 1 sân?', type: 'answer',
+          msg: '🎾 <b>1 sân Pickleball tiêu chuẩn</b> (13.4×6.1m) cần:<br>• <b>4–6 đèn Module 200W</b> lắp cao 4–6m<br>• Độ rọi: 300–500 Lux (đạt chuẩn thi đấu)<br>• Chống chói UGR&lt;22<br><br>✅ TDL khảo sát & thiết kế miễn phí tại công trình.<br>📞 <a href="tel:0986474671">Gọi 0986.474.671</a> để đặt lịch ngay!' },
+        { icon: '⚡', label: 'Chip LED dùng hãng gì?', type: 'answer',
+          msg: '🔆 Đèn sân Pickleball TDL dùng chip:<br>• <b>Bridgelux (USA)</b> — hiệu suất 160–180 lm/W<br>• <b>Philips Lumileds (Netherlands)</b> — CRI>80, màu sắc trung thực<br><br>Driver: <b>Meanwell</b> bảo hành 5 năm<br>Tuổi thọ: <b>50.000 giờ</b>' },
+        { icon: '💰', label: 'Giá 1 bộ đèn 200W bao nhiêu?', type: 'answer',
+          msg: '💰 Giá đèn Module 200W phụ thuộc chip và driver chọn.<br><br>Để có giá chính xác nhất:<br>📞 <a href="tel:0986474671" style="color:var(--gold)">Gọi: 0986.474.671</a><br>💬 <a href="https://zalo.me/0986474671" target="_blank" style="color:var(--blue)">Nhắn Zalo ngay</a><br><br>TDL báo giá trong <b>30 phút</b>, kèm sơ đồ bố trí đèn!' },
+        { icon: '🔗', label: 'Xem landing page sân Pickleball', type: 'link',
+          url: 'https://khuyenmai.thanhdatled.com/landing-pickleball-200w-tdl/', msg: '👉 Đang mở trang tư vấn sân Pickleball...' },
+      ]
+    },
+    {
+      icon: '🏗️', label: 'Đèn Nhà Xưởng / Kho Bãi',
+      type: 'menu',
+      items: [
+        { icon: '📐', label: 'Cần bao nhiêu đèn cho nhà xưởng?', type: 'answer',
+          msg: '🏗️ TDL tính số đèn theo diện tích & chiều cao trần:<br><br>• Trần &lt;6m → <b>Đèn LED Panel 40–80W</b><br>• Trần 6–10m → <b>Highbay 100–150W</b><br>• Trần &gt;10m → <b>Highbay 200–300W</b><br><br>Tiêu chuẩn độ rọi sản xuất: <b>200–500 Lux</b><br><br>📏 Cho biết diện tích & chiều cao trần, TDL tính cụ thể ngay!' },
+        { icon: '💧', label: 'Đèn có chống bụi, chống nước không?', type: 'answer',
+          msg: '✅ Đèn nhà xưởng TDL đạt chuẩn <b>IP65</b>:<br>• Chống bụi hoàn toàn<br>• Chống tia nước trực tiếp<br>• Phù hợp xưởng chế biến thực phẩm, hóa chất<br><br>Tùy ứng dụng, TDL có dòng <b>IP66/IP67</b> cho môi trường ẩm ướt nặng.' },
+        { icon: '📦', label: 'Xem catalog đèn công nghiệp', type: 'link',
+          url: 'https://drive.google.com/file/d/1hNpqi9tl1RhpDJVi2YSJysKjtKwM3Njg/view', msg: '📦 Đang mở catalog đèn công nghiệp TDL...' },
+      ]
+    },
+    {
+      icon: '🌿', label: 'Đèn Sân Vườn / Chiếu Cây',
+      type: 'menu',
+      items: [
+        { icon: '🌳', label: 'Đèn chiếu cây có những loại gì?', type: 'answer',
+          msg: '🌿 TDL cung cấp đèn chiếu cây:<br>• <b>18W</b> — phổ biến nhất, cắm cọc hoặc gắn tường<br>• <b>30W / 50W</b> — chiếu cây lớn, cây cọ<br>• CRI>90 — màu sắc lá cây cực kỳ trung thực<br>• IP65 — hoàn toàn ngoài trời<br><br>👉 <a href="https://khuyenmai.thanhdatled.com/Landing-page-chieu-cay-18w/" target="_blank" style="color:var(--blue)">Xem chi tiết đèn chiếu cây 18W</a>' },
+        { icon: '🏮', label: 'Đèn cột sân vườn / đèn trụ', type: 'answer',
+          msg: '🏮 Dòng đèn cột sân vườn TDL:<br>• Đèn trụ thấp 20–60W (cao 0.6–1.2m)<br>• Đèn cột cao 80–120W (cao 3–5m)<br>• Chất liệu nhôm đúc cao áp, chống ăn mòn<br>• IP65, bảo hành 3 năm<br><br>📦 <a href="https://drive.google.com/file/d/1hJ_VsgP8_Wdfb1BkiUnK61nXINPrQxpi/view" target="_blank" style="color:var(--blue)">Xem catalog đầy đủ</a>' },
+        { icon: '📦', label: 'Xem catalog đèn sân vườn', type: 'link',
+          url: 'https://drive.google.com/file/d/1hJ_VsgP8_Wdfb1BkiUnK61nXINPrQxpi/view', msg: '📦 Đang mở catalog đèn sân vườn TDL...' },
+      ]
+    },
+    {
+      icon: '☀️', label: 'Đèn Năng Lượng Mặt Trời',
+      type: 'menu',
+      items: [
+        { icon: '🔋', label: 'Pin NLMT TDL dùng loại gì?', type: 'answer',
+          msg: '☀️ Đèn NLMT TDL dùng pin:<br>• <b>Lithium LiFePO4</b> (không phải pin chì!)<br>• Tuổi thọ <b>4.000 chu kỳ sạc</b> (~10 năm)<br>• Không phồng, không nổ, an toàn cao<br>• Sạc đầy trong 6–8h nắng<br><br>Tự động sáng lúc trời tối, tắt lúc trời sáng.' },
+        { icon: '💡', label: 'Phù hợp lắp ở đâu?', type: 'answer',
+          msg: '🌟 Đèn NLMT TDL phù hợp:<br>• Đèn đường nông thôn, đường nội bộ<br>• Bãi đỗ xe, sân kho<br>• Khu dân cư chưa có điện lưới<br>• Dự án tiết kiệm điện đô thị<br><br>✅ Không cần đào hào kéo dây, lắp đặt nhanh chóng!' },
+        { icon: '📦', label: 'Xem catalog đèn NLMT', type: 'link',
+          url: 'https://drive.google.com/file/d/1hIh-mzDHycwI8M5HaG5aBlLvT9IzZDUX/view', msg: '📦 Đang mở catalog đèn năng lượng mặt trời...' },
+      ]
+    },
+    {
+      icon: '⚙️', label: 'Linh Kiện Đèn LED',
+      type: 'menu',
+      items: [
+        { icon: '🔌', label: 'TDL có bán driver Meanwell không?', type: 'answer',
+          msg: '✅ TDL phân phối chính hãng driver <b>Meanwell (Taiwan)</b>:<br>• Dải công suất: 20W → 600W<br>• Điện áp output: 12V, 24V, 36V, 48V<br>• Bảo hành: 5 năm<br><br>Xuất VAT đầy đủ, ship toàn quốc.<br>📦 <a href="https://drive.google.com/file/d/1hH1QYI98mNRO1STrnp8h8DeQX437UzoQ/view" target="_blank" style="color:var(--blue)">Xem catalog linh kiện</a>' },
+        { icon: '💎', label: 'Có bán chip LED Bridgelux / Philips?', type: 'answer',
+          msg: '💎 TDL cung cấp chip LED:<br>• <b>Bridgelux (USA)</b>: ES Series, EB Series<br>• <b>Philips Lumileds</b>: LUXEON 3030, 5050<br>• Hiệu suất: 150–200 lm/W<br>• CRI 80–90+<br><br>📞 <a href="tel:0986474671">Gọi 0986.474.671</a> để đặt số lượng lớn!' },
+        { icon: '📦', label: 'Xem catalog linh kiện đầy đủ', type: 'link',
+          url: 'https://drive.google.com/file/d/1hH1QYI98mNRO1STrnp8h8DeQX437UzoQ/view', msg: '📦 Đang mở catalog linh kiện LED TDL...' },
+      ]
+    },
+    {
+      icon: '💰', label: 'Báo Giá & Đặt Hàng',
+      type: 'answer',
+      msg: '💰 Để nhận báo giá nhanh nhất:<br><br>📞 <a href="tel:0986474671" style="color:var(--gold)"><b>Gọi: 0986.474.671</b></a><br>💬 <a href="https://zalo.me/0986474671" target="_blank" style="color:var(--blue)">Nhắn Zalo ngay</a><br>✉️ <a href="mailto:thanhdatled@gmail.com" style="color:var(--muted)">thanhdatled@gmail.com</a><br><br>Cung cấp: <b>loại đèn + số lượng + ứng dụng</b><br>→ TDL báo giá trong <b>30 phút</b>!'
+    },
+    {
+      icon: '📦', label: 'Tải Catalog Sản Phẩm',
+      type: 'menu',
+      items: [
+        { icon: '🏭', label: 'Catalog Đèn Công Nghiệp', type: 'link', url: 'https://drive.google.com/file/d/1hNpqi9tl1RhpDJVi2YSJysKjtKwM3Njg/view', msg: '📥 Đang mở catalog đèn công nghiệp...' },
+        { icon: '🌿', label: 'Catalog Đèn Sân Vườn', type: 'link', url: 'https://drive.google.com/file/d/1hJ_VsgP8_Wdfb1BkiUnK61nXINPrQxpi/view', msg: '📥 Đang mở catalog đèn sân vườn...' },
+        { icon: '☀️', label: 'Catalog Đèn Năng Lượng MT', type: 'link', url: 'https://drive.google.com/file/d/1hIh-mzDHycwI8M5HaG5aBlLvT9IzZDUX/view', msg: '📥 Đang mở catalog đèn NLMT...' },
+        { icon: '⚙️', label: 'Catalog Linh Kiện', type: 'link', url: 'https://drive.google.com/file/d/1hH1QYI98mNRO1STrnp8h8DeQX437UzoQ/view', msg: '📥 Đang mở catalog linh kiện...' },
+      ]
+    },
+  ]
+};
 
-<footer>
-    <p>© 2026 Thành Đạt LED - TDL. Thiết kế và vận hành bởi đội ngũ kỹ sư TDL.</p>
-    <p>Hotline: 0986.474.671 | Email: thanhdatled@gmail.com</p>
-</footer>
+// ─── STATE ───
+let currentMenu = null; // null = root, otherwise an item with .items
+
+// ─── HELPERS ───
+function addMsg(html, isUser) {
+  const msgs = document.getElementById('cb-messages');
+  const div = document.createElement('div');
+  div.className = 'msg ' + (isUser ? 'msg-user' : 'msg-bot');
+  div.innerHTML = html;
+  msgs.appendChild(div);
+  msgs.scrollTop = msgs.scrollHeight;
+  document.getElementById('cb-body').scrollTop = 999999;
+}
+
+function showTyping() {
+  const msgs = document.getElementById('cb-messages');
+  const div = document.createElement('div');
+  div.className = 'msg msg-bot'; div.id = 'typing-indicator';
+  div.innerHTML = '<div class="typing-dot"><span></span><span></span><span></span></div>';
+  msgs.appendChild(div);
+  msgs.scrollTop = msgs.scrollHeight;
+}
+function removeTyping() {
+  const t = document.getElementById('typing-indicator');
+  if(t) t.remove();
+}
+
+// ─── RENDER MENU ───
+function renderMenu(menuData, isSubMenu) {
+  const container = document.getElementById('cb-menu');
+  container.innerHTML = '';
+
+  if(isSubMenu) {
+    const back = document.createElement('button');
+    back.className = 'cb-back';
+    back.innerHTML = '← Quay lại menu chính';
+    back.onclick = () => { currentMenu = null; renderMenu(MENU, false); };
+    container.appendChild(back);
+    const div = document.createElement('div'); div.className = 'cb-divider'; container.appendChild(div);
+  }
+
+  const label = document.createElement('div');
+  label.className = 'cb-menu-label';
+  label.textContent = isSubMenu ? menuData.label + ' — chọn câu hỏi:' : menuData.label;
+  container.appendChild(label);
+
+  const wrapper = document.createElement('div');
+  wrapper.className = isSubMenu ? 'cb-sub' : '';
+  container.appendChild(wrapper);
+
+  (menuData.items || menuData).forEach(item => {
+    const btn = document.createElement('button');
+    btn.className = 'cb-btn';
+    btn.innerHTML = `<span>${item.icon}</span><span>${item.label}</span>` + (item.type === 'menu' ? '<span class="cb-btn-arrow">›</span>' : '');
+    btn.setAttribute('aria-label', item.label);
+
+    btn.onclick = () => {
+      // user bubble
+      addMsg(item.icon + ' ' + item.label, true);
+
+      if(item.type === 'menu') {
+        currentMenu = item;
+        showTyping();
+        setTimeout(() => {
+          removeTyping();
+          addMsg('Dưới đây là các câu hỏi về <b>' + item.label + '</b>:', false);
+          renderMenu(item, true);
+        }, 500);
+      } else if(item.type === 'answer') {
+        showTyping();
+        setTimeout(() => {
+          removeTyping();
+          addMsg(item.msg, false);
+          // after answer, show "ask more?" footer
+          renderAfterAnswer();
+        }, 700);
+      } else if(item.type === 'link') {
+        addMsg(item.msg, false);
+        setTimeout(() => window.open(item.url, '_blank'), 400);
+        setTimeout(() => renderAfterAnswer(), 800);
+      }
+    };
+    wrapper.appendChild(btn);
+  });
+}
+
+function renderAfterAnswer() {
+  const container = document.getElementById('cb-menu');
+  container.innerHTML = '';
+  const div = document.createElement('div'); div.className = 'cb-divider'; container.appendChild(div);
+  const label = document.createElement('div'); label.className = 'cb-menu-label'; label.textContent = 'Bạn còn muốn hỏi gì không?'; container.appendChild(label);
+  const row = document.createElement('div'); row.style.cssText='display:flex;gap:8px;flex-wrap:wrap;padding:0 4px 4px;'; container.appendChild(row);
+
+  [{icon:'🔙',label:'Quay lại menu'},{icon:'📞',label:'Gọi tư vấn ngay'},{icon:'💬',label:'Chat Zalo'}].forEach(opt => {
+    const btn = document.createElement('button');
+    btn.className='cb-btn'; btn.style.flex='1';
+    btn.innerHTML=`<span>${opt.icon}</span><span style="font-size:.8rem">${opt.label}</span>`;
+    btn.onclick = () => {
+      if(opt.label==='Quay lại menu') { currentMenu=null; addMsg('Tôi muốn hỏi thêm 😊', true); setTimeout(()=>{ addMsg('Dĩ nhiên! Bạn muốn biết thêm điều gì?',false); renderMenu(MENU,false); },400); }
+      else if(opt.label==='Gọi tư vấn ngay') { window.location.href='tel:0986474671'; }
+      else { window.open('https://zalo.me/0986474671','_blank'); }
+    };
+    row.appendChild(btn);
+  });
+}
+
+// ─── TOGGLE ───
+function toggleChat() {
+  const w = document.getElementById('chatbot-window');
+  const btn = document.getElementById('chatbot-trigger');
+  const isOpen = w.classList.toggle('open');
+  btn.setAttribute('aria-expanded', isOpen);
+  if(isOpen && document.getElementById('cb-menu').innerHTML === '') {
+    renderMenu(MENU, false);
+  }
+}
+</script>
 
 </body>
 </html>
