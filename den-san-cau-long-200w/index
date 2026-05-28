@@ -1,0 +1,2683 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- SEO Primary -->
+<title>Đèn Sân Cầu Lông 200W Module Chống Chói TDL | Giá 1.980.000đ | Thành Đạt LED</title>
+<meta name="description" content="Đèn sân cầu lông 200W module chống chói TDL - TDLF-MKH200. Chip Bridgelux/Philips/Cree, Driver DONE/PHILIPS/MEANWELL. Sản xuất Việt Nam. Giá sale 1.980.000đ. Bảo hành 2 năm. Tư vấn Zalo 0986474671.">
+<meta name="keywords" content="đèn sân cầu lông 200w, đèn pha led module 200w, đèn sân cầu lông chống chói, đèn thể thao TDL, TDLF-MKH200, đèn cầu lông giá rẻ, đèn sân cầu lông Hà Nội">
+<meta name="robots" content="index, follow">
+<meta name="author" content="Thành Đạt LED">
+<link rel="canonical" href="https://tdllighting.com/den-san-cau-long-200w">
+
+<!-- Open Graph -->
+<meta property="og:type" content="product">
+<meta property="og:title" content="Đèn Sân Cầu Lông 200W Module Chống Chói | 1.980.000đ">
+<meta property="og:description" content="Đèn pha LED module 200W khung hộp chuyên sân cầu lông. Chip Bridgelux/Philips/Cree. Sản xuất Việt Nam. Giá xưởng 1.980.000đ.">
+<meta property="og:url" content="https://tdllighting.com/den-san-cau-long-200w">
+<meta property="og:site_name" content="Thành Đạt LED">
+<meta property="og:locale" content="vi_VN">
+
+<!-- Schema.org Product -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org/",
+  "@type": "Product",
+  "name": "Đèn Sân Cầu Lông 200W Module Chống Chói TDL",
+  "description": "Đèn pha LED module 200W khung hộp chuyên dụng sân cầu lông, chống chói, sản xuất tại Việt Nam",
+  "brand": {"@type": "Brand", "name": "TDL"},
+  "model": "TDLF-MKH200",
+  "offers": {
+    "@type": "Offer",
+    "price": "1980000",
+    "priceCurrency": "VND",
+    "availability": "https://schema.org/InStock",
+    "seller": {"@type": "Organization", "name": "Thành Đạt LED"}
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.9",
+    "reviewCount": "87"
+  }
+}
+</script>
+
+<!-- Local Business Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Thành Đạt LED",
+  "telephone": "0986474671",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Số 938 đường Quang Trung, Phường Yên Nghĩa",
+    "addressLocality": "Hà Nội",
+    "addressCountry": "VN"
+  },
+  "url": "https://tdllighting.com"
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Mulish:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --gold: #f5a623;
+  --gold-light: #ffc84a;
+  --gold-dark: #c9850a;
+  --navy: #060f1c;
+  --navy2: #0b1a2e;
+  --navy3: #0f2240;
+  --blue-accent: #0068ff;
+  --green: #16a34a;
+  --white: #fff;
+  --text-muted: rgba(255,255,255,0.65);
+  --border: rgba(255,255,255,0.08);
+  --border-gold: rgba(245,166,35,0.4);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Mulish', sans-serif;
+  background: var(--navy);
+  color: #fff;
+  line-height: 1.65;
+  overflow-x: hidden;
+}
+
+img { width: 100%; display: block; }
+a { text-decoration: none; color: inherit; }
+
+.container { max-width: 1180px; margin: auto; padding: 0 20px; }
+section { padding: 80px 0; }
+
+.section-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 46px;
+  font-weight: 800;
+  text-align: center;
+  margin-bottom: 14px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.section-desc {
+  max-width: 700px;
+  margin: 0 auto 50px;
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 16px;
+}
+
+.gold { color: var(--gold); }
+
+/* HEADER */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 9000;
+  background: rgba(6,15,28,0.96);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+}
+
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 0;
+}
+
+.logo {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 28px;
+  font-weight: 900;
+  color: var(--gold);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.logo small {
+  display: block;
+  font-size: 10px;
+  font-weight: 400;
+  color: var(--text-muted);
+  letter-spacing: 3px;
+  font-family: 'Mulish', sans-serif;
+}
+
+.header-cta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.hdr-phone {
+  font-weight: 700;
+  color: var(--gold);
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.hdr-zalo {
+  background: var(--blue-accent);
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 14px;
+  transition: .25s;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.hdr-zalo:hover { background: #0052cc; transform: translateY(-2px); }
+
+/* HERO */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  background:
+    linear-gradient(135deg, rgba(6,15,28,0.9) 0%, rgba(11,26,46,0.88) 100%),
+    url('anh-cong-trinh-1.jpg') center/cover no-repeat;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -10%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(245,166,35,0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: -20%;
+  left: -5%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(0,104,255,0.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 60px;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: rgba(245,166,35,0.12);
+  border: 1px solid var(--border-gold);
+  border-radius: 50px;
+  color: var(--gold);
+  font-size: 13px;
+  font-weight: 700;
+  margin-bottom: 22px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.badge-dot {
+  width: 8px;
+  height: 8px;
+  background: var(--gold);
+  border-radius: 50%;
+  animation: blink 1.5s infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+.hero h1 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 66px;
+  font-weight: 900;
+  line-height: 1.05;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.hero-sub {
+  color: var(--text-muted);
+  font-size: 17px;
+  margin-bottom: 28px;
+  line-height: 1.7;
+}
+
+.price-block {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--border-gold);
+  border-radius: 16px;
+  padding: 24px 28px;
+  margin-bottom: 28px;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.old-price {
+  color: var(--text-muted);
+  text-decoration: line-through;
+  font-size: 20px;
+}
+
+.new-price {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 72px;
+  font-weight: 900;
+  color: var(--gold);
+  line-height: 1;
+}
+
+.price-right {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.price-tag {
+  background: #dc2626;
+  color: #fff;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 700;
+  display: inline-block;
+}
+
+.price-ship {
+  font-size: 13px;
+  color: var(--gold);
+  font-weight: 600;
+}
+
+.hero-features {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 28px;
+}
+
+.feat-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: rgba(255,255,255,0.82);
+}
+
+.feat-item span:first-child { font-size: 18px; }
+
+.hero-btns {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--gold);
+  color: #000;
+  padding: 16px 28px;
+  border-radius: 10px;
+  font-weight: 800;
+  font-size: 16px;
+  transition: .25s;
+  border: none;
+  cursor: pointer;
+}
+.btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); }
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: 2px solid var(--border-gold);
+  color: #fff;
+  padding: 16px 28px;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 16px;
+  transition: .25s;
+}
+.btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+
+/* HERO PRODUCT VISUAL */
+.hero-product {
+  position: relative;
+}
+
+.product-showcase {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  overflow: hidden;
+  position: relative;
+}
+
+.product-img-wrap {
+  background: linear-gradient(135deg, #0b1a2e 0%, #0f2240 100%);
+  padding: 40px;
+  text-align: center;
+  position: relative;
+  min-height: 280px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.product-icon-big {
+  font-size: 100px;
+  filter: drop-shadow(0 0 30px rgba(245,166,35,0.5));
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.product-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(245,166,35,0.15) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.product-specs-mini {
+  padding: 20px 24px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.spec-mini-item {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.spec-mini-label {
+  font-size: 11px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.spec-mini-val {
+  font-size: 14px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.spec-mini-val.gold { color: var(--gold); }
+
+.product-badge {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: #dc2626;
+  color: #fff;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* TRUST BAR */
+.trust-bar {
+  background: var(--navy2);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 24px 0;
+}
+
+.trust-items {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.trust-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.trust-item-icon { font-size: 24px; }
+
+.trust-item span:last-child { color: rgba(255,255,255,0.85); }
+.trust-item strong { color: var(--gold); display: block; font-size: 15px; }
+
+/* PRODUCT SPEC TABLE */
+.spec-section { background: var(--navy2); }
+
+.spec-table-wrap {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  overflow: hidden;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.spec-table-header {
+  background: rgba(245,166,35,0.1);
+  border-bottom: 1px solid var(--border-gold);
+  padding: 18px 28px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.spec-table-header h3 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.spec-row {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  border-bottom: 1px solid var(--border);
+  transition: .2s;
+}
+.spec-row:last-child { border-bottom: none; }
+.spec-row:hover { background: rgba(255,255,255,0.03); }
+
+.spec-key {
+  padding: 16px 28px;
+  color: var(--text-muted);
+  font-size: 14px;
+  font-weight: 600;
+  border-right: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.spec-val {
+  padding: 16px 28px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #fff;
+  display: flex;
+  align-items: center;
+}
+
+.spec-val.highlight { color: var(--gold); font-size: 18px; font-weight: 800; }
+
+.spec-chips {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.chip {
+  background: rgba(245,166,35,0.12);
+  border: 1px solid var(--border-gold);
+  color: var(--gold);
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.chip.blue { background: rgba(0,104,255,0.12); border-color: rgba(0,104,255,0.4); color: #60a5fa; }
+.chip.green { background: rgba(22,163,74,0.12); border-color: rgba(22,163,74,0.4); color: #4ade80; }
+
+/* BENEFIT SECTION */
+.benefit-section { background: var(--navy); }
+
+.benefit-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.benefit-card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 32px 28px;
+  transition: .3s;
+  position: relative;
+  overflow: hidden;
+}
+
+.benefit-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--gold), var(--gold-light));
+  transform: scaleX(0);
+  transition: .3s;
+}
+
+.benefit-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--border-gold);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+}
+.benefit-card:hover::before { transform: scaleX(1); }
+
+.benefit-icon { font-size: 44px; margin-bottom: 18px; }
+
+.benefit-card h3 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--gold);
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.benefit-card p { color: var(--text-muted); line-height: 1.7; }
+
+/* USE CASE SECTION */
+.usecase-section { background: var(--navy2); }
+
+.usecase-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.usecase-card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 28px 20px;
+  text-align: center;
+  transition: .3s;
+}
+
+.usecase-card:hover {
+  border-color: var(--border-gold);
+  transform: translateY(-4px);
+}
+
+.usecase-icon { font-size: 48px; margin-bottom: 14px; }
+.usecase-card h4 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+.usecase-card p { color: var(--text-muted); font-size: 13px; }
+
+/* COLOR TEMP SECTION */
+.color-section { background: var(--navy); }
+
+.color-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.color-card {
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  transition: .3s;
+}
+.color-card:hover { transform: translateY(-6px); }
+
+.color-preview {
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 48px;
+  position: relative;
+}
+
+.warm { background: radial-gradient(circle, rgba(255,180,60,0.3), rgba(11,26,46,0.95)); border-bottom: 3px solid #ff8c00; }
+.neutral { background: radial-gradient(circle, rgba(255,220,160,0.25), rgba(11,26,46,0.95)); border-bottom: 3px solid #ffd27a; }
+.cool { background: radial-gradient(circle, rgba(200,230,255,0.25), rgba(11,26,46,0.95)); border-bottom: 3px solid #cce5ff; }
+
+.color-info { padding: 20px; }
+.color-info h4 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+}
+.color-info .kelvin { color: var(--gold); font-weight: 700; font-size: 15px; margin-bottom: 8px; }
+.color-info p { color: var(--text-muted); font-size: 13px; }
+
+/* PROCESS */
+.process-section { background: var(--navy2); }
+
+.process-steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  position: relative;
+  margin-top: 50px;
+}
+
+.process-steps::before {
+  content: '';
+  position: absolute;
+  top: 35px;
+  left: 12%;
+  right: 12%;
+  height: 2px;
+  background: linear-gradient(90deg, var(--gold), var(--gold-light), var(--gold));
+  opacity: 0.4;
+  z-index: 0;
+}
+
+.step-item {
+  text-align: center;
+  padding: 0 16px;
+  position: relative;
+  z-index: 1;
+}
+
+.step-num {
+  width: 70px;
+  height: 70px;
+  background: var(--gold);
+  color: #000;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 28px;
+  font-weight: 900;
+  margin: 0 auto 20px;
+  position: relative;
+  box-shadow: 0 0 0 6px rgba(245,166,35,0.15);
+}
+
+.step-item h4 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--gold);
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+
+.step-item p { color: var(--text-muted); font-size: 13px; line-height: 1.6; }
+
+/* FAQ */
+.faq-section { background: var(--navy); }
+
+.faq-list { max-width: 860px; margin: 0 auto; }
+
+.faq-item {
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  margin-bottom: 14px;
+  overflow: hidden;
+  transition: .3s;
+}
+
+.faq-item.open { border-color: var(--border-gold); }
+
+.faq-q {
+  padding: 20px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 16px;
+  gap: 16px;
+  background: rgba(255,255,255,0.02);
+  transition: .2s;
+}
+.faq-q:hover { background: rgba(255,255,255,0.04); }
+.faq-q .faq-icon { color: var(--gold); font-size: 20px; font-weight: 900; flex-shrink: 0; transition: .3s; }
+.faq-item.open .faq-icon { transform: rotate(45deg); }
+
+.faq-a {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height .4s ease;
+}
+
+.faq-item.open .faq-a { max-height: 300px; }
+
+.faq-a-inner {
+  padding: 0 24px 20px;
+  color: var(--text-muted);
+  line-height: 1.7;
+  font-size: 15px;
+  border-top: 1px solid var(--border);
+  padding-top: 16px;
+}
+
+/* REVIEWS */
+.review-section { background: var(--navy2); }
+
+.review-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+.review-card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 24px;
+  transition: .3s;
+}
+.review-card:hover { border-color: var(--border-gold); transform: translateY(-4px); }
+
+.review-stars { color: var(--gold); font-size: 16px; margin-bottom: 12px; letter-spacing: 2px; }
+
+.review-text {
+  color: rgba(255,255,255,0.82);
+  font-size: 15px;
+  line-height: 1.7;
+  margin-bottom: 16px;
+  font-style: italic;
+}
+
+.review-meta { display: flex; align-items: center; gap: 12px; }
+
+.review-avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: var(--gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  color: #000;
+  font-size: 16px;
+  flex-shrink: 0;
+}
+
+.review-name { font-weight: 700; font-size: 15px; }
+.review-role { font-size: 12px; color: var(--text-muted); }
+
+/* CTA SECTION */
+.cta-section {
+  background:
+    linear-gradient(rgba(6,15,28,0.92), rgba(6,15,28,0.92)),
+    url('anh-cong-trinh-2.jpg') center/cover;
+}
+
+.cta-box {
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.cta-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 52px;
+  font-weight: 900;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.cta-desc { color: var(--text-muted); font-size: 17px; margin-bottom: 36px; }
+
+.form-wrap {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 36px;
+}
+
+.form-group { margin-bottom: 16px; }
+
+.form-input {
+  width: 100%;
+  padding: 14px 18px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  color: #fff;
+  font-family: 'Mulish', sans-serif;
+  font-size: 15px;
+  transition: .2s;
+  outline: none;
+}
+.form-input:focus { border-color: var(--border-gold); background: rgba(255,255,255,0.08); }
+.form-input::placeholder { color: var(--text-muted); }
+
+textarea.form-input { height: 100px; resize: none; }
+
+.submit-btn {
+  width: 100%;
+  padding: 16px;
+  background: var(--gold);
+  color: #000;
+  border: none;
+  border-radius: 10px;
+  font-size: 17px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: .25s;
+  font-family: 'Mulish', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+.submit-btn:hover { background: var(--gold-light); transform: translateY(-2px); }
+
+#copyStatus { margin-top: 12px; font-weight: 700; color: #4ade80; font-size: 14px; }
+
+/* FOOTER */
+footer {
+  background: #030810;
+  padding: 50px 20px 100px;
+  text-align: center;
+}
+
+.footer-logo {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 32px;
+  font-weight: 900;
+  color: var(--gold);
+  letter-spacing: 2px;
+  margin-bottom: 12px;
+}
+
+.footer-info { color: var(--text-muted); font-size: 14px; line-height: 1.8; }
+.footer-info a { color: var(--gold); }
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+.footer-links a { color: var(--text-muted); font-size: 13px; transition: .2s; }
+.footer-links a:hover { color: var(--gold); }
+
+/* FLOATING ZALO */
+.float-zalo {
+  position: fixed;
+  right: 24px;
+  bottom: 100px;
+  z-index: 8000;
+}
+
+.float-zalo a {
+  width: 62px;
+  height: 62px;
+  background: var(--blue-accent);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  box-shadow: 0 6px 24px rgba(0,104,255,0.5);
+  animation: zalo-pulse 2.5s infinite;
+  transition: .25s;
+}
+.float-zalo a:hover { transform: scale(1.1); }
+
+@keyframes zalo-pulse {
+  0%, 100% { box-shadow: 0 6px 24px rgba(0,104,255,0.5); }
+  50% { box-shadow: 0 6px 40px rgba(0,104,255,0.8); }
+}
+
+/* MOBILE BOTTOM BAR */
+.mobile-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: var(--navy);
+  border-top: 1px solid var(--border);
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  z-index: 9999;
+  box-shadow: 0 -6px 30px rgba(0,0,0,0.5);
+}
+
+.mobile-bar a {
+  padding: 12px 6px;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 700;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  border-right: 1px solid var(--border);
+  transition: .2s;
+}
+.mobile-bar a:last-child { border-right: none; }
+
+.mbar-call { background: var(--green); }
+.mbar-zalo { background: var(--blue-accent); animation: mbar-pulse 2s infinite; }
+.mbar-price { background: var(--gold); color: #000 !important; }
+
+@keyframes mbar-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.88; }
+}
+
+.mobile-bar a span:first-child { font-size: 20px; }
+
+/* POPUP */
+.popup-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.75);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 99999;
+}
+
+.popup-box {
+  background: var(--navy2);
+  border: 1px solid var(--border-gold);
+  border-radius: 20px;
+  padding: 36px;
+  max-width: 420px;
+  width: 90%;
+  text-align: center;
+}
+
+.popup-box h3 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--gold);
+  margin-bottom: 12px;
+  text-transform: uppercase;
+}
+
+.popup-box p { color: var(--text-muted); margin-bottom: 22px; }
+
+.popup-btn {
+  display: block;
+  padding: 14px;
+  background: var(--gold);
+  color: #000;
+  border-radius: 10px;
+  font-weight: 800;
+  font-size: 16px;
+  margin-bottom: 10px;
+  transition: .2s;
+}
+.popup-btn:hover { background: var(--gold-light); }
+
+.popup-close {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  padding: 8px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: 'Mulish', sans-serif;
+  transition: .2s;
+}
+.popup-close:hover { border-color: #fff; color: #fff; }
+
+/* ORDER TOAST */
+.order-toast {
+  position: fixed;
+  bottom: 100px;
+  left: 20px;
+  background: var(--navy2);
+  border: 1px solid var(--border-gold);
+  border-radius: 12px;
+  padding: 12px 16px;
+  font-size: 13px;
+  display: none;
+  z-index: 8999;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+  max-width: 260px;
+  line-height: 1.5;
+}
+
+/* ========== CHATBOT ========== */
+.chatbot-btn {
+  position: fixed;
+  right: 24px;
+  bottom: 180px;
+  z-index: 8500;
+  width: 62px;
+  height: 62px;
+  background: var(--gold);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  cursor: pointer;
+  box-shadow: 0 6px 24px rgba(245,166,35,0.5);
+  border: none;
+  animation: chat-pulse 2.5s infinite;
+  transition: .25s;
+}
+.chatbot-btn:hover { transform: scale(1.1); }
+
+@keyframes chat-pulse {
+  0%, 100% { box-shadow: 0 6px 24px rgba(245,166,35,0.5); }
+  50% { box-shadow: 0 6px 40px rgba(245,166,35,0.8); }
+}
+
+.chat-badge {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  background: #dc2626;
+  color: #fff;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  font-size: 11px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.chatbox {
+  position: fixed;
+  right: 24px;
+  bottom: 260px;
+  width: 360px;
+  max-height: 560px;
+  background: #0b1a2e;
+  border: 1px solid var(--border-gold);
+  border-radius: 20px;
+  display: none;
+  flex-direction: column;
+  z-index: 9500;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+  overflow: hidden;
+}
+
+.chatbox.open { display: flex; }
+
+.chat-header {
+  background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+  padding: 14px 18px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.chat-avatar {
+  width: 42px;
+  height: 42px;
+  background: rgba(0,0,0,0.2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+}
+
+.chat-header-info { flex: 1; }
+
+.chat-header-name {
+  font-weight: 800;
+  font-size: 15px;
+  color: #000;
+}
+
+.chat-header-status {
+  font-size: 12px;
+  color: rgba(0,0,0,0.7);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.chat-status-dot {
+  width: 7px;
+  height: 7px;
+  background: #16a34a;
+  border-radius: 50%;
+  animation: blink 1.5s infinite;
+}
+
+.chat-close-btn {
+  background: rgba(0,0,0,0.15);
+  border: none;
+  color: #000;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.chat-messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-height: 350px;
+}
+
+.chat-messages::-webkit-scrollbar { width: 4px; }
+.chat-messages::-webkit-scrollbar-track { background: transparent; }
+.chat-messages::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 2px; }
+
+.msg {
+  max-width: 86%;
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+.msg-bot {
+  align-self: flex-start;
+}
+
+.msg-user {
+  align-self: flex-end;
+}
+
+.msg-bubble {
+  padding: 10px 14px;
+  border-radius: 16px;
+  display: inline-block;
+}
+
+.msg-bot .msg-bubble {
+  background: rgba(255,255,255,0.08);
+  color: rgba(255,255,255,0.9);
+  border-bottom-left-radius: 4px;
+}
+
+.msg-user .msg-bubble {
+  background: var(--gold);
+  color: #000;
+  font-weight: 600;
+  border-bottom-right-radius: 4px;
+}
+
+.msg-bot .msg-time {
+  font-size: 11px;
+  color: var(--text-muted);
+  margin-top: 4px;
+  padding-left: 4px;
+}
+
+/* Quick Replies */
+.quick-replies {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-top: 8px;
+}
+
+.qr-btn {
+  background: rgba(245,166,35,0.12);
+  border: 1px solid var(--border-gold);
+  color: var(--gold);
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: .2s;
+  font-family: 'Mulish', sans-serif;
+}
+.qr-btn:hover { background: rgba(245,166,35,0.22); }
+
+.chat-input-area {
+  padding: 12px 14px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  gap: 10px;
+  align-items: flex-end;
+}
+
+.chat-input {
+  flex: 1;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 10px 14px;
+  color: #fff;
+  font-family: 'Mulish', sans-serif;
+  font-size: 14px;
+  outline: none;
+  resize: none;
+  transition: .2s;
+  max-height: 100px;
+  min-height: 42px;
+}
+.chat-input:focus { border-color: var(--border-gold); }
+.chat-input::placeholder { color: var(--text-muted); }
+
+.chat-send {
+  background: var(--gold);
+  border: none;
+  color: #000;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: .2s;
+  flex-shrink: 0;
+}
+.chat-send:hover { background: var(--gold-light); }
+
+.chat-zalo-cta {
+  margin: 4px 16px 12px;
+  background: var(--blue-accent);
+  color: #fff;
+  padding: 10px;
+  border-radius: 10px;
+  text-align: center;
+  font-size: 13px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  transition: .2s;
+}
+.chat-zalo-cta:hover { background: #0052cc; }
+
+/* TYPING INDICATOR */
+.typing-dots {
+  display: flex;
+  gap: 4px;
+  padding: 8px 14px;
+  background: rgba(255,255,255,0.08);
+  border-radius: 16px;
+  border-bottom-left-radius: 4px;
+  width: fit-content;
+}
+
+.typing-dots span {
+  width: 7px;
+  height: 7px;
+  background: var(--text-muted);
+  border-radius: 50%;
+  animation: typing 1.2s infinite;
+}
+.typing-dots span:nth-child(2) { animation-delay: 0.2s; }
+.typing-dots span:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes typing {
+  0%, 60%, 100% { transform: translateY(0); opacity: 0.4; }
+  30% { transform: translateY(-8px); opacity: 1; }
+}
+
+/* PRODUCT IMAGE GALLERY */
+.product-gallery-section {
+  background: var(--navy2);
+  padding: 80px 0;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.gallery-card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  overflow: hidden;
+  transition: .3s;
+  position: relative;
+}
+
+.gallery-card:hover {
+  border-color: var(--border-gold);
+  transform: translateY(-6px);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+}
+
+.gallery-card-label {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  background: var(--gold);
+  color: #000;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 13px;
+  font-weight: 800;
+  padding: 4px 14px;
+  border-radius: 20px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  z-index: 2;
+}
+
+.gallery-img-wrap {
+  background: linear-gradient(135deg, #0b1a2e 0%, #0f2240 100%);
+  aspect-ratio: 1 / 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+  padding: 16px;
+}
+
+.gallery-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  transition: transform .4s ease;
+  display: block;
+}
+
+.gallery-img-wrap:hover img {
+  transform: scale(1.05);
+}
+
+.gallery-img-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  color: var(--text-muted);
+}
+
+.gallery-img-placeholder span:first-child { font-size: 60px; }
+.gallery-img-placeholder span:last-child { font-size: 13px; }
+
+.gallery-card-info {
+  padding: 18px 22px;
+  border-top: 1px solid var(--border);
+}
+
+.gallery-card-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 4px;
+}
+
+.gallery-card-desc {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+/* VIDEO SECTION */
+.video-section {
+  background: var(--navy);
+  padding: 80px 0;
+}
+
+.video-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.video-card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  overflow: hidden;
+  transition: .3s;
+}
+
+.video-card:hover {
+  border-color: var(--border-gold);
+  transform: translateY(-4px);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+}
+
+.video-thumb-link {
+  display: block;
+  position: relative;
+  padding-bottom: 56.25%;
+  overflow: hidden;
+  background: #000;
+  text-decoration: none;
+}
+
+.video-thumb-link img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .35s ease, opacity .3s;
+  opacity: .92;
+}
+
+.video-thumb-link:hover img {
+  transform: scale(1.04);
+  opacity: 1;
+}
+
+.video-play-btn {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform .2s;
+}
+
+.video-thumb-link:hover .video-play-btn {
+  transform: scale(1.12);
+}
+
+.video-yt-label {
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  background: rgba(0,0,0,0.65);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: 20px;
+  backdrop-filter: blur(4px);
+}
+
+.video-card-info {
+  padding: 18px 22px;
+  border-top: 1px solid var(--border);
+}
+
+.video-card-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 4px;
+}
+
+.video-card-desc {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+/* RESPONSIVE */
+@media (max-width: 992px) {
+  .gallery-grid { grid-template-columns: 1fr; max-width: 480px; }
+  .video-grid { grid-template-columns: 1fr; max-width: 560px; }
+  .hero-grid { grid-template-columns: 1fr; gap: 40px; text-align: center; }
+  .hero h1 { font-size: 52px; }
+  .price-block { flex-direction: column; align-items: flex-start; gap: 14px; }
+  .new-price { font-size: 58px; }
+  .hero-btns { justify-content: center; }
+  .hero-features { justify-items: start; }
+  .benefit-grid { grid-template-columns: 1fr; }
+  .usecase-grid { grid-template-columns: repeat(2, 1fr); }
+  .color-grid { grid-template-columns: 1fr; }
+  .review-grid { grid-template-columns: 1fr; }
+  .process-steps { grid-template-columns: repeat(2, 1fr); gap: 30px; }
+  .process-steps::before { display: none; }
+  .spec-row { grid-template-columns: 140px 1fr; }
+  .trust-items { gap: 24px; }
+  .chatbox { width: calc(100vw - 32px); right: 16px; }
+  body { padding-bottom: 70px; }
+}
+
+@media (max-width: 600px) {
+  .section-title { font-size: 34px; }
+  .hero h1 { font-size: 40px; }
+  .usecase-grid { grid-template-columns: 1fr 1fr; }
+  .process-steps { grid-template-columns: 1fr 1fr; }
+  .header-cta .hdr-phone { display: none; }
+  .spec-row { grid-template-columns: 1fr; }
+  .spec-key { border-right: none; border-bottom: 1px solid var(--border); }
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="container">
+    <div class="header-inner">
+      <div class="logo">
+        Thành Đạt LED
+        <small>TDL LIGHTING FACTORY</small>
+      </div>
+      <div class="header-cta">
+        <a href="tel:0986474671" class="hdr-phone">
+          📞 0986.474.671
+        </a>
+        <a href="https://zalo.me/0986474671" target="_blank" class="hdr-zalo">
+          💬 Zalo Tư Vấn
+        </a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div class="hero-text">
+        <div class="hero-badge">
+          <span class="badge-dot"></span>
+          ĐÈN SÂN CẦU LÔNG CHUYÊN NGHIỆP
+        </div>
+
+        <h1>Đèn Sân Cầu Lông<br><span class="gold">200W Module</span><br>Chống Chói</h1>
+
+        <p class="hero-sub">
+          Đèn pha LED module 200W khung hộp – thiết kế chuyên dụng sân cầu lông,
+          ánh sáng đều tuyệt đối, chống chói hiệu quả, sản xuất tại Việt Nam.
+        </p>
+
+        <div class="price-block">
+          <div>
+            <div class="old-price">2.500.000đ</div>
+            <div class="new-price">1.980.000đ</div>
+          </div>
+          <div class="price-right">
+            <span class="price-tag">⚡ GIẢM 21%</span>
+            <span class="price-ship">✓ Freeship toàn quốc</span>
+            <span class="price-ship">✓ Bảo hành 2 năm</span>
+          </div>
+        </div>
+
+        <div class="hero-features">
+          <div class="feat-item"><span>💡</span> Chip Bridgelux/Philips/Cree</div>
+          <div class="feat-item"><span>⚡</span> Driver DONE/PHILIPS/MEANWELL</div>
+          <div class="feat-item"><span>🏭</span> Sản xuất tại Việt Nam</div>
+          <div class="feat-item"><span>🎯</span> Chống chói chuẩn thi đấu</div>
+          <div class="feat-item"><span>⏱️</span> Tuổi thọ ~50.000 giờ</div>
+          <div class="feat-item"><span>🌡️</span> 3000K / 4000K / 6000K</div>
+        </div>
+
+        <div class="hero-btns">
+          <a href="https://zalo.me/0986474671" target="_blank" class="btn-primary">
+            💬 Tư Vấn Ngay Qua Zalo
+          </a>
+          <a href="#bao-gia" class="btn-outline">
+            📋 Nhận Báo Giá
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-product">
+        <div class="product-showcase">
+          <div class="product-badge">SALE -21%</div>
+          <div class="product-img-wrap">
+            <div class="product-glow"></div>
+            <div class="product-icon-big">💡</div>
+            <div style="text-align:center">
+              <div style="font-family:'Barlow Condensed',sans-serif;font-size:20px;font-weight:800;color:var(--gold);letter-spacing:2px">TDLF-MKH200</div>
+              <div style="color:var(--text-muted);font-size:13px;margin-top:4px">Đèn Pha LED Module 200W Khung Hộp</div>
+            </div>
+          </div>
+          <div class="product-specs-mini">
+            <div class="spec-mini-item">
+              <span class="spec-mini-label">Công suất</span>
+              <span class="spec-mini-val gold">200W</span>
+            </div>
+            <div class="spec-mini-item">
+              <span class="spec-mini-label">Thương hiệu</span>
+              <span class="spec-mini-val">TDL</span>
+            </div>
+            <div class="spec-mini-item">
+              <span class="spec-mini-label">Kích thước</span>
+              <span class="spec-mini-val">305×315×125mm</span>
+            </div>
+            <div class="spec-mini-item">
+              <span class="spec-mini-label">Trọng lượng</span>
+              <span class="spec-mini-val">4.000g</span>
+            </div>
+            <div class="spec-mini-item">
+              <span class="spec-mini-label">Ánh sáng</span>
+              <span class="spec-mini-val">3000K/4000K/6000K</span>
+            </div>
+            <div class="spec-mini-item">
+              <span class="spec-mini-label">Xuất xứ</span>
+              <span class="spec-mini-val gold">Việt Nam 🇻🇳</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="container">
+    <div class="trust-items">
+      <div class="trust-item">
+        <span class="trust-item-icon">🏭</span>
+        <div><strong>Xưởng Sản Xuất</strong><span>Giá trực tiếp – không qua trung gian</span></div>
+      </div>
+      <div class="trust-item">
+        <span class="trust-item-icon">🛡️</span>
+        <div><strong>Bảo Hành 2 Năm</strong><span>Hỗ trợ kỹ thuật tận nơi</span></div>
+      </div>
+      <div class="trust-item">
+        <span class="trust-item-icon">🚚</span>
+        <div><strong>Giao Toàn Quốc</strong><span>Freeship đơn từ 5 bộ</span></div>
+      </div>
+      <div class="trust-item">
+        <span class="trust-item-icon">📐</span>
+        <div><strong>Tư Vấn Layout Miễn Phí</strong><span>Thiết kế ánh sáng theo sân</span></div>
+      </div>
+      <div class="trust-item">
+        <span class="trust-item-icon">⚡</span>
+        <div><strong>Phản Hồi Trong 5 Phút</strong><span>Zalo 24/7 – 0986.474.671</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PRODUCT IMAGE GALLERY -->
+<section class="product-gallery-section" id="anh-san-pham">
+  <div class="container">
+    <h2 class="section-title">Hình Ảnh <span class="gold">Sản Phẩm Thực Tế</span></h2>
+    <p class="section-desc">Đèn Pha LED Module 200W Khung Hộp TDL – TDLF-MKH200 – chụp thực tế tại xưởng sản xuất</p>
+
+    <div class="gallery-grid">
+      <div class="gallery-card">
+        <div class="gallery-card-label">Mặt Trước</div>
+        <div class="gallery-img-wrap">
+          <img src="mat-truoc.jpg" alt="Đèn sân cầu lông 200W TDL mặt trước – TDLF-MKH200"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="gallery-img-placeholder" style="display:none">
+            <span>💡</span>
+            <span>Ảnh mặt trước<br><em style="font-size:11px">Đặt file: mat-truoc.jpg</em></span>
+          </div>
+        </div>
+        <div class="gallery-card-info">
+          <div class="gallery-card-title">Mặt Trước – Kính Cường Lực</div>
+          <div class="gallery-card-desc">Module LED dạng khung hộp, kính cường lực chịu nhiệt, thiết kế tản nhiệt tối ưu</div>
+        </div>
+      </div>
+
+      <div class="gallery-card">
+        <div class="gallery-card-label">Mặt Sau</div>
+        <div class="gallery-img-wrap">
+          <img src="mat-sau.jpg" alt="Đèn sân cầu lông 200W TDL mặt sau – TDLF-MKH200"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="gallery-img-placeholder" style="display:none">
+            <span>🔌</span>
+            <span>Ảnh mặt sau<br><em style="font-size:11px">Đặt file: mat-sau.jpg</em></span>
+          </div>
+        </div>
+        <div class="gallery-card-info">
+          <div class="gallery-card-title">Mặt Sau – Tản Nhiệt Nhôm</div>
+          <div class="gallery-card-desc">Cánh tản nhiệt nhôm hợp kim đúc nguyên khối, driver tích hợp IP65, giắc cắm chống nước</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VIDEO SECTION -->
+<section class="video-section" id="video">
+  <div class="container">
+    <h2 class="section-title">Video <span class="gold">Thực Tế & Lắp Đặt</span></h2>
+    <p class="section-desc">Xem đèn TDL 200W hoạt động thực tế trên sân cầu lông và quy trình lắp đặt chuyên nghiệp</p>
+
+    <div class="video-grid">
+
+      <!-- VIDEO 1 -->
+      <div class="video-card">
+        <a href="https://www.youtube.com/watch?v=DVZIS0qX3x8" target="_blank" rel="noopener" class="video-thumb-link">
+          <img
+            src="https://img.youtube.com/vi/DVZIS0qX3x8/maxresdefault.jpg"
+            onerror="this.src='https://img.youtube.com/vi/oTEh1rgvroI/hqdefault.jpg'"
+            alt="Demo ánh sáng Đèn Sân Cầu Lông 200W TDL"
+            loading="lazy">
+          <div class="video-play-btn">
+            <svg viewBox="0 0 68 48" width="60" height="42"><rect width="68" height="48" rx="10" fill="rgba(255,0,0,0.9)"/><path d="M26 14l22 10-22 10z" fill="white"/></svg>
+          </div>
+          <div class="video-yt-label">▶ Xem trên YouTube</div>
+        </a>
+        <div class="video-card-info">
+          <div class="video-card-title">🎬 So sánh </div>
+          <div class="video-card-desc">So Sánh Đèn Module 200W Và Đèn Pha Thường Cho Sân Cầu Lông</div>
+        </div>
+      </div>
+
+      <!-- VIDEO 2: thay oTEh1rgvroI bằng ID video YouTube của bạn -->
+      <div class="video-card">
+        <a href="https://www.youtube.com/watch?v=f59L36YhJoY" target="_blank" rel="noopener" class="video-thumb-link">
+          <img
+            src="https://img.youtube.com/vi/f59L36YhJoY/maxresdefault.jpg"
+            onerror="this.src='https://img.youtube.com/vi/oTEh1rgvroI/hqdefault.jpg'"
+            alt="Hướng dẫn lắp đặt Đèn Sân Cầu Lông 200W TDL"
+            loading="lazy">
+          <div class="video-play-btn">
+            <svg viewBox="0 0 68 48" width="60" height="42"><rect width="68" height="48" rx="10" fill="rgba(255,0,0,0.9)"/><path d="M26 14l22 10-22 10z" fill="white"/></svg>
+          </div>
+          <div class="video-yt-label">▶ Xem trên YouTube</div>
+        </a>
+        <div class="video-card-info">
+          <div class="video-card-title">🔧 Review Đèn Cầu Lông </div>
+          <div class="video-card-desc">Review Ánh Sáng Đèn Sân Cầu Lông 200W Module Ban Đêm</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SPEC SECTION -->
+<section class="spec-section" id="thong-so">
+  <div class="container">
+    <h2 class="section-title">Thông Số Kỹ Thuật <span class="gold">TDLF-MKH200</span></h2>
+    <p class="section-desc">Đèn pha LED module 200W khung hộp chuyên dụng – thiết kế tối ưu cho sân cầu lông và sân thể thao ngoài trời</p>
+
+    <div class="spec-table-wrap">
+      <div class="spec-table-header">
+        <span>📋</span>
+        <h3>Thông Số Đầy Đủ – Đèn Pha Module 200W TDL</h3>
+      </div>
+
+      <div class="spec-row">
+        <div class="spec-key">💡 Tên sản phẩm</div>
+        <div class="spec-val">Đèn Pha LED Module 200W Khung Hộp</div>
+      </div>
+      <div class="spec-row">
+        <div class="spec-key">🏷️ Thương hiệu</div>
+        <div class="spec-val">TDL (Thành Đạt LED)</div>
+      </div>
+      <div class="spec-row">
+        <div class="spec-key">🔢 Mã sản phẩm</div>
+        <div class="spec-val" style="font-family:'Barlow Condensed',sans-serif;font-size:20px;color:var(--gold);font-weight:800">TDLF-MKH200</div>
+      </div>
+      <div class="spec-row">
+        <div class="spec-key">⚡ Công suất</div>
+        <div class="spec-val highlight">200W</div>
+      </div>
+      <div class="spec-row">
+        <div class="spec-key">🌈 Nhiệt độ màu</div>
+        <div class="spec-val">
+          <div class="spec-chips">
+            <span class="chip" style="background:rgba(255,140,0,0.15);border-color:rgba(255,140,0,0.5);color:#ffa347">🟡 3000K – Vàng ấm</span>
+            <span class="chip" style="background:rgba(255,210,100,0.12);border-color:rgba(255,210,100,0.4);color:#ffd27a">⚪ 4000K – Trung tính</span>
+            <span class="chip" style="background:rgba(200,225,255,0.1);border-color:rgba(180,210,255,0.4);color:#cce5ff">🔵 6000K – Trắng sáng</span>
+          </div>
+        </div>
+      </div>
+      <div class="spec-row">
+        <div class="spec-key">🔬 Chip LED</div>
+        <div class="spec-val">
+          <div class="spec-chips">
+            <span class="chip">SMD Bridgelux</span>
+            <span class="chip blue">Philips</span>
+            <span class="chip green">Cree</span>
+          </div>
+        </div>
+      </div>
+      <div class="spec-row">
+        <div class="spec-key">⚙️ Driver</div>
+        <div class="spec-val">
+          <div class="spec-chips">
+            <span class="chip">DONE</span>
+            <span class="chip blue">PHILIPS</span>
+            <span class="chip green">MEANWELL</span>
+            <span class="chip">INVENTRONICS</span>
+          </div>
+        </div>
+      </div>
+      <div class="spec-row">
+        <div class="spec-key">📐 Kích thước</div>
+        <div class="spec-val">305 × 315 × 125 mm</div>
+      </div>
+      <div class="spec-row">
+        <div class="spec-key">⚖️ Trọng lượng</div>
+        <div class="spec-val">4.000g (4kg)</div>
+      </div>
+      <div class="spec-row">
+        <div class="spec-key">⏳ Tuổi thọ</div>
+        <div class="spec-val">~50.000 giờ</div>
+      </div>
+      <div class="spec-row">
+        <div class="spec-key">💰 Giá bán</div>
+        <div class="spec-val highlight">1.980.000đ / bộ</div>
+      </div>
+      <div class="spec-row">
+        <div class="spec-key">🇻🇳 Xuất xứ</div>
+        <div class="spec-val" style="color:#4ade80;font-weight:700">✅ Sản xuất tại Việt Nam</div>
+      </div>
+    </div>
+
+    <div style="text-align:center;margin-top:36px">
+      <a href="https://zalo.me/0986474671" target="_blank" class="btn-primary" style="display:inline-flex">
+        📩 Nhận Báo Giá Ngay – Zalo 0986.474.671
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- BENEFIT -->
+<section class="benefit-section">
+  <div class="container">
+    <h2 class="section-title">Tại Sao Chọn <span class="gold">Đèn TDL 200W</span>?</h2>
+    <p class="section-desc">Được hàng trăm chủ sân cầu lông tin dùng trên toàn quốc</p>
+
+    <div class="benefit-grid">
+      <div class="benefit-card">
+        <div class="benefit-icon">🎯</div>
+        <h3>Chống Chói Tuyệt Đối</h3>
+        <p>Thiết kế module khung hộp giúp kiểm soát chùm sáng chính xác, không gây chói mắt cho vận động viên khi nhìn lên, đảm bảo trải nghiệm thi đấu tốt nhất.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon">💡</div>
+        <h3>Chip LED Cao Cấp</h3>
+        <p>Sử dụng chip SMD Bridgelux / Philips / Cree – hiệu suất phát quang 120-130 lm/W, quang thông 24.000-26.000 lm, sáng đều và ổn định lâu dài.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon">⚡</div>
+        <h3>Driver Ngoại Nhập</h3>
+        <p>Driver DONE / PHILIPS / MEANWELL / INVENTRONICS – ổn định dòng điện, chống nhấp nháy, kéo dài tuổi thọ đèn lên đến 50.000 giờ.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon">🏭</div>
+        <h3>Giá Xưởng Trực Tiếp</h3>
+        <p>Sản xuất 100% tại Việt Nam – không qua trung gian, tiết kiệm chi phí tối đa cho chủ đầu tư. Mua số lượng lớn được chiết khấu đặc biệt.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon">🛡️</div>
+        <h3>Bảo Hành 2 Năm</h3>
+        <p>Bảo hành chính hãng 24 tháng, hỗ trợ kỹ thuật tận nơi tại Hà Nội và các tỉnh lân cận. Đổi mới trong 30 ngày nếu lỗi sản xuất.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon">📐</div>
+        <h3>Tư Vấn Layout Miễn Phí</h3>
+        <p>Đội ngũ kỹ thuật TDL hỗ trợ thiết kế bố trí đèn, tính toán số lượng phù hợp với kích thước sân hoàn toàn miễn phí trước khi mua.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- USE CASE -->
+<section class="usecase-section">
+  <div class="container">
+    <h2 class="section-title">Phù Hợp Cho <span class="gold">Mọi Sân Thể Thao</span></h2>
+    <p class="section-desc">Đèn pha module 200W TDL ứng dụng đa dạng cho các sân thể thao ngoài trời và trong nhà</p>
+
+    <div class="usecase-grid">
+      <div class="usecase-card">
+        <div class="usecase-icon">🏸</div>
+        <h4>Sân Cầu Lông</h4>
+        <p>Ánh sáng đều, không chói, chuẩn cho thi đấu cả ngày lẫn đêm</p>
+      </div>
+      <div class="usecase-card">
+        <div class="usecase-icon">🎾</div>
+        <h4>Sân Tennis</h4>
+        <p>Đủ sáng chuẩn LUX cho sân tennis tiêu chuẩn quốc tế</p>
+      </div>
+      <div class="usecase-card">
+        <div class="usecase-icon">🏐</div>
+        <h4>Sân Pickleball</h4>
+        <p>Ánh sáng mạnh, ổn định, phù hợp sân trong nhà và ngoài trời</p>
+      </div>
+      <div class="usecase-card">
+        <div class="usecase-icon">⚽</div>
+        <h4>Sân Bóng Đá</h4>
+        <p>Chiếu xa, góc rộng, lắp trên cột cao cho sân mini và sân 7 người</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COLOR TEMP -->
+<section class="color-section">
+  <div class="container">
+    <h2 class="section-title">Lựa Chọn <span class="gold">Nhiệt Độ Màu</span></h2>
+    <p class="section-desc">3 tùy chọn nhiệt độ màu để phù hợp với nhu cầu và không gian sân của bạn</p>
+
+    <div class="color-grid">
+      <div class="color-card">
+        <div class="color-preview warm">🌕</div>
+        <div class="color-info">
+          <h4>Ánh Sáng Vàng</h4>
+          <div class="kelvin">3000K – Warm White</div>
+          <p>Tạo không gian ấm áp, phù hợp sân giải trí, sân gia đình, không gian thể thao trong nhà cần cảm giác thoải mái.</p>
+        </div>
+      </div>
+      <div class="color-card">
+        <div class="color-preview neutral">🌟</div>
+        <div class="color-info">
+          <h4>Ánh Sáng Trung Tính</h4>
+          <div class="kelvin">4000K – Neutral White</div>
+          <p>Cân bằng hoàn hảo, màu sắc tự nhiên, phù hợp hầu hết các sân thể thao chuyên nghiệp và bán chuyên.</p>
+        </div>
+      </div>
+      <div class="color-card">
+        <div class="color-preview cool">❄️</div>
+        <div class="color-info">
+          <h4>Ánh Sáng Trắng Sáng</h4>
+          <div class="kelvin">6000K – Cool Daylight</div>
+          <p>Sáng như ban ngày, rõ nét từng chi tiết, lý tưởng cho sân thi đấu chuyên nghiệp và phát sóng trực tiếp.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process-section">
+  <div class="container">
+    <h2 class="section-title">Quy Trình Mua Hàng <span class="gold">Nhanh Chóng</span></h2>
+    <p class="section-desc">Chỉ 4 bước đơn giản – nhận đèn tận tay trong vòng 2-5 ngày</p>
+
+    <div class="process-steps">
+      <div class="step-item">
+        <div class="step-num">1</div>
+        <h4>Liên Hệ Tư Vấn</h4>
+        <p>Nhắn Zalo 0986.474.671 – tư vấn miễn phí layout ánh sáng và số lượng đèn cần thiết</p>
+      </div>
+      <div class="step-item">
+        <div class="step-num">2</div>
+        <h4>Nhận Báo Giá</h4>
+        <p>Báo giá chi tiết trong 5 phút, rõ ràng, không phát sinh chi phí ẩn</p>
+      </div>
+      <div class="step-item">
+        <div class="step-num">3</div>
+        <h4>Xác Nhận Đặt Hàng</h4>
+        <p>Thanh toán linh hoạt – đặt cọc 30%, còn lại khi nhận hàng</p>
+      </div>
+      <div class="step-item">
+        <div class="step-num">4</div>
+        <h4>Giao Hàng & Lắp Đặt</h4>
+        <p>Giao tận nơi toàn quốc trong 2-5 ngày, hỗ trợ kỹ thuật lắp đặt tại Hà Nội</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-section" id="hoi-dap">
+  <div class="container">
+    <h2 class="section-title">Câu Hỏi <span class="gold">Thường Gặp</span></h2>
+    <p class="section-desc">Giải đáp thắc mắc phổ biến nhất từ khách hàng</p>
+
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span>Một sân cầu lông cần bao nhiêu bộ đèn 200W?</span>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-a">
+          <div class="faq-a-inner">
+            Sân cầu lông tiêu chuẩn (6.1m × 13.4m) thông thường cần <strong>4-6 bộ đèn 200W</strong> để đạt độ sáng 300-500 lux theo tiêu chuẩn thi đấu. Tùy chiều cao lắp đặt và yêu cầu ánh sáng, đội ngũ TDL sẽ tư vấn layout cụ thể miễn phí cho sân của bạn.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span>Đèn module khung hộp khác gì đèn pha thông thường?</span>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-a">
+          <div class="faq-a-inner">
+            Đèn module khung hộp có <strong>thiết kế từng module LED riêng biệt</strong>, giúp kiểm soát chùm sáng tốt hơn, hạn chế ánh sáng chói. Kết cấu khung hộp tản nhiệt tốt hơn, tuổi thọ cao hơn đèn pha thông thường. Đặc biệt phù hợp sân thể thao vì không tạo điểm sáng gây khó chịu cho vận động viên.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span>Nhiệt độ màu nào phù hợp nhất cho sân cầu lông?</span>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-a">
+          <div class="faq-a-inner">
+            Đối với sân cầu lông, <strong>5000K-6000K (trắng sáng)</strong> được khuyên dùng nhất – ánh sáng sắc nét giúp nhìn rõ cầu dễ dàng, phản ứng nhanh. Nếu sân vừa giải trí vừa thi đấu, <strong>4000K (trung tính)</strong> là lựa chọn cân bằng hoàn hảo. TDL sẽ tư vấn cụ thể theo mục đích sử dụng sân của bạn.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span>Đèn có chống nước, chống bụi không? Dùng ngoài trời được không?</span>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-a">
+          <div class="faq-a-inner">
+            Đèn TDLF-MKH200 đạt <strong>tiêu chuẩn IP65</strong> – chống bụi hoàn toàn và chống tia nước từ mọi hướng. Vỏ nhôm hợp kim cao cấp chống oxy hóa, phù hợp lắp ngoài trời tại Việt Nam với khí hậu nhiệt đới, mưa nhiều.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span>Chính sách bảo hành và đổi trả như thế nào?</span>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-a">
+          <div class="faq-a-inner">
+            TDL cam kết <strong>bảo hành 24 tháng</strong> cho tất cả sản phẩm. Trong 30 ngày đầu: đổi mới nếu lỗi sản xuất. Trong 24 tháng: sửa chữa miễn phí hoặc thay thế linh kiện. Hỗ trợ kỹ thuật tận nơi tại Hà Nội và các tỉnh lân cận. Liên hệ Zalo 0986.474.671 để được hỗ trợ nhanh nhất.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span>Mua số lượng lớn có chiết khấu không?</span>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-a">
+          <div class="faq-a-inner">
+            Có! TDL áp dụng chính sách chiết khấu hấp dẫn theo số lượng: <strong>5-9 bộ: giảm thêm 3% | 10-19 bộ: giảm thêm 5% | Từ 20 bộ: liên hệ trực tiếp để nhận giá tốt nhất</strong>. Nhà thầu, đơn vị lắp đặt có giá đại lý đặc biệt. Nhắn Zalo ngay để được báo giá riêng!
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span>Thời gian giao hàng mất bao lâu?</span>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-a">
+          <div class="faq-a-inner">
+            Hà Nội và các tỉnh lân cận: <strong>1-2 ngày</strong>. Các tỉnh miền Trung: <strong>2-3 ngày</strong>. Miền Nam và vùng xa: <strong>3-5 ngày</strong>. Hàng luôn có sẵn tại kho, xuất hàng trong ngày khi đặt trước 15h00.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="review-section" id="danh-gia">
+  <div class="container">
+    <h2 class="section-title">Khách Hàng <span class="gold">Nói Gì?</span></h2>
+    <p class="section-desc">87 đánh giá 5 sao từ chủ sân và nhà thầu trên toàn quốc</p>
+
+    <div class="review-grid">
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <div class="review-text">"Đèn sáng đều, không chói mắt, lắp 6 bộ là đủ cho sân cầu lông tiêu chuẩn. Giá xưởng rất tốt so với mua ngoài thị trường. Sẽ tiếp tục mua thêm cho sân thứ 2."</div>
+        <div class="review-meta">
+          <div class="review-avatar">H</div>
+          <div>
+            <div class="review-name">Anh Hưng</div>
+            <div class="review-role">Chủ sân cầu lông – Hà Nội ✓ Đã mua 6 bộ</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <div class="review-text">"Là nhà thầu lắp đèn sân thể thao, tôi đã dùng nhiều hãng khác nhau. TDL module 200W thực sự ổn định, driver chất lượng tốt, khách hàng rất hài lòng."</div>
+        <div class="review-meta">
+          <div class="review-avatar">M</div>
+          <div>
+            <div class="review-name">Chị Mai</div>
+            <div class="review-role">Nhà thầu công trình ✓ Đã mua 20+ bộ</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <div class="review-text">"Mới mở sân cầu lông, được TDL tư vấn layout miễn phí, lắp đặt xong ánh sáng rất đẹp. Khách chơi ban đêm khen sáng rõ, không bị chói. Rất đáng tiền!"</div>
+        <div class="review-meta">
+          <div class="review-avatar">T</div>
+          <div>
+            <div class="review-name">Anh Tuấn</div>
+            <div class="review-role">Chủ sân cầu lông – Bắc Ninh ✓ Đã mua 8 bộ</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <div class="review-text">"Đặt hàng Zalo, nhận đèn sau 2 ngày, chất lượng đóng gói cẩn thận. Đèn sáng mạnh hơn tôi nghĩ, lắp cho sân pickleball rất hài lòng. Bảo hành 2 năm yên tâm."</div>
+        <div class="review-meta">
+          <div class="review-avatar">P</div>
+          <div>
+            <div class="review-name">Anh Phú</div>
+            <div class="review-role">Chủ sân Pickleball – Quảng Ninh ✓ Đã mua 4 bộ</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <div class="review-text">"Gọi Zalo hỏi mua đèn, anh tư vấn viên nhanh lắm, hỏi kích thước sân rồi tư vấn ngay luôn bao nhiêu bộ, lắp ở đâu. Mua về lắp đúng như tư vấn, sáng đẹp."</div>
+        <div class="review-meta">
+          <div class="review-avatar">L</div>
+          <div>
+            <div class="review-name">Chị Lan</div>
+            <div class="review-role">Chủ đầu tư sân thể thao – Hà Nam ✓ Đã mua 12 bộ</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <div class="review-text">"Đã dùng 1 năm, đèn vẫn sáng như mới, không có bộ nào hỏng. Hỏi bảo hành thử thì phản hồi rất nhanh. TDL làm ăn uy tín, sẽ giới thiệu cho đối tác."</div>
+        <div class="review-meta">
+          <div class="review-avatar">D</div>
+          <div>
+            <div class="review-name">Anh Dũng</div>
+            <div class="review-role">Quản lý cụm sân thể thao – Hải Phòng ✓ Đã mua 16 bộ</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA / FORM -->
+<section class="cta-section" id="bao-gia">
+  <div class="container">
+    <div class="cta-box">
+      <h2 class="cta-title">Nhận Báo Giá <span class="gold">Ngay Hôm Nay</span></h2>
+      <p class="cta-desc">Điền thông tin – nội dung được tự động tạo và gửi qua Zalo 0986.474.671</p>
+
+      <div class="form-wrap">
+        <div class="form-group">
+          <input type="text" id="name" class="form-input" placeholder="👤 Họ và tên của bạn">
+        </div>
+        <div class="form-group">
+          <input type="tel" id="phone" class="form-input" placeholder="📞 Số điện thoại liên hệ">
+        </div>
+        <div class="form-group">
+          <textarea id="note" class="form-input" placeholder="🏸 Mô tả nhu cầu: Ví dụ: 2 sân cầu lông trong nhà, cần tư vấn số lượng đèn..."></textarea>
+        </div>
+        <button onclick="guiBaoGia()" class="submit-btn">
+          📩 Gửi Yêu Cầu Báo Giá – Mở Zalo Ngay
+        </button>
+        <p id="copyStatus"></p>
+      </div>
+
+      <div style="margin-top:24px;display:flex;gap:16px;justify-content:center;flex-wrap:wrap">
+        <a href="tel:0986474671" class="btn-primary">📞 Gọi Ngay 0986.474.671</a>
+        <a href="https://zalo.me/0986474671" target="_blank" class="btn-outline">💬 Chat Zalo</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">THÀNH ĐẠT LED</div>
+  <div class="footer-info">
+    <p>🏭 Số 938 Đường Quang Trung, Phường Yên Nghĩa, TP. Hà Nội</p>
+    <p>📞 Hotline / Zalo: <a href="tel:0986474671">0986.474.671</a> &nbsp;|&nbsp; <a href="tel:0867933396">0867.933.396</a></p>
+    <p>🌐 Website: <a href="https://tdllighting.com" target="_blank">tdllighting.com</a></p>
+    <p style="margin-top:8px;font-size:13px">© 2024 Thành Đạt LED – Chuyên sản xuất đèn LED chuyên dụng sân thể thao tại Việt Nam</p>
+  </div>
+  <div class="footer-links">
+    <a href="#hero">Trang chủ</a>
+    <a href="#anh-san-pham">Hình ảnh</a>
+    <a href="#video">Video</a>
+    <a href="#thong-so">Thông số</a>
+    <a href="#hoi-dap">Hỏi đáp</a>
+    <a href="#danh-gia">Đánh giá</a>
+    <a href="#bao-gia">Báo giá</a>
+    <a href="https://zalo.me/0986474671" target="_blank">Zalo</a>
+  </div>
+</footer>
+
+<!-- FLOATING ELEMENTS -->
+<div class="float-zalo">
+  <a href="https://zalo.me/0986474671" target="_blank" title="Chat Zalo ngay">💬</a>
+</div>
+
+<div class="chatbot-btn" id="chatbotBtn" onclick="toggleChatbox()" title="Tư vấn AI 24/7">
+  🤖
+  <span class="chat-badge">1</span>
+</div>
+
+<!-- MOBILE BOTTOM BAR -->
+<div class="mobile-bar">
+  <a href="tel:0986474671" class="mbar-call">
+    <span>📞</span>
+    <span>Gọi Ngay</span>
+  </a>
+  <a href="https://zalo.me/0986474671" target="_blank" class="mbar-zalo">
+    <span>💬</span>
+    <span>Zalo Tư Vấn</span>
+  </a>
+  <a href="#bao-gia" class="mbar-price">
+    <span>📋</span>
+    <span>Báo Giá</span>
+  </a>
+</div>
+
+<!-- POPUP -->
+<div class="popup-overlay" id="popup">
+  <div class="popup-box">
+    <h3>📐 Layout Chiếu Sáng Miễn Phí</h3>
+    <p>Gửi kích thước sân – Thành Đạt LED hỗ trợ bố trí đèn và tính số lượng hoàn toàn miễn phí</p>
+    <a href="https://zalo.me/0986474671" target="_blank" class="popup-btn">
+      💬 Nhận Tư Vấn Ngay Qua Zalo
+    </a>
+    <button class="popup-close" onclick="closePopup()">Bỏ qua</button>
+  </div>
+</div>
+
+<!-- ORDER TOAST -->
+<div class="order-toast" id="orderToast"></div>
+
+<!-- ========== CHATBOX ========== -->
+<div class="chatbox" id="chatbox">
+  <div class="chat-header">
+    <div class="chat-avatar">🤖</div>
+    <div class="chat-header-info">
+      <div class="chat-header-name">Tư Vấn Viên TDL</div>
+      <div class="chat-header-status">
+        <span class="chat-status-dot"></span>
+        Trực tuyến – Phản hồi trong vài giây
+      </div>
+    </div>
+    <button class="chat-close-btn" onclick="toggleChatbox()">✕</button>
+  </div>
+
+  <div class="chat-messages" id="chatMessages"></div>
+
+  <a href="https://zalo.me/0986474671" target="_blank" class="chat-zalo-cta">
+    💬 Chuyển sang Zalo để tư vấn trực tiếp
+  </a>
+
+  <div class="chat-input-area">
+    <textarea class="chat-input" id="chatInput" placeholder="Nhập câu hỏi của bạn..." rows="1" onkeydown="handleChatKey(event)"></textarea>
+    <button class="chat-send" onclick="sendUserMessage()">➤</button>
+  </div>
+</div>
+
+<!-- SCRIPTS -->
+<script>
+// ===== CHATBOT OFFLINE – THÀNH ĐẠT LED =====
+let chatOpened = false;
+let msgCount = 0;
+
+// ---- TỪ KHOÁ NHẬN DẠNG ----
+const KB = {
+  greetings:  ["xin chào","hello","hi","chào","alo","good morning","good afternoon","hey","tư vấn"],
+  price:      ["giá","bao nhiêu","tiền","cost","mua","mấy tiền","giá bán","giá sale","giá gốc","giá sỉ","giá lẻ","bảng giá","báo giá","report","giảm giá"],
+  spec:       ["thông số","công suất","watt","200w","chip","driver","kích thước","trọng lượng","ip65","tuổi thọ","lumen","lm","quang thông","thông tin","mã sp","tdlf","mkh200","model","sản phẩm"],
+  warranty:   ["bảo hành","bảo đảm","đổi trả","hỏng","lỗi","sửa","linh kiện","đổi mới","cam kết","chính sách"],
+  delivery:   ["giao hàng","ship","vận chuyển","bao lâu","mấy ngày","nhận hàng","kho","xuất hàng","freeship","miễn phí vận chuyển"],
+  quantity:   ["bao nhiêu bộ","số lượng","cần mấy","mấy bộ","sân cầu lông","sân đơn","sân đôi","bao nhiêu đèn","cần bao","đủ sáng","layout","bố trí","lắp mấy"],
+  color:      ["màu sắc","kelvin","3000k","4000k","6000k","5000k","trắng","vàng","trung tính","ánh sáng","nhiệt độ màu","warm","cool","neutral","nên chọn màu"],
+  discount:   ["chiết khấu","giảm giá","số lượng lớn","đại lý","nhà thầu","mua nhiều","sỉ","buôn","mua sỉ","ưu đãi","khuyến mãi","giá đặc biệt"],
+  install:    ["lắp đặt","lắp như thế nào","hướng dẫn","cách lắp","kỹ thuật","cột","độ cao","chiều cao","lắp ở đâu","góc chiếu","lắp ngoài trời","trong nhà","ngoài trời"],
+  compare:    ["so sánh","khác gì","tốt hơn","nên mua","tại sao","ưu điểm","nhược điểm","hơn","module","thông thường","khung hộp","đèn pha"],
+  contact:    ["zalo","liên hệ","điện thoại","gọi","tư vấn trực tiếp","hỗ trợ","hotline","số điện thoại","địa chỉ","văn phòng","nhà máy","gặp trực tiếp"],
+  payment:    ["thanh toán","trả tiền","đặt cọc","cọc","chuyển khoản","tiền mặt","cod","momo","ngân hàng","bank","bank transfer"],
+  origin:     ["xuất xứ","sản xuất","made in","việt nam","nhập khẩu","hàng việt","chất lượng","uy tín","thương hiệu"],
+  power:      ["điện","tiêu thụ điện","tiết kiệm","kwh","tiền điện","hóa đơn điện","điện năng","tiết kiệm điện","so sánh điện"],
+  outdoor:    ["ngoài trời","trời mưa","thời tiết","chống nước","chống bụi","ip","chịu nhiệt","chịu nước","nắng mưa","nhiệt đới"],
+  san_tennis: ["tennis","sân tennis"],
+  san_bong:   ["bóng đá","sân bóng","mini","7 người","5 người"],
+  san_pickle: ["pickleball","pickle ball"]
+};
+
+// ---- NỘI DUNG TRẢ LỜI ----
+const RESPONSES = {
+  greetings: {
+    text: "Xin chào! 👋 Tôi là **Tư Vấn Viên TDL** – hỗ trợ tư vấn 24/7.\n\nBạn đang quan tâm đến **Đèn Sân Cầu Lông 200W Module Chống Chói TDLF-MKH200** của Thành Đạt LED?\n\nTôi sẵn sàng giải đáp mọi thắc mắc cho bạn! 🏸",
+    quick: ["💰 Giá bao nhiêu?","📋 Thông số kỹ thuật","🏸 Cần bao nhiêu bộ?","🎨 Chọn màu sắc","🛡️ Bảo hành?","📞 Tư vấn trực tiếp"]
+  },
+  price: {
+    text: "💰 **Giá Đèn Sân Cầu Lông 200W TDL:**\n\n~~Giá gốc: 2.500.000đ/bộ~~\n✅ **Giá SALE: 1.980.000đ / bộ** (giảm 21%)\n\n📦 Freeship đơn từ **5 bộ** trở lên\n🎁 5–9 bộ: giảm thêm **3%** → ~1.920.000đ/bộ\n🎁 10–19 bộ: giảm thêm **5%** → ~1.880.000đ/bộ\n🎁 Từ 20 bộ: **liên hệ giá đặc biệt**\n\nBạn cần bao nhiêu bộ để tôi tính giá tổng?",
+    quick: ["Tôi cần 4 bộ – giá tổng?","Tôi cần 6 bộ – giá tổng?","Tôi cần 10 bộ – giá tổng?","💬 Nhận báo giá qua Zalo"]
+  },
+  spec: {
+    text: "📋 **Thông Số Kỹ Thuật TDLF-MKH200:**\n\n⚡ Công suất: **200W**\n💡 Chip LED: **Bridgelux / Philips / Cree** (120–130 lm/W)\n⚙️ Driver: **DONE / PHILIPS / MEANWELL / INVENTRONICS**\n🌈 Nhiệt độ màu: **3000K / 4000K / 6000K**\n🔆 Quang thông: **24.000–26.000 lm**\n📐 Kích thước: **305×315×125 mm**\n⚖️ Trọng lượng: **4.000g (4kg)**\n🛡️ Chống nước: **IP65**\n⏳ Tuổi thọ: **~50.000 giờ**\n⚡ Nguồn vào: **220V AC / 50Hz**\n🇻🇳 Xuất xứ: **Sản xuất tại Việt Nam**\n💰 Giá: **1.980.000đ / bộ**",
+    quick: ["💰 Giá & chiết khấu","🏸 Cần mấy bộ cho 1 sân?","🎨 Nên chọn màu nào?","🛡️ Bảo hành?"]
+  },
+  warranty: {
+    text: "🛡️ **Chính Sách Bảo Hành TDL:**\n\n✅ Bảo hành **24 tháng** chính hãng\n✅ Đổi mới trong **30 ngày** nếu lỗi sản xuất\n✅ Sửa chữa / thay linh kiện **miễn phí** trong thời gian BH\n✅ Hỗ trợ kỹ thuật **tận nơi** tại Hà Nội & lân cận\n✅ Hotline hỗ trợ: **0986.474.671** – phản hồi trong 5 phút\n\n📌 Mọi khiếu nại xử lý trong **24 giờ** làm việc.",
+    quick: ["🚚 Thời gian giao hàng?","💰 Giá sản phẩm","📞 Liên hệ bảo hành ngay","🏸 Cần mấy bộ?"]
+  },
+  delivery: {
+    text: "🚚 **Thời Gian Giao Hàng:**\n\n📍 Hà Nội & lân cận: **1–2 ngày**\n📍 Miền Bắc khác: **2–3 ngày**\n📍 Miền Trung: **3–4 ngày**\n📍 Miền Nam & vùng xa: **4–5 ngày**\n\n✅ Hàng **luôn có sẵn** tại kho\n✅ Xuất hàng **trong ngày** nếu đặt trước 15h00\n✅ **Freeship** toàn quốc đơn từ 5 bộ trở lên\n✅ Đóng gói cẩn thận, có bảo hiểm hàng hóa",
+    quick: ["💰 Giá sản phẩm","💳 Thanh toán thế nào?","📞 Đặt hàng ngay","🏸 Cần mấy bộ?"]
+  },
+  quantity: {
+    text: "🏸 **Số Đèn Cần Thiết Theo Loại Sân:**\n\n🎯 **Sân đơn** (6.1 × 13.4m):\n→ Cột cao 6–8m: **4–6 bộ**\n→ Cột cao 8–10m: **6–8 bộ**\n\n🏟️ **Sân đôi** (12.2 × 13.4m):\n→ Cần **8–12 bộ** để đạt 300–500 lux\n\n🎾 **Sân tennis** tiêu chuẩn: **8–12 bộ**\n🏐 **Sân Pickleball**: **4–6 bộ**\n⚽ **Sân bóng mini** (5–7 người): **8–16 bộ**\n\n💡 Để tư vấn chính xác nhất, cho TDL biết:\n• Diện tích sân (m²)\n• Chiều cao lắp đặt\n• Trong nhà hay ngoài trời?",
+    quick: ["📐 Tư vấn layout miễn phí","💰 Giá bao nhiêu?","📞 Gọi tư vấn ngay","🎨 Nên chọn màu nào?"]
+  },
+  color: {
+    text: "🌈 **Chọn Nhiệt Độ Màu Phù Hợp:**\n\n🌕 **3000K – Vàng ấm:**\nKhông gian ấm áp, thư giãn – phù hợp sân giải trí gia đình\n\n⚪ **4000K – Trung tính (Natural White):**\nMàu sắc tự nhiên, cân bằng – phù hợp đa số sân bán chuyên\n\n❄️ **6000K – Trắng sáng (Cool Daylight):**\nRõ nét, nhìn rõ cầu, phản ứng nhanh – **khuyến nghị cho thi đấu**\n\n✅ **TDL khuyên dùng 6000K** cho sân cầu lông thi đấu chuyên nghiệp",
+    quick: ["💰 Giá bán?","🏸 Cần bao nhiêu bộ?","📞 Tư vấn thêm","📋 Thông số kỹ thuật"]
+  },
+  discount: {
+    text: "🎁 **Chính Sách Chiết Khấu TDL:**\n\n💰 **Giá lẻ:** 1.980.000đ/bộ\n📦 **5–9 bộ:** giảm thêm 3% → ~1.920.000đ/bộ\n📦 **10–19 bộ:** giảm thêm 5% → ~1.880.000đ/bộ\n📦 **Từ 20 bộ:** liên hệ giá đặc biệt\n\n🏭 **Nhà thầu / đại lý:** chính sách ưu đãi riêng\n🤝 **Mua lần 2 trở đi:** ưu đãi thêm cho khách quen\n\n💬 Nhắn **Zalo 0986.474.671** để nhận báo giá tốt nhất!",
+    quick: ["📞 Liên hệ nhận giá đặc biệt","🚚 Thời gian giao hàng?","💳 Thanh toán thế nào?","📐 Tư vấn layout"]
+  },
+  install: {
+    text: "🔧 **Hướng Dẫn Lắp Đặt Đèn 200W:**\n\n📐 Chiều cao lắp đặt tối ưu: **6–10m**\n🎯 Góc chiếu: điều chỉnh linh hoạt theo sân\n⚡ Nguồn điện: **220V AC / 50Hz**\n🔌 Đấu nối: chuẩn IP65, chống nước\n🌡️ Nhiệt độ hoạt động: –20°C đến +45°C\n\n✅ **TDL hỗ trợ miễn phí:**\n• Thiết kế layout ánh sáng\n• Hướng dẫn lắp đặt qua Zalo / điện thoại\n• Hỗ trợ kỹ thuật tận nơi (Hà Nội & lân cận)",
+    quick: ["📐 Tư vấn layout miễn phí","📞 Gọi kỹ thuật ngay","🏸 Cần mấy bộ?","💰 Giá sản phẩm?"]
+  },
+  compare: {
+    text: "🏆 **Tại Sao Chọn Đèn Module Khung Hộp TDL?**\n\n✅ **Module khung hộp** – kiểm soát chùm sáng chính xác, **KHÔNG CHÓI**\n✅ Chip Bridgelux/Philips/Cree – **hiệu suất quang 120–130 lm/W**\n✅ Driver MEANWELL/PHILIPS – **ổn định dòng, không nhấp nháy**\n✅ Tản nhiệt nhôm đúc nguyên khối – **tuổi thọ 50.000 giờ**\n✅ **Sản xuất 100% tại Việt Nam** – bảo hành nhanh, giá xưởng\n✅ **1.980.000đ** – tốt nhất phân khúc cùng tầm giá",
+    quick: ["💰 Giá bán?","📋 Thông số kỹ thuật","🏸 Cần mấy bộ?","📞 Tư vấn ngay"]
+  },
+  contact: {
+    text: "📞 **Liên Hệ Thành Đạt LED:**\n\n💬 **Zalo (nhanh nhất):** 0986.474.671\n📞 Hotline 1: **0986.474.671**\n📞 Hotline 2: **0867.933.396**\n🌐 Website: **tdllighting.com**\n📍 Địa chỉ: 938 Quang Trung, Yên Nghĩa, Hà Đông, Hà Nội\n\n⏰ **Phản hồi trong vòng 5 phút** qua Zalo!\n🕐 Làm việc: 7h30 – 21h00 tất cả các ngày",
+    quick: ["💬 Mở Zalo ngay","📋 Xem báo giá","🏸 Cần mấy bộ cho sân?","💰 Giá bao nhiêu?"]
+  },
+  payment: {
+    text: "💳 **Hình Thức Thanh Toán:**\n\n✅ **Tiền mặt** khi nhận hàng (COD)\n✅ **Chuyển khoản ngân hàng** – xuất hàng ngay sau khi nhận\n✅ **Đặt cọc linh hoạt:** 30% đặt cọc, 70% khi nhận hàng\n✅ **Momo / ZaloPay** – chuyển nhanh\n\n🏭 Đơn lớn (20+ bộ): có thể thỏa thuận thanh toán theo đợt\n\n💬 Liên hệ Zalo **0986.474.671** để được hỗ trợ đặt hàng!",
+    quick: ["🚚 Thời gian giao hàng?","💰 Giá sản phẩm","📞 Đặt hàng ngay","🎁 Chiết khấu?"]
+  },
+  origin: {
+    text: "🇻🇳 **Xuất Xứ & Chất Lượng TDL:**\n\n✅ **Sản xuất 100% tại Việt Nam** – xưởng tại Hà Đông, Hà Nội\n✅ Chip LED nhập khẩu: **Bridgelux (Mỹ) / Philips (Hà Lan) / Cree (Mỹ)**\n✅ Driver nhập khẩu: **MEANWELL (Đài Loan) / PHILIPS / INVENTRONICS**\n✅ Vỏ nhôm đúc nguyên khối – **chống oxy hóa, bền bỉ**\n✅ Kiểm tra 100% sản phẩm trước khi xuất xưởng\n✅ **Đã cung cấp 500+ công trình** toàn quốc",
+    quick: ["📋 Thông số kỹ thuật","💰 Giá bao nhiêu?","🛡️ Bảo hành?","📞 Tư vấn ngay"]
+  },
+  power: {
+    text: "⚡ **Tiết Kiệm Điện Với Đèn LED 200W TDL:**\n\n📊 So sánh với đèn Metal Halide 400W cùng độ sáng:\n• Metal Halide 400W × 6 bộ = **2.400W**\n• LED TDL 200W × 6 bộ = **1.200W**\n→ **Tiết kiệm 50% điện năng!**\n\n💡 Ví dụ 1 sân cầu lông (6 bộ, dùng 5h/ngày):\n• Cũ: 2.4kW × 5h × 365 ngày × 3.000đ ≈ **13.140.000đ/năm**\n• TDL LED: 1.2kW × 5h × 365 × 3.000đ ≈ **6.570.000đ/năm**\n→ **Tiết kiệm ~6.500.000đ/năm** 🎉",
+    quick: ["💰 Giá bao nhiêu?","🏸 Cần mấy bộ?","📋 Thông số kỹ thuật","📞 Tư vấn ngay"]
+  },
+  outdoor: {
+    text: "🌧️ **Đèn TDL 200W Dùng Ngoài Trời Được Không?**\n\n✅ **IP65** – chống bụi hoàn toàn, chống tia nước từ mọi hướng\n✅ Vỏ nhôm hợp kim **chống oxy hóa, chống ăn mòn**\n✅ Kính cường lực **chịu nhiệt, chống va đập**\n✅ Phù hợp khí hậu Việt Nam: nhiệt độ –20°C đến +45°C\n✅ Đã triển khai **hàng trăm sân ngoài trời** toàn quốc\n\n🏸 Phù hợp cả sân trong nhà lẫn ngoài trời!",
+    quick: ["🔧 Hướng dẫn lắp đặt","💰 Giá bán?","🏸 Cần mấy bộ?","📞 Tư vấn ngay"]
+  },
+  san_tennis: {
+    text: "🎾 **Đèn TDL 200W Cho Sân Tennis:**\n\n✅ Phù hợp sân tennis tiêu chuẩn (23.77 × 10.97m)\n📦 **Số lượng khuyến nghị: 8–12 bộ** (tùy cột cao)\n🎯 Đạt tiêu chuẩn **300–500 lux** cho sân thi đấu\n🌈 Khuyến nghị dùng **6000K** – sắc nét, nhìn rõ bóng\n\n💡 TDL đã lắp đặt cho nhiều sân tennis Hà Nội & toàn quốc\n📐 Tư vấn layout miễn phí khi cung cấp kích thước sân!",
+    quick: ["📐 Tư vấn layout miễn phí","💰 Giá bao nhiêu?","📞 Gọi tư vấn ngay","🏸 Sân cầu lông cần mấy bộ?"]
+  },
+  san_bong: {
+    text: "⚽ **Đèn TDL 200W Cho Sân Bóng Đá:**\n\n✅ Phù hợp sân bóng mini 5–7 người\n📦 **Sân 5 người** (~25×45m): cần **8–12 bộ**\n📦 **Sân 7 người** (~35×55m): cần **12–16 bộ**\n🎯 Góc chiếu rộng, phủ sáng đều toàn mặt sân\n🌈 Khuyến nghị **6000K** – sáng như ban ngày, rõ nét\n\n📐 Tư vấn layout và số lượng chính xác – miễn phí!\nLiên hệ Zalo **0986.474.671**",
+    quick: ["📐 Tư vấn layout miễn phí","💰 Giá bao nhiêu?","📞 Gọi tư vấn ngay","🛡️ Bảo hành?"]
+  },
+  san_pickle: {
+    text: "🏐 **Đèn TDL 200W Cho Sân Pickleball:**\n\n✅ Phù hợp sân Pickleball tiêu chuẩn (6.1 × 13.4m)\n📦 **Số lượng khuyến nghị: 4–6 bộ**\n🎯 Ánh sáng đều, không chói – phù hợp thi đấu\n🌈 Khuyến nghị **5000K–6000K** – sắc nét, tươi sáng\n\n💡 Pickleball đang bùng nổ – TDL đã cung cấp đèn cho nhiều sân Pickleball toàn quốc!\n📐 Tư vấn layout miễn phí cho bạn.",
+    quick: ["📐 Tư vấn layout miễn phí","💰 Giá bao nhiêu?","📞 Gọi tư vấn","🏸 Sân cầu lông cần mấy bộ?"]
+  },
+  // Giá tổng theo số lượng cụ thể
+  qty_4: {
+    text: "💰 **Báo giá 4 bộ đèn TDL 200W:**\n\n✅ Đơn giá: **1.980.000đ/bộ**\n✅ Tổng 4 bộ: **7.920.000đ**\n🚚 Phí ship: tính theo khu vực (miễn phí từ 5 bộ)\n\n💡 Nếu nâng lên **5 bộ**, bạn được:\n• Freeship toàn quốc\n• Giảm thêm 3%: tổng 5 bộ ≈ **9.601.800đ**\n\nBạn muốn tư vấn thêm không?",
+    quick: ["📦 Đặt 5 bộ để freeship","💬 Nhận báo giá Zalo","📐 Tư vấn layout","📞 Gọi ngay"]
+  },
+  qty_6: {
+    text: "💰 **Báo giá 6 bộ đèn TDL 200W:**\n\n✅ Đơn giá áp dụng chiết khấu 3%: **~1.920.600đ/bộ**\n✅ Tổng 6 bộ: **~11.523.600đ**\n🚚 **Freeship toàn quốc**\n\n💡 6 bộ là đủ cho **1 sân cầu lông đơn tiêu chuẩn** (cột 6–8m)\n\nBạn muốn nhận báo giá chi tiết qua Zalo?",
+    quick: ["💬 Nhận báo giá Zalo","📐 Tư vấn layout miễn phí","🏸 Sân đôi cần mấy bộ?","📞 Gọi ngay"]
+  },
+  qty_10: {
+    text: "💰 **Báo giá 10 bộ đèn TDL 200W:**\n\n✅ Đơn giá chiết khấu 5%: **~1.881.000đ/bộ**\n✅ Tổng 10 bộ: **~18.810.000đ**\n🚚 **Freeship toàn quốc**\n🎁 Tiết kiệm so với giá lẻ: **~990.000đ**\n\n💡 10 bộ phù hợp cho **1 sân đôi hoặc 2 sân đơn** cầu lông\n\nNhắn Zalo **0986.474.671** để nhận báo giá chính thức!",
+    quick: ["💬 Nhận báo giá Zalo","📐 Tư vấn layout miễn phí","🎁 Chiết khấu từ 20 bộ?","📞 Gọi ngay"]
+  },
+  default: {
+    text: "Cảm ơn bạn đã nhắn tin! 😊\n\nTôi có thể tư vấn cho bạn về:\n• 💰 Giá bán & chiết khấu số lượng\n• 📋 Thông số kỹ thuật đầy đủ\n• 🏸 Số bộ đèn cần thiết cho từng loại sân\n• 🎨 Lựa chọn nhiệt độ màu phù hợp\n• 🛡️ Chính sách bảo hành 24 tháng\n• 🚚 Giao hàng & thanh toán\n• ⚡ Tư vấn tiết kiệm điện\n\nHoặc liên hệ trực tiếp **Zalo 0986.474.671** để được hỗ trợ nhanh nhất!",
+    quick: ["💰 Giá bao nhiêu?","🏸 Cần mấy bộ?","📋 Thông số kỹ thuật","📞 Zalo tư vấn ngay"]
+  }
+};
+
+// ---- HÀM TIỆN ÍCH ----
+function normalize(str) {
+  return str.toLowerCase()
+    .normalize("NFD").replace(/[\u0300-\u036f]/g,"")
+    .replace(/đ/g,"d").replace(/Đ/g,"D");
+}
+
+function detectIntent(text) {
+  const t = normalize(text);
+
+  // Nhận diện số lượng cụ thể trước
+  if (/\b4\s*b[oô]?\b|bon\s*b[oô]/.test(t) && (t.includes("gia") || t.includes("tong") || t.includes("tien") || t.includes("bao nhieu"))) return 'qty_4';
+  if (/\b6\s*b[oô]?\b|sau\s*b[oô]/.test(t) && (t.includes("gia") || t.includes("tong") || t.includes("tien") || t.includes("bao nhieu"))) return 'qty_6';
+  if (/\b10\s*b[oô]?\b|muoi\s*b[oô]/.test(t) && (t.includes("gia") || t.includes("tong") || t.includes("tien") || t.includes("bao nhieu"))) return 'qty_10';
+
+  // Nhận diện loại sân đặc thù
+  if (KB.san_tennis.some(k => t.includes(normalize(k)))) return 'san_tennis';
+  if (KB.san_bong.some(k => t.includes(normalize(k)))) return 'san_bong';
+  if (KB.san_pickle.some(k => t.includes(normalize(k)))) return 'san_pickle';
+
+  // Nhận diện chủ đề chính
+  const order = ['greetings','payment','power','outdoor','origin','discount','quantity','color','warranty','delivery','install','compare','spec','price','contact'];
+  for (const intent of order) {
+    if (KB[intent] && KB[intent].some(k => t.includes(normalize(k)))) return intent;
+  }
+  return 'default';
+}
+
+// ---- UI FUNCTIONS ----
+function getCurrentTime() {
+  const now = new Date();
+  return now.getHours().toString().padStart(2,'0') + ':' + now.getMinutes().toString().padStart(2,'0');
+}
+
+function addMessage(text, isBot, showTyping = false) {
+  const container = document.getElementById('chatMessages');
+
+  if (showTyping) {
+    const typingEl = document.createElement('div');
+    typingEl.className = 'msg msg-bot';
+    typingEl.id = 'typingIndicator';
+    typingEl.innerHTML = `<div class="typing-dots"><span></span><span></span><span></span></div>`;
+    container.appendChild(typingEl);
+    container.scrollTop = container.scrollHeight;
+    return new Promise(resolve => setTimeout(resolve, 700 + Math.random()*500));
+  }
+
+  const msgEl = document.createElement('div');
+  msgEl.className = `msg ${isBot ? 'msg-bot' : 'msg-user'}`;
+  const formattedText = text
+    .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+    .replace(/~~(.*?)~~/g, '<del>$1</del>')
+    .replace(/\n/g, '<br>');
+  msgEl.innerHTML = `
+    <div class="msg-bubble">${formattedText}</div>
+    ${isBot ? `<div class="msg-time">${getCurrentTime()}</div>` : ''}
+  `;
+  container.appendChild(msgEl);
+  container.scrollTop = container.scrollHeight;
+  msgCount++;
+}
+
+function addQuickReplies(replies) {
+  const container = document.getElementById('chatMessages');
+  const qrEl = document.createElement('div');
+  qrEl.className = 'msg msg-bot';
+  const btns = replies.map(r => `<button class="qr-btn" onclick="handleQuickReply('${r.replace(/'/g,"\\'")}')">${r}</button>`).join('');
+  qrEl.innerHTML = `<div class="quick-replies">${btns}</div>`;
+  container.appendChild(qrEl);
+  container.scrollTop = container.scrollHeight;
+}
+
+async function handleQuickReply(text) {
+  if (text === '💬 Mở Zalo ngay') { window.open('https://zalo.me/0986474671','_blank'); return; }
+  addMessage(text, false);
+  await processMessage(text);
+}
+
+async function processMessage(text) {
+  const typing = addMessage('', true, true);
+  await typing;
+  const t = document.getElementById('typingIndicator');
+  if (t) t.remove();
+  const intent = detectIntent(text);
+  const response = RESPONSES[intent] || RESPONSES.default;
+  addMessage(response.text, true);
+  if (response.quick) addQuickReplies(response.quick);
+}
+
+async function sendUserMessage() {
+  const input = document.getElementById('chatInput');
+  const text = input.value.trim();
+  if (!text) return;
+  input.value = '';
+  addMessage(text, false);
+  await processMessage(text);
+}
+
+function handleChatKey(e) {
+  if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendUserMessage(); }
+}
+
+function toggleChatbox() {
+  const box = document.getElementById('chatbox');
+  const badge = document.querySelector('.chat-badge');
+  box.classList.toggle('open');
+
+  if (box.classList.contains('open') && !chatOpened) {
+    chatOpened = true;
+    if (badge) badge.style.display = 'none';
+    setTimeout(async () => {
+      const typing = addMessage('', true, true);
+      await typing;
+      const t = document.getElementById('typingIndicator');
+      if (t) t.remove();
+      addMessage('Xin chào! 👋 Tôi là **Tư Vấn Viên TDL** – hỗ trợ tư vấn 24/7.\n\nBạn đang quan tâm đến **Đèn Sân Cầu Lông 200W Module Chống Chói TDLF-MKH200**?\n\nHãy hỏi tôi hoặc chọn nhanh bên dưới! 🏸', true);
+      addQuickReplies(['💰 Giá bao nhiêu?','📋 Thông số kỹ thuật','🏸 Cần bao nhiêu bộ?','🎨 Chọn màu sắc','🛡️ Bảo hành?','📞 Tư vấn trực tiếp']);
+    }, 300);
+  }
+}
+
+// ===== FAQ TOGGLE =====
+function toggleFaq(el) {
+  const item = el.parentElement;
+  const allItems = document.querySelectorAll('.faq-item');
+  allItems.forEach(i => { if (i !== item) i.classList.remove('open'); });
+  item.classList.toggle('open');
+}
+
+// ===== FORM SUBMIT =====
+function guiBaoGia() {
+  const name = document.getElementById('name').value.trim();
+  const phone = document.getElementById('phone').value.trim();
+  const note = document.getElementById('note').value.trim();
+
+  if (!name || !phone) {
+    document.getElementById('copyStatus').innerHTML = '⚠️ Vui lòng điền đầy đủ họ tên và số điện thoại';
+    document.getElementById('copyStatus').style.color = '#f87171';
+    return;
+  }
+
+  const message = `📌 KHÁCH HÀNG CẦN BÁO GIÁ – ĐÈN SÂN CẦU LÔNG 200W\n\n👤 Họ tên: ${name}\n📞 SĐT: ${phone}\n🏸 Nhu cầu: ${note || 'Chưa mô tả'}\n\n📍 Sản phẩm quan tâm:\nĐèn Pha Module 200W Chống Chói – TDLF-MKH200\nGiá: 1.980.000đ / bộ\n\n🌐 tdllighting.com`;
+
+  navigator.clipboard.writeText(message).catch(() => {});
+  document.getElementById('copyStatus').innerHTML = '✓ Đã copy nội dung – đang mở Zalo...';
+  document.getElementById('copyStatus').style.color = '#4ade80';
+
+  setTimeout(() => {
+    window.open('https://zalo.me/0986474671', '_blank');
+  }, 500);
+}
+
+// ===== POPUP =====
+let popupShown = false;
+function closePopup() { document.getElementById('popup').style.display = 'none'; }
+
+window.addEventListener('scroll', () => {
+  const pct = window.scrollY / (document.body.scrollHeight - window.innerHeight);
+  if (!popupShown && pct > 0.55) {
+    document.getElementById('popup').style.display = 'flex';
+    popupShown = true;
+  }
+});
+
+// ===== ORDER TOAST =====
+const orders = [
+  { name: 'Anh Hưng – Hà Nội', qty: '6 bộ', time: '5 phút trước' },
+  { name: 'Chị Mai – Bắc Giang', qty: '10 bộ', time: '12 phút trước' },
+  { name: 'Anh Tuấn – Bắc Ninh', qty: '4 bộ', time: '20 phút trước' },
+  { name: 'Chị Lan – Hải Phòng', qty: '8 bộ', time: '35 phút trước' },
+  { name: 'Anh Dũng – Quảng Ninh', qty: '12 bộ', time: '1 giờ trước' }
+];
+
+let toastIdx = 0;
+function showToast() {
+  const o = orders[toastIdx % orders.length];
+  const t = document.getElementById('orderToast');
+  t.innerHTML = `🛒 <strong>${o.name}</strong> vừa đặt <strong>${o.qty}</strong> TDLF-MKH200<br><small style="color:var(--text-muted)">${o.time}</small>`;
+  t.style.display = 'block';
+  setTimeout(() => { t.style.display = 'none'; }, 4000);
+  toastIdx++;
+}
+
+setTimeout(() => showToast(), 8000);
+setInterval(() => showToast(), 20000);
+
+// ===== SCROLL ANIMATION =====
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.style.opacity = '1';
+      e.target.style.transform = 'translateY(0)';
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.benefit-card, .usecase-card, .review-card, .step-item, .faq-item, .color-card').forEach(el => {
+  el.style.opacity = '0';
+  el.style.transform = 'translateY(24px)';
+  el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+  observer.observe(el);
+});
+</script>
+
+</body>
+</html>
