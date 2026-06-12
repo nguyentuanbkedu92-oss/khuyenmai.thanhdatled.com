@@ -1329,55 +1329,51 @@ footer {
   <p class="section-sub">Video test ánh sáng và lắp đặt tại sân bóng chuyền thực tế — không chỉnh sửa, không làm màu</p>
 
   <div style="display:grid; grid-template-columns:1fr 1fr; gap:28px; margin-top:44px;" class="video-grid">
-    <div>
-      <a href="https://www.youtube.com/@thanhdatled" target="_blank" rel="noopener"
-         style="display:block; position:relative; padding-bottom:56.25%; border-radius:16px; overflow:hidden; background:#0a1628; text-decoration:none; border:1px solid rgba(100,181,246,0.2);">
-        <img src="video-thumb-bcv-1.jpg"
-          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
-          alt="Video đèn pha LED 200W TDL lắp tại sân bóng chuyền"
-          loading="lazy"
-          style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
-        <div style="display:none; position:absolute; inset:0; align-items:center; justify-content:center; flex-direction:column; gap:12px; background:linear-gradient(135deg,#0a1628,#1a3a5c);">
-          <div style="font-size:48px;">🎬</div>
-          <div style="color:#90caf9; font-size:14px; font-weight:600; text-align:center; padding:0 20px;">Video test ánh sáng đèn 200W tại sân bóng chuyền</div>
-        </div>
+
+    <!-- VIDEO 1 — chỉ cần thay VIDEO_ID_1 -->
+    <div id="vid-block-1">
+      <div class="yt-thumb" data-id="KXyLhAsmtSQ" onclick="playVideo(this)"
+           style="position:relative; padding-bottom:56.25%; border-radius:16px; overflow:hidden; cursor:pointer; border:1px solid rgba(100,181,246,0.2);">
+        <img src="https://img.youtube.com/vi/KXyLhAsmtSQ/maxresdefault.jpg"
+             onerror="this.src='https://img.youtube.com/vi/KXyLhAsmtSQ/hqdefault.jpg'"
+             alt="Video đèn LED 200W TDL lắp tại sân bóng chuyền"
+             loading="lazy"
+             style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
         <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;">
-          <div style="width:68px;height:48px;background:rgba(255,0,0,0.92);border-radius:12px;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(0,0,0,0.5);">
+          <div style="width:68px;height:48px;background:rgba(255,0,0,0.92);border-radius:12px;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(0,0,0,0.5); transition:transform .2s;">
             <svg viewBox="0 0 68 48" width="68" height="48"><path d="M26 16l20 8-20 8z" fill="white"/></svg>
           </div>
         </div>
         <div style="position:absolute;bottom:12px;left:12px;background:rgba(0,0,0,0.7);color:#fff;font-size:12px;font-weight:600;padding:4px 12px;border-radius:20px;backdrop-filter:blur(4px);">▶ Xem trên YouTube</div>
-      </a>
+      </div>
       <div style="margin-top:14px;">
         <div style="font-size:16px; font-weight:700; color:var(--navy); margin-bottom:4px;">Test ánh sáng TDLF-MKH200-BCV 200W tại sân bóng chuyền</div>
         <div style="font-size:14px; color:var(--text-muted);">Video so sánh độ sáng, đo độ rọi lux thực tế trên sân. Kiểm tra chống chói UGR và độ đồng đều ánh sáng toàn sân 18×9m.</div>
       </div>
     </div>
 
-    <div>
-      <a href="https://www.youtube.com/@thanhdatled" target="_blank" rel="noopener"
-         style="display:block; position:relative; padding-bottom:56.25%; border-radius:16px; overflow:hidden; background:#0a1628; text-decoration:none; border:1px solid rgba(100,181,246,0.2);">
-        <img src="video-thumb-bcv-2.jpg"
-          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
-          alt="Video lắp đặt đèn pha LED 200W TDL tại sân bóng chuyền"
-          loading="lazy"
-          style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
-        <div style="display:none; position:absolute; inset:0; align-items:center; justify-content:center; flex-direction:column; gap:12px; background:linear-gradient(135deg,#0a1628,#1a3a5c);">
-          <div style="font-size:48px;">🏐</div>
-          <div style="color:#90caf9; font-size:14px; font-weight:600; text-align:center; padding:0 20px;">Thi công lắp đặt hệ thống đèn sân bóng chuyền</div>
-        </div>
+    <!-- VIDEO 2 — chỉ cần thay VIDEO_ID_2 -->
+    <div id="vid-block-2">
+      <div class="yt-thumb" data-id="evHEPvHve7s" onclick="playVideo(this)"
+           style="position:relative; padding-bottom:56.25%; border-radius:16px; overflow:hidden; cursor:pointer; border:1px solid rgba(100,181,246,0.2);">
+        <img src="https://img.youtube.com/vi/evHEPvHve7s/maxresdefault.jpg"
+             onerror="this.src='https://img.youtube.com/vi/evHEPvHve7s/hqdefault.jpg'"
+             alt="Video lắp đặt đèn LED 200W TDL tại sân bóng chuyền"
+             loading="lazy"
+             style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
         <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;">
-          <div style="width:68px;height:48px;background:rgba(255,0,0,0.92);border-radius:12px;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(0,0,0,0.5);">
+          <div style="width:68px;height:48px;background:rgba(255,0,0,0.92);border-radius:12px;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(0,0,0,0.5); transition:transform .2s;">
             <svg viewBox="0 0 68 48" width="68" height="48"><path d="M26 16l20 8-20 8z" fill="white"/></svg>
           </div>
         </div>
         <div style="position:absolute;bottom:12px;left:12px;background:rgba(0,0,0,0.7);color:#fff;font-size:12px;font-weight:600;padding:4px 12px;border-radius:20px;backdrop-filter:blur(4px);">▶ Xem trên YouTube</div>
-      </a>
+      </div>
       <div style="margin-top:14px;">
         <div style="font-size:16px; font-weight:700; color:var(--navy); margin-bottom:4px;">Thi công lắp đặt đèn LED 200W — Sân bóng chuyền thi đấu</div>
         <div style="font-size:14px; color:var(--text-muted);">Quy trình lắp đặt thực tế tại dự án sân bóng chuyền trong nhà. Từ bố trí vị trí đến kết quả hoàn thiện đạt chuẩn FIVB.</div>
       </div>
     </div>
+
   </div>
 
   <div style="margin-top:32px; text-align:center; padding:20px; background:var(--bg-off); border-radius:12px; border:1px solid var(--border);">
@@ -1736,6 +1732,12 @@ function askBot(q) {
     msgs.scrollTop = msgs.scrollHeight;
   }, 450);
   msgs.scrollTop = msgs.scrollHeight;
+}
+
+// YOUTUBE PLAYER — click thumbnail → mở YouTube (tránh lỗi nhúng iframe bị chặn)
+function playVideo(el) {
+  const id = el.getAttribute('data-id');
+  window.open('https://www.youtube.com/watch?v=' + id, '_blank');
 }
 
 // POPUP
