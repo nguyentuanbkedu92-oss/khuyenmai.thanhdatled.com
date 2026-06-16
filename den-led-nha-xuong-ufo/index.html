@@ -136,8 +136,9 @@ a{color:inherit;text-decoration:none}
 .hero-sku strong{color:#90caf9}
 
 /* Slider */
-.hero-slider{position:relative;border-radius:16px;overflow:hidden;box-shadow:var(--shadow-lg);background:var(--navy)}
-.slides-wrapper{display:flex;transition:transform .5s ease}
+.hero-slider{position:relative;border-radius:16px;overflow:hidden;box-shadow:var(--shadow-lg);background:var(--navy);width:100%}
+.slides-wrapper{display:flex;transition:transform .5s ease;width:100%}
+.slide{flex:0 0 100%;width:100%}
 .slide img{width:100%;height:360px;object-fit:cover;display:block}
 .slide-nav{position:absolute;bottom:14px;left:50%;transform:translateX(-50%);display:flex;gap:8px}
 .slide-dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.4);cursor:pointer;border:none;transition:all .25s}
