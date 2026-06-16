@@ -91,36 +91,6 @@
       "name": "Thành Đạt LED – Giải Pháp Chiếu Sáng LED",
       "publisher": { "@id": "https://khuyenmai.thanhdatled.com/#business" },
       "inLanguage": "vi-VN"
-    },
-    {
-      "@type": "FAQPage",
-      "mainEntity": [
-  
-        {
-          "@type": "Question",
-          "name": "TDL có đèn LED cho sân Pickleball không?",
-          "acceptedAnswer": { 
-            "@type": "Answer", 
-            "text": "Có. TDL cung cấp dòng Module LED 200W chip Bridgelux/Philips chuyên dụng cho sân Pickleball và sân bóng đá 7 người. Phủ sáng đồng đều, chống chói, tiết kiệm 50% điện." 
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Đèn sân Pickleball cần bao nhiêu cái, công suất bao nhiêu W?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Sân Pickleball tiêu chuẩn (13.4m × 6.1m) thường dùng 4–6 đèn Module 200W chip Bridgelux/Philips, lắp cao 4–6m. Độ rọi đạt 300–500 Lux, chống chói UGR<22. TDL tư vấn thiết kế phụ thuộc số sân và chiều cao lắp đặt thực tế. Gọi 0986.474.671."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Hotline tư vấn đèn LED Thành Đạt?",
-          "acceptedAnswer": { 
-            "@type": "Answer", 
-            "text": "Hotline: 0986.474.671 – Hỗ trợ thứ 2 đến thứ 7, 7:30–18:00. Zalo: https://zalo.me/0986474671" 
-          }
-        }
-      ]
     }
   ]
 }
@@ -236,7 +206,7 @@ nav { position:sticky; top:0; z-index:1000; background:rgba(9,13,20,0.92); backd
 .landing-body h3 { font-family:'Barlow Condensed',sans-serif; font-weight:800; font-size:1.25rem; text-transform:uppercase; }
 .landing-body p { color:var(--muted); font-size:.875rem; line-height:1.6; flex:1; }
 .landing-link { color:var(--gold); font-size:.82rem; font-weight:700; display:flex; align-items:center; gap:6px; }
-.landing-link::after { content:'→'; transition:.2s; }
+.landing-link::after { content:''; transition:.2s; }
 .landing-card:hover .landing-link::after { transform:translateX(6px); }
 .landing-coming { opacity:.6; pointer-events:none; }
 .coming-badge { display:inline-block; background:var(--muted); color:#000; font-size:.65rem; font-weight:800; letter-spacing:1px; text-transform:uppercase; padding:2px 10px; border-radius:50px; margin-bottom:4px; }
@@ -252,18 +222,6 @@ nav { position:sticky; top:0; z-index:1000; background:rgba(9,13,20,0.92); backd
 .mission-list { list-style:none; display:flex; flex-direction:column; gap:12px; }
 .mission-list li { display:flex; gap:12px; align-items:flex-start; color:var(--muted); line-height:1.5; }
 .mission-list li::before { content:'✦'; color:var(--blue); flex-shrink:0; margin-top:2px; }
-
-/* FAQ / SEO SECTION */
-.faq { background:var(--bg); }
-.faq-list { display:flex; flex-direction:column; gap:16px; max-width:800px; margin:0 auto; }
-.faq-item { background:var(--card); border:1px solid var(--border); border-radius:14px; overflow:hidden; }
-.faq-q { width:100%; background:none; border:none; color:var(--text); font-family:'Barlow',sans-serif; font-size:1rem; font-weight:600; padding:20px 24px; text-align:left; cursor:pointer; display:flex; justify-content:space-between; align-items:center; gap:16px; transition:.2s; }
-.faq-q:hover { color:var(--blue); }
-.faq-q .faq-arrow { font-size:.8rem; transition:.3s; flex-shrink:0; color:var(--blue); }
-.faq-q.open .faq-arrow { transform:rotate(180deg); }
-.faq-a { max-height:0; overflow:hidden; transition:max-height .4s ease, padding .3s; padding:0 24px; color:var(--muted); line-height:1.8; font-size:.95rem; }
-.faq-a.open { max-height:300px; padding:0 24px 20px; }
-.faq-a a { color:var(--blue); }
 
 /* CONTACT */
 .contact { background:var(--bg); }
@@ -294,7 +252,7 @@ footer a { color:var(--blue); text-decoration:none; }
 .footer-links a { color:var(--muted); font-size:.82rem; text-decoration:none; transition:.2s; }
 .footer-links a:hover { color:var(--blue); }
 
-/* ═══ CHATBOT ═══ */
+/* CHATBOT */
 #chatbot-trigger {
   position:fixed; bottom:96px; right:24px; z-index:900;
   width:58px; height:58px; border-radius:50%;
@@ -327,7 +285,6 @@ footer a { color:var(--blue); text-decoration:none; }
 .cb-close { background:none; border:none; color:#fff; cursor:pointer; font-size:1.1rem; opacity:.75; transition:.2s; padding:4px; }
 .cb-close:hover { opacity:1; }
 
-/* CHAT BODY — scrollable */
 .cb-body { flex:1; overflow-y:auto; display:flex; flex-direction:column; }
 .cb-body::-webkit-scrollbar { width:3px; }
 .cb-body::-webkit-scrollbar-thumb { background:var(--border); border-radius:4px; }
@@ -337,7 +294,6 @@ footer a { color:var(--blue); text-decoration:none; }
 .msg-bot { background:var(--bg2); border:1px solid var(--border); align-self:flex-start; border-bottom-left-radius:4px; }
 .msg-user { background:linear-gradient(135deg,var(--blue-dark),var(--blue)); color:#fff; align-self:flex-end; border-bottom-right-radius:4px; }
 
-/* MENU TREE — the star of the show */
 .cb-menu { padding:8px 14px 14px; display:flex; flex-direction:column; gap:7px; }
 .cb-menu-label { font-size:.72rem; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:var(--muted); padding:4px 2px 6px; }
 
@@ -353,15 +309,12 @@ footer a { color:var(--blue); text-decoration:none; }
 .cb-btn .cb-btn-arrow { margin-left:auto; opacity:.5; font-size:.8rem; }
 .cb-btn.active { border-color:var(--blue); background:rgba(0,180,216,.1); }
 
-/* sub-level indent */
 .cb-sub { padding:4px 14px 14px 26px; display:flex; flex-direction:column; gap:7px; }
 .cb-sub .cb-btn { font-size:.82rem; border-left:2px solid rgba(0,180,216,.25); border-radius:0 10px 10px 0; }
 
-/* back button */
 .cb-back { background:none; border:none; color:var(--muted); font-size:.8rem; cursor:pointer; font-family:'Barlow',sans-serif; padding:6px 2px; display:flex; align-items:center; gap:6px; transition:.2s; }
 .cb-back:hover { color:var(--blue); }
 
-/* Typing indicator */
 .typing-dot { display:inline-flex; gap:4px; align-items:center; padding:4px 0; }
 .typing-dot span { width:7px; height:7px; border-radius:50%; background:var(--blue); animation:typingAnim 1.2s infinite; }
 .typing-dot span:nth-child(2) { animation-delay:.2s; }
@@ -381,9 +334,80 @@ footer a { color:var(--blue); text-decoration:none; }
 .reveal { opacity:0; transform:translateY(28px); transition:opacity .6s, transform .6s; }
 .reveal.visible { opacity:1; transform:translateY(0); }
 
+/* ═══ CSS RẠNG LƯỚI FAQ CHUYÊN BIỆT KHỔNG LỒ ═══ */
+.faq-categories-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+  gap: 28px;
+  margin-top: 40px;
+}
+.faq-cat-box {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.faq-cat-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 800;
+  font-size: 1.25rem;
+  color: var(--gold);
+  text-transform: uppercase;
+  border-bottom: 1px dashed var(--border);
+  padding-bottom: 10px;
+}
+.faq-list-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.faq-list-inner .faq-item {
+  background: var(--bg2);
+  border: 1px solid rgba(0,180,216,0.06);
+  border-radius: 8px;
+  overflow: hidden;
+}
+.faq-list-inner .faq-q {
+  width: 100%;
+  background: none;
+  border: none;
+  color: var(--text);
+  font-family: 'Barlow', sans-serif;
+  font-size: 0.92rem;
+  font-weight: 600;
+  padding: 12px 14px;
+  text-align: left;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  transition: .2s;
+}
+.faq-list-inner .faq-q:hover { color: var(--blue); }
+.faq-list-inner .faq-arrow { font-size: .75rem; transition: .3s; flex-shrink: 0; color: var(--blue); }
+.faq-list-inner .faq-q.open .faq-arrow { transform: rotate(180deg); }
+.faq-list-inner .faq-a {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height .4s ease, padding .3s;
+  padding: 0 14px;
+  color: var(--muted);
+  line-height: 1.6;
+  font-size: 0.88rem;
+}
+.faq-list-inner .faq-a.open { max-height: 500px; padding: 0 14px 12px; }
+.faq-list-inner .faq-a a { color: var(--blue); }
+
 @media(max-width:900px){
   .nav-links{display:none;}
   .mission-grid,.contact-grid{grid-template-columns:1fr;}
+}
+@media(max-width:768px) {
+  .faq-categories-grid { grid-template-columns: 1fr; }
 }
 @media(max-width:600px){
   .stats-strip{flex-direction:column;}
@@ -486,7 +510,7 @@ footer a { color:var(--blue); text-decoration:none; }
   </div>
 </section>
 
-<!-- LANDING PAGES -->
+<!-- LANDING PAGES (DYNAMIC FROM GOOGLE SHEETS) -->
 <section class="section" id="landings" style="background:var(--bg);" aria-labelledby="landings-title">
   <div class="wrap">
     <div class="sec-head reveal">
@@ -499,62 +523,9 @@ footer a { color:var(--blue); text-decoration:none; }
     <div id="landings-grid" class="landings-grid">
       <div style="grid-column:1/-1;text-align:center;padding:40px;color:var(--muted);">
         <div style="font-size:2rem;margin-bottom:12px;">⏳</div>
-        <p>Đang tải danh sách giải pháp...</p>
+        <p>Đang tải danh sách giải pháp từ Google Sheets...</p>
       </div>
     </div>
-    <div class="landings-grid" style="display:none">
-      <a href="https://khuyenmai.thanhdatled.com/landing-pickleball-200w-tdl/" target="_blank" rel="noopener" class="landing-card reveal" aria-label="Giải pháp đèn sân Pickleball TDL">
-        <div class="landing-thumb landing-thumb-pickleball" aria-hidden="true">🎾</div>
-        <div class="landing-body">
-          <h3>Đèn Sân Pickleball</h3>
-          <p>Module LED 200W Bridgelux/Philips — chống chói, phủ sáng đồng đều, tiết kiệm 50% điện so với đèn Metal Halide.</p>
-          <span class="landing-link">Xem giải pháp & báo giá</span>
-        </div>
-      </a>
-      <a href="https://khuyenmai.thanhdatled.com/Landing-page-chieu-cay-18w/" target="_blank" rel="noopener" class="landing-card reveal" aria-label="Giải pháp đèn chiếu cây 18W TDL">
-        <div class="landing-thumb landing-thumb-chieucay" aria-hidden="true">🌳</div>
-        <div class="landing-body">
-          <h3>Đèn Chiếu Cây 18W</h3>
-          <p>Màu sắc trung thực CRI>90, IP65, sống động không gian cảnh quan ban đêm cho biệt thự và công trình công cộng.</p>
-          <span class="landing-link">Xem giải pháp & báo giá</span>
-        </div>
-      </a>
-      <div class="landing-card landing-coming reveal" aria-label="Đèn nhà xưởng – sắp ra mắt">
-        <div class="landing-thumb landing-thumb-nhaXuong" aria-hidden="true">🏗️</div>
-        <div class="landing-body">
-          <div class="coming-badge">Sắp ra mắt</div>
-          <h3>Đèn Nhà Xưởng</h3>
-          <p>Highbay LED 100W–300W, IP65, tuổi thọ 50.000h, tiết kiệm 60% điện năng so với đèn huỳnh quang cũ.</p>
-          <span style="color:var(--muted);font-size:.82rem;">Đang cập nhật...</span>
-        </div>
-      </div>
-      <div class="landing-card landing-coming reveal" aria-label="Đèn đường LED – sắp ra mắt">
-        <div class="landing-thumb landing-thumb-duong" aria-hidden="true">🛣️</div>
-        <div class="landing-body">
-          <div class="coming-badge">Sắp ra mắt</div>
-          <h3>Đèn Đường LED</h3>
-          <p>Đèn đường đô thị và khu dân cư — chuẩn TCVN chiếu sáng đường, đảm bảo độ sáng và an toàn giao thông.</p>
-          <span style="color:var(--muted);font-size:.82rem;">Đang cập nhật...</span>
-        </div>
-      </div>
-      <div class="landing-card landing-coming reveal" aria-label="Đèn năng lượng mặt trời – sắp ra mắt">
-        <div class="landing-thumb landing-thumb-nanglg" aria-hidden="true">☀️</div>
-        <div class="landing-body">
-          <div class="coming-badge">Sắp ra mắt</div>
-          <h3>Đèn Năng Lượng MT</h3>
-          <p>Hệ thống độc lập hoàn toàn, pin LiFePO4 4.000 cycles, tự động bật/tắt theo cảm biến chuyển động.</p>
-          <span style="color:var(--muted);font-size:.82rem;">Đang cập nhật...</span>
-        </div>
-      </div>
-      <a href="https://drive.google.com/file/d/1hH1QYI98mNRO1STrnp8h8DeQX437UzoQ/view?usp=drive_link" target="_blank" rel="noopener" class="landing-card reveal" aria-label="Xem catalog linh kiện đèn LED">
-        <div class="landing-thumb landing-thumb-linhkien" aria-hidden="true">⚙️</div>
-        <div class="landing-body">
-          <h3>Linh Kiện & Phụ Kiện</h3>
-          <p>Driver Meanwell, chip Bridgelux, module lens, tản nhiệt, bo mạch — phụ kiện thay thế và bảo trì đèn LED.</p>
-          <span class="landing-link">Xem catalog linh kiện</span>
-        </div>
-      </a>
-    </div><!-- end hidden fallback -->
   </div>
 </section>
 
@@ -587,21 +558,242 @@ footer a { color:var(--blue); text-decoration:none; }
   </div>
 </section>
 
-<!-- FAQ – DYNAMIC FROM GOOGLE SHEETS -->
+<!-- FAQ – 80 QUESTIONS FIXED GRID -->
 <section class="section faq" id="faq" aria-labelledby="faq-title">
   <div class="wrap">
     <div class="sec-head reveal" style="justify-content:center;text-align:center;">
       <div>
-        <div class="sec-label">Câu Hỏi Thường Gặp</div>
-        <h2 class="sec-title" id="faq-title" style="max-width:100%">Khách Hàng<br><span>Hay Hỏi</span></h2>
+        <div class="sec-label">Hỗ Trợ Toàn Diện</div>
+        <h2 class="sec-title" id="faq-title" style="max-width:100%">Hệ Thống <span>Giải Đáp FAQ</span></h2>
+        <p class="sec-desc" style="margin:0 auto;">Tổng hợp 80 câu hỏi đáp chuyên sâu giúp quý khách hàng và đối tác làm chủ thông tin.</p>
       </div>
     </div>
-    <!-- Nội dung FAQ load từ Google Sheets -->
-    <div id="faq-list" class="faq-list reveal">
-      <div style="text-align:center;padding:40px;color:var(--muted);">
-        <div style="font-size:2rem;margin-bottom:12px;">⏳</div>
-        <p>Đang tải câu hỏi thường gặp...</p>
+    
+    <div class="faq-categories-grid">
+      
+      <!-- 1. FAQ CHÍNH SÁCH & DỊCH VỤ -->
+      <div class="faq-cat-box reveal">
+        <div class="faq-cat-title">🛡️ 1. Chính Sách & Dịch Vụ</div>
+        <div class="faq-list-inner">
+          <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span>1. Đèn LED TDL bảo hành bao lâu?</span><span class="faq-arrow">▼</span></button>
+            <div class="faq-a"><span>Đèn LED TDL chính hãng tích hợp linh kiện Meanwell/Done cao cấp được bảo hành chính hãng từ **3 đến 5 năm** tùy cấu hình, cam kết xử lý nhanh chóng.</span></div></div>
+          <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span>2. TDL có xuất hóa đơn VAT không?</span><span class="faq-arrow">▼</span></button>
+            <div class="faq-a"><span>Có. Toàn bộ sản phẩm phân phối bởi Công Ty TNHH TM & DV Thành Đạt LED đều được hỗ trợ xuất hóa đơn VAT đầy đủ theo đúng quy định pháp luật.</span></div></div>
+          <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span>3. Có giao hàng toàn quốc không?</span><span class="faq-arrow">▼</span></button>
+            <div class="faq-a"><span>Có. TDL hợp tác với các đơn vị vận chuyển uy tín và hệ thống xe tải, xe khách nhằm phân phối thiết bị chiếu sáng an toàn đến tất cả 63 tỉnh thành.</span></div></div>
+          <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span>4. Thời gian giao hàng bao lâu?</span><span class="faq-arrow">▼</span></button>
+            <div class="faq-a"><span>Tại nội thành Hà Nội giao ngay trong ngày. Đối với các tỉnh thành khác toàn quốc, thời gian nhận hàng dao động từ **1 đến 3 ngày** tùy khoảng cách địa lý.</span></div></div>
+          <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span>5. Có hỗ trợ lắp đặt không?</span><span class="faq-arrow">▼</span></button>
+            <div class="faq-a"><span>Với các dự án quy mô lớn, TDL có đội ngũ kỹ sư hỗ trợ tư vấn thiết kế Dialux và hướng dẫn giải pháp lắp đặt kỹ thuật trực tiếp tại công trình.</span></div></div>
+          <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span>6. Chính sách đổi trả như thế nào?</span><span class="faq-arrow">▼</span></button>
+            <div class="faq-a"><span>TDL áp dụng chính sách lỗi 1 đổi 1 trong vòng 30 ngày đầu tiên nếu phát sinh lỗi kỹ thuật do khâu sản xuất hoặc lỗi linh kiện bên trong hệ thống đèn.</span></div></div>
+          <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span>7. Có hỗ trợ kỹ thuật sau bán hàng không?</span><span class="faq-arrow">▼</span></button>
+            <div class="faq-a"><span>Có. TDL cam kết đồng hành trọn đời sản phẩm, phòng bảo hành luôn sẵn sàng hỗ trợ kỹ thuật và cung cấp linh kiện thay thế nhanh chóng 24/7.</span></div></div>
+          <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span>8. Có nhận gia công theo yêu cầu không?</span><span class="faq-arrow">▼</span></button>
+            <div class="faq-a"><span>Có. TDL chuyên nhận ráp đèn tùy biến công suất, quang thông, độ rọi, hãng chip LED và driver theo yêu cầu riêng của từng hồ sơ đấu thầu dự án.</span></div></div>
+          <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span>9. Có chiết khấu cho đại lý không?</span><span class="faq-arrow">▼</span></button>
+            <div class="faq-a"><span>TDL xây dựng bảng giá chiết khấu sâu cực kỳ hấp dẫn dành riêng cho hệ thống đại lý phân phối cấp 1, cửa hàng thiết bị điện toàn quốc.</span></div></div>
+          <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span>10. Có hỗ trợ dự án số lượng lớn không?</span><span class="faq-arrow">▼</span></button>
+            <div class="faq-a"><span>Có. Chúng tôi hỗ trợ bảo vệ giá dự án, cung cấp hồ sơ năng lực công ty, chứng nhận CO/CQ của chip/nguồn đầy đủ phục vụ nghiệm thu công trình.</span></div></div>
+        </div>
       </div>
+
+      <!-- 2. FAQ BÁO GIÁ & MUA HÀNG -->
+      <div class="faq-cat-box reveal">
+        <div class="faq-cat-title">💰 2. Báo Giá & Mua Hàng</div>
+        <div class="faq-list-inner">
+          <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span>11. Giá đèn LED hiện nay bao nhiêu?</span><span class="faq-arrow">▼</span></button>
+            <div class="faq-a"><span>Giá đèn LED dao động lớn phụ thuộc vào mức công suất và chủng loại linh kiện lắp đặt (Chip LED, Driver). Vui lòng liên hệ TDL để nhận báo giá chi tiết.</span></div></div>
+          <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span>12. Mua số lượng lớn có được giảm giá không?</span><span class="faq-arrow">▼</span></button>
+            <div class="faq-a"><span>Chắc chắn có. Cơ chế giá của TDL tính lũy tiến tối ưu, số lượng đèn đặt hàng càng nhiều mức giá sỉ chiết khấu tận xưởng càng rẻ.</span></div></div>
+          <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span>13. Có hàng sẵn kho không?</span><span class="faq-arrow">▼</span></button>
+            <div class="faq-a"><span>Kho hàng TDL tại Hà Nội luôn duy trì sẵn lượng lớn các dòng đèn thông dụng. Các đơn đặt hàng đặc biệt có thể sản xuất lắp ráp nhanh từ 1-2 ngày.</span></div></div>
+          <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span>14. Làm sao nhận báo giá nhanh nhất?</span><span class="faq-arrow">▼</span></button>
+            <div class="faq-a"><span>Quý khách hãy gọi ngay trực tiếp đến Hotline **0986.474.671** hoặc nhắn Zalo để bộ phận kinh doanh kinh nghiệm lập bảng giá gửi trong 30 phút.</span></div></div>
+          <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span>15. Có thể đặt hàng theo mẫu riêng không?</span><span class="faq-arrow">▼</span></button>
+            <div class="faq-a"><span>Có. TDL hỗ trợ nghiên cứu, thiết kế khuôn nhôm tản nhiệt và lắp đặt mạch driver, mắt chip chuyên biệt theo đúng bản vẽ kỹ thuật yêu cầu.</span></div></div>
+          <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span>16. Có hỗ trợ gửi mẫu thử không?</span><span class="faq-arrow">▼</span></button>
+            <div class="faq-a"><span>Với các công trình lớn cần kiểm tra thực tế, TDL hỗ trợ cung cấp sản phẩm đèn mẫu thử nghiệm tại công trường trước khi tiến hành ký kết.</span></div></div>
+          <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span>17. Đặt hàng số lượng lớn mất bao lâu?</span><span class="faq-arrow">▼</span></button>
+            <div class="faq-a"><span>Nhờ dây chuyền sản xuất hiện đại, các đơn hàng dự án lớn từ vài trăm đến hàng nghìn bộ đèn chỉ mất từ **3 đến 5 ngày** hoàn thiện.</span></div></div>
+          <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span>18. Có hỗ trợ vận chuyển công trình không?</span><span class="faq-arrow">▼</span></button>
+            <div class="faq-a"><span>Có. TDL điều động xe tải chuyên dụng vận chuyển giao nhận thiết bị chiếu sáng an toàn, nguyên đai nguyên kiện tới tận chân công trình thi công.</span></div></div>
+          <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span>19. Có thể thanh toán chuyển khoản không?</span><span class="faq-arrow">▼</span></button>
+            <div class="faq-a"><span>Có. TDL chấp nhận đa dạng phương thức thanh toán linh hoạt bao gồm tiền mặt trực tiếp hoặc chuyển khoản qua tài khoản ngân hàng của công ty.</span></div></div>
+          <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span>20. Có hỗ trợ công nợ cho đại lý không?</span><span class="faq-arrow">▼</span></button>
+            <div class="faq-a"><span>Đối với các đối tác lâu năm, đại lý uy tín có sản lượng ổn định, TDL áp dụng chính sách gối đầu công nợ linh hoạt theo từng giai đoạn.</span></div></div>
+        </div>
+      </div>
+
+      <!-- 3. FAQ KIẾN THỨC KỸ THUẬT -->
+      <div class="faq-cat-box reveal">
+        <div class="faq-cat-title">⚙️ 3. Kiến Thức Kỹ Thuật</div>
+        <div class="faq-list-inner">
+          <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span>21. Chip LED Bridgelux có tốt không?</span><span class="faq-arrow">▼</span></button>
+            <div class="faq-a"><span>Bridgelux (Mỹ) là thương hiệu chip LED hàng đầu thế giới với hiệu suất phát quang mạnh, dải nhiệt độ ổn định cao và suy giảm ánh sáng cực thấp.</span></div></div>
+          <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span>22. Chip LED Philips có ưu điểm gì?</span><span class="faq-arrow">▼</span></button>
+            <div class="faq-a"><span>Chip Philips sở hữu công nghệ cao đem lại độ hoàn màu hoàn hảo, hiệu suất năng lượng tối ưu, giảm tổn hao điện và có tuổi thọ vượt trội.</span></div></div>
+          <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span>23. Driver Mean Well có tốt không?</span><span class="faq-arrow">▼</span></button>
+            <div class="faq-a"><span>Mean Well (Đài Loan) là vua của các loại driver dòng điện. Linh kiện trang bị hệ thống bảo vệ quá áp, đoản mạch, chịu nhiệt tốt, kéo dài tuổi thọ đèn.</span></div></div>
+          <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span>24. Driver Inventronics có ưu điểm gì?</span><span class="faq-arrow">▼</span></button>
+            <div class="faq-a"><span>Inventronics nổi tiếng trong mảng đèn công nghiệp chiếu sáng công cộng nhờ tính năng chống sét lan truyền cao và tích hợp lập trình dimming thông minh.</span></div></div>
+          <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span>25. Chỉ số CRI là gì?</span><span class="faq-arrow">▼</span></button>
+            <div class="faq-a"><span>CRI (Color Rendering Index) là độ hoàn màu. CRI > 80 hiển thị màu sắc vật thể trung thực, sắc nét, không gây nhức mỏi thị giác cho mắt người nhìn.</span></div></div>
+          <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span>26. Lux là gì?</span><span class="faq-arrow">▼</span></button>
+            <div class="faq-a"><span>Lux là đơn vị đo mật độ lượng quang thông trên một diện tích bề mặt được chiếu sáng ($1\text{ lx} = 1\text{ lm/m}^2$), dùng định lượng độ sáng của công trình.</span></div></div>
+          <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span>27. Quang thông lumen là gì?</span><span class="faq-arrow">▼</span></button>
+            <div class="faq-a"><span>Lumen (lm) là tổng lượng ánh sáng thực tế mà đèn phát ra theo mọi hướng. Chỉ số lumen/W càng cao thể hiện khả năng siêu tiết kiệm điện của đèn.</span></div></div>
+          <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span>28. IP65 là gì?</span><span class="faq-arrow">▼</span></button>
+            <div class="faq-a"><span>IP65 là chuẩn bảo vệ: Chống bụi bẩn xâm nhập hoàn toàn và chống lại các tia nước áp lực bắn từ mọi hướng ngoài môi trường.</span></div></div>
+          <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span>29. IP66 là gì?</span><span class="faq-arrow">▼</span></button>
+            <div class="faq-a"><span>IP66 nâng cao khả năng kháng bụi tuyệt đối và chịu đựng được các đợt bão cát mạnh hoặc sóng biển rạt nước áp lực lớn trực tiếp.</span></div></div>
+          <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span>30. UGR chống chói là gì?</span><span class="faq-arrow">▼</span></button>
+            <div class="faq-a"><span>UGR (Unified Glare Rating) đánh giá mức độ lóa mắt. Chỉ số UGR < 19 hoặc < 22 là tiêu chuẩn vàng khắt khe cho đèn sân thể thao và nhà xưởng.</span></div></div>
+          <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span>31. Góc chiếu sáng là gì?</span><span class="faq-arrow">▼</span></button>
+            <div class="faq-a"><span>Là góc mở của chùm sáng phát ra từ tâm đèn. Góc hẹp (15°-60°) dùng chiếu rọi xa, rọi điểm; góc rộng (90°-120°) dùng phủ sáng mặt sàn lớn.</span></div></div>
+          <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span>32. Nhiệt độ màu 3000K là gì?</span><span class="faq-arrow">▼</span></button>
+            <div class="faq-a"><span>3000K cho ánh sáng Vàng ấm áp, dịu nhẹ, tạo không gian sang trọng thư thái, phù hợp chiếu sáng cảnh quan sân vườn nghệ thuật hoặc biệt thự.</span></div></div>
+          <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span>33. Nhiệt độ màu 4000K là gì?</span><span class="faq-arrow">▼</span></button>
+            <div class="faq-a"><span>4000K cho ánh sáng Trung tính (Trắng ấm), dịu mắt giống ánh sáng tự nhiên ban ngày, thường dùng cho các sân thể thao ngoài trời.</span></div></div>
+          <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span>34. Nhiệt độ màu 6000K là gì?</span><span class="faq-arrow">▼</span></button>
+            <div class="faq-a"><span>6000K cho ánh sáng Trắng rõ nét, tăng khả năng quan sát chi tiết cấu kiện, cực tốt cho công nhân làm việc tập trung trong nhà xưởng sản xuất.</span></div></div>
+          <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span>35. Đèn LED tiết kiệm điện bao nhiêu phần trăm?</span><span class="faq-arrow">▼</span></button>
+            <div class="faq-a"><span>Đèn LED TDL thế hệ mới tiết kiệm điện đến **50% - 70%** lượng điện năng tiêu thụ so với các dòng đèn cao áp Halogen, Metal Halide cũ.</span></div></div>
+        </div>
+      </div>
+
+      <!-- 4. FAQ ĐÈN PHA LED -->
+      <div class="faq-cat-box reveal">
+        <div class="faq-cat-title">💥 4. Đèn Pha LED</div>
+        <div class="faq-list-inner">
+          <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span>36. Đèn pha LED dùng ngoài trời được không?</span><span class="faq-arrow">▼</span></button>
+            <div class="faq-a"><span>Có. Đèn pha LED TDL đúc từ nhôm nguyên khối, phủ sơn tĩnh điện chống ăn mòn và đạt kín khít IP65/IP66 chuyên dụng chống chọi thời tiết khắc nghiệt.</span></div></div>
+          <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span>37. Đèn pha LED 100W chiếu xa bao nhiêu mét?</span><span class="faq-arrow">▼</span></button>
+            <div class="faq-a"><span>Tùy kết cấu thấu kính (góc chiếu hẹp hay rộng), đèn pha LED 100W TDL dòng chóa sâu có thể rọi xa từ **10 đến 15 mét** hiệu quả rõ rệt.</span></div></div>
+          <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span>38. Đèn pha LED 200W phù hợp diện tích nào?</span><span class="faq-arrow">▼</span></button>
+            <div class="faq-a"><span>Đèn pha 200W phù hợp chiếu sáng hiệu quả cho các khu vực diện tích bề mặt sàn rộng khoảng **50 đến 80 mét vuông** tùy thuộc vào cao độ lắp đặt.</span></div></div>
+          <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span>39. Đèn pha LED 300W dùng cho công trình nào?</span><span class="faq-arrow">▼</span></button>
+            <div class="faq-a"><span>Thích hợp ứng dụng cho công trình quảng trường diện tích lớn, bãi giữ xe, công trường xây dựng thi công đêm, chiếu rọi mặt tiền tòa nhà cao tầng.</span></div></div>
+          <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span>40. Nên chọn đèn pha module hay đèn pha liền thể?</span><span class="faq-arrow">▼</span></button>
+            <div class="faq-a"><span>Đèn pha module có thấu kính gương cầu chuyên dụng chiếu rọi xa, chống lóa tốt và dễ thay thế linh kiện độc lập, thích hợp cho dự án yêu cầu kỹ thuật cao.</span></div></div>
+          <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span>41. Đèn pha LED có chống nước không?</span><span class="faq-arrow">▼</span></button>
+            <div class="faq-a"><span>Có. Trang bị gioăng cao su silicone kín khít cùng keo chống thấm đặc chủng xung quanh viền kính cường lực, đảm bảo chống thấm nước tuyệt đối.</span></div></div>
+          <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span>42. Tuổi thọ đèn pha LED bao lâu?</span><span class="faq-arrow">▼</span></button>
+            <div class="faq-a"><span>Sản phẩm đạt tuổi thọ thiết kế trung bình **50.000 giờ** chiếu sáng liên tục, giảm thiểu tần suất và chi phí bảo trì thay mới đèn.</span></div></div>
+          <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span>43. Đèn pha LED có bị giảm sáng theo thời gian không?</span><span class="faq-arrow">▼</span></button>
+            <div class="faq-a"><span>Đèn LED chất lượng cao của TDL sử dụng hệ tản nhiệt nhôm dày dặn, giúp khống chế tốc độ suy giảm quang thông cực thấp (< 3% sau 10.000h).</span></div></div>
+        </div>
+      </div>
+
+      <!-- 5. FAQ ĐÈN NHÀ XƯỞNG -->
+      <div class="faq-cat-box reveal">
+        <div class="faq-cat-title">🏗️ 5. Đèn Nhà Xưởng (Highbay)</div>
+        <div class="faq-list-inner">
+          <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span>44. Nhà xưởng cao 6m dùng đèn bao nhiêu W?</span><span class="faq-arrow">▼</span></button>
+            <div class="faq-a"><span>Tại cao độ trần trệt từ 5-6m, giải pháp tối ưu nhất là sử dụng các dòng đèn LED Highbay UFO công suất **100W** để trải đều ánh sáng.</span></div></div>
+          <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span>45. Nhà xưởng cao 8m dùng đèn nào?</span><span class="faq-arrow">▼</span></button>
+            <div class="faq-a"><span>Đối với độ cao trần tầm trung 7-8m, quý khách nên chọn dòng đèn Highbay UFO hoặc dòng module công suất từ **150W** là đạt chuẩn rọi rõ nét.</span></div></div>
+          <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span>46. Nhà xưởng cao 10m dùng đèn nào?</span><span class="faq-arrow">▼</span></button>
+            <div class="faq-a"><span>Chiều cao trần lớn trền 10m yêu cầu đèn công suất mạnh từ **200W đến 300W** có chóa sâu góc hẹp giúp gom ánh sáng đâm xuyên xuống mặt sàn làm việc.</span></div></div>
+          <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span>47. UFO và Module khác nhau thế nào?</span><span class="faq-arrow">▼</span></button>
+            <div class="faq-a"><span>UFO hình tròn dẹt cho góc chiếu rộng tỏa đều ánh sáng mịn; dòng Module hình chữ nhật tích hợp thấu kính gương cầu chuyên rọi sâu, thích hợp cho trần cao.</span></div></div>
+          <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span>48. Đèn nhà xưởng IP65 có chống bụi không?</span><span class="faq-arrow">▼</span></button>
+            <div class="faq-a"><span>Chống bụi tuyệt đối. Cấu trúc đóng kín hoàn toàn ngăn ngừa mọi xơ vải bụi bẩn sản xuất lọt vào mạch chip gây chập cháy thiết bị.</span></div></div>
+          <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span>49. Nên bố trí đèn nhà xưởng như thế nào?</span><span class="faq-arrow">▼</span></button>
+            <div class="faq-a"><span>Nên lắp đặt sắp xếp đèn theo mạng lưới hình bàn cờ trải đều, khoảng cách gián cách thông thường từ 4m-6m tùy theo cao độ để triệt tiêu vùng bóng tối.</span></div></div>
+          <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span>50. Tiêu chuẩn lux cho nhà xưởng là bao nhiêu?</span><span class="faq-arrow">▼</span></button>
+            <div class="faq-a"><span>Kho kho bãi thông thường cần 150-200 Lux; khu vực đóng gói may mặc gia công chi tiết cơ khí cần độ rọi cao từ **300 - 500 Lux**.</span></div></div>
+          <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span>51. Đèn nhà xưởng tiết kiệm điện bao nhiêu?</span><span class="faq-arrow">▼</span></button>
+            <div class="faq-a"><span>Cắt giảm ngay lập tức **60% chi phí hóa đơn tiền điện** hàng tháng cho doanh nghiệp khi thực hiện thay thế từ đèn sợi đốt bóng thủy ngân cũ.</span></div></div>
+        </div>
+      </div>
+
+      <!-- 6. FAQ ĐÈN ĐƯỜNG LED -->
+      <div class="faq-cat-box reveal">
+        <div class="faq-cat-title">🛣️ 6. Đèn Đường LED</div>
+        <div class="faq-list-inner">
+          <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span>52. Đèn đường LED 100W chiếu sáng được bao nhiêu mét?</span><span class="faq-arrow">▼</span></button>
+            <div class="faq-a"><span>Đèn đường 100W lắp ở độ cao cột 6-8m cho vệt sáng trải dọc lòng đường dài khoảng **25 đến 30 mét** rõ rệt và an toàn giao thông.</span></div></div>
+          <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span>53. Đèn đường LED 150W phù hợp đường rộng bao nhiêu mét?</span><span class="faq-arrow">▼</span></button>
+            <div class="faq-a"><span>Phù hợp hoàn hảo cho các làn đường nội bộ khu công nghiệp, đường liên tỉnh trục chính có độ rộng lòng đường rộng từ **8 đến 12 mét**.</span></div></div>
+          <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span>54. Khoảng cách cột đèn nên là bao nhiêu?</span><span class="faq-arrow">▼</span></button>
+            <div class="faq-a"><span>Khoảng cách bố trí cột tiêu chuẩn thông thường gấp 3-4 lần chiều cao cột, dao động trung bình từ **28m đến 35m** một vị trí cột đèn đường.</span></div></div>
+          <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span>55. Đèn đường LED có chống sét không?</span><span class="faq-arrow">▼</span></button>
+            <div class="faq-a"><span>Có. TDL tích hợp sẵn module chống sét lan truyền chuyên dụng SPD cấp cao bảo vệ dòng điện **10KV**, giảm thiểu rủi ro hư hỏng mùa mưa bão.</span></div></div>
+          <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span>56. Đèn đường LED tuổi thọ bao lâu?</span><span class="faq-arrow">▼</span></button>
+            <div class="faq-a"><span>Sản phẩm duy trì tuổi thọ vận hành trên **12 năm** (tính trung bình chiếu sáng 10-11 tiếng mỗi đêm), tối ưu ngân sách công cộng đô thị.</span></div></div>
+          <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span>57. Nên dùng cần đơn hay cần đôi?</span><span class="faq-arrow">▼</span></button>
+            <div class="faq-a"><span>Đường 1 chiều hoặc đường nông thôn dùng cần đơn hướng vào; dải phân cách giữa phân làn đường đôi đô thị rộng thì chọn cần đôi đối xứng 2 bên.</span></div></div>
+          <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span>58. Đèn đường LED có đạt tiêu chuẩn đô thị không?</span><span class="faq-arrow">▼</span></button>
+            <div class="faq-a"><span>Toàn bộ dòng đèn đường phân phối bởi TDL đạt đầy đủ bộ chỉ số kỹ thuật quy chuẩn chiếu sáng công cộng Việt Nam ban hành (TCVN).</span></div></div>
+        </div>
+      </div>
+
+      <!-- 7. FAQ ĐÈN SÂN VƯỜN & CẢNH QUAN -->
+      <div class="faq-cat-box reveal">
+        <div class="faq-cat-title">🌿 7. Đèn Sân Vườn & Cảnh Quan</div>
+        <div class="faq-list-inner">
+          <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span>59. Đèn chiếu cây nên dùng ánh sáng vàng hay trắng?</span><span class="faq-arrow">▼</span></button>
+            <div class="faq-a"><span>Ánh sáng Vàng ấm (3000K) luôn là ưu tiên hàng đầu cho tiểu cảnh sân vườn vì tạo hiệu ứng tương phản nghệ thuật, tăng nét đẳng cấp quý phái cho cây cảnh.</span></div></div>
+          <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span>60. Đèn chiếu cây 18W chiếu cao bao nhiêu mét?</span><span class="faq-arrow">▼</span></button>
+            <div class="faq-a"><span>Đèn cắm cỏ hắt cây 18W thấu kính hội tụ của TDL cho luồng sáng hắt cao thẳng từ **3 đến 5 mét**, bao phủ trọn vẹn các dáng cây tùng, cây sanh tán rộng.</span></div></div>
+          <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span>61. Đèn sân vườn có chống nước không?</span><span class="faq-arrow">▼</span></button>
+            <div class="faq-a"><span>Đèn ngoài trời TDL bắt buộc tích hợp chuẩn IP65/IP66 kháng bụi nước tuyệt đối, không sợ sương muối hay các tia nước từ vòi phun tự động dội vào.</span></div></div>
+          <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span>62. Đèn cảnh quan có tốn điện không?</span><span class="faq-arrow">▼</span></button>
+            <div class="faq-a"><span>Cực kỳ ít tốn điện vì công suất đèn cảnh quan trang trí nhỏ (chỉ từ 5W-18W), kết hợp mạch chip LED hiệu năng cao tối ưu dòng tiền vận hành biệt thự.</span></div></div>
+          <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span>63. Nên bố trí đèn sân vườn như thế nào?</span><span class="faq-arrow">▼</span></button>
+            <div class="faq-a"><span>Bố trí dọc lối đi bộ bằng đèn trụ thấp, hắt chân gốc cây lớn bằng đèn cắm cỏ và tạo điểm nhấn tường bao biệt thự bằng đèn vách hắt 2 đầu nghệ thuật.</span></div></div>
+          <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span>64. Đèn chiếu cây dùng chip LED nào tốt?</span><span class="faq-arrow">▼</span></button>
+            <div class="faq-a"><span>TDL ưu tiên sử dụng chip Cree (Mỹ) hoặc chip Bridgelux độ hoàn màu thực tế đạt CRI > 90 giúp tái hiện trung thực nguyên bản màu xanh mướt lá cây đêm.</span></div></div>
+        </div>
+      </div>
+
+      <!-- 8. FAQ ĐÈN SÂN THỂ THAO -->
+      <div class="faq-cat-box reveal">
+        <div class="faq-cat-title">🎾 8. Đèn Sân Thể Thao</div>
+        <div class="faq-list-inner">
+          <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span>65. Sân Pickleball cần bao nhiêu đèn?</span><span class="faq-arrow">▼</span></button>
+            <div class="faq-a"><span>Một sân Pickleball tiêu chuẩn kích thước 13.4m x 6.1m cần từ **4 đến 6 bộ đèn Module 200W TDL** thấu kính UGR chống lóa lắp cao 5-6m để ánh sáng phủ đều.</span></div></div>
+          <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span>66. Sân cầu lông nên dùng công suất nào?</span><span class="faq-arrow">▼</span></button>
+            <div class="faq-a"><span>Sân đơn cầu lông trong nhà thường dùng đèn module thấu kính hoặc đèn pha SMD công suất **150W - 200W** để thấy rõ đường đi bay cực nhanh của cầu.</span></div></div>
+          <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span>67. Sân bóng chuyền cần bao nhiêu lux?</span><span class="faq-arrow">▼</span></button>
+            <div class="faq-a"><span>Sân bóng chuyền phong trào giải trí cần đạt độ rọi trung bình từ 200-250 Lux; nếu phục vụ các giải thi đấu chuyên nghiệp yêu cầu khắt khe **> 500 Lux**.</span></div></div>
+          <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span>68. Sân bóng rổ cần bao nhiêu lux?</span><span class="faq-arrow">▼</span></button>
+            <div class="faq-a"><span>Tiêu chuẩn rọi sáng mặt sân bóng rổ quy định phổ biến ở mức **300 Lux** nhằm đảm bảo khả năng bám đuổi và dứt điểm bảng rổ chính xác của đấu thủ.</span></div></div>
+          <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span>69. Sân tennis nên lắp đèn cao bao nhiêu mét?</span><span class="faq-arrow">▼</span></button>
+            <div class="faq-a"><span>Cột đèn sân tennis bắt buộc có chiều cao lắp đặt từ **8m đến 10m** để góc xiên của chùm sáng bao phủ rộng, loại bỏ hoàn toàn hiện tượng chói mù mắt cầu thủ.</span></div></div>
+          <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span>70. Đèn chống chói UGR&lt;19 là gì?</span><span class="faq-arrow">▼</span></button>
+            <div class="faq-a"><span>Là đèn tích hợp chóa rãnh sâu sâu hoặc thấu kính lõm đặc dụng triệt tiêu các tia sáng xiên góc lóa chói, bảo vệ mắt đấu thủ khi ngước nhìn lên cao.</span></div></div>
+          <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span>71. Nên dùng đèn module hay đèn pha thông thường?</span><span class="faq-arrow">▼</span></button>
+            <div class="faq-a"><span>Đèn module cấu tạo mắt thấu kính độc lập điều chỉnh góc chiếu linh hoạt là xu hướng tối ưu số 1 hiện nay cho mọi tổ hợp sân thể thao cao cấp.</span></div></div>
+          <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span>72. Đèn sân thể thao có đạt tiêu chuẩn thi đấu không?</span><span class="faq-arrow">▼</span></button>
+            <div class="faq-a"><span>Có. Cấu hình đèn thể thao TDL dùng chip Bridgelux nguồn Meanwell cho độ rọi đồng đều cực cao, đạt tiêu chuẩn khắt khe phát sóng truyền hình trực tiếp.</span></div></div>
+        </div>
+      </div>
+
+      <!-- 9. FAQ ĐÈN NĂNG LƯỢNG MẶT TRỜI -->
+      <div class="faq-cat-box reveal">
+        <div class="faq-cat-title">☀️ 9. Đèn Năng Lượng Mặt Trời</div>
+        <div class="faq-list-inner">
+          <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span>73. Đèn năng lượng mặt trời hoạt động như thế nào?</span><span class="faq-arrow">▼</span></button>
+            <div class="faq-a"><span>Ban ngày tấm pin mặt trời hấp thụ ánh nắng chuyển thành điện lưu vào pin Lithium bên trong thân đèn; đêm đến cảm biến tự kích hoạt bật đèn sáng tự động.</span></div></div>
+          <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span>74. Trời mưa có sáng được không?</span><span class="faq-arrow">▼</span></button>
+            <div class="faq-a"><span>Có. Tấm pin mặt trời Mono thế hệ mới của TDL vẫn sạc được điện ngay cả khi trời mây âm u, kết hợp pin lưu trữ dự phòng giúp đèn sáng xuyên 1-2 đêm mưa.</span></div></div>
+          <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span>75. Pin lithium dùng được bao nhiêu năm?</span><span class="faq-arrow">▼</span></button>
+            <div class="faq-a"><span>TDL cam kết sử dụng lõi pin sắt **Lithium LiFePO4** mới 100% cho tuổi thọ chu kỳ nạp xả cực lớn, vận hành bền bỉ trên **8 đến 10 năm** an toàn tuyệt đối.</span></div></div>
+          <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span>76. Có cần kéo điện không?</span><span class="faq-arrow">▼</span></button>
+            <div class="faq-a"><span>Hoàn toàn độc lập điện lưới. Không cần đào hào, đi dây âm đất phức tạp hay tốn kém mua tủ điện đấu nối, chỉ dựng cột bắt đèn lên là chạy.</span></div></div>
+          <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span>77. Đèn NLMT sáng được bao nhiêu giờ?</span><span class="faq-arrow">▼</span></button>
+            <div class="faq-a"><span>Khi sạc đầy năng lượng, hệ mạch điều khiển thông minh của TDL điều tiết điện năng giúp đèn sáng liên tục từ **12 đến 15 tiếng** trọn vẹn suốt cả đêm.</span></div></div>
+          <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span>78. Có cần bảo trì thường xuyên không?</span><span class="faq-arrow">▼</span></button>
+            <div class="faq-a"><span>Hầu như không cần bảo trì. Định kỳ khoảng 6 tháng - 1 năm chỉ cần lau sạch lớp bụi dày bám trên bề mặt tấm pin năng lượng để duy trì hiệu suất sạc tối đa.</span></div></div>
+          <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span>79. Nên lắp đèn NLMT ở đâu?</span><span class="faq-arrow">▼</span></button>
+            <div class="faq-a"><span>Lắp đặt tại nơi thông thoáng, đón trọn vẹn ánh nắng mặt trời trực tiếp, tránh xa vùng bị che khuất bởi bóng cây rậm rạp hoặc mái nhà cao tầng xung quanh.</span></div></div>
+          <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span>80. Đèn NLMT có tiết kiệm điện hoàn toàn không?</span><span class="faq-arrow">▼</span></button>
+            <div class="faq-a"><span>Có. Tiết kiệm **100% tiền điện chiếu sáng** cho hạng mục lắp đặt đèn suốt toàn bộ vòng đời sản phẩm, giải pháp xanh bền vững số 1 hiện nay.</span></div></div>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -706,7 +898,6 @@ footer a { color:var(--blue); text-decoration:none; }
     <div class="cb-messages" id="cb-messages">
       <div class="msg msg-bot">👋 Xin chào! Tôi là trợ lý tư vấn TDL.<br>Bạn đang cần tư vấn về sản phẩm nào?</div>
     </div>
-    <!-- MAIN MENU rendered by JS -->
     <div class="cb-menu" id="cb-menu"></div>
   </div>
 </div>
@@ -727,69 +918,28 @@ const revealObs = new IntersectionObserver(entries => {
 }, { threshold: 0.1 });
 document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
 
-/* ═══ FAQ ACCORDION ═══ */
+/* ═══ FAQ ACCORDION (FIXED GRID STYLE) ═══ */
 function toggleFaq(btn) {
   const a = btn.nextElementSibling;
   const open = a.classList.contains('open');
-  document.querySelectorAll('.faq-a').forEach(x => x.classList.remove('open'));
-  document.querySelectorAll('.faq-q').forEach(x => { x.classList.remove('open'); x.setAttribute('aria-expanded','false'); });
-  if(!open) { a.classList.add('open'); btn.classList.add('open'); btn.setAttribute('aria-expanded','true'); }
+  
+  const parentBox = btn.closest('.faq-list-inner');
+  parentBox.querySelectorAll('.faq-a').forEach(x => x.classList.remove('open'));
+  parentBox.querySelectorAll('.faq-q').forEach(x => { x.classList.remove('open'); x.setAttribute('aria-expanded','false'); });
+  
+  if(!open) { 
+    a.classList.add('open'); 
+    btn.classList.add('open'); 
+    btn.setAttribute('aria-expanded','true'); 
+  }
 }
 
-/* ═══ GOOGLE SHEETS DYNAMIC LOAD ═══
-   ĐỂ DÙNG:
-   1. Tạo Google Sheet với 2 sheet: "FAQ" và "Landings"
-   2. Sheet FAQ: cột A = Câu hỏi, cột B = Câu trả lời
-   3. Sheet Landings: cột A = Icon, B = Tiêu đề, C = Mô tả, D = URL, E = css-class màu thumb (vd: landing-thumb-pickleball), F = "sapramat" (để hiện badge) hoặc để trống
-   4. Deploy Apps Script (xem hướng dẫn đi kèm) và dán URL vào bên dưới
-*/
-const SHEET_FAQ_URL     = 'https://script.google.com/macros/s/AKfycbwc3SvcN5rXpVWfINyO2syB-reQqx_w6MLdzD6p5xmyRRqMKTJqedmRuOMVS_UUOF83Dw/exec?sheet=faq';
+/* ═══ GOOGLE SHEETS DYNAMIC LOAD (ONLY LANDING SHEETS) ═══ */
 const SHEET_LANDING_URL = 'https://script.google.com/macros/s/AKfycbwc3SvcN5rXpVWfINyO2syB-reQqx_w6MLdzD6p5xmyRRqMKTJqedmRuOMVS_UUOF83Dw/exec?sheet=landings';
 
-// ─── LOAD FAQ ───
-async function loadFAQ() {
-  const container = document.getElementById('faq-list');
-  if (!SHEET_FAQ_URL.startsWith('https://')) {
-    // Hiển thị dữ liệu mẫu nếu chưa cấu hình URL
-    renderFAQ([
-      { q: 'Đèn LED TDL bảo hành bao lâu?', a: 'Driver Meanwell bảo hành <strong>5 năm</strong>, thân đèn và chip LED bảo hành <strong>3 năm</strong>. Tuổi thọ thiết kế 50.000 giờ. TDL hỗ trợ đổi trả tại công trình toàn quốc.' },
-      { q: 'Đèn sân Pickleball cần bao nhiêu cái, công suất bao nhiêu W?', a: 'Sân Pickleball tiêu chuẩn (13.4m × 6.1m) thường dùng <strong>4–6 đèn Module 200W</strong> chip Bridgelux/Philips, lắp cao 4–6m. Độ rọi đạt 300–500 Lux, chống chói UGR&lt;22. Gọi <a href="tel:0986474671">0986.474.671</a> để được khảo sát miễn phí.' },
-      { q: 'TDL có giao hàng và lắp đặt toàn quốc không?', a: 'Có. Thành Đạt LED giao hàng toàn quốc qua đường vận chuyển nhanh. Với dự án lớn, đội kỹ sư TDL hỗ trợ lắp đặt, nghiệm thu và vận hành tận công trình tại 50+ tỉnh thành.' },
-      { q: 'Đèn LED TDL tiết kiệm điện hơn đèn thường bao nhiêu?', a: 'So với đèn Metal Halide hoặc HPS cùng độ sáng, đèn LED TDL tiết kiệm <strong>50–65% điện năng</strong>. Ví dụ: thay 400W Metal Halide bằng Module 200W TDL, cùng độ rọi nhưng giảm một nửa điện tiêu thụ.' },
-      { q: 'Chip LED TDL dùng hãng nào? Có nguồn gốc xuất xứ không?', a: 'TDL sử dụng chip LED chính hãng <strong>Bridgelux (USA)</strong> và <strong>Philips Lumileds (Netherlands)</strong>. Toàn bộ sản phẩm có CO/CQ và giấy tờ kiểm định rõ ràng.' },
-      { q: 'Làm sao để nhận báo giá nhanh nhất?', a: 'Cách nhanh nhất: <strong>gọi hotline <a href="tel:0986474671">0986.474.671</a></strong> hoặc <strong>nhắn Zalo <a href="https://zalo.me/0986474671" target="_blank">zalo.me/0986474671</a></strong>. TDL báo giá trong <strong>30 phút</strong>.' },
-    ]);
-    return;
-  }
-  try {
-    const res = await fetch(SHEET_FAQ_URL);
-    const data = await res.json();
-    renderFAQ(data);
-  } catch(e) {
-    container.innerHTML = '<p style="text-align:center;color:var(--muted)">Không thể tải FAQ. Vui lòng thử lại sau.</p>';
-  }
-}
-
-function renderFAQ(items) {
-  const container = document.getElementById('faq-list');
-  if (!items || !items.length) { container.innerHTML = '<p style="text-align:center;color:var(--muted)">Chưa có câu hỏi nào.</p>'; return; }
-  container.innerHTML = items.map(item => `
-    <div class="faq-item">
-      <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">
-        <span>${item.q}</span><span class="faq-arrow">▼</span>
-      </button>
-      <div class="faq-a"><span>${item.a}</span></div>
-    </div>
-  `).join('');
-  // Re-observe reveal
-  container.querySelectorAll('.faq-item').forEach(el => { el.classList.add('reveal'); revealObs.observe(el); });
-}
-
-// ─── LOAD LANDINGS ───
 async function loadLandings() {
   const container = document.getElementById('landings-grid');
   if (!SHEET_LANDING_URL.startsWith('https://')) {
-    // Hiển thị dữ liệu mẫu nếu chưa cấu hình URL
     renderLandings([
       { icon:'🎾', title:'Đèn Sân Pickleball', desc:'Module LED 200W Bridgelux/Philips — chống chói, phủ sáng đồng đều, tiết kiệm 50% điện so với đèn Metal Halide.', url:'https://khuyenmai.thanhdatled.com/landing-pickleball-200w-tdl/', thumb:'landing-thumb-pickleball', sapramat:'' },
       { icon:'🌳', title:'Đèn Chiếu Cây 18W', desc:'Màu sắc trung thực CRI>90, IP65, sống động không gian cảnh quan ban đêm cho biệt thự và công trình công cộng.', url:'https://khuyenmai.thanhdatled.com/Landing-page-chieu-cay-18w/', thumb:'landing-thumb-chieucay', sapramat:'' },
@@ -805,7 +955,7 @@ async function loadLandings() {
     const data = await res.json();
     renderLandings(data);
   } catch(e) {
-    container.innerHTML = '<p style="text-align:center;color:var(--muted)">Không thể tải giải pháp. Vui lòng thử lại sau.</p>';
+    container.innerHTML = '<p style="text-align:center;color:var(--muted)">Không thể tải danh sách giải pháp. Vui lòng thử lại sau.</p>';
   }
 }
 
@@ -830,14 +980,9 @@ function renderLandings(items) {
   container.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
 }
 
-// ─── KHỞI CHẠY KHI TRANG TẢI ───
-loadFAQ();
 loadLandings();
 
-/* ═══ CHATBOT — MENU TREE ═══ */
-
-// ─── MENU DATA STRUCTURE ───
-// Each node: { label, icon, type: 'menu'|'answer'|'link', children?, msg?, url? }
+/* ═══ CHATBOT — MENU TREE DATA ═══ */
 const MENU = {
   label: 'Chọn chủ đề tư vấn:',
   items: [
@@ -897,7 +1042,7 @@ const MENU = {
       items: [
         { icon: '🔌', label: 'TDL có bán driver Meanwell không?', type: 'answer',
           msg: '✅ TDL phân phối chính hãng driver <b>Meanwell (Taiwan)</b>:<br>• Dải công suất: 20W → 600W<br>• Điện áp output: 12V, 24V, 36V, 48V<br>• Bảo hành: 5 năm<br><br>Xuất VAT đầy đủ, ship toàn quốc.<br>📦 <a href="https://drive.google.com/file/d/1hH1QYI98mNRO1STrnp8h8DeQX437UzoQ/view" target="_blank" style="color:var(--blue)">Xem catalog linh kiện</a>' },
-        { icon: '💎', label: 'Có bán chip LED Bridgelux / Philips?', type: 'answer',
+        { icon: '⚙️', label: 'Có bán chip LED Bridgelux / Philips?', type: 'answer',
           msg: '💎 TDL cung cấp chip LED:<br>• <b>Bridgelux (USA)</b>: ES Series, EB Series<br>• <b>Philips Lumileds</b>: LUXEON 3030, 5050<br>• Hiệu suất: 150–200 lm/W<br>• CRI 80–90+<br><br>📞 <a href="tel:0986474671">Gọi 0986.474.671</a> để đặt số lượng lớn!' },
         { icon: '📦', label: 'Xem catalog linh kiện đầy đủ', type: 'link',
           url: 'https://drive.google.com/file/d/1hH1QYI98mNRO1STrnp8h8DeQX437UzoQ/view', msg: '📦 Đang mở catalog linh kiện LED TDL...' },
@@ -921,10 +1066,8 @@ const MENU = {
   ]
 };
 
-// ─── STATE ───
-let currentMenu = null; // null = root, otherwise an item with .items
+let currentMenu = null;
 
-// ─── HELPERS ───
 function addMsg(html, isUser) {
   const msgs = document.getElementById('cb-messages');
   const div = document.createElement('div');
@@ -948,7 +1091,6 @@ function removeTyping() {
   if(t) t.remove();
 }
 
-// ─── RENDER MENU ───
 function renderMenu(menuData, isSubMenu) {
   const container = document.getElementById('cb-menu');
   container.innerHTML = '';
@@ -978,7 +1120,6 @@ function renderMenu(menuData, isSubMenu) {
     btn.setAttribute('aria-label', item.label);
 
     btn.onclick = () => {
-      // user bubble
       addMsg(item.icon + ' ' + item.label, true);
 
       if(item.type === 'menu') {
@@ -994,7 +1135,6 @@ function renderMenu(menuData, isSubMenu) {
         setTimeout(() => {
           removeTyping();
           addMsg(item.msg, false);
-          // after answer, show "ask more?" footer
           renderAfterAnswer();
         }, 700);
       } else if(item.type === 'link') {
@@ -1027,7 +1167,6 @@ function renderAfterAnswer() {
   });
 }
 
-// ─── TOGGLE ───
 function toggleChat() {
   const w = document.getElementById('chatbot-window');
   const btn = document.getElementById('chatbot-trigger');
