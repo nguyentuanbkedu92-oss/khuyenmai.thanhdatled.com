@@ -496,7 +496,13 @@ footer a { color:var(--blue); text-decoration:none; }
         <p class="sec-desc">Mỗi ứng dụng có đặc thù riêng. Khám phá giải pháp chiếu sáng tối ưu cho từng công trình của bạn.</p>
       </div>
     </div>
-    <div class="landings-grid">
+    <div id="landings-grid" class="landings-grid">
+      <div style="grid-column:1/-1;text-align:center;padding:40px;color:var(--muted);">
+        <div style="font-size:2rem;margin-bottom:12px;">⏳</div>
+        <p>Đang tải danh sách giải pháp...</p>
+      </div>
+    </div>
+    <div class="landings-grid" style="display:none">
       <a href="https://khuyenmai.thanhdatled.com/landing-pickleball-200w-tdl/" target="_blank" rel="noopener" class="landing-card reveal" aria-label="Giải pháp đèn sân Pickleball TDL">
         <div class="landing-thumb landing-thumb-pickleball" aria-hidden="true">🎾</div>
         <div class="landing-body">
@@ -548,7 +554,7 @@ footer a { color:var(--blue); text-decoration:none; }
           <span class="landing-link">Xem catalog linh kiện</span>
         </div>
       </a>
-    </div>
+    </div><!-- end hidden fallback -->
   </div>
 </section>
 
@@ -581,7 +587,7 @@ footer a { color:var(--blue); text-decoration:none; }
   </div>
 </section>
 
-<!-- FAQ – GIAO DIỆN HIỂN THỊ (ĐÃ LOẠI BỎ THẺ KHAI BÁO SCHEMA TRÙNG LẶP) -->
+<!-- FAQ – DYNAMIC FROM GOOGLE SHEETS -->
 <section class="section faq" id="faq" aria-labelledby="faq-title">
   <div class="wrap">
     <div class="sec-head reveal" style="justify-content:center;text-align:center;">
@@ -590,54 +596,11 @@ footer a { color:var(--blue); text-decoration:none; }
         <h2 class="sec-title" id="faq-title" style="max-width:100%">Khách Hàng<br><span>Hay Hỏi</span></h2>
       </div>
     </div>
-    <div class="faq-list reveal">
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">
-          <span>Đèn LED TDL bảo hành bao lâu?</span><span class="faq-arrow">▼</span>
-        </button>
-        <div class="faq-a">
-          <span>Driver Meanwell bảo hành <strong>5 năm</strong>, thân đèn và chip LED bảo hành <strong>3 năm</strong>. Tuổi thọ thiết kế 50.000 giờ. TDL hỗ trợ đổi trả tại công trình toàn quốc.</span>
-        </div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">
-          <span>Đèn sân Pickleball cần bao nhiêu cái, công suất bao nhiêu W?</span><span class="faq-arrow">▼</span>
-        </button>
-        <div class="faq-a">
-          <span>Sân Pickleball tiêu chuẩn (13.4m × 6.1m) thường dùng <strong>4–6 đèn Module 200W</strong> chip Bridgelux/Philips, lắp cao 4–6m. Độ rọi đạt 300–500 Lux, chống chói UGR&lt;22. TDL tư vấn thiết kế phụ thuộc số sân và chiều cao lắp đặt thực tế. Gọi <a href="tel:0986474671">0986.474.671</a> để được khảo sát miễn phí.</span>
-        </div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">
-          <span>TDL có giao hàng và lắp đặt toàn quốc không?</span><span class="faq-arrow">▼</span>
-        </button>
-        <div class="faq-a">
-          <span>Có. Thành Đạt LED giao hàng toàn quốc qua đường vận chuyển nhanh. Với dự án lớn (nhà xưởng, khu đô thị, sân thể thao), đội kỹ sư TDL hỗ trợ lắp đặt, nghiệm thu và vận hành tận công trình tại 50+ tỉnh thành.</span>
-        </div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">
-          <span>Đèn LED TDL tiết kiệm điện hơn đèn thường bao nhiêu?</span><span class="faq-arrow">▼</span>
-        </button>
-        <div class="faq-a">
-          <span>So với đèn Metal Halide hoặc HPS cùng độ sáng, đèn LED TDL tiết kiệm <strong>50–65% điện năng</strong>. Ví dụ: thay 400W Metal Halide bằng đèn Module 200W TDL, cùng độ rọi nhưng giảm một nửa điện tiêu thụ và chi phí bảo trì.</span>
-        </div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">
-          <span>Chip LED TDL dùng hãng nào? Có nguồn gốc xuất xứ không?</span><span class="faq-arrow">▼</span>
-        </button>
-        <div class="faq-a">
-          <span>TDL sử dụng chip LED chính hãng <strong>Bridgelux (USA)</strong> và <strong>Philips Lumileds (Netherlands)</strong> — hai thương hiệu chip hàng đầu thế giới. Toàn bộ sản phẩm có CO/CQ và giấy tờ kiểm định rõ ràng. Driver sử dụng Meanwell (Taiwan) — tiêu chuẩn công nghiệp toàn cầu.</span>
-        </div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">
-          <span>Làm sao để nhận báo giá nhanh nhất?</span><span class="faq-arrow">▼</span>
-        </button>
-        <div class="faq-a">
-          <span>Cách nhanh nhất: <strong>gọi hotline <a href="tel:0986474671">0986.474.671</a></strong> hoặc <strong>nhắn Zalo <a href="https://zalo.me/0986474671" target="_blank">zalo.me/0986474671</a></strong>. Cung cấp thông tin: loại đèn cần, số lượng, công trình — TDL báo giá trong <strong>30 phút</strong>.</span>
-        </div>
+    <!-- Nội dung FAQ load từ Google Sheets -->
+    <div id="faq-list" class="faq-list reveal">
+      <div style="text-align:center;padding:40px;color:var(--muted);">
+        <div style="font-size:2rem;margin-bottom:12px;">⏳</div>
+        <p>Đang tải câu hỏi thường gặp...</p>
       </div>
     </div>
   </div>
@@ -772,6 +735,104 @@ function toggleFaq(btn) {
   document.querySelectorAll('.faq-q').forEach(x => { x.classList.remove('open'); x.setAttribute('aria-expanded','false'); });
   if(!open) { a.classList.add('open'); btn.classList.add('open'); btn.setAttribute('aria-expanded','true'); }
 }
+
+/* ═══ GOOGLE SHEETS DYNAMIC LOAD ═══
+   ĐỂ DÙNG:
+   1. Tạo Google Sheet với 2 sheet: "FAQ" và "Landings"
+   2. Sheet FAQ: cột A = Câu hỏi, cột B = Câu trả lời
+   3. Sheet Landings: cột A = Icon, B = Tiêu đề, C = Mô tả, D = URL, E = css-class màu thumb (vd: landing-thumb-pickleball), F = "sapramat" (để hiện badge) hoặc để trống
+   4. Deploy Apps Script (xem hướng dẫn đi kèm) và dán URL vào bên dưới
+*/
+const SHEET_FAQ_URL     = 'https://script.google.com/macros/s/AKfycbwc3SvcN5rXpVWfINyO2syB-reQqx_w6MLdzD6p5xmyRRqMKTJqedmRuOMVS_UUOF83Dw/exec?sheet=faq';
+const SHEET_LANDING_URL = 'https://script.google.com/macros/s/AKfycbwc3SvcN5rXpVWfINyO2syB-reQqx_w6MLdzD6p5xmyRRqMKTJqedmRuOMVS_UUOF83Dw/exec?sheet=landings';
+
+// ─── LOAD FAQ ───
+async function loadFAQ() {
+  const container = document.getElementById('faq-list');
+  if (!SHEET_FAQ_URL.startsWith('https://')) {
+    // Hiển thị dữ liệu mẫu nếu chưa cấu hình URL
+    renderFAQ([
+      { q: 'Đèn LED TDL bảo hành bao lâu?', a: 'Driver Meanwell bảo hành <strong>5 năm</strong>, thân đèn và chip LED bảo hành <strong>3 năm</strong>. Tuổi thọ thiết kế 50.000 giờ. TDL hỗ trợ đổi trả tại công trình toàn quốc.' },
+      { q: 'Đèn sân Pickleball cần bao nhiêu cái, công suất bao nhiêu W?', a: 'Sân Pickleball tiêu chuẩn (13.4m × 6.1m) thường dùng <strong>4–6 đèn Module 200W</strong> chip Bridgelux/Philips, lắp cao 4–6m. Độ rọi đạt 300–500 Lux, chống chói UGR&lt;22. Gọi <a href="tel:0986474671">0986.474.671</a> để được khảo sát miễn phí.' },
+      { q: 'TDL có giao hàng và lắp đặt toàn quốc không?', a: 'Có. Thành Đạt LED giao hàng toàn quốc qua đường vận chuyển nhanh. Với dự án lớn, đội kỹ sư TDL hỗ trợ lắp đặt, nghiệm thu và vận hành tận công trình tại 50+ tỉnh thành.' },
+      { q: 'Đèn LED TDL tiết kiệm điện hơn đèn thường bao nhiêu?', a: 'So với đèn Metal Halide hoặc HPS cùng độ sáng, đèn LED TDL tiết kiệm <strong>50–65% điện năng</strong>. Ví dụ: thay 400W Metal Halide bằng Module 200W TDL, cùng độ rọi nhưng giảm một nửa điện tiêu thụ.' },
+      { q: 'Chip LED TDL dùng hãng nào? Có nguồn gốc xuất xứ không?', a: 'TDL sử dụng chip LED chính hãng <strong>Bridgelux (USA)</strong> và <strong>Philips Lumileds (Netherlands)</strong>. Toàn bộ sản phẩm có CO/CQ và giấy tờ kiểm định rõ ràng.' },
+      { q: 'Làm sao để nhận báo giá nhanh nhất?', a: 'Cách nhanh nhất: <strong>gọi hotline <a href="tel:0986474671">0986.474.671</a></strong> hoặc <strong>nhắn Zalo <a href="https://zalo.me/0986474671" target="_blank">zalo.me/0986474671</a></strong>. TDL báo giá trong <strong>30 phút</strong>.' },
+    ]);
+    return;
+  }
+  try {
+    const res = await fetch(SHEET_FAQ_URL);
+    const data = await res.json();
+    renderFAQ(data);
+  } catch(e) {
+    container.innerHTML = '<p style="text-align:center;color:var(--muted)">Không thể tải FAQ. Vui lòng thử lại sau.</p>';
+  }
+}
+
+function renderFAQ(items) {
+  const container = document.getElementById('faq-list');
+  if (!items || !items.length) { container.innerHTML = '<p style="text-align:center;color:var(--muted)">Chưa có câu hỏi nào.</p>'; return; }
+  container.innerHTML = items.map(item => `
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">
+        <span>${item.q}</span><span class="faq-arrow">▼</span>
+      </button>
+      <div class="faq-a"><span>${item.a}</span></div>
+    </div>
+  `).join('');
+  // Re-observe reveal
+  container.querySelectorAll('.faq-item').forEach(el => { el.classList.add('reveal'); revealObs.observe(el); });
+}
+
+// ─── LOAD LANDINGS ───
+async function loadLandings() {
+  const container = document.getElementById('landings-grid');
+  if (!SHEET_LANDING_URL.startsWith('https://')) {
+    // Hiển thị dữ liệu mẫu nếu chưa cấu hình URL
+    renderLandings([
+      { icon:'🎾', title:'Đèn Sân Pickleball', desc:'Module LED 200W Bridgelux/Philips — chống chói, phủ sáng đồng đều, tiết kiệm 50% điện so với đèn Metal Halide.', url:'https://khuyenmai.thanhdatled.com/landing-pickleball-200w-tdl/', thumb:'landing-thumb-pickleball', sapramat:'' },
+      { icon:'🌳', title:'Đèn Chiếu Cây 18W', desc:'Màu sắc trung thực CRI>90, IP65, sống động không gian cảnh quan ban đêm cho biệt thự và công trình công cộng.', url:'https://khuyenmai.thanhdatled.com/Landing-page-chieu-cay-18w/', thumb:'landing-thumb-chieucay', sapramat:'' },
+      { icon:'🏗️', title:'Đèn Nhà Xưởng', desc:'Highbay LED 100W–300W, IP65, tuổi thọ 50.000h, tiết kiệm 60% điện năng so với đèn huỳnh quang cũ.', url:'', thumb:'landing-thumb-nhaXuong', sapramat:'sapramat' },
+      { icon:'🛣️', title:'Đèn Đường LED', desc:'Đèn đường đô thị và khu dân cư — chuẩn TCVN chiếu sáng đường, đảm bảo độ sáng và an toàn giao thông.', url:'', thumb:'landing-thumb-duong', sapramat:'sapramat' },
+      { icon:'☀️', title:'Đèn Năng Lượng MT', desc:'Hệ thống độc lập hoàn toàn, pin LiFePO4 4.000 cycles, tự động bật/tắt theo cảm biến chuyển động.', url:'', thumb:'landing-thumb-nanglg', sapramat:'sapramat' },
+      { icon:'⚙️', title:'Linh Kiện & Phụ Kiện', desc:'Driver Meanwell, chip Bridgelux, module lens, tản nhiệt, bo mạch — phụ kiện thay thế và bảo trì đèn LED.', url:'https://drive.google.com/file/d/1hH1QYI98mNRO1STrnp8h8DeQX437UzoQ/view?usp=drive_link', thumb:'landing-thumb-linhkien', sapramat:'' },
+    ]);
+    return;
+  }
+  try {
+    const res = await fetch(SHEET_LANDING_URL);
+    const data = await res.json();
+    renderLandings(data);
+  } catch(e) {
+    container.innerHTML = '<p style="text-align:center;color:var(--muted)">Không thể tải giải pháp. Vui lòng thử lại sau.</p>';
+  }
+}
+
+function renderLandings(items) {
+  const container = document.getElementById('landings-grid');
+  if (!items || !items.length) { container.innerHTML = '<p style="text-align:center;color:var(--muted)">Chưa có dữ liệu.</p>'; return; }
+  container.innerHTML = items.map(item => {
+    const coming = item.sapramat && item.sapramat.trim();
+    const tag = coming ? 'div' : 'a';
+    const href = (!coming && item.url) ? `href="${item.url}" target="_blank" rel="noopener"` : '';
+    return `
+    <${tag} ${href} class="landing-card reveal${coming ? ' landing-coming' : ''}" aria-label="${item.title}">
+      <div class="landing-thumb ${item.thumb || 'landing-thumb-linhkien'}" aria-hidden="true">${item.icon}</div>
+      <div class="landing-body">
+        ${coming ? '<div class="coming-badge">Sắp ra mắt</div>' : ''}
+        <h3>${item.title}</h3>
+        <p>${item.desc}</p>
+        ${coming ? '<span style="color:var(--muted);font-size:.82rem;">Đang cập nhật...</span>' : '<span class="landing-link">Xem giải pháp & báo giá</span>'}
+      </div>
+    </${tag}>`;
+  }).join('');
+  container.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+}
+
+// ─── KHỞI CHẠY KHI TRANG TẢI ───
+loadFAQ();
+loadLandings();
 
 /* ═══ CHATBOT — MENU TREE ═══ */
 
