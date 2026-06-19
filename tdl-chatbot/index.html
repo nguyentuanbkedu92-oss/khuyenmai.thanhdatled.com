@@ -796,7 +796,7 @@ function backBtns(key) {
 
 function showMenu() {
   addMsg(
-    '<div class="stag">Tư vấn 24/7</div><br>Xin chào! Tôi là nhân viên tư vấn <strong>Thành Đạt LED</strong>.<br>Chip LED Bridgelux/Philips · Nguồn Done/Philips · Bảo hành 3 năm<br><br>Chọn danh mục cần hỗ trợ 👇',
+    '<div class="stag">Tư vấn 24/7</div><br>Xin chào! Tôi là nhân viên tư vấn <strong>Thành Đạt LED</strong>.<br>Chọn danh mục cần hỗ trợ 👇',
     'bot',
     MAIN_MENU.map(m => ({ label: m.label, cls:'cat', fn: () => { addMsg(m.label, 'user'); typing(() => showCat(m.key)); } }))
   );
