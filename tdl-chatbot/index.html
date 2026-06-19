@@ -2,107 +2,186 @@
 <html lang="vi">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Thành Đạt LED - Tư Vấn 24/7</title>
 <style>
-* { margin:0; padding:0; box-sizing:border-box; }
-body { font-family:'Segoe UI',Arial,sans-serif; background:#0a0a0f; color:#e8e8e8; min-height:100vh; display:flex; flex-direction:column; }
+* { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
 
+/* FIX 1: dùng dvh thay min-height:100vh để tính đúng chiều cao thực trên iOS/Android */
+html, body {
+  height: 100%;
+  height: 100dvh;
+}
+body {
+  font-family:'Segoe UI',Arial,sans-serif;
+  background:#0a0a0f;
+  color:#e8e8e8;
+  display:flex;
+  flex-direction:column;
+  overflow:hidden; /* FIX 2: ngăn body scroll, chỉ chat-area scroll */
+}
+
+/* ── HEADER ── */
 .header {
   background:linear-gradient(135deg,#0d1b2a 0%,#1a2a3a 100%);
   border-bottom:2px solid #f5a623;
-  padding:12px 20px; display:flex; align-items:center; gap:14px;
-  position:sticky; top:0; z-index:100;
+  padding:10px 14px;
+  display:flex;
+  align-items:center;
+  gap:12px;
+  flex-shrink:0; /* FIX 3: không co lại */
   box-shadow:0 2px 20px rgba(245,166,35,0.15);
+  /* FIX 4: safe area inset trên iPhone có notch */
+  padding-top: calc(10px + env(safe-area-inset-top));
 }
 .logo-circle {
-  width:46px; height:46px; border-radius:50%;
+  width:40px; height:40px; border-radius:50%;
   background:linear-gradient(135deg,#f5a623,#e8850a);
   display:flex; align-items:center; justify-content:center;
-  font-weight:800; font-size:14px; color:#0d1b2a; flex-shrink:0;
+  font-weight:800; font-size:13px; color:#0d1b2a; flex-shrink:0;
 }
-.header-info { flex:1; }
-.header-name { font-size:16px; font-weight:700; color:#f5a623; }
-.header-sub { font-size:11px; color:#8ab4d4; margin-top:2px; }
-.status-wrap { display:flex; align-items:center; gap:6px; flex-shrink:0; }
+.header-info { flex:1; min-width:0; }
+.header-name { font-size:15px; font-weight:700; color:#f5a623; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.header-sub { font-size:10px; color:#8ab4d4; margin-top:1px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.status-wrap { display:flex; align-items:center; gap:5px; flex-shrink:0; }
 .status-dot { width:8px; height:8px; border-radius:50%; background:#22c55e; box-shadow:0 0 6px #22c55e; animation:pulse 2s infinite; }
-.status-txt { font-size:11px; color:#22c55e; }
+.status-txt { font-size:11px; color:#22c55e; white-space:nowrap; }
 @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.5} }
-.header-contact { text-align:right; font-size:11px; color:#8ab4d4; line-height:1.8; }
+
+/* Ẩn contact phone trên mobile, hiện trên desktop */
+.header-contact { display:none; }
 .header-contact a { color:#f5a623; text-decoration:none; font-weight:600; }
 
+/* ── CHAT AREA ── */
+/* FIX 5: flex:1 + overflow-y:auto đúng cách, tránh iOS rubber-band leak */
 .chat-area {
-  flex:1; overflow-y:auto; padding:20px;
-  display:flex; flex-direction:column; gap:14px;
-  max-width:800px; width:100%; margin:0 auto;
+  flex:1;
+  overflow-y:auto;
+  overflow-x:hidden;
+  -webkit-overflow-scrolling:touch;
+  padding:14px 12px;
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+  /* FIX 6: overscroll-behavior ngăn scroll lan ra body */
+  overscroll-behavior:contain;
 }
-.chat-area::-webkit-scrollbar { width:4px; }
-.chat-area::-webkit-scrollbar-thumb { background:#2a4060; border-radius:4px; }
+.chat-area::-webkit-scrollbar { width:3px; }
+.chat-area::-webkit-scrollbar-thumb { background:#2a4060; border-radius:3px; }
 
-.msg { display:flex; gap:10px; animation:fadeIn 0.3s ease; }
-@keyframes fadeIn { from{opacity:0;transform:translateY(8px)} to{opacity:1;transform:translateY(0)} }
+/* ── MESSAGES ── */
+.msg { display:flex; gap:8px; animation:fadeIn 0.25s ease; }
+@keyframes fadeIn { from{opacity:0;transform:translateY(6px)} to{opacity:1;transform:translateY(0)} }
 .msg.user { flex-direction:row-reverse; }
-.avatar { width:34px; height:34px; border-radius:50%; flex-shrink:0; display:flex; align-items:center; justify-content:center; font-size:11px; font-weight:700; }
+.avatar { width:32px; height:32px; border-radius:50%; flex-shrink:0; display:flex; align-items:center; justify-content:center; font-size:10px; font-weight:700; }
 .avatar.bot { background:linear-gradient(135deg,#f5a623,#e8850a); color:#0d1b2a; }
 .avatar.user { background:#1e3a5f; color:#8ab4d4; }
-.bubble { max-width:78%; padding:12px 16px; border-radius:18px; line-height:1.65; font-size:14px; }
+
+/* FIX 7: bubble width thoáng hơn, tránh tràn */
+.bubble { max-width:calc(100% - 48px); padding:10px 14px; border-radius:18px; line-height:1.6; font-size:13.5px; word-break:break-word; }
 .bubble.bot { background:#132030; border:1px solid #1e3550; border-radius:4px 18px 18px 18px; color:#d8e8f0; }
 .bubble.user { background:linear-gradient(135deg,#1a4a7a,#0d3060); border-radius:18px 4px 18px 18px; color:#e8f4ff; text-align:right; }
 .bubble.bot a { color:#f5a623; }
-.bubble.bot ul { margin:8px 0 4px 18px; }
-.bubble.bot li { margin:4px 0; }
+.bubble.bot ul { margin:8px 0 4px 16px; }
+.bubble.bot li { margin:3px 0; }
 .bubble.bot strong { color:#f5a623; }
-.bubble.bot table { width:100%; border-collapse:collapse; margin:10px 0; font-size:13px; }
-.bubble.bot th { background:#0d2a3a; color:#f5a623; padding:6px 10px; text-align:left; border:1px solid #1e4a5a; font-weight:600; }
-.bubble.bot td { padding:6px 10px; border:1px solid #1e3550; color:#c8d8e8; }
+
+/* FIX 8: table tràn → scroll ngang thay vì vỡ layout */
+.bubble.bot { overflow-x:auto; }
+.bubble.bot table { min-width:340px; width:100%; border-collapse:collapse; margin:8px 0; font-size:12px; }
+.bubble.bot th { background:#0d2a3a; color:#f5a623; padding:5px 8px; text-align:left; border:1px solid #1e4a5a; font-weight:600; }
+.bubble.bot td { padding:5px 8px; border:1px solid #1e3550; color:#c8d8e8; }
 .bubble.bot tr:nth-child(even) td { background:#0d1e2e; }
 
-.quick-replies { display:flex; flex-wrap:wrap; gap:8px; padding:4px 0 4px 44px; }
-.qr-btn {
-  padding:7px 14px; border-radius:20px; font-size:13px; cursor:pointer;
-  border:1px solid #2a4a6a; background:#0d1b2a; color:#8ab4d4;
-  transition:all 0.2s; white-space:nowrap; line-height:1.3;
+/* ── QUICK REPLIES ── */
+/* FIX 9: scroll ngang thay vì wrap, tránh đẩy layout xuống quá sâu */
+.quick-replies {
+  display:flex;
+  flex-wrap:wrap; /* wrap vẫn tốt hơn scroll ngang cho UX mobile */
+  gap:6px;
+  padding:4px 0 4px 40px;
 }
-.qr-btn:hover { background:#f5a623; border-color:#f5a623; color:#0d1b2a; font-weight:600; }
+.qr-btn {
+  padding:8px 13px;
+  border-radius:20px;
+  font-size:13px;
+  cursor:pointer;
+  border:1px solid #2a4a6a;
+  background:#0d1b2a;
+  color:#8ab4d4;
+  transition:all 0.15s;
+  white-space:normal; /* FIX 10: cho phép wrap text trong nút */
+  line-height:1.3;
+  text-align:left;
+  /* FIX 11: min tap target 44px chiều cao */
+  min-height:38px;
+  display:flex;
+  align-items:center;
+}
+.qr-btn:hover, .qr-btn:active { background:#f5a623; border-color:#f5a623; color:#0d1b2a; font-weight:600; }
 .qr-btn.cat { border-color:#f5a623; color:#f5a623; font-weight:600; }
-.qr-btn.cat:hover { background:#f5a623; color:#0d1b2a; }
+.qr-btn.cat:hover, .qr-btn.cat:active { background:#f5a623; color:#0d1b2a; }
 .qr-btn.green { border-color:#22c55e; color:#22c55e; }
-.qr-btn.green:hover { background:#22c55e; color:#0d1b2a; }
+.qr-btn.green:hover, .qr-btn.green:active { background:#22c55e; color:#0d1b2a; }
 
-.input-wrap-outer { max-width:800px; width:100%; margin:0 auto; }
-.input-area { background:#0d1420; border-top:1px solid #1e3550; padding:12px 20px; display:flex; gap:10px; align-items:flex-end; }
-.input-inner { flex:1; }
+/* ── INPUT AREA ── */
+/* FIX 12: sticky bottom với safe-area cho iPhone X+ */
+.input-wrap-outer { flex-shrink:0; }
+.input-area {
+  background:#0d1420;
+  border-top:1px solid #1e3550;
+  padding:10px 12px;
+  padding-bottom: calc(10px + env(safe-area-inset-bottom));
+  display:flex;
+  gap:8px;
+  align-items:flex-end;
+}
+.input-inner { flex:1; min-width:0; }
 #userInput {
-  width:100%; padding:11px 16px; border-radius:24px;
-  background:#132030; border:1px solid #2a4a6a; color:#d8e8f0;
-  font-size:14px; resize:none; outline:none; font-family:inherit; line-height:1.5;
+  width:100%;
+  padding:10px 14px;
+  border-radius:22px;
+  background:#132030;
+  border:1px solid #2a4a6a;
+  color:#d8e8f0;
+  font-size:14px; /* FIX 13: ≥16px tránh iOS auto-zoom khi focus */
+  font-size:max(14px, 16px);
+  resize:none;
+  outline:none;
+  font-family:inherit;
+  line-height:1.4;
   transition:border-color 0.2s;
+  max-height:100px;
+  overflow-y:auto;
 }
 #userInput:focus { border-color:#f5a623; }
 #userInput::placeholder { color:#4a6a8a; }
 #sendBtn {
-  width:44px; height:44px; border-radius:50%;
+  width:42px; height:42px; border-radius:50%;
   background:linear-gradient(135deg,#f5a623,#e8850a);
   border:none; cursor:pointer; flex-shrink:0;
   display:flex; align-items:center; justify-content:center;
   transition:transform 0.15s;
+  touch-action:manipulation; /* FIX 14: tránh delay 300ms trên mobile */
 }
-#sendBtn:hover { transform:scale(1.08); }
-#sendBtn:active { transform:scale(0.95); }
+#sendBtn:hover { transform:scale(1.06); }
+#sendBtn:active { transform:scale(0.94); }
 #sendBtn svg { width:18px; height:18px; fill:#0d1b2a; }
 
-.typing { display:flex; gap:4px; align-items:center; padding:14px 16px; }
-.typing span { width:7px; height:7px; border-radius:50%; background:#4a7a9b; animation:bounce 1.2s infinite; }
+/* ── TYPING ── */
+.typing { display:flex; gap:4px; align-items:center; padding:12px 14px; }
+.typing span { width:6px; height:6px; border-radius:50%; background:#4a7a9b; animation:bounce 1.2s infinite; }
 .typing span:nth-child(2) { animation-delay:0.2s; }
 .typing span:nth-child(3) { animation-delay:0.4s; }
-@keyframes bounce { 0%,60%,100%{transform:translateY(0)} 30%{transform:translateY(-6px)} }
+@keyframes bounce { 0%,60%,100%{transform:translateY(0)} 30%{transform:translateY(-5px)} }
 
+/* ── LINK CARDS ── */
 .link-card {
-  display:block; margin-top:10px; padding:10px 14px;
+  display:block; margin-top:8px; padding:9px 12px;
   background:#0d2a3a; border:1px solid #1e4a5a;
   border-left:3px solid #f5a623; border-radius:0 6px 6px 0;
-  text-decoration:none; color:#8ab4d4; font-size:13px;
-  transition:background 0.2s;
+  text-decoration:none; color:#8ab4d4; font-size:12.5px;
+  transition:background 0.2s; word-break:break-word;
 }
 .link-card:hover { background:#132a3a; }
 .link-card strong { color:#f5a623; display:block; margin-bottom:2px; }
@@ -110,28 +189,29 @@ body { font-family:'Segoe UI',Arial,sans-serif; background:#0a0a0f; color:#e8e8e
 .link-card.green strong { color:#22c55e; }
 
 .stag {
-  display:inline-block; padding:3px 10px; border-radius:12px;
+  display:inline-block; padding:2px 9px; border-radius:12px;
   background:rgba(245,166,35,0.15); color:#f5a623;
-  font-size:11px; font-weight:600; margin-bottom:8px;
+  font-size:11px; font-weight:600; margin-bottom:6px;
   text-transform:uppercase; letter-spacing:0.5px;
 }
 .note-box {
-  margin-top:10px; padding:9px 13px;
+  margin-top:8px; padding:8px 11px;
   background:rgba(245,166,35,0.08); border:1px solid rgba(245,166,35,0.25);
-  border-radius:6px; font-size:12.5px; color:#c8b87a; line-height:1.6;
+  border-radius:6px; font-size:12px; color:#c8b87a; line-height:1.55;
 }
 
-@media (max-width:600px) {
-  .header { padding:10px 14px; gap:10px; }
-  .logo-circle { width:38px; height:38px; font-size:12px; }
-  .header-name { font-size:14px; }
-  .header-contact,.status-txt { display:none; }
-  .chat-area { padding:12px; gap:12px; }
-  .bubble { max-width:88%; font-size:13.5px; }
-  .quick-replies { padding-left:0; }
-  .input-area { padding:10px 12px; }
-  .bubble.bot table { font-size:12px; }
-  .bubble.bot th,.bubble.bot td { padding:5px 7px; }
+/* ── DESKTOP ── */
+@media (min-width:600px) {
+  .chat-area { max-width:800px; width:100%; margin:0 auto; padding:20px; gap:14px; }
+  .input-wrap-outer { max-width:800px; width:100%; margin:0 auto; }
+  .input-area { padding:12px 20px; }
+  .header-contact { display:block; text-align:right; font-size:11px; color:#8ab4d4; line-height:1.8; }
+  .header { padding:12px 20px; }
+  .logo-circle { width:46px; height:46px; font-size:14px; }
+  .header-name { font-size:16px; }
+  .bubble { max-width:78%; font-size:14px; }
+  .quick-replies { padding-left:44px; }
+  #userInput { font-size:14px; }
 }
 </style>
 </head>
@@ -167,38 +247,27 @@ body { font-family:'Segoe UI',Arial,sans-serif; background:#0a0a0f; color:#e8e8e
 </div>
 
 <script>
-// ══════════════════════════════════════════════════════════════════
-//  CẤU HÌNH GOOGLE SHEET
-//  Bước 1: Thay YOUR_SHEET_ID bằng ID thật của Google Sheet bạn
-//  Bước 2: Publish Sheet lên web (File → Share → Publish to web → chọn "Entire document" → CSV → Publish)
-//  Mỗi tab tên phải đặt đúng: ChinhSach | DenPha | DenDuong | NhaXuong | SanTheThao | BaoGia | SanVuon
-// ══════════════════════════════════════════════════════════════════
-const SHEET_ID = "1SLHuE9nLNpxwlwAjW_y1FQEtJhwqw8s1l7NjqHVr6Eg"; // <-- THAY ID VÀO ĐÂY
+const SHEET_ID = "1SLHuE9nLNpxwlwAjW_y1FQEtJhwqw8s1l7NjqHVr6Eg";
 
-// Map tab name → GID (lấy từ URL khi click vào từng tab trong Sheet)
-// Sau khi tạo Sheet, mở từng tab, nhìn URL lấy số sau "gid=" rồi điền vào đây
 const TAB_GID = {
-  ChinhSach:   "0",          // ✅ ChinhSach
-  DenPha:      "890151671",  // ✅ DenPha
-  DenDuong:    "1046671824", // ✅ DenDuong
-  NhaXuong:    "1561603537", // ✅ NhaXuong
-  SanTheThao:  "141301098",  // ✅ SanTheThao
-  BaoGia:      "1171981915", // ✅ BaoGia
-  SanVuon:     "1215299338", // ✅ SanVuon
+  ChinhSach:   "0",
+  DenPha:      "890151671",
+  DenDuong:    "1046671824",
+  NhaXuong:    "1561603537",
+  SanTheThao:  "141301098",
+  BaoGia:      "1171981915",
+  SanVuon:     "1215299338",
 };
 
-// Lấy CSV theo GID — dùng export?format=csv&gid= ổn định hơn gviz, không bị CORS
 const csvUrl = (tabName) => {
   const gid = TAB_GID[tabName];
   if (!gid) return null;
   return `https://docs.google.com/spreadsheets/d/${SHEET_ID}/export?format=csv&gid=${gid}`;
 };
 
-// Lấy URL edit để mở Sheet cho khách xem
 const sheetEditUrl = (tabName) =>
   `https://docs.google.com/spreadsheets/d/${SHEET_ID}/edit#gid=${TAB_GID[tabName] || 0}`;
 
-// Map category key → tên tab Sheet
 const KEY_TO_TAB = {
   chinh_sach:    "ChinhSach",
   den_pha:       "DenPha",
@@ -214,10 +283,8 @@ const KEY_TO_TAB = {
 
 const sheetFor = key => sheetEditUrl(KEY_TO_TAB[key] || "BaoGia");
 
-// ── Cache dữ liệu Sheet (tránh gọi lại nhiều lần) ──
 const sheetCache = {};
 
-// Đọc CSV từ Google Sheet, trả về mảng [{col1, col2, ...}, ...]
 async function fetchSheetData(tabName) {
   if (sheetCache[tabName]) return sheetCache[tabName];
   const url = csvUrl(tabName);
@@ -235,7 +302,6 @@ async function fetchSheetData(tabName) {
   }
 }
 
-// Parser CSV đơn giản hỗ trợ ô có dấu phẩy và xuống dòng trong ngoặc kép
 function parseCSV(text) {
   const lines = [];
   let cur = [], cell = "", inQ = false;
@@ -261,7 +327,6 @@ function parseCSV(text) {
   });
 }
 
-// Render mảng objects → HTML table (dùng keys làm header)
 function renderTable(rows, highlightCol) {
   if (!rows || !rows.length) return "<em>Chưa có dữ liệu</em>";
   const keys = Object.keys(rows[0]);
@@ -277,27 +342,23 @@ function renderTable(rows, highlightCol) {
   return html;
 }
 
-// Lọc rows theo cột và giá trị (không phân biệt hoa thường)
 function filterRows(rows, col, value) {
   if (!col || !value) return rows;
   return rows.filter(r => (r[col]||"").toLowerCase().includes(value.toLowerCase()));
 }
 
 const WP = {
-  den_pha:       "https://thanhdatled.com/den-pha-led/",
-  den_duong:     "https://thanhdatled.com/den-duong-led/",
-  den_nha_xuong: "https://thanhdatled.com/den-nha-xuong-led/",
-  den_san_vuon:  "https://thanhdatled.com/den-san-vuon/",
-  san_tennis:    "https://thanhdatled.com/san-tennis/",
-  san_cau_long:  "https://thanhdatled.com/san-cau-long/",
-  san_bong_chuyen:"https://thanhdatled.com/san-bong-chuyen/",
-  san_pickleball:"https://thanhdatled.com/san-pickleball/",
-  san_bong_da:   "https://thanhdatled.com/san-bong-da/",
+  den_pha:       "https://thanhdatled.com/danh-muc/den-pha-led-ngoai-troi-tdl.html",
+  den_duong:     "https://thanhdatled.com/danh-muc/den-led-duong-pho-street-light.html",
+  den_nha_xuong: "https://thanhdatled.com/danh-muc/den-led-nha-xuong.html",
+  den_san_vuon:  "https://thanhdatled.com/danh-muc/den-san-vuon-trang-tri.html",
+  san_tennis:    "https://thanhdatled.com/danh-muc/den-san-the-thao/den-san-tennis.html",
+  san_cau_long:  "https://thanhdatled.com/danh-muc/den-pha-led-ngoai-troi-tdl/den-pha-led-san-cau-long.html",
+  san_bong_chuyen:"https://thanhdatled.com/danh-muc/den-pha-led-ngoai-troi-tdl/den-pha-led-san-bong-chuyen.html",
+  san_pickleball:"https://thanhdatled.com/danh-muc/den-pha-led-san-pickleball.html",
+  san_bong_da:   "https://thanhdatled.com/danh-muc/den-san-the-thao/den-pha-led-san-bong-da.html",
 };
 
-// ══════════════════════════════════════════════
-// DỮ LIỆU FAQ — nội dung kỹ thuật chuẩn xác
-// ══════════════════════════════════════════════
 const FAQ = {
 
 chinh_sach: { label:"Chính Sách & Dịch Vụ", icon:"📋", items:[
@@ -361,12 +422,12 @@ den_pha: { label:"Đèn Pha LED", icon:"💡", items:[
 </ul>` },
   { q:"Các dải công suất đèn pha", a:`<div class="stag">Công suất</div><br>
 <table>
-<tr><th>Công suất</th><th>Ứng dụng phù hợp</th><th>Quang thông</th></tr>
-<tr><td>50W – 100W</td><td>Biển quảng cáo, lối đi, kho nhỏ</td><td>6.500–13.000 lm</td></tr>
-<tr><td>150W – 200W</td><td>Sân bóng mini, bãi đỗ xe, khuôn viên</td><td>19.500–26.000 lm</td></tr>
-<tr><td>300W – 400W</td><td>Sân tennis, cầu lông, nhà xưởng vừa</td><td>39.000–52.000 lm</td></tr>
-<tr><td>500W – 600W</td><td>Sân bóng đá 7 người, kho lớn</td><td>65.000–78.000 lm</td></tr>
-<tr><td>800W – 1000W</td><td>Sân bóng đá 11 người, sân vận động</td><td>104.000–150.000 lm</td></tr>
+<tr><th>Công suất</th><th>Ứng dụng</th><th>Quang thông</th></tr>
+<tr><td>50W–100W</td><td>Biển quảng cáo, lối đi, kho nhỏ</td><td>6.500–13.000 lm</td></tr>
+<tr><td>150W–200W</td><td>Sân bóng mini, bãi đỗ xe</td><td>19.500–26.000 lm</td></tr>
+<tr><td>300W–400W</td><td>Sân tennis, cầu lông, nhà xưởng</td><td>39.000–52.000 lm</td></tr>
+<tr><td>500W–600W</td><td>Sân bóng đá 7 người, kho lớn</td><td>65.000–78.000 lm</td></tr>
+<tr><td>800W–1000W</td><td>Sân bóng đá 11 người, sân vận động</td><td>104.000–150.000 lm</td></tr>
 </table>
 <div class="note-box">⚡ Nhiệt độ màu: 4000K (trắng trung tính) cho thi đấu ban đêm, 5000–6500K cho tập luyện.</div>`, sheet:true },
   { q:"Tiêu chuẩn kỹ thuật đèn pha TDL", a:`<div class="stag">Thông số</div><br>
@@ -377,8 +438,7 @@ den_pha: { label:"Đèn Pha LED", icon:"💡", items:[
 <li>Góc chiếu: 15°, 30°, 60°, 90°, 120° — tùy module quang</li>
 <li>Dải điện áp: 100–277V AC, 50/60Hz</li>
 <li>Nhiệt độ hoạt động: -30°C đến +60°C</li>
-<li>Hệ số công suất (PF): ≥ 0.95</li>
-<li>THD (méo sóng hài): &lt; 15%</li>
+<li>Hệ số công suất (PF): ≥ 0.95 | THD: &lt; 15%</li>
 </ul>` },
   { q:"Xem báo giá đèn pha LED", a:`Báo giá đèn pha LED Bridgelux/Philips, nguồn Done/Philips — phân theo công suất và số lượng trong Google Sheet.`, sheet:true },
 ]},
@@ -386,22 +446,21 @@ den_pha: { label:"Đèn Pha LED", icon:"💡", items:[
 den_duong: { label:"Đèn Đường LED", icon:"🛣️", items:[
   { q:"Gợi ý công suất theo chiều rộng đường", a:`<div class="stag">Lựa chọn công suất</div><br>
 <table>
-<tr><th>Chiều rộng đường</th><th>Công suất</th><th>Khoảng cột</th><th>Lắp 1/2 phía</th></tr>
-<tr><td>Dưới 6m (ngõ, nội bộ)</td><td>30W – 40W</td><td>20–25m</td><td>1 phía</td></tr>
-<tr><td>6m – 9m (đường làng, khu đô thị)</td><td>50W – 60W</td><td>25–30m</td><td>1 phía</td></tr>
-<tr><td>9m – 15m (đường tỉnh lộ)</td><td>80W – 100W</td><td>30–35m</td><td>2 phía so le</td></tr>
-<tr><td>15m – 22m (đường đô thị)</td><td>120W – 150W</td><td>35–40m</td><td>2 phía đối xứng</td></tr>
-<tr><td>Trên 22m (quốc lộ)</td><td>180W – 250W</td><td>40–45m</td><td>2 phía đối xứng</td></tr>
+<tr><th>Chiều rộng</th><th>Công suất</th><th>Cột cách</th></tr>
+<tr><td>Dưới 6m</td><td>30W–40W</td><td>20–25m</td></tr>
+<tr><td>6m–9m</td><td>50W–60W</td><td>25–30m</td></tr>
+<tr><td>9m–15m</td><td>80W–100W</td><td>30–35m</td></tr>
+<tr><td>15m–22m</td><td>120W–150W</td><td>35–40m</td></tr>
+<tr><td>Trên 22m</td><td>180W–250W</td><td>40–45m</td></tr>
 </table>
-<div class="note-box">📐 Độ cao trụ đèn tiêu chuẩn: 7–10m. Chiều cao trụ = 0.7–0.8 lần chiều rộng đường.</div>` },
+<div class="note-box">📐 Chiều cao trụ tiêu chuẩn: 7–10m. Chiều cao trụ = 0.7–0.8 lần chiều rộng đường.</div>` },
   { q:"Chip & nguồn đèn đường TDL", a:`<div class="stag">Linh kiện</div><br>
 <ul>
 <li>Chip LED: <strong>Bridgelux 3030</strong> hoặc <strong>Philips Lumileds</strong></li>
 <li>Nguồn: <strong>Done Power</strong> hoặc <strong>Philips Xitanium</strong>, IP67</li>
 <li>Vỏ nhôm đúc nguyên khối, IP66, IK09</li>
-<li>Góc chiếu: 120° × 90° (Type II / Type III theo tiêu chuẩn IES)</li>
-<li>Nhiệt độ màu: 4000K hoặc 5700K</li>
-<li>Hệ số hoàn màu CRI ≥ 70 (khuyến nghị CRI ≥ 80 cho khu dân cư)</li>
+<li>Góc chiếu: 120°×90° (Type II/III theo tiêu chuẩn IES)</li>
+<li>Nhiệt độ màu: 4000K hoặc 5700K. CRI ≥ 70</li>
 </ul>` },
   { q:"Cảm biến & hẹn giờ tự động", a:`<div class="stag">Thông minh</div><br>
 TDL cung cấp đèn đường tích hợp:
@@ -409,7 +468,7 @@ TDL cung cấp đèn đường tích hợp:
 <li><strong>Cảm biến quang điện (photocell)</strong> — tự bật lúc hoàng hôn, tắt lúc bình minh</li>
 <li><strong>Hẹn giờ điện tử</strong> — lập trình bật/tắt theo giờ cố định</li>
 <li><strong>Dimming tự động</strong> — giảm 30–50% sau 23:00 tiết kiệm điện</li>
-<li><strong>Đèn đường năng lượng mặt trời</strong> — tích hợp pin lithium, không cần kéo dây (tùy dự án)</li>
+<li><strong>Đèn năng lượng mặt trời</strong> — tích hợp pin lithium, không cần kéo dây</li>
 </ul>` },
   { q:"Xem báo giá đèn đường", a:`Báo giá đèn đường LED theo công suất, loại trụ và số lượng.`, sheet:true },
 ]},
@@ -417,88 +476,85 @@ TDL cung cấp đèn đường tích hợp:
 den_nha_xuong: { label:"Đèn Nhà Xưởng LED", icon:"🏭", items:[
   { q:"Chọn loại đèn theo chiều cao trần", a:`<div class="stag">Chọn loại đèn</div><br>
 <table>
-<tr><th>Chiều cao trần</th><th>Loại đèn phù hợp</th><th>Công suất</th></tr>
-<tr><td>3m – 5m</td><td>Đèn Panel 60×60cm, Tube LED</td><td>36W – 60W</td></tr>
-<tr><td>5m – 8m</td><td>Linear HighBay (đèn thanh)</td><td>80W – 150W</td></tr>
-<tr><td>8m – 12m</td><td>UFO HighBay (đèn tròn)</td><td>150W – 240W</td></tr>
-<tr><td>12m – 18m</td><td>UFO HighBay công suất cao</td><td>300W – 400W</td></tr>
-<tr><td>Trên 18m</td><td>Đèn pha chuyên dụng nhà xưởng</td><td>400W – 600W</td></tr>
+<tr><th>Chiều cao trần</th><th>Loại đèn</th><th>Công suất</th></tr>
+<tr><td>3m–5m</td><td>Đèn Panel 60×60cm, Tube LED</td><td>36W–60W</td></tr>
+<tr><td>5m–8m</td><td>Linear HighBay (đèn thanh)</td><td>80W–150W</td></tr>
+<tr><td>8m–12m</td><td>UFO HighBay (đèn tròn)</td><td>150W–240W</td></tr>
+<tr><td>12m–18m</td><td>UFO HighBay công suất cao</td><td>300W–400W</td></tr>
+<tr><td>Trên 18m</td><td>Đèn pha chuyên dụng</td><td>400W–600W</td></tr>
 </table>` },
   { q:"Tiêu chuẩn độ rọi nhà xưởng", a:`<div class="stag">Độ rọi chuẩn</div><br>
 <table>
-<tr><th>Loại không gian</th><th>Độ rọi (lux)</th></tr>
-<tr><td>Kho hàng đơn giản, bốc xếp</td><td>100 – 150 lux</td></tr>
-<tr><td>Xưởng sản xuất thủ công, lắp ráp thô</td><td>200 – 300 lux</td></tr>
-<tr><td>Cơ khí, hàn, sơn phun</td><td>300 – 500 lux</td></tr>
-<tr><td>Điện tử, may mặc, in ấn</td><td>500 – 750 lux</td></tr>
-<tr><td>Kiểm tra chất lượng QC, đo lường chính xác</td><td>750 – 1500 lux</td></tr>
+<tr><th>Loại không gian</th><th>Độ rọi</th></tr>
+<tr><td>Kho hàng đơn giản, bốc xếp</td><td>100–150 lux</td></tr>
+<tr><td>Xưởng thủ công, lắp ráp thô</td><td>200–300 lux</td></tr>
+<tr><td>Cơ khí, hàn, sơn phun</td><td>300–500 lux</td></tr>
+<tr><td>Điện tử, may mặc, in ấn</td><td>500–750 lux</td></tr>
+<tr><td>Kiểm tra chất lượng QC</td><td>750–1500 lux</td></tr>
 </table>
 <div class="note-box">📋 Tiêu chuẩn: TCVN 7114 / EN 12464-1. TDL tính toán và thiết kế miễn phí.</div>` },
   { q:"Tiết kiệm điện so với đèn cũ", a:`<div class="stag">Tiết kiệm điện</div><br>
 <ul>
-<li>Thay <strong>đèn cao áp HPS 400W</strong> → <strong>đèn UFO LED 150W</strong>: cùng độ sáng, tiết kiệm <strong>62%</strong> điện</li>
+<li>Thay <strong>đèn cao áp HPS 400W</strong> → <strong>đèn UFO LED 150W</strong>: tiết kiệm <strong>62%</strong> điện</li>
 <li>Thay <strong>đèn huỳnh quang T8 36W×2</strong> → <strong>Tube LED 18W×2</strong>: tiết kiệm <strong>50%</strong></li>
 <li>ROI (hoàn vốn) trung bình: <strong>12–24 tháng</strong></li>
-<li>Không cần khởi động, sáng ngay tức thì — phù hợp sản xuất ca đêm</li>
+<li>Sáng ngay tức thì — phù hợp sản xuất ca đêm</li>
 <li>Không phát tia UV, không thu hút côn trùng — tốt cho xưởng thực phẩm</li>
 </ul>` },
   { q:"Xem báo giá đèn nhà xưởng", a:`<div class="stag">📊 Báo Giá Đèn Nhà Xưởng</div><br>
-<strong>Chọn loại đèn theo chiều cao trần xưởng:</strong>
+<strong>Chọn theo chiều cao trần xưởng:</strong>
 <table>
-<tr><th>Chiều cao trần</th><th>Loại đèn phù hợp</th><th>Công suất</th></tr>
-<tr><td>3m – 5m</td><td>Đèn Panel 60×60cm, Tube LED</td><td>36W – 60W</td></tr>
-<tr><td>5m – 8m</td><td>Linear HighBay (đèn thanh)</td><td>80W – 150W</td></tr>
-<tr><td>8m – 12m</td><td>UFO HighBay (đèn tròn)</td><td>150W – 240W</td></tr>
-<tr><td>12m – 18m</td><td>UFO HighBay công suất cao</td><td>300W – 400W</td></tr>
-<tr><td>Trên 18m</td><td>Đèn pha chuyên dụng nhà xưởng</td><td>400W – 600W</td></tr>
+<tr><th>Chiều cao trần</th><th>Loại đèn</th><th>Công suất</th></tr>
+<tr><td>3m–5m</td><td>Panel, Tube LED</td><td>36W–60W</td></tr>
+<tr><td>5m–8m</td><td>Linear HighBay</td><td>80W–150W</td></tr>
+<tr><td>8m–12m</td><td>UFO HighBay</td><td>150W–240W</td></tr>
+<tr><td>12m–18m</td><td>UFO HighBay cao cấp</td><td>300W–400W</td></tr>
+<tr><td>Trên 18m</td><td>Đèn pha chuyên dụng</td><td>400W–600W</td></tr>
 </table>
-<div class="note-box">💡 Giá cụ thể theo công suất & số lượng — xem bảng báo giá đầy đủ bên dưới hoặc gọi hotline để được báo giá nhanh nhất.</div>`, sheet:true },
+<div class="note-box">💡 Giá cụ thể theo công suất & số lượng — xem bảng báo giá đầy đủ hoặc gọi hotline.</div>`, sheet:true },
 ]},
 
 den_san_vuon: { label:"Đèn Sân Vườn LED", icon:"🌿", items:[
   { q:"Các loại đèn sân vườn TDL cung cấp", a:`<div class="stag">Danh mục</div><br>
 <ul>
-<li>🔦 <strong>Đèn rọi cột (đèn pha mini)</strong> — 10W–50W, chiếu sáng cổng, bờ tường, mặt tiền nhà. IP65, vỏ nhôm đúc.</li>
-<li>🌳 <strong>Đèn chiếu cây (uplight)</strong> — 5W–20W, góc chiếu hẹp 15°–30°, chôn hoặc cắm đất, làm nổi bật cây cảnh, cây cau, cây bóng mát. IP67.</li>
-<li>🪨 <strong>Đèn âm đất</strong> — 3W–9W, IP68, kính cường lực chịu lực 2 tấn, lắp âm nền lối đi, thảm cỏ, sân gạch.</li>
-<li>📏 <strong>Đèn LED thanh / dây LED 12V–24V</strong> — trang trí viền bậc thang, bồn hoa, hàng rào, tiểu cảnh nước. Cắt được theo kích thước.</li>
-<li>🪑 <strong>Đèn cột sân vườn</strong> — 20W–40W, cột nhôm sơn tĩnh điện hoặc inox, cao 0.6m–1.2m, phong cách hiện đại hoặc cổ điển.</li>
+<li>🔦 <strong>Đèn rọi cột</strong> — 10W–50W, chiếu sáng cổng, bờ tường, mặt tiền. IP65.</li>
+<li>🌳 <strong>Đèn chiếu cây (uplight)</strong> — 5W–20W, góc 15°–30°, cắm đất IP67.</li>
+<li>🪨 <strong>Đèn âm đất</strong> — 3W–9W, IP68, kính cường lực 2 tấn, lắp âm lối đi.</li>
+<li>📏 <strong>Đèn LED thanh 12V–24V</strong> — trang trí viền bậc thang, bồn hoa, hàng rào.</li>
+<li>🪑 <strong>Đèn cột sân vườn</strong> — 20W–40W, cột nhôm, cao 0.6m–1.2m.</li>
 </ul>` },
   { q:"Đèn rọi cột — tư vấn kỹ thuật", a:`<div class="stag">Đèn Rọi Cột</div><br>
-Đèn rọi cột (spotlight ngoài trời) là lựa chọn phổ biến nhất của TDL:
 <ul>
-<li>Chip: <strong>Bridgelux / Philips</strong>, CRI ≥ 80, nhiệt độ màu 3000K (vàng ấm) hoặc 4000K (trắng trung tính)</li>
-<li>Công suất phù hợp theo khoảng cách chiếu:
+<li>Chip: <strong>Bridgelux / Philips</strong>, CRI ≥ 80, 3000K (vàng ấm) hoặc 4000K</li>
+<li>Công suất theo khoảng cách chiếu:
   <ul>
-  <li>Chiều cao 1–2m (rọi gần, trang trí): <strong>10W–20W</strong></li>
-  <li>Chiều cao 2–4m (cổng, bờ tường): <strong>20W–30W</strong></li>
-  <li>Chiều cao 4–6m (mặt nhà, biển hiệu): <strong>30W–50W</strong></li>
+  <li>Cao 1–2m (trang trí): <strong>10W–20W</strong></li>
+  <li>Cao 2–4m (cổng, bờ tường): <strong>20W–30W</strong></li>
+  <li>Cao 4–6m (mặt nhà, biển hiệu): <strong>30W–50W</strong></li>
   </ul>
 </li>
-<li>Góc chiếu: 30° (tập trung) hoặc 60° (lan rộng)</li>
-<li>IP65 chịu mưa, cấp IK07 chống va đập</li>
+<li>Góc chiếu: 30° (tập trung) hoặc 60° (lan rộng). IP65, IK07.</li>
 </ul>` },
   { q:"Đèn chiếu cây — tư vấn kỹ thuật", a:`<div class="stag">Đèn Chiếu Cây</div><br>
 <ul>
 <li>Lắp cách gốc cây <strong>0.3–0.8m</strong>, hướng lên tán — tạo hiệu ứng bóng nghệ thuật</li>
 <li>Công suất theo chiều cao cây:
   <ul>
-  <li>Cây thấp dưới 3m: <strong>5W–10W</strong>, góc 15°–30°</li>
-  <li>Cây 3–6m (cau, dừa, cây bóng mát): <strong>10W–20W</strong>, góc 20°–45°</li>
+  <li>Cây dưới 3m: <strong>5W–10W</strong>, góc 15°–30°</li>
+  <li>Cây 3–6m (cau, dừa): <strong>10W–20W</strong>, góc 20°–45°</li>
   <li>Cây trên 6m (cây lớn, cây đa): <strong>20W–30W</strong>, góc 45°–60°</li>
   </ul>
 </li>
-<li>Nhiệt độ màu 2700K–3000K — ánh sáng vàng ấm làm nổi bật màu xanh lá</li>
-<li>IP67, cắm đất bằng cọc inox hoặc cố định bê tông</li>
+<li>Nhiệt độ màu 2700K–3000K. IP67, cắm đất cọc inox.</li>
 </ul>` },
   { q:"Đèn âm đất — tư vấn kỹ thuật", a:`<div class="stag">Đèn Âm Đất</div><br>
 <ul>
-<li><strong>IP68</strong> — chịu ngập nước hoàn toàn, dùng được ở hồ cạn, sân mưa</li>
-<li>Kính cường lực 8–10mm chịu lực đi bộ, không dùng cho đường xe tải</li>
+<li><strong>IP68</strong> — chịu ngập nước hoàn toàn</li>
+<li>Kính cường lực 8–10mm chịu lực đi bộ</li>
 <li>Công suất: 3W (trang trí nhẹ), 5W (lối đi chính), 9W (chiếu sáng cây)</li>
-<li>Góc chiếu: 30° (chiếu thẳng lên), 60° (tỏa rộng)</li>
-<li>Lắp đặt: đào hố 15–20cm, lót cát vàng, dây điện luồn ống nhựa chôn ngầm</li>
-<li>Khoảng cách đặt đèn lối đi: <strong>0.8–1.5m/đèn</strong></li>
+<li>Góc chiếu: 30° (thẳng lên) hoặc 60° (tỏa rộng)</li>
+<li>Lắp đặt: đào hố 15–20cm, lót cát vàng, dây luồn ống nhựa chôn ngầm</li>
+<li>Khoảng cách lối đi: <strong>0.8–1.5m/đèn</strong></li>
 </ul>` },
   { q:"Xem báo giá đèn sân vườn", a:`Báo giá đèn rọi cột, chiếu cây, âm đất, LED thanh — phân theo chủng loại và công suất.`, sheet:true },
 ]},
@@ -506,155 +562,124 @@ den_san_vuon: { label:"Đèn Sân Vườn LED", icon:"🌿", items:[
 san_tennis: { label:"Sân Tennis", icon:"🎾", items:[
   { q:"Tiêu chuẩn chiếu sáng sân tennis (ITF)", a:`<div class="stag">Tiêu chuẩn ITF / EN 12193</div><br>
 <table>
-<tr><th>Cấp độ sử dụng</th><th>Eh ngang (lux)</th><th>Ev đứng (lux)</th><th>Emin/Emax</th></tr>
-<tr><td>Luyện tập, giải trí</td><td>≥ 300</td><td>—</td><td>≥ 0.5</td></tr>
-<tr><td>Thi đấu phong trào</td><td>≥ 500</td><td>≥ 300</td><td>≥ 0.6</td></tr>
-<tr><td>Thi đấu chuyên nghiệp</td><td>≥ 750</td><td>≥ 500</td><td>≥ 0.7</td></tr>
-<tr><td>Truyền hình HD (camera cố định)</td><td>≥ 1000</td><td>≥ 750</td><td>≥ 0.7</td></tr>
+<tr><th>Cấp độ</th><th>Eh (lux)</th><th>Ev (lux)</th></tr>
+<tr><td>Luyện tập, giải trí</td><td>≥ 300</td><td>—</td></tr>
+<tr><td>Thi đấu phong trào</td><td>≥ 500</td><td>≥ 300</td></tr>
+<tr><td>Thi đấu chuyên nghiệp</td><td>≥ 750</td><td>≥ 500</td></tr>
+<tr><td>Truyền hình HD</td><td>≥ 1000</td><td>≥ 750</td></tr>
 </table>
-<div class="note-box">💡 CRI ≥ 80, nhiệt độ màu 4000–5700K. GR (Glare Rating) ≤ 50 — tránh lóa khi nhìn bóng trên không.</div>` },
+<div class="note-box">💡 CRI ≥ 80, nhiệt độ màu 4000–5700K. GR ≤ 50 — tránh lóa khi nhìn bóng trên không.</div>` },
   { q:"Bố trí đèn sân tennis tiêu chuẩn", a:`<div class="stag">Bố trí (1 sân đơn 36×18m)</div><br>
-<strong>Phương án 4 cột góc sân (phổ biến nhất):</strong>
+<strong>Phương án 4 cột góc sân:</strong>
 <ul>
-<li>4 cột thép mạ kẽm, cao <strong>8–10m</strong>, đặt cách đường biên 1–2m</li>
-<li>Mỗi cột lắp <strong>2–3 bộ đèn pha 200–300W</strong> chip Bridgelux/Philips</li>
-<li>Góc cột nghiêng 15° ra ngoài sân — dây cáp neo cố định</li>
-<li>Góc chiếu đèn: nghiêng <strong>55°–65°</strong> so với phương ngang, hướng vào tâm sân</li>
-<li>Tổng: <strong>8–12 bộ đèn/sân</strong>, đạt 300–500 lux (luyện tập đến thi đấu phong trào)</li>
+<li>4 cột thép mạ kẽm, cao <strong>8–10m</strong>, cách đường biên 1–2m</li>
+<li>Mỗi cột lắp <strong>2–3 bộ đèn pha 200–300W</strong></li>
+<li>Góc chiếu đèn: nghiêng <strong>55°–65°</strong> so với phương ngang</li>
+<li>Tổng: <strong>8–12 bộ/sân</strong>, đạt 300–500 lux</li>
 </ul>
-<strong>Phương án 2 hàng cột dọc sân (thi đấu chuyên nghiệp):</strong>
+<strong>Phương án 2 hàng cột dọc sân (chuyên nghiệp):</strong>
 <ul>
-<li>6–8 cột, cao 10–12m, bố trí 3–4 cột/bên dọc sân</li>
-<li>Mỗi cột 2–4 bộ đèn 300–400W</li>
+<li>6–8 cột, cao 10–12m, 3–4 cột/bên dọc sân</li>
 <li>Tổng 12–20 bộ, đạt 750–1000 lux</li>
 </ul>
-<div class="note-box">⚠️ Không đặt cột ở giữa 2 đầu sân (phía sau baseline) — người chơi sẽ nhìn thẳng vào đèn khi phục vụ.</div>` },
-  { q:"Thiết bị TDL dùng cho sân tennis", a:`<div class="stag">Sản phẩm TDL</div><br>
-<ul>
-<li><strong>Đèn pha 200W–300W</strong> chip Bridgelux 5050 hoặc Philips Lumileds</li>
-<li>Nguồn Done Power hoặc Philips Xitanium, IP67, dimming 0–10V</li>
-<li>Góc chiếu module: <strong>30°×60°</strong> (bất đối xứng — chiếu dài theo sân)</li>
-<li>Trụ thép tròn D114, dày 4mm, mạ kẽm nhúng nóng</li>
-<li>Tủ điện: MCCB chống giật, timer hẹn giờ, đồng hồ điện kWh</li>
-</ul>` },
+<div class="note-box">⚠️ Không đặt cột ở giữa 2 đầu sân — người chơi sẽ nhìn thẳng vào đèn khi phục vụ.</div>` },
   { q:"Chi phí điện sân tennis", a:`<div class="stag">Tiêu thụ điện</div><br>
-<strong>Ví dụ: 1 sân tennis, 8 bộ đèn 200W:</strong>
+<strong>1 sân, 8 bộ đèn 200W:</strong>
 <ul>
-<li>Tổng công suất: 8 × 200W = <strong>1.600W = 1,6 kW</strong></li>
-<li>Sử dụng 4 giờ/đêm: 6,4 kWh/ngày</li>
-<li>30 ngày: ~192 kWh ≈ <strong>480.000 – 600.000đ/tháng</strong></li>
+<li>Tổng công suất: 1,6 kW — 4h/đêm = 6,4 kWh/ngày</li>
+<li>30 ngày ≈ 192 kWh ≈ <strong>480.000–600.000đ/tháng</strong></li>
 </ul>
-<strong>So với đèn cao áp Metal Halide cũ 400W×8 bộ:</strong>
-<ul><li>Tiết kiệm điện: ~<strong>65%</strong></li><li>Không cần 5–10 phút khởi động, bật tắt ngay tức thì</li></ul>` },
+<strong>So với đèn cao áp Metal Halide 400W×8 bộ:</strong>
+<ul><li>Tiết kiệm điện: ~<strong>65%</strong></li><li>Bật tắt ngay tức thì, không cần khởi động</li></ul>` },
   { q:"Xem báo giá sân tennis", a:`Báo giá trọn gói hệ thống chiếu sáng sân tennis: đèn, trụ, tủ điện, thi công.`, sheet:true },
 ]},
 
 san_cau_long: { label:"Sân Cầu Lông", icon:"🏸", items:[
   { q:"Tiêu chuẩn chiếu sáng sân cầu lông (BWF)", a:`<div class="stag">Tiêu chuẩn BWF / EN 12193</div><br>
 <table>
-<tr><th>Cấp độ</th><th>Eh ngang (lux)</th><th>Ev đứng (lux)</th><th>Emin/Emax</th></tr>
-<tr><td>Luyện tập, phong trào</td><td>≥ 300</td><td>—</td><td>≥ 0.5</td></tr>
-<tr><td>Thi đấu cấp tỉnh, CLB</td><td>≥ 500</td><td>≥ 300</td><td>≥ 0.6</td></tr>
-<tr><td>Thi đấu quốc gia</td><td>≥ 750</td><td>≥ 500</td><td>≥ 0.7</td></tr>
-<tr><td>Quốc tế, truyền hình</td><td>≥ 1000</td><td>≥ 750</td><td>≥ 0.7</td></tr>
+<tr><th>Cấp độ</th><th>Eh (lux)</th><th>Ev (lux)</th></tr>
+<tr><td>Luyện tập, phong trào</td><td>≥ 300</td><td>—</td></tr>
+<tr><td>Thi đấu cấp tỉnh, CLB</td><td>≥ 500</td><td>≥ 300</td></tr>
+<tr><td>Thi đấu quốc gia</td><td>≥ 750</td><td>≥ 500</td></tr>
+<tr><td>Quốc tế, truyền hình</td><td>≥ 1000</td><td>≥ 750</td></tr>
 </table>
-<div class="note-box">🏸 Sân cầu lông đặc biệt quan trọng: <strong>Flicker-free 100%</strong> (chống nhấp nháy). Quả cầu bay nhanh 200–300 km/h — flicker gây mỏi mắt nặng. TDL dùng nguồn tần số cao ≥ 100kHz, Flicker Index &lt; 0.1.</div>` },
-  { q:"Bố trí đèn sân cầu lông trong nhà", a:`<div class="stag">Bố trí (1 sân đơn 13.4×6.1m)</div><br>
-<strong>Trần cao 7–9m (nhà thi đấu, nhà xưởng cải tạo):</strong>
+<div class="note-box">🏸 Quan trọng: <strong>Flicker-free 100%</strong>. Quả cầu bay 200–300 km/h — flicker gây mỏi mắt nặng. TDL dùng nguồn tần số cao ≥100kHz, Flicker Index &lt;0.1.</div>` },
+  { q:"Bố trí đèn sân cầu lông trong nhà", a:`<div class="stag">Bố trí trong nhà (13.4×6.1m)</div><br>
+<strong>Trần cao 7–9m:</strong>
 <ul>
 <li>Dùng đèn <strong>UFO HighBay 150W–200W</strong> hoặc Linear HighBay</li>
-<li>Bố trí <strong>2 hàng song song</strong> dọc theo chiều dài sân, cách nhau 3m</li>
-<li>Mỗi hàng: 3–4 bộ đèn, khoảng cách 2.5–3m/bộ</li>
-<li>Tổng: <strong>6–8 bộ/sân đơn</strong>, đạt 300–500 lux</li>
-<li>Treo đèn cách trần 0.5–1m, hướng thẳng xuống (góc 0°), dùng chụp che để tránh lóa ngang</li>
+<li>Bố trí <strong>2 hàng × 3–4 bộ = 6–8 bộ/sân đơn</strong></li>
+<li>Khoảng cách 2.5–3m/bộ, treo cách trần 0.5–1m</li>
+<li>Dùng chụp che để tránh lóa ngang</li>
 </ul>
-<strong>Trần cao 9–12m:</strong>
-<ul>
-<li>UFO HighBay 200W–240W hoặc đèn pha góc hẹp 200W</li>
-<li>Số lượng: 6–8 bộ/sân, bố trí tương tự</li>
-</ul>
-<div class="note-box">⚠️ Không bố trí đèn nằm trên đường bay của cầu (trục giữa sân theo chiều ngang) — vận động viên ngước nhìn sẽ bị lóa.</div>` },
+<div class="note-box">⚠️ Không bố trí đèn trên đường bay của cầu (trục giữa sân theo chiều ngang).</div>` },
   { q:"Bố trí đèn sân cầu lông ngoài trời", a:`<div class="stag">Sân ngoài trời</div><br>
 <ul>
 <li>4 cột đèn 4 góc sân, cao <strong>7–9m</strong></li>
 <li>Mỗi cột: <strong>2–3 bộ đèn pha 150W–200W</strong>, góc chiếu 30°×60°</li>
-<li>Tổng: <strong>8–12 bộ/sân</strong></li>
-<li>Góc chiếu đèn nghiêng 55°–60° so với phương ngang</li>
-<li>IP66, chịu mưa và gió cấp 8</li>
+<li>Tổng: <strong>8–12 bộ/sân</strong>. IP66, chịu mưa và gió cấp 8.</li>
 </ul>
-<div class="note-box">💡 Cụm 4 sân ngoài trời: có thể dùng 4 cột cao 10m ở giữa chia 4 sân, mỗi cột 4–6 bộ 200W.</div>` },
+<div class="note-box">💡 Cụm 4 sân ngoài trời: 4 cột cao 10m ở giữa, mỗi cột 4–6 bộ 200W.</div>` },
   { q:"Xem báo giá sân cầu lông", a:`Báo giá trọn gói đèn sân cầu lông trong nhà và ngoài trời.`, sheet:true },
 ]},
 
 san_bong_chuyen: { label:"Sân Bóng Chuyền", icon:"🏐", items:[
   { q:"Tiêu chuẩn chiếu sáng sân bóng chuyền (FIVB)", a:`<div class="stag">Tiêu chuẩn FIVB / EN 12193</div><br>
 <table>
-<tr><th>Cấp độ</th><th>Eh ngang (lux)</th><th>Ev đứng (lux)</th><th>Emin/Emax</th></tr>
-<tr><td>Luyện tập, phong trào</td><td>≥ 300</td><td>—</td><td>≥ 0.5</td></tr>
-<tr><td>Thi đấu cấp CLB, tỉnh</td><td>≥ 500</td><td>≥ 300</td><td>≥ 0.6</td></tr>
-<tr><td>Thi đấu quốc gia</td><td>≥ 750</td><td>≥ 500</td><td>≥ 0.7</td></tr>
-<tr><td>Quốc tế, truyền hình</td><td>≥ 1400</td><td>≥ 1000</td><td>≥ 0.7</td></tr>
+<tr><th>Cấp độ</th><th>Eh (lux)</th><th>Ev (lux)</th></tr>
+<tr><td>Luyện tập, phong trào</td><td>≥ 300</td><td>—</td></tr>
+<tr><td>Thi đấu cấp CLB, tỉnh</td><td>≥ 500</td><td>≥ 300</td></tr>
+<tr><td>Thi đấu quốc gia</td><td>≥ 750</td><td>≥ 500</td></tr>
+<tr><td>Quốc tế, truyền hình</td><td>≥ 1400</td><td>≥ 1000</td></tr>
 </table>
-<div class="note-box">🏐 Chú ý quan trọng: Bóng chuyền có pha <strong>đập bóng và chắn bóng</strong> — vận động viên nhìn lên góc cao. Phải kiểm soát GR (Glare Rating) ≤ 50 phương đứng, không để đèn chiếu thẳng vào mắt.</div>` },
+<div class="note-box">🏐 Bóng chuyền có pha đập bóng — vận động viên nhìn lên góc cao. Kiểm soát GR ≤ 50 phương đứng.</div>` },
   { q:"Bố trí đèn sân bóng chuyền trong nhà", a:`<div class="stag">Bố trí trong nhà (9×18m)</div><br>
 <strong>Trần cao 7–9m:</strong>
 <ul>
 <li>Dùng đèn <strong>UFO HighBay 150W–200W</strong></li>
 <li>Bố trí <strong>2 hàng × 4 bộ = 8 bộ/sân</strong></li>
-<li>Hàng đèn cách nhau 4.5m (chia đôi chiều rộng sân), khoảng cách dọc 3–4m</li>
-<li>Lắp cách trần 0.5–1m, dùng chụp che chống lóa ngang 90°</li>
+<li>Hàng đèn cách nhau 4.5m, khoảng cách dọc 3–4m</li>
 <li>Đạt 300–500 lux mặt sân</li>
-</ul>
-<strong>Trần cao 9–12m (phổ biến nhà thi đấu):</strong>
-<ul>
-<li>UFO 200W–240W hoặc Linear HighBay 200W</li>
-<li>2 hàng × 4–5 bộ = 8–10 bộ/sân</li>
-<li>Đạt 500–750 lux</li>
 </ul>` },
-  { q:"Bố trí đèn sân bóng chuyền ngoài trời", a:`<div class="stag">Sân ngoài trời</div><br>
-Sân bóng chuyền bãi biển hoặc sân luyện tập ngoài trời (9×18m):
+  { q:"Bố trí đèn sân bóng chuyền ngoài trời", a:`<div class="stag">Sân ngoài trời (9×18m)</div><br>
 <ul>
 <li>4 cột góc sân, cao <strong>8–10m</strong></li>
-<li>Mỗi cột: <strong>2–3 bộ đèn pha 200W–300W</strong> chip Bridgelux/Philips</li>
-<li>Góc chiếu 30°×60°, nghiêng 55°–65°</li>
+<li>Mỗi cột: <strong>2–3 bộ đèn pha 200W–300W</strong></li>
 <li>Tổng: <strong>8–12 bộ/sân</strong>, đạt 300–500 lux</li>
-<li>IP66, trụ thép D89–D114, cao 8–10m, móng bê tông 0.8×0.8×1m</li>
+<li>IP66, trụ thép D89–D114, móng bê tông 0.8×0.8×1m</li>
 </ul>` },
   { q:"Xem báo giá sân bóng chuyền", a:`Báo giá hệ thống chiếu sáng sân bóng chuyền trong nhà và ngoài trời.`, sheet:true },
 ]},
 
 san_pickleball: { label:"Sân Pickleball", icon:"🏓", items:[
   { q:"Tiêu chuẩn chiếu sáng sân pickleball", a:`<div class="stag">Tiêu chuẩn USA Pickleball</div><br>
-Sân Pickleball đơn: <strong>6.1m × 13.4m</strong> (giống sân cầu lông đôi).
+Sân Pickleball đơn: <strong>6.1m × 13.4m</strong>
 <table>
-<tr><th>Mục đích</th><th>Độ rọi (lux)</th><th>Ghi chú</th></tr>
-<tr><td>Giải trí, phong trào buổi tối</td><td>200 – 300 lux</td><td>Mức tối thiểu</td></tr>
-<tr><td>Thi đấu CLB, giải địa phương</td><td>400 – 500 lux</td><td>Phổ biến nhất</td></tr>
-<tr><td>Thi đấu chuyên nghiệp</td><td>500 – 750 lux</td><td>CRI ≥ 80</td></tr>
+<tr><th>Mục đích</th><th>Độ rọi</th></tr>
+<tr><td>Giải trí, phong trào buổi tối</td><td>200–300 lux</td></tr>
+<tr><td>Thi đấu CLB, giải địa phương</td><td>400–500 lux</td></tr>
+<tr><td>Thi đấu chuyên nghiệp</td><td>500–750 lux</td></tr>
 </table>
-<div class="note-box">🏓 Pickleball dùng bóng nhựa đục lỗ, bay chậm hơn cầu lông — nhưng vẫn cần <strong>Flicker-free</strong> và không chói (GR ≤ 50) vì vận động viên thường nhìn lên khi lốp bóng cao.</div>` },
+<div class="note-box">🏓 Vẫn cần <strong>Flicker-free</strong> và GR ≤ 50 vì vận động viên thường nhìn lên khi lốp bóng cao.</div>` },
   { q:"Bố trí đèn sân pickleball", a:`<div class="stag">Bố trí đèn</div><br>
-<strong>1 sân đơn ngoài trời (6.1×13.4m):</strong>
+<strong>1 sân đơn ngoài trời:</strong>
 <ul>
 <li>4 cột góc sân, cao <strong>6–8m</strong></li>
 <li>Mỗi cột: <strong>1–2 bộ đèn pha 100W–150W</strong></li>
-<li>Góc chiếu 30°×60°, hướng vào tâm sân, nghiêng 55°–60°</li>
 <li>Tổng: <strong>4–8 bộ/sân</strong>, đạt 300–500 lux</li>
 </ul>
-<strong>Cụm 4 sân liền kề (mô hình club Pickleball):</strong>
+<strong>Cụm 4 sân (mô hình club Pickleball):</strong>
 <ul>
-<li>4 cột cao 8–10m bố trí ở 4 góc ngoài cùng + 2–4 cột giữa chia sân</li>
-<li>Mỗi cột: 2–4 bộ đèn 150W–200W, chiếu đa hướng</li>
-<li>Tổng: 12–20 bộ đèn cho 4 sân</li>
-<li>Tiết kiệm 30–40% trụ đèn so với bố trí 4 sân độc lập</li>
+<li>4 cột cao 8–10m ở góc ngoài + 2–4 cột giữa chia sân</li>
+<li>Tổng 12–20 bộ đèn 150W–200W cho 4 sân</li>
+<li>Tiết kiệm 30–40% trụ đèn so với bố trí độc lập</li>
 </ul>` },
   { q:"Sân Pickleball trong nhà", a:`<div class="stag">Trong nhà</div><br>
 <ul>
 <li>Trần cao 5–7m: dùng <strong>UFO HighBay 100W–150W</strong> hoặc Linear 80W</li>
 <li>Bố trí 2 hàng × 3 bộ = <strong>6 bộ/sân đơn</strong></li>
-<li>Khoảng cách đèn: 3–4m/bộ dọc sân, hàng đèn cách nhau 3m</li>
+<li>Khoảng cách đèn: 3–4m/bộ dọc sân, hàng cách nhau 3m</li>
 <li>Flicker-free bắt buộc, nguồn Done Power hoặc Philips Xitanium</li>
-<li>Đạt 300–500 lux mặt sân</li>
 </ul>` },
   { q:"Xem báo giá sân pickleball", a:`Báo giá đèn và trụ sân Pickleball — tính theo số sân và phương án bố trí.`, sheet:true },
 ]},
@@ -662,59 +687,53 @@ Sân Pickleball đơn: <strong>6.1m × 13.4m</strong> (giống sân cầu lông 
 san_bong_da: { label:"Sân Bóng Đá", icon:"⚽", items:[
   { q:"Tiêu chuẩn FIFA các loại sân bóng đá", a:`<div class="stag">Tiêu chuẩn FIFA / EN 12193</div><br>
 <table>
-<tr><th>Loại sân</th><th>Kích thước</th><th>Eh (lux)</th><th>Ev (lux)</th><th>Emin/Emax</th></tr>
-<tr><td>Sân mini 5 người (cỏ nhân tạo)</td><td>20×40m</td><td>300–500</td><td>—</td><td>≥ 0.5</td></tr>
-<tr><td>Sân 7 người (phong trào)</td><td>50×70m</td><td>500</td><td>300</td><td>≥ 0.6</td></tr>
-<tr><td>FIFA Quality (7–9 người)</td><td>50–80×70–100m</td><td>≥ 500</td><td>≥ 300</td><td>≥ 0.6</td></tr>
-<tr><td>FIFA Quality Pro (11 người)</td><td>68×105m</td><td>≥ 1400</td><td>≥ 1000</td><td>≥ 0.7</td></tr>
-<tr><td>Sân vận động truyền hình 4K</td><td>68×105m</td><td>≥ 2500</td><td>≥ 1500</td><td>≥ 0.75</td></tr>
+<tr><th>Loại sân</th><th>Kích thước</th><th>Eh</th></tr>
+<tr><td>Sân mini 5 người</td><td>20×40m</td><td>300–500 lux</td></tr>
+<tr><td>Sân 7 người (phong trào)</td><td>50×70m</td><td>500 lux</td></tr>
+<tr><td>FIFA Quality (7–9 người)</td><td>50–80×70–100m</td><td>≥ 500 lux</td></tr>
+<tr><td>FIFA Quality Pro (11 người)</td><td>68×105m</td><td>≥ 1400 lux</td></tr>
+<tr><td>Truyền hình 4K</td><td>68×105m</td><td>≥ 2500 lux</td></tr>
 </table>` },
   { q:"Sân bóng đá mini 5 người — bố trí đèn", a:`<div class="stag">Sân 5 người (20×40m)</div><br>
 <ul>
-<li><strong>4 cột thép</strong> đặt 4 góc sân, ngoài đường biên 1–2m, cao <strong>6–8m</strong></li>
-<li>Mỗi cột: <strong>2–3 bộ đèn pha 200W</strong> chip Bridgelux/Philips, nguồn Done/Philips</li>
-<li>Góc chiếu module: 30°×60° hoặc 45°×90° — hướng vào phần sân đối diện</li>
-<li>Góc nghiêng đèn: <strong>55°–65°</strong> so với phương ngang</li>
+<li><strong>4 cột thép</strong> đặt 4 góc sân, cao <strong>6–8m</strong></li>
+<li>Mỗi cột: <strong>2–3 bộ đèn pha 200W</strong> chip Bridgelux/Philips</li>
 <li>Tổng: <strong>8–12 bộ đèn</strong>, đạt 300–500 lux mặt cỏ</li>
 <li>Móng cột bê tông: 0.6×0.6×0.8m, bu lông M20×4</li>
 </ul>
-<div class="note-box">⚽ Sân cỏ nhân tạo trong nhà mái tôn: dùng đèn Linear HighBay 200W treo xà, tiết kiệm chi phí trụ đèn.</div>` },
+<div class="note-box">⚽ Sân cỏ nhân tạo trong nhà mái tôn: dùng Linear HighBay 200W treo xà, tiết kiệm chi phí trụ đèn.</div>` },
   { q:"Sân bóng đá 7 người — bố trí đèn", a:`<div class="stag">Sân 7 người (~50×70m)</div><br>
 <ul>
-<li><strong>6 cột thép</strong> bố trí 2 bên dọc sân (mỗi bên 3 cột), cách biên 2–3m, cao <strong>10–12m</strong></li>
+<li><strong>6 cột thép</strong> bố trí 2 bên dọc sân (3 cột/bên), cao <strong>10–12m</strong></li>
 <li>Khoảng cách giữa các cột: 20–25m</li>
 <li>Mỗi cột: <strong>3–5 bộ đèn pha 300W–400W</strong></li>
 <li>Tổng: <strong>18–30 bộ đèn</strong>, đạt 500–750 lux</li>
-<li>Góc chiếu module: 30°×60°, mỗi bộ chiếu vào phần sân đối diện (tránh hướng lên trời)</li>
-<li>Trụ D140–D168, dày 5mm, mạ kẽm nhúng nóng, bích đế hàn</li>
 </ul>
-<div class="note-box">📐 TDL thiết kế photometric DIALux — cam kết đạt độ đồng đều Emin/Emax ≥ 0.6 trên toàn mặt sân trước khi thi công.</div>` },
+<div class="note-box">📐 TDL thiết kế DIALux — cam kết đạt Emin/Emax ≥ 0.6 trên toàn mặt sân trước khi thi công.</div>` },
   { q:"Sân bóng đá 11 người — bố trí đèn", a:`<div class="stag">Sân 11 người (68×105m)</div><br>
-<strong>Phương án 4 tháp đèn 4 góc (phổ biến cho sân cộng đồng):</strong>
+<strong>4 tháp đèn 4 góc (phổ biến):</strong>
 <ul>
 <li>4 tháp thép cao <strong>18–22m</strong>, đặt 4 góc sân cách biên 3–5m</li>
 <li>Mỗi tháp: <strong>8–12 bộ đèn pha 500W–600W</strong></li>
-<li>Tổng: 32–48 bộ đèn, tổng công suất 16–29 kW</li>
-<li>Đạt 500–750 lux (sân phong trào) hoặc 1000+ lux (FIFA Quality)</li>
+<li>Tổng: 32–48 bộ, tổng công suất 16–29 kW</li>
 </ul>
-<strong>Phương án 6–8 cột dọc sân (thi đấu chuyên nghiệp):</strong>
+<strong>6–8 cột dọc sân (thi đấu chuyên nghiệp):</strong>
 <ul>
-<li>Bố trí 3–4 cột/bên, cao 20–30m</li>
-<li>Mỗi cột 6–10 bộ đèn 800W–1000W</li>
+<li>3–4 cột/bên, cao 20–30m, mỗi cột 6–10 bộ 800W–1000W</li>
 <li>Đạt 1400–2500 lux, đáp ứng FIFA Quality Pro + truyền hình 4K</li>
 </ul>` },
   { q:"Chi phí điện sân bóng đá", a:`<div class="stag">Tiêu thụ điện</div><br>
-<strong>Sân 5 người — 8 bộ đèn 200W:</strong>
+<strong>Sân 5 người — 8 bộ 200W:</strong>
 <ul>
-<li>Tổng: 1,6 kW — 3h/đêm = 4,8 kWh/ngày</li>
-<li>30 ngày ≈ 144 kWh ≈ <strong>360.000 – 450.000đ/tháng</strong></li>
+<li>1,6 kW × 3h/đêm = 4,8 kWh/ngày</li>
+<li>30 ngày ≈ 144 kWh ≈ <strong>360.000–450.000đ/tháng</strong></li>
 </ul>
-<strong>Sân 7 người — 24 bộ đèn 300W:</strong>
+<strong>Sân 7 người — 24 bộ 300W:</strong>
 <ul>
-<li>Tổng: 7,2 kW — 3h/đêm = 21,6 kWh/ngày</li>
-<li>30 ngày ≈ 648 kWh ≈ <strong>1.600.000 – 2.000.000đ/tháng</strong></li>
+<li>7,2 kW × 3h/đêm = 21,6 kWh/ngày</li>
+<li>30 ngày ≈ 648 kWh ≈ <strong>1.600.000–2.000.000đ/tháng</strong></li>
 </ul>
-<div class="note-box">⚡ Tiết kiệm 60–70% điện so với đèn cao áp Metal Halide cùng độ rọi. ROI (hoàn vốn) 18–30 tháng.</div>` },
+<div class="note-box">⚡ Tiết kiệm 60–70% so với đèn cao áp Metal Halide. ROI 18–30 tháng.</div>` },
   { q:"Xem báo giá sân bóng đá", a:`Báo giá trọn gói: đèn pha, trụ thép, tủ điện, thi công — phân theo loại sân 5/7/11 người.`, sheet:true },
 ]},
 
@@ -819,26 +838,22 @@ async function showFAQ(key, idx) {
 
   if (item.sheet) {
     const tabName = KEY_TO_TAB[key] || "BaoGia";
-    // Hiện thông báo đang tải dữ liệu Sheet
     const loadId = "sheet-loading-" + Date.now();
     html += `<div id="${loadId}" style="margin-top:10px;color:#8ab4d4;font-size:13px;">
       ⏳ Đang tải bảng giá từ Google Sheet...
     </div>`;
     addMsg(html, 'bot', []);
 
-    // Tải dữ liệu Sheet song song với hiển thị câu trả lời cơ bản
     const rows = await fetchSheetData(tabName);
     const loadEl = document.getElementById(loadId);
     if (loadEl) {
       if (rows && rows.length > 0) {
-        // Lọc theo danh mục nếu Sheet có cột "Danh mục"
         const catLabel = FAQ[key].label;
         let filtered = rows;
         if (rows[0] && rows[0]["Danh mục"]) {
           filtered = filterRows(rows, "Danh mục", catLabel);
-          if (!filtered.length) filtered = rows; // fallback toàn bộ nếu không khớp
+          if (!filtered.length) filtered = rows;
         }
-        // Giới hạn hiển thị 15 dòng để chat không quá dài
         const preview = filtered.slice(0, 15);
         const more = filtered.length > 15 ? `<div style="font-size:12px;color:#8ab4d4;margin-top:6px;">
           ... và ${filtered.length - 15} sản phẩm khác — <a href="${sheetFor(key)}" target="_blank" style="color:#f5a623">xem đầy đủ trong Sheet</a>
@@ -859,7 +874,6 @@ async function showFAQ(key, idx) {
             </a>` : ""}
           </div>`;
       } else {
-        // Sheet chưa có ID thật hoặc chưa publish → fallback link
         loadEl.outerHTML = `
           <div style="margin-top:10px">
             <a class="link-card" href="${sheetFor(key)}" target="_blank">
@@ -874,7 +888,6 @@ async function showFAQ(key, idx) {
       }
       scrollBot();
     }
-    // Thêm nút điều hướng sau khi dữ liệu tải xong
     const lastMsg = chatArea.lastElementChild;
     if (lastMsg && !lastMsg.classList.contains('quick-replies')) {
       const qr = document.createElement('div');
@@ -894,7 +907,6 @@ async function showFAQ(key, idx) {
   }
 }
 
-// ── Chuẩn hóa chuỗi tiếng Việt để so sánh ──
 function norm(s) {
   return (s||'').toLowerCase()
     .replace(/đ/g,'d')
@@ -906,7 +918,6 @@ function norm(s) {
     .replace(/[ýỳỷỹỵ]/g,'y');
 }
 
-// ── Nhận diện danh mục từ câu hỏi ──
 function detectKey(t) {
   const map = [
     [/bong ?da|bong ?do|san ?5|san ?7|san ?11|football|soccer/, 'san_bong_da'],
@@ -924,18 +935,15 @@ function detectKey(t) {
   return null;
 }
 
-// ── Tìm công suất trong câu hỏi: "200w", "200 w", "200 watt" ──
 function detectWatt(t) {
   const m = t.match(/(\d+)\s*w(?:att)?/);
   return m ? m[1] + 'w' : null;
 }
 
-// ── Hỏi giá theo công suất: đọc Sheet, lọc, trả lời ngay trong chat ──
 async function answerPriceQuery(raw, catKey, watt) {
   const tabName = KEY_TO_TAB[catKey];
   const catLabel = FAQ[catKey] ? FAQ[catKey].label : catKey;
 
-  // Hiện bubble chờ
   const loadId = 'pq-' + Date.now();
   const row = document.createElement('div');
   row.className = 'msg bot';
@@ -957,7 +965,6 @@ async function answerPriceQuery(raw, catKey, watt) {
     addQuickBtns(catKey); scrollBot(); return;
   }
 
-  // Lọc theo công suất nếu có
   let filtered = rows;
   if (watt) {
     filtered = rows.filter(r => {
@@ -967,10 +974,9 @@ async function answerPriceQuery(raw, catKey, watt) {
   }
 
   if (filtered.length === 0) {
-    // Không tìm thấy đúng W → hỏi lại và hiện toàn bộ bảng
     filtered = rows;
     el.outerHTML = `<div class="stag">💡 ${catLabel}</div><br>
-      Không tìm thấy đèn <strong>${watt ? watt.toUpperCase() : ''}</strong> trong danh sách. Dưới đây là toàn bộ bảng giá hiện có:<br><br>
+      Không tìm thấy đèn <strong>${watt ? watt.toUpperCase() : ''}</strong>. Dưới đây là toàn bộ bảng giá hiện có:<br><br>
       ${renderTable(filtered.slice(0,15), 'Đơn giá')}
       <div class="note-box">📞 Cần tư vấn công suất phù hợp? Gọi <strong>0986.474.671</strong> để được hỗ trợ ngay.</div>`;
   } else if (filtered.length === 1) {
@@ -991,7 +997,7 @@ async function answerPriceQuery(raw, catKey, watt) {
         <tr><td>Bảo hành</td><td>${bh}</td></tr>
         ${note ? `<tr><td>Ghi chú</td><td>${note}</td></tr>` : ''}
       </table>
-      <div class="note-box">💡 Giá trên chưa bao gồm VAT và chi phí lắp đặt. Đặt số lượng lớn có chiết khấu thêm.</div>`;
+      <div class="note-box">💡 Giá trên chưa bao gồm VAT và chi phí lắp đặt.</div>`;
   } else {
     el.outerHTML = `<div class="stag">💰 Báo Giá ${catLabel} — ${watt ? watt.toUpperCase() : 'Tất cả'}</div><br>
       ${renderTable(filtered.slice(0,15), 'Đơn giá')}
@@ -1020,13 +1026,11 @@ async function handleText(raw) {
   const watt = detectWatt(t);
   const catKey = detectKey(t);
 
-  // Câu hỏi có công suất + danh mục → tra giá ngay từ Sheet
   if (watt && catKey) {
     await answerPriceQuery(raw, catKey, watt);
     return;
   }
 
-  // Câu hỏi có công suất nhưng không rõ danh mục → hỏi lại
   if (watt && !catKey) {
     addMsg(`Bạn cần hỏi giá đèn <strong>${watt.toUpperCase()}</strong> thuộc danh mục nào? 👇`, 'bot',
       MAIN_MENU.map(m => ({ label: m.label, cls:'cat', fn: () => {
@@ -1037,10 +1041,8 @@ async function handleText(raw) {
     return;
   }
 
-  // Câu hỏi có danh mục → vào menu danh mục
   if (catKey) { showCat(catKey); return; }
 
-  // Hỏi giá chung → chọn danh mục
   if (/bao ?gia|gia ?bao|gia tien|tien|cost|price|quote|bao nhieu|bao nhieu tien/.test(t)) {
     addMsg('Để báo giá chính xác, vui lòng chọn danh mục sản phẩm 👇', 'bot',
       MAIN_MENU.map(m => ({ label: m.label, cls:'cat', fn: () => { addMsg(m.label,'user'); typing(() => showCat(m.key)); } }))
@@ -1065,7 +1067,6 @@ function sendMessage() {
   inp.value = ''; inp.style.height = 'auto';
   addMsg(txt, 'user');
   busy = true;
-  // Xóa typing indicator sau 600ms rồi gọi handleText async
   const row = document.createElement('div');
   row.className = 'msg bot'; row.id = 'tdl-typing';
   const av = document.createElement('div');
@@ -1085,7 +1086,7 @@ function sendMessage() {
 const inp = document.getElementById('userInput');
 inp.addEventListener('input', () => {
   inp.style.height = 'auto';
-  inp.style.height = Math.min(inp.scrollHeight, 120) + 'px';
+  inp.style.height = Math.min(inp.scrollHeight, 100) + 'px';
 });
 inp.addEventListener('keydown', e => {
   if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendMessage(); }
