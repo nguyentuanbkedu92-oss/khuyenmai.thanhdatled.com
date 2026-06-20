@@ -993,35 +993,76 @@ async function submitLead(formId) {
 
 // ── Hiển thị nội dung ChinhSach từ Sheet ──
 async function showChinhSach(itemIdx) {
-  const item = FAQ['chinh_sach'].items[itemIdx];
-  // Hiện nội dung tĩnh sẵn có trước
-  addMsg(item.a, 'bot', []);
-
-  // Đọc thêm từ Sheet ChinhSach nếu có
-  const rows = await fetchSheetData('ChinhSach');
-  if (!rows || !rows.length) { addQuickBtns('chinh_sach'); return; }
-
-  // Lọc theo từ khóa trong Danh mục
-  const keywords = {
+  const DANH_MUC_MAP = {
     0: 'Bảo hành',
     1: 'Thi công',
     2: 'Thanh toán',
     3: 'Thiết kế',
     4: 'Giao hàng',
   };
-  const kw = keywords[itemIdx] || '';
-  const matched = kw ? rows.filter(r => (r['Danh mục']||'').includes(kw)) : rows;
+  const dmFilter = DANH_MUC_MAP[itemIdx] || '';
 
-  if (matched.length > 0) {
-    const extra = document.createElement('div');
-    extra.className = 'msg bot';
-    const av = document.createElement('div'); av.className = 'avatar bot'; av.textContent='TDL';
-    const bub = document.createElement('div'); bub.className = 'bubble bot';
-    bub.innerHTML = `<div class="stag">📋 Thông Tin Bổ Sung Từ TDL</div><br>${renderTable(matched, 'Chi tiết')}`;
-    extra.appendChild(av); extra.appendChild(bub);
-    chatArea.appendChild(extra);
+  // Hiện skeleton chờ — CHỈ 1 bubble duy nhất
+  const loadId = 'cs-' + Date.now();
+  const row = document.createElement('div');
+  row.className = 'msg bot';
+  const av = document.createElement('div');
+  av.className = 'avatar bot'; av.textContent = 'TDL';
+  const bub = document.createElement('div');
+  bub.className = 'bubble bot';
+  bub.innerHTML = `<span id="${loadId}">⏳ Đang tải <strong>${dmFilter}</strong>...</span>`;
+  row.appendChild(av); row.appendChild(bub);
+  chatArea.appendChild(row); scrollBot();
+
+  const rows = await fetchSheetData('ChinhSach');
+  const el = document.getElementById(loadId);
+  if (!el) return;
+
+  // Fallback nếu Sheet lỗi → dùng nội dung cứng
+  if (!rows || !rows.length) {
+    el.outerHTML = FAQ['chinh_sach'].items[itemIdx].a;
+    addQuickBtns('chinh_sach');
+    scrollBot();
+    return;
   }
 
+  // Lọc theo Danh mục khớp chính xác
+  const matched = dmFilter
+    ? rows.filter(r => (r['Danh mục'] || '').toLowerCase() === dmFilter.toLowerCase())
+    : rows;
+
+  // Fallback nếu không có dữ liệu trong Sheet
+  if (!matched.length) {
+    el.outerHTML = FAQ['chinh_sach'].items[itemIdx].a;
+    addQuickBtns('chinh_sach');
+    scrollBot();
+    return;
+  }
+
+  // Phân loại list vs note theo cột Loại
+  const listItems = matched.filter(r => !r['Loại'] || r['Loại'] === 'list');
+  const noteItems = matched.filter(r => r['Loại'] === 'note');
+
+  // Build HTML hoàn toàn từ Sheet
+  let html = `<div class="stag">📋 ${dmFilter}</div><br>`;
+
+  if (listItems.length) {
+    html += `<strong>Chi tiết ${dmFilter.toLowerCase()}:</strong><ul>`;
+    listItems.forEach(r => {
+      const nd = r['Nội dung'] || r['Noi dung'] || '';
+      const ct = r['Chi tiết'] || r['Chi tiet'] || '';
+      html += `<li><strong>${nd}:</strong> ${ct}</li>`;
+    });
+    html += '</ul>';
+  }
+
+  noteItems.forEach(r => {
+    const nd = r['Nội dung'] || r['Noi dung'] || '';
+    const ct = r['Chi tiết'] || r['Chi tiet'] || '';
+    html += `<div class="note-box">📌 <strong>${nd}:</strong> ${ct}</div>`;
+  });
+
+  el.outerHTML = html;
   scrollBot();
   addQuickBtns('chinh_sach');
 }
