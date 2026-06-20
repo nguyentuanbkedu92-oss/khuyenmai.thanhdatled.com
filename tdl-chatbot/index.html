@@ -204,6 +204,7 @@ const BAO_GIA_TAB = {
 
 // Map nhãn menu (có emoji) → tên Danh mục trong Sheet
 const LABEL_TO_SHEET = {
+  "📋 Chính Sách & Dịch Vụ": "Chính Sách & Dịch Vụ",
   "💡 Đèn Pha LED":           "Đèn Pha LED",
   "🛣️ Đèn Đường LED":         "Đèn Đường LED",
   "🏭 Đèn Nhà Xưởng":         "Đèn Nhà Xưởng LED",
@@ -482,61 +483,98 @@ function showMenu() {
 // ══════════════════════════════════════════════════════════════════
 async function showCat(catLabel) {
   const sheetLabel = LABEL_TO_SHEET[catLabel] || catLabel;
-  const { loadId } = addLoadingBubble(`Đang tải <strong>${sheetLabel}</strong>...`);
-  const csRows = await fetchSheetData("ChinhSach");
-  const isPolicy = csRows && csRows.some(r=>(r["Danh mục"]||r["Danh muc"]||"").trim()===sheetLabel);
-  if (isPolicy) {
-    await showPolicyCat(sheetLabel, loadId);
-  } else {
-    await showProductCat(sheetLabel, loadId);
+
+  // Chính Sách & Dịch Vụ → hiện sub-menu động từ Sheet
+  if (norm(sheetLabel).includes("chinh") && norm(sheetLabel).includes("sach")) {
+    const { loadId } = addLoadingBubble("Đang tải danh sách chính sách...");
+    await showPolicyMenu(loadId);
+    return;
   }
+
+  const { loadId } = addLoadingBubble(`Đang tải <strong>${sheetLabel}</strong>...`);
+  await showProductCat(sheetLabel, loadId);
 }
 
-// ── Danh mục chính sách ──
-async function showPolicyCat(sheetLabel, loadId) {
+// ── Menu chính sách: tự đọc tất cả Danh mục từ Sheet ChinhSach ──
+async function showPolicyMenu(loadId) {
   const rows = await fetchSheetData("ChinhSach");
   const el = document.getElementById(loadId);
   if (!el) return;
 
-  if (!rows||!rows.length) {
-    el.outerHTML=`Không thể tải dữ liệu. <a class="link-card green" href="tel:0986474671"><strong>📞 0986.474.671</strong></a>`;
+  if (!rows || !rows.length) {
+    el.outerHTML = `Không thể tải dữ liệu chính sách.
+      <a class="link-card green" href="tel:0986474671"><strong>📞 0986.474.671</strong></a>`;
     return;
   }
 
-  const matched = rows.filter(r=>(r["Danh mục"]||r["Danh muc"]||"").trim()===sheetLabel);
-  const questions = [...new Set(matched.map(r=>(r["Câu hỏi"]||r["Cau hoi"]||"").trim()).filter(Boolean))];
+  // Tự tìm cột Danh mục dù tên có dấu hay không
+  const dmKey = Object.keys(rows[0]).find(k => norm(k).includes("danh") && norm(k).includes("muc")) || "Danh mục";
 
-  if (!questions.length) {
-    el.outerHTML=`Chưa có nội dung cho danh mục <strong>${sheetLabel}</strong>. Vui lòng liên hệ hotline!`;
-    addBtns(navBtns(sheetLabel)); return;
+  // Lấy danh sách Danh mục duy nhất — ĐỘNG từ Sheet, thêm dòng mới tự hiện
+  const danhMucs = [...new Set(rows.map(r => (r[dmKey]||"").trim()).filter(Boolean))];
+
+  if (!danhMucs.length) {
+    el.outerHTML = `Chưa có dữ liệu chính sách. Vui lòng liên hệ hotline!`;
+    addBtns([{ label:"🏠 Menu chính", fn:()=>{ addMsg("🏠 Menu chính","user"); typing(showMenu); } }]);
+    return;
   }
 
-  el.outerHTML=`<div class="stag">📋 ${sheetLabel}</div><br>Chọn nội dung cần xem:`;
-  const btns=questions.map(q=>({
-    label:q, fn:()=>{ addMsg(q,"user"); typing(()=>showPolicyDetail(sheetLabel,q)); }
+  el.outerHTML = `<div class="stag">📋 Chính Sách & Dịch Vụ</div><br>Chọn nội dung cần xem:`;
+
+  const btns = danhMucs.map(dm => ({
+    label: dm,
+    fn: () => { addMsg(dm, "user"); typing(() => showPolicyDetail(dm)); }
   }));
   btns.push({ label:"🏠 Menu chính", fn:()=>{ addMsg("🏠 Menu chính","user"); typing(showMenu); } });
   addBtns(btns);
 }
 
-// ── Chi tiết chính sách ──
-async function showPolicyDetail(sheetLabel, cauHoi) {
-  const { loadId } = addLoadingBubble(`Đang tải <strong>${cauHoi}</strong>...`);
+// ── Chi tiết một Danh mục chính sách (Bảo hành / Thi công / ...) ──
+async function showPolicyDetail(dmLabel) {
+  const { loadId } = addLoadingBubble(`Đang tải <strong>${dmLabel}</strong>...`);
   const rows = await fetchSheetData("ChinhSach");
   const el = document.getElementById(loadId);
   if (!el) return;
 
-  const matched = (rows||[]).filter(r=>
-    (r["Danh mục"]||r["Danh muc"]||"").trim()===sheetLabel &&
-    (r["Câu hỏi"]||r["Cau hoi"]||"").trim()===cauHoi
-  );
+  const dmKey   = Object.keys(rows[0]).find(k => norm(k).includes("danh") && norm(k).includes("muc")) || "Danh mục";
+  const ndKey   = Object.keys(rows[0]).find(k => norm(k).includes("noi") && norm(k).includes("dung")) || "Nội dung";
+  const ctKey   = Object.keys(rows[0]).find(k => norm(k).includes("chi") && norm(k).includes("tiet")) || "Chi tiết";
+  const loaiKey = Object.keys(rows[0]).find(k => norm(k).includes("loai")) || "Loại";
 
-  const html = buildHtmlFromRows(matched);
-  el.outerHTML = html
-    ? `<div class="stag">📋 ${cauHoi}</div><br>${html}`
-    : `Chưa có dữ liệu. Vui lòng liên hệ hotline!`;
+  const matched = rows.filter(r => (r[dmKey]||"").trim() === dmLabel);
+
+  if (!matched.length) {
+    el.outerHTML = `Chưa có dữ liệu cho <strong>${dmLabel}</strong>. Vui lòng liên hệ hotline!`;
+    addBtns([
+      { label:"⬅️ Chính sách khác", cls:"cat", fn:()=>{ addMsg("📋 Chính Sách & Dịch Vụ","user"); typing(()=>showCat("📋 Chính Sách & Dịch Vụ")); } },
+      { label:"🏠 Menu chính", fn:()=>{ addMsg("🏠 Menu chính","user"); typing(showMenu); } },
+    ]);
+    return;
+  }
+
+  // Build HTML theo cột Loại (list / note)
+  let html = "", inList = false;
+  matched.forEach(r => {
+    const loai = (r[loaiKey]||"list").trim().toLowerCase();
+    const nd   = (r[ndKey]||"").trim();
+    const ct   = (r[ctKey]||"").trim();
+    if (loai === "note") {
+      if (inList) { html += "</ul>"; inList = false; }
+      html += `<div class="note-box">📌 <strong>${nd}:</strong> ${ct}</div>`;
+    } else {
+      if (!inList) { html += "<ul>"; inList = true; }
+      html += ct ? `<li><strong>${nd}</strong> — ${ct}</li>` : `<li>${nd}</li>`;
+    }
+  });
+  if (inList) html += "</ul>";
+
+  el.outerHTML = `<div class="stag">📋 ${dmLabel}</div><br>${html}`;
   scrollBot();
-  addBtns(navBtns(sheetLabel));
+  addBtns([
+    { label:"⬅️ Chính sách khác", cls:"cat", fn:()=>{ addMsg("📋 Chính Sách & Dịch Vụ","user"); typing(()=>showCat("📋 Chính Sách & Dịch Vụ")); } },
+    { label:"📞 Gọi ngay tư vấn", cls:"green", fn:()=>window.open("tel:0986474671") },
+    { label:"🏠 Menu chính", fn:()=>{ addMsg("🏠 Menu chính","user"); typing(showMenu); } },
+  ]);
 }
 
 // ── Danh mục sản phẩm (ThongSoDen → fallback báo giá) ──
