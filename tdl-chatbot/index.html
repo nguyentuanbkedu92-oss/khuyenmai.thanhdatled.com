@@ -174,7 +174,7 @@ body { font-family:'Segoe UI',Arial,sans-serif; background:#0a0a0f; color:#e8e8e
 // ══════════════════════════════════════════════════════════════════
 const SHEET_ID = "1SLHuE9nLNpxwlwAjW_y1FQEtJhwqw8s1l7NjqHVr6Eg";
 const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyGT7JU5-JnWw4lNgfglqMbOqqoDc0GHXVsWdCPQlBZpRhYVdpiyLBywfmIY8rDKIkl/exec";
-
+async function showProductCat(catLabel, loadId)
 // GID của từng tab — lấy từ URL khi click vào tab trong Sheet
 const TAB_GID = {
   ChinhSach:  "0",
@@ -590,46 +590,69 @@ async function showPolicyDetail(sheetLabel, cauHoi) {
   addBtns(navBtns(sheetLabel));
 }
 
-// ── Danh mục sản phẩm (ThongSoDen) ──
+// ── Danh mục sản phẩm (ThongSoDen → fallback báo giá) ──
 async function showProductCat(sheetLabel, loadId) {
-  const rows = await fetchSheetData('ThongSoDen');
   const el = document.getElementById(loadId);
   if (!el) return;
 
-  if (!rows || !rows.length) {
-    el.outerHTML = `Không thể tải dữ liệu. <a class="link-card green" href="tel:0986474671"><strong>📞 0986.474.671</strong></a>`;
-    return;
-  }
-
-  const matched = rows.filter(r=>(r['Danh mục']||r['Danh muc']||'').trim()===sheetLabel);
-  const questions = [...new Set(matched.map(r=>(r['Câu hỏi']||r['Cau hoi']||'').trim()).filter(Boolean))];
-
-  if (!questions.length) {
-    el.outerHTML = `Chưa có nội dung cho <strong>${sheetLabel}</strong>. Vui lòng liên hệ hotline!`;
-    addBtns(navBtns(sheetLabel));
-    return;
-  }
-
-  el.outerHTML = `<div class="stag">${sheetLabel}</div><br>Chọn thông tin cần xem:`;
-
-  const btns = questions.map(q=>({
-    label: q,
-    fn:()=>{ addMsg(q,'user'); typing(()=>showProductDetail(sheetLabel, q)); }
-  }));
+  // Thử đọc ThongSoDen
+  const rows = await fetchSheetData('ThongSoDen');
+  const matched = (rows||[]).filter(r =>
+    norm(r['Danh mục']||r['Danh muc']||'').trim() === norm(sheetLabel).trim()
+  );
+  const questions = [...new Set(
+    matched.map(r => (r['Câu hỏi']||r['Cau hoi']||'').trim()).filter(Boolean)
+  )];
 
   const priceTab = BAO_GIA_TAB[sheetLabel];
-  if (priceTab) {
-    btns.push({
-      label:'💰 Xem bảng báo giá',
-      cls:'hot',
-      fn:()=>{ addMsg('💰 Xem bảng báo giá','user'); typing(()=>showPriceTable(sheetLabel)); }
-    });
-  }
-  btns.push({ label:'📋 Yêu cầu báo giá', cls:'hot', fn:()=>{ addMsg('📋 Yêu cầu báo giá','user'); typing(()=>showLeadForm(sheetLabel)); } });
-  btns.push({ label:'🏠 Menu chính', fn:()=>{ addMsg('🏠 Menu chính','user'); typing(showMenu); } });
-  addBtns(btns);
-}
 
+  // ── Có thông số kỹ thuật → hiện menu câu hỏi ──
+  if (questions.length) {
+    el.outerHTML = `<div class="stag">${sheetLabel}</div><br>Chọn thông tin cần xem:`;
+    const btns = questions.map(q => ({
+      label: q,
+      fn: () => { addMsg(q,'user'); typing(()=>showProductDetail(sheetLabel, q)); }
+    }));
+    if (priceTab) {
+      btns.push({
+        label: '💰 Xem bảng báo giá', cls:'hot',
+        fn: () => { addMsg('💰 Xem bảng báo giá','user'); typing(()=>showPriceTable(sheetLabel)); }
+      });
+    }
+    btns.push({ label:'📋 Yêu cầu báo giá', cls:'hot', fn:()=>{ addMsg('📋 Yêu cầu báo giá','user'); typing(()=>showLeadForm(sheetLabel)); } });
+    btns.push({ label:'🏠 Menu chính', fn:()=>{ addMsg('🏠 Menu chính','user'); typing(showMenu); } });
+    addBtns(btns);
+    return;
+  }
+
+  // ── Không có ThongSoDen → fallback hiện bảng báo giá luôn ──
+  if (priceTab) {
+    el.outerHTML = `<div class="stag">${sheetLabel}</div><br>Chọn thông tin cần xem:`;
+    addBtns([
+      {
+        label: '💰 Xem bảng báo giá', cls:'hot',
+        fn: () => { addMsg('💰 Xem bảng báo giá','user'); typing(()=>showPriceTable(sheetLabel)); }
+      },
+      {
+        label: '📋 Yêu cầu báo giá', cls:'hot',
+        fn: () => { addMsg('📋 Yêu cầu báo giá','user'); typing(()=>showLeadForm(sheetLabel)); }
+      },
+      {
+        label: '📞 Gọi ngay tư vấn', cls:'green',
+        fn: () => window.open('tel:0986474671')
+      },
+      { label:'🏠 Menu chính', fn:()=>{ addMsg('🏠 Menu chính','user'); typing(showMenu); } },
+    ]);
+    return;
+  }
+
+  // ── Không có gì cả → hotline ──
+  el.outerHTML = `Vui lòng liên hệ hotline để được tư vấn trực tiếp!
+    <a class="link-card green" href="tel:0986474671">
+      <strong>📞 0986.474.671</strong>Hỗ trợ 8:00–22:00 hàng ngày
+    </a>`;
+  addBtns(navBtns(sheetLabel));
+}
 // ── Chi tiết thông số kỹ thuật ──
 async function showProductDetail(sheetLabel, cauHoi) {
   const { loadId } = addLoadingBubble(`Đang tải <strong>${cauHoi}</strong>...`);
