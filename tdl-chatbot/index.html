@@ -359,16 +359,20 @@ function buildHtmlFromRows(matched) {
 
 // ══════════════════════════════════════════════════════════════════
 //  RENDER BẢNG BÁO GIÁ
+//  - Bỏ cột "Danh mục" (đã lọc rồi, không cần hiện lại)
+//  - Highlight cột giá màu vàng
 // ══════════════════════════════════════════════════════════════════
 function renderPriceTable(rows, highlightCol) {
   if (!rows||!rows.length) return "<em>Chưa có dữ liệu</em>";
-  const keys=Object.keys(rows[0]);
+  // Bỏ cột Danh mục khỏi hiển thị
+  const allKeys = Object.keys(rows[0]);
+  const keys = allKeys.filter(k => !/^danh.?m[uụ]c$/i.test(k.trim()));
   let html=`<table><tr>${keys.map(k=>`<th>${k}</th>`).join("")}</tr>`;
   rows.forEach(row=>{
     html+=`<tr>${keys.map(k=>{
       const v=row[k]||"";
       const isHL=highlightCol&&k===highlightCol;
-      return `<td${isHL?" style=\"color:#f5a623;font-weight:700\"":""}}>${v}</td>`;
+      return `<td${isHL?" style=\"color:#f5a623;font-weight:700\"":""}>${v}</td>`;
     }).join("")}</tr>`;
   });
   return html+"</table>";
@@ -630,22 +634,26 @@ async function showPriceTable(sheetLabel) {
     addBtns(navBtns(sheetLabel)); scrollBot(); return;
   }
 
-  // Lọc theo Danh mục nếu sheet dùng chung (SanTheThao)
+  // ── Lọc theo Danh mục (dùng norm để tránh lỗi dấu) ──
   let filtered = rows;
-  const dmKey = Object.keys(rows[0]).find(k=>/danh.?m[uụ]c/i.test(k));
+  const dmKey = Object.keys(rows[0]).find(k => norm(k).includes("danh") && norm(k).includes("muc"));
   if (dmKey) {
-    const f = rows.filter(r=>norm(r[dmKey]||"").trim()===norm(sheetLabel).trim());
-    if (f.length) filtered=f;
+    const f = rows.filter(r => norm(r[dmKey]||"").trim() === norm(sheetLabel).trim());
+    if (f.length) filtered = f;
   }
 
-  const preview = filtered.slice(0,20);
-  const more = filtered.length>20
-    ? `<div style="font-size:12px;color:#8ab4d4;margin-top:6px">... và ${filtered.length-20} sản phẩm khác —
-        <a href="${sheetEditUrl(tabName)}" target="_blank" style="color:#f5a623">xem đầy đủ trong Sheet</a></div>` : "";
+  // ── Tìm cột giá để highlight ──
+  const priceCol = Object.keys(filtered[0]).find(k => /đơn giá|don gia|price/i.test(k)) || null;
 
-  const priceCol = Object.keys(filtered[0]).find(k=>/đơn giá|giá|price/i.test(k))||null;
+  const preview = filtered.slice(0, 20);
+  const more = filtered.length > 20
+    ? `<div style="font-size:12px;color:#8ab4d4;margin-top:8px">
+        ⬇️ Còn ${filtered.length - 20} sản phẩm khác —
+        <a href="${sheetEditUrl(tabName)}" target="_blank" style="color:#f5a623;text-decoration:underline">xem đầy đủ trong Sheet</a>
+       </div>` : "";
 
-  el.outerHTML=`
+  // ── Render — KHÔNG có text thừa trước bảng ──
+  el.outerHTML = `
     <div class="stag">💰 Bảng Giá ${sheetLabel}</div><br>
     ${renderPriceTable(preview, priceCol)}
     ${more}
@@ -653,9 +661,9 @@ async function showPriceTable(sheetLabel) {
       <strong>📊 Xem Bảng Giá Đầy Đủ — Google Sheet</strong>
       Giá theo công suất & số lượng · Cập nhật liên tục
     </a>
-    ${WP[sheetLabel]?`<a class="link-card" href="${WP[sheetLabel]}" target="_blank">
+    ${WP[sheetLabel] ? `<a class="link-card" href="${WP[sheetLabel]}" target="_blank">
       <strong>🌐 Xem sản phẩm trên Website TDL</strong>${WP[sheetLabel]}
-    </a>`:""}`;
+    </a>` : ""}`;
   scrollBot();
   addBtns(navBtns(sheetLabel));
 }
