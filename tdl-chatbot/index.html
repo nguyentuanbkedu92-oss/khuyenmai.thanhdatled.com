@@ -49,8 +49,8 @@ body { font-family:'Segoe UI',Arial,sans-serif; background:#0a0a0f; color:#e8e8e
 .bubble.bot { background:#132030; border:1px solid #1e3550; border-radius:4px 18px 18px 18px; color:#d8e8f0; }
 .bubble.user { background:linear-gradient(135deg,#1a4a7a,#0d3060); border-radius:18px 4px 18px 18px; color:#e8f4ff; text-align:right; }
 .bubble.bot a { color:#f5a623; }
-.bubble.bot ul { margin:8px 0 4px 18px; }
-.bubble.bot li { margin:4px 0; }
+.bubble.bot ul { margin:4px 0 4px 18px; }
+.bubble.bot li { margin:3px 0; }
 .bubble.bot strong { color:#f5a623; }
 .bubble.bot table { width:100%; border-collapse:collapse; margin:10px 0; font-size:13px; }
 .bubble.bot th { background:#0d2a3a; color:#f5a623; padding:6px 10px; text-align:left; border:1px solid #1e4a5a; font-weight:600; }
@@ -68,6 +68,8 @@ body { font-family:'Segoe UI',Arial,sans-serif; background:#0a0a0f; color:#e8e8e
 .qr-btn.cat:hover { background:#f5a623; color:#0d1b2a; }
 .qr-btn.green { border-color:#22c55e; color:#22c55e; }
 .qr-btn.green:hover { background:#22c55e; color:#0d1b2a; }
+.qr-btn.hot { border-color:#f5a623; background:rgba(245,166,35,0.1); color:#f5a623; font-weight:600; }
+.qr-btn.hot:hover { background:#f5a623; color:#0d1b2a; }
 
 .input-wrap-outer { max-width:800px; width:100%; margin:0 auto; }
 .input-area { background:#0d1420; border-top:1px solid #1e3550; padding:12px 20px; display:flex; gap:10px; align-items:flex-end; }
@@ -168,66 +170,66 @@ body { font-family:'Segoe UI',Arial,sans-serif; background:#0a0a0f; color:#e8e8e
 
 <script>
 // ══════════════════════════════════════════════════════════════════
-//  CẤU HÌNH GOOGLE SHEET
-//  Bước 1: Thay YOUR_SHEET_ID bằng ID thật của Google Sheet bạn
-//  Bước 2: Publish Sheet lên web (File → Share → Publish to web → chọn "Entire document" → CSV → Publish)
-//  Mỗi tab tên phải đặt đúng: ChinhSach | DenPha | DenDuong | NhaXuong | SanTheThao | BaoGia | SanVuon
+//  CẤU HÌNH — CHỈ CẦN SỬA PHẦN NÀY
 // ══════════════════════════════════════════════════════════════════
-const SHEET_ID = "1SLHuE9nLNpxwlwAjW_y1FQEtJhwqw8s1l7NjqHVr6Eg"; // <-- THAY ID VÀO ĐÂY
+const SHEET_ID = "1SLHuE9nLNpxwlwAjW_y1FQEtJhwqw8s1l7NjqHVr6Eg";
+const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyGT7JU5-JnWw4lNgfglqMbOqqoDc0GHXVsWdCPQlBZpRhYVdpiyLBywfmIY8rDKIkl/exec";
 
-// ── Google Apps Script URL để GHI lead vào Sheet ──
-// Tạo Apps Script theo hướng dẫn đi kèm rồi dán URL vào đây
-const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyGT7JU5-JnWw4lNgfglqMbOqqoDc0GHXVsWdCPQlBZpRhYVdpiyLBywfmIY8rDKIkl/exec"; // <-- THAY URL VÀO ĐÂY
-
-// Map tab name → GID (lấy từ URL khi click vào từng tab trong Sheet)
-// Sau khi tạo Sheet, mở từng tab, nhìn URL lấy số sau "gid=" rồi điền vào đây
+// GID của từng tab — lấy từ URL khi click vào tab trong Sheet
 const TAB_GID = {
-  ChinhSach:   "0",          // ✅ ChinhSach
-  DenPha:      "890151671",  // ✅ DenPha
-  DenDuong:    "1046671824", // ✅ DenDuong
-  NhaXuong:    "1561603537", // ✅ NhaXuong
-  SanTheThao:  "141301098",  // ✅ SanTheThao
-  BaoGia:      "1171981915", // ✅ BaoGia
-  SanVuon:     "1215299338", // ✅ SanVuon
+  ChinhSach:  "0",
+  ThongSoDen: "890151671",   // Tab thông số kỹ thuật tất cả đèn
+  DenPha:     "1046671824",  // Tab báo giá đèn pha
+  DenDuong:   "1561603537",  // Tab báo giá đèn đường
+  NhaXuong:   "141301098",   // Tab báo giá nhà xưởng
+  SanTheThao: "1171981915",  // Tab báo giá sân thể thao
+  SanVuon:    "1215299338",  // Tab báo giá sân vườn
+  BaoGia:     "999999999",   // Tab báo giá tổng
 };
 
-// Lấy CSV theo GID — dùng export?format=csv&gid= ổn định hơn gviz, không bị CORS
+// Website sản phẩm
+const WP = {
+  "Đèn Pha LED":        "https://thanhdatled.com/den-pha-led/",
+  "Đèn Đường LED":      "https://thanhdatled.com/den-duong-led/",
+  "Đèn Nhà Xưởng LED":  "https://thanhdatled.com/den-nha-xuong-led/",
+  "Đèn Sân Vườn LED":   "https://thanhdatled.com/den-san-vuon/",
+  "Sân Tennis":         "https://thanhdatled.com/san-tennis/",
+  "Sân Cầu Lông":       "https://thanhdatled.com/san-cau-long/",
+  "Sân Bóng Chuyền":    "https://thanhdatled.com/san-bong-chuyen/",
+  "Sân Pickleball":     "https://thanhdatled.com/san-pickleball/",
+  "Sân Bóng Đá":        "https://thanhdatled.com/san-bong-da/",
+};
+
+// Tab báo giá theo danh mục
+const BAO_GIA_TAB = {
+  "Đèn Pha LED":        "DenPha",
+  "Đèn Đường LED":      "DenDuong",
+  "Đèn Nhà Xưởng LED":  "NhaXuong",
+  "Đèn Sân Vườn LED":   "SanVuon",
+  "Sân Tennis":         "SanTheThao",
+  "Sân Cầu Lông":       "SanTheThao",
+  "Sân Bóng Chuyền":    "SanTheThao",
+  "Sân Pickleball":     "SanTheThao",
+  "Sân Bóng Đá":        "SanTheThao",
+};
+
+// ── Helpers Sheet URL ──
 const csvUrl = (tabName) => {
   const gid = TAB_GID[tabName];
   if (!gid) return null;
   return `https://docs.google.com/spreadsheets/d/${SHEET_ID}/export?format=csv&gid=${gid}`;
 };
-
-// Lấy URL edit để mở Sheet cho khách xem
 const sheetEditUrl = (tabName) =>
   `https://docs.google.com/spreadsheets/d/${SHEET_ID}/edit#gid=${TAB_GID[tabName] || 0}`;
 
-// Map category key → tên tab Sheet
-const KEY_TO_TAB = {
-  chinh_sach:    "ChinhSach",
-  den_pha:       "DenPha",
-  den_duong:     "DenDuong",
-  den_nha_xuong: "NhaXuong",
-  san_tennis:    "SanTheThao",
-  san_cau_long:  "SanTheThao",
-  san_bong_chuyen:"SanTheThao",
-  san_pickleball:"SanTheThao",
-  san_bong_da:   "SanTheThao",
-  den_san_vuon:  "SanVuon",
-};
-
-const sheetFor = key => sheetEditUrl(KEY_TO_TAB[key] || "BaoGia");
-
-// ── Cache dữ liệu Sheet (tránh gọi lại nhiều lần) ──
+// ── Cache ──
 const sheetCache = {};
-
-// Đọc CSV từ Google Sheet, trả về mảng [{col1, col2, ...}, ...]
 async function fetchSheetData(tabName) {
   if (sheetCache[tabName]) return sheetCache[tabName];
   const url = csvUrl(tabName);
   if (!url) return null;
   try {
-    const resp = await fetch(url, { redirect: 'follow' });
+    const resp = await fetch(url, { redirect:'follow' });
     if (!resp.ok) throw new Error("HTTP " + resp.status);
     const text = await resp.text();
     const rows = parseCSV(text);
@@ -239,835 +241,139 @@ async function fetchSheetData(tabName) {
   }
 }
 
-// Parser CSV đơn giản hỗ trợ ô có dấu phẩy và xuống dòng trong ngoặc kép
+// ── CSV Parser ──
 function parseCSV(text) {
   const lines = [];
-  let cur = [], cell = "", inQ = false;
-  for (let i = 0; i < text.length; i++) {
+  let cur=[], cell="", inQ=false;
+  for (let i=0; i<text.length; i++) {
     const c = text[i];
-    if (c === '"') { inQ = !inQ; continue; }
-    if (!inQ && c === ',') { cur.push(cell.trim()); cell = ""; continue; }
-    if (!inQ && (c === '\n' || c === '\r')) {
-      if (text[i+1] === '\n') i++;
-      cur.push(cell.trim()); cell = "";
-      if (cur.some(x => x)) lines.push(cur);
-      cur = []; continue;
+    if (c==='"') { inQ=!inQ; continue; }
+    if (!inQ && c===',') { cur.push(cell.trim()); cell=""; continue; }
+    if (!inQ && (c==='\n'||c==='\r')) {
+      if (text[i+1]==='\n') i++;
+      cur.push(cell.trim()); cell="";
+      if (cur.some(x=>x)) lines.push(cur);
+      cur=[]; continue;
     }
-    cell += c;
+    cell+=c;
   }
-  if (cell || cur.length) { cur.push(cell.trim()); if (cur.some(x=>x)) lines.push(cur); }
+  if (cell||cur.length) { cur.push(cell.trim()); if(cur.some(x=>x)) lines.push(cur); }
   if (!lines.length) return [];
   const headers = lines[0];
   return lines.slice(1).map(row => {
-    const obj = {};
-    headers.forEach((h, i) => { obj[h] = row[i] || ""; });
+    const obj={};
+    headers.forEach((h,i)=>{ obj[h]=row[i]||""; });
     return obj;
   });
 }
 
-// Render mảng objects → HTML table (dùng keys làm header)
-function renderTable(rows, highlightCol) {
-  if (!rows || !rows.length) return "<em>Chưa có dữ liệu</em>";
-  const keys = Object.keys(rows[0]);
-  let html = `<table><tr>${keys.map(k => `<th>${k}</th>`).join("")}</tr>`;
-  rows.forEach(row => {
-    html += `<tr>${keys.map(k => {
-      const v = row[k] || "";
-      const isHL = highlightCol && k === highlightCol;
-      return `<td${isHL ? ' style="color:#f5a623;font-weight:700"' : ""}>${v}</td>`;
-    }).join("")}</tr>`;
+// ══════════════════════════════════════════════════════════════════
+//  BUILD HTML TỪ SHEET — dùng cho ThongSoDen & ChinhSach
+//  Cột: Danh mục | Câu hỏi | Loại | Nội dung | Chi tiết
+//  Loại: title | subtitle | list | note | table_header | table_row
+// ══════════════════════════════════════════════════════════════════
+function buildHtmlFromRows(matched) {
+  if (!matched || !matched.length) return null;
+  let html = '';
+  let inTable = false;
+  let tableHeaders = [];
+  let prevWasList = false;
+
+  matched.forEach((r, idx) => {
+    const loai    = (r['Loại']||r['Loai']||'list').trim().toLowerCase();
+    const noidung = (r['Nội dung']||r['Noi dung']||'').trim();
+    const chitiet = (r['Chi tiết']||r['Chi tiet']||'').trim();
+
+    // Đóng bảng nếu gặp loại khác
+    if (inTable && loai !== 'table_row') {
+      html += '</table>';
+      inTable = false;
+      tableHeaders = [];
+    }
+
+    switch(loai) {
+      case 'title':
+        if (prevWasList) html += '</ul>';
+        prevWasList = false;
+        html += `<br><strong style="color:#f5a623;font-size:14px">${noidung}</strong><br>`;
+        break;
+
+      case 'subtitle':
+        if (prevWasList) html += '</ul>';
+        prevWasList = false;
+        html += `<br><strong style="color:#d8e8f0">${noidung}</strong>`;
+        if (chitiet) html += ` <span style="color:#8ab4d4;font-size:12px">${chitiet}</span>`;
+        html += '<br>';
+        break;
+
+      case 'list':
+        if (!prevWasList) { html += '<ul>'; prevWasList = true; }
+        html += `<li>`;
+        if (chitiet) html += `<strong>${noidung}</strong> — ${chitiet}`;
+        else html += noidung;
+        html += `</li>`;
+        break;
+
+      case 'note':
+        if (prevWasList) { html += '</ul>'; prevWasList = false; }
+        html += `<div class="note-box">📌 <strong>${noidung}:</strong> ${chitiet}</div>`;
+        break;
+
+      case 'table_header':
+        if (prevWasList) { html += '</ul>'; prevWasList = false; }
+        tableHeaders = noidung.split('|').map(s=>s.trim());
+        html += '<table><tr>';
+        tableHeaders.forEach(h=>{ html += `<th>${h}</th>`; });
+        html += '</tr>';
+        inTable = true;
+        break;
+
+      case 'table_row':
+        if (!inTable) { html += '<table>'; inTable = true; }
+        // Lấy giá trị từ Nội dung|Chi tiết|... hoặc dùng pipe trong Nội dung
+        let cells;
+        if (noidung.includes('|')) {
+          cells = noidung.split('|').map(s=>s.trim());
+        } else {
+          cells = [noidung, chitiet].filter(x=>x!=='');
+          // Nếu có cột thứ 3 (Ghi chú)
+          const ghichu = (r['Ghi chú']||r['Ghi chu']||'').trim();
+          if (ghichu) cells.push(ghichu);
+        }
+        html += '<tr>';
+        cells.forEach((c,i)=>{
+          const isPrice = tableHeaders[i] && /giá|price|đơn giá/i.test(tableHeaders[i]);
+          html += `<td${isPrice?' style="color:#f5a623;font-weight:700"':''}>${c}</td>`;
+        });
+        html += '</tr>';
+        break;
+    }
   });
-  html += "</table>";
+
+  if (prevWasList) html += '</ul>';
+  if (inTable) html += '</table>';
+  return html || null;
+}
+
+// ══════════════════════════════════════════════════════════════════
+//  RENDER BẢNG BÁO GIÁ (tab DenPha, DenDuong, ...)
+// ══════════════════════════════════════════════════════════════════
+function renderPriceTable(rows, highlightCol) {
+  if (!rows||!rows.length) return "<em>Chưa có dữ liệu</em>";
+  const keys = Object.keys(rows[0]);
+  let html = `<table><tr>${keys.map(k=>`<th>${k}</th>`).join('')}</tr>`;
+  rows.forEach(row=>{
+    html += `<tr>${keys.map(k=>{
+      const v=row[k]||'';
+      const isHL = highlightCol && k===highlightCol;
+      return `<td${isHL?' style="color:#f5a623;font-weight:700"':''}>${v}</td>`;
+    }).join('')}</tr>`;
+  });
+  html += '</table>';
   return html;
 }
 
-// Lọc rows theo cột và giá trị (không phân biệt hoa thường)
-function filterRows(rows, col, value) {
-  if (!col || !value) return rows;
-  return rows.filter(r => (r[col]||"").toLowerCase().includes(value.toLowerCase()));
-}
-
-const WP = {
-  den_pha:       "https://thanhdatled.com/den-pha-led/",
-  den_duong:     "https://thanhdatled.com/den-duong-led/",
-  den_nha_xuong: "https://thanhdatled.com/den-nha-xuong-led/",
-  den_san_vuon:  "https://thanhdatled.com/den-san-vuon/",
-  san_tennis:    "https://thanhdatled.com/san-tennis/",
-  san_cau_long:  "https://thanhdatled.com/san-cau-long/",
-  san_bong_chuyen:"https://thanhdatled.com/san-bong-chuyen/",
-  san_pickleball:"https://thanhdatled.com/san-pickleball/",
-  san_bong_da:   "https://thanhdatled.com/san-bong-da/",
-};
-
-// ══════════════════════════════════════════════
-// DỮ LIỆU FAQ — nội dung kỹ thuật chuẩn xác
-// ══════════════════════════════════════════════
-const FAQ = {
-
-chinh_sach: { label:"Chính Sách & Dịch Vụ", icon:"📋", items:[
-  { q:"Chính sách bảo hành", a:`<div class="stag">Bảo hành</div><br>
-<strong>Bảo hành theo từng dòng sản phẩm:</strong>
-<ul>
-<li>Đèn pha sân thể thao chip Bridgelux/Philips, nguồn Done/Philips: <strong>3 năm</strong></li>
-<li>Đèn đường, đèn nhà xưởng: <strong>2–3 năm</strong></li>
-<li>Đèn sân vườn ngoài trời IP65+: <strong>2 năm</strong></li>
-<li>Driver, nguồn điện: bảo hành riêng theo nhà sản xuất</li>
-</ul>
-<strong>Phạm vi bảo hành:</strong> Lỗi linh kiện, mạch điều khiển, chip LED tối dần &gt;30% so với ban đầu. Đổi mới trong 7 ngày nếu lỗi xuất xưởng. Hỗ trợ kỹ thuật từ xa miễn phí trong suốt thời gian bảo hành.` },
-  { q:"Dịch vụ lắp đặt & thi công", a:`<div class="stag">Thi công</div><br>
-TDL cung cấp <strong>dịch vụ thi công trọn gói</strong> trên toàn quốc:
-<ul>
-<li>Khảo sát thực địa miễn phí, đo đạc hiện trường</li>
-<li>Thiết kế bản vẽ kỹ thuật, mô phỏng độ rọi (lux) bằng phần mềm DIALux</li>
-<li>Cung cấp trụ đèn thép mạ kẽm, cáp ngầm, tủ điện điều khiển</li>
-<li>Đội thi công kinh nghiệm 10+ năm, có bảo hộ lao động theo quy định</li>
-<li>Nghiệm thu, bàn giao hồ sơ hoàn công đầy đủ</li>
-</ul>` },
-  { q:"Thanh toán & hợp đồng", a:`<div class="stag">Thanh toán</div><br>
-<ul>
-<li>Đặt cọc <strong>30–50%</strong> khi ký hợp đồng</li>
-<li>Thanh toán <strong>50–70%</strong> còn lại sau nghiệm thu công trình</li>
-<li>Xuất hóa đơn VAT đầy đủ</li>
-<li>Chuyển khoản / tiền mặt</li>
-<li>Hỗ trợ thanh toán theo tiến độ với dự án lớn &gt;500 triệu</li>
-</ul>` },
-  { q:"Thiết kế chiếu sáng miễn phí", a:`<div class="stag">Thiết kế</div><br>
-TDL cung cấp <strong>thiết kế chiếu sáng chuyên nghiệp miễn phí</strong> cho đơn hàng từ 50 triệu:
-<ul>
-<li>Tính toán độ rọi (lux) theo tiêu chuẩn FIFA, BWF, FIVB, EN 12193</li>
-<li>Mô phỏng 3D, xuất bản vẽ AutoCAD</li>
-<li>Báo cáo DIALux: Eh trung bình, Emin/Emax, UGR (chỉ số chói)</li>
-<li>Tư vấn vị trí trụ đèn, góc chiếu tối ưu tránh lóa cho vận động viên</li>
-</ul>` },
-  { q:"Vận chuyển & giao hàng", a:`<div class="stag">Giao hàng</div><br>
-<ul>
-<li>Giao nội thành Hà Nội: <strong>trong ngày hoặc 24h</strong></li>
-<li>Giao toàn quốc: 2–5 ngày làm việc qua nhà xe/đơn vị vận tải</li>
-<li>Hàng cồng kềnh, trụ đèn dài: hỗ trợ xe tải chuyên dụng</li>
-<li>Đóng gói xốp pe + thùng gỗ cho đèn cao cấp</li>
-<li>Kiểm tra hàng trước khi nhận, bồi thường 100% nếu vỡ do vận chuyển</li>
-</ul>` },
-]},
-
-den_pha: { label:"Đèn Pha LED", icon:"💡", items:[
-  { q:"Chip LED & nguồn điện TDL dùng", a:`<div class="stag">Linh kiện</div><br>
-<strong>Chip LED:</strong>
-<ul>
-<li><strong>Bridgelux</strong> (Mỹ) — chip 3030/5050, độ bền cao, CRI 70–80</li>
-<li><strong>Philips Lumileds</strong> — chip Luxeon, CRI 80+, màu sắc chuẩn</li>
-<li>Hiệu suất 130–160 lm/W, tuổi thọ chip 50.000–80.000 giờ</li>
-</ul>
-<strong>Nguồn (Driver):</strong>
-<ul>
-<li><strong>Done Power</strong> — nguồn Đài Loan, IP67, PF≥0.95, THD&lt;15%</li>
-<li><strong>Philips Xitanium</strong> — nguồn châu Âu, IP66, hỗ trợ dimming 0–10V</li>
-<li>Bảo vệ: chống ngắn mạch, quá áp, quá nhiệt tự động</li>
-</ul>` },
-  { q:"Các dải công suất đèn pha", a:`<div class="stag">Công suất</div><br>
-<table>
-<tr><th>Công suất</th><th>Ứng dụng phù hợp</th><th>Quang thông</th></tr>
-<tr><td>50W – 100W</td><td>Biển quảng cáo, lối đi, kho nhỏ</td><td>6.500–13.000 lm</td></tr>
-<tr><td>150W – 200W</td><td>Sân bóng mini, bãi đỗ xe, khuôn viên</td><td>19.500–26.000 lm</td></tr>
-<tr><td>300W – 400W</td><td>Sân tennis, cầu lông, nhà xưởng vừa</td><td>39.000–52.000 lm</td></tr>
-<tr><td>500W – 600W</td><td>Sân bóng đá 7 người, kho lớn</td><td>65.000–78.000 lm</td></tr>
-<tr><td>800W – 1000W</td><td>Sân bóng đá 11 người, sân vận động</td><td>104.000–150.000 lm</td></tr>
-</table>
-<div class="note-box">⚡ Nhiệt độ màu: 4000K (trắng trung tính) cho thi đấu ban đêm, 5000–6500K cho tập luyện.</div>`, sheet:true },
-  { q:"Tiêu chuẩn kỹ thuật đèn pha TDL", a:`<div class="stag">Thông số</div><br>
-<ul>
-<li>Cấp bảo vệ: <strong>IP66</strong> — chống bụi hoàn toàn, chịu mưa mạnh trực tiếp</li>
-<li>Chỉ số chống va đập: <strong>IK08</strong></li>
-<li>Vỏ nhôm đúc áp lực (die-cast), cánh tản nhiệt dày, kính cường lực 5mm</li>
-<li>Góc chiếu: 15°, 30°, 60°, 90°, 120° — tùy module quang</li>
-<li>Dải điện áp: 100–277V AC, 50/60Hz</li>
-<li>Nhiệt độ hoạt động: -30°C đến +60°C</li>
-<li>Hệ số công suất (PF): ≥ 0.95</li>
-<li>THD (méo sóng hài): &lt; 15%</li>
-</ul>` },
-  { q:"Xem báo giá đèn pha LED", a:`Báo giá đèn pha LED Bridgelux/Philips, nguồn Done/Philips — phân theo công suất và số lượng trong Google Sheet.`, sheet:true },
-]},
-
-den_duong: { label:"Đèn Đường LED", icon:"🛣️", items:[
-  { q:"Gợi ý công suất theo chiều rộng đường", a:`<div class="stag">Lựa chọn công suất</div><br>
-<table>
-<tr><th>Chiều rộng đường</th><th>Công suất</th><th>Khoảng cột</th><th>Lắp 1/2 phía</th></tr>
-<tr><td>Dưới 6m (ngõ, nội bộ)</td><td>30W – 40W</td><td>20–25m</td><td>1 phía</td></tr>
-<tr><td>6m – 9m (đường làng, khu đô thị)</td><td>50W – 60W</td><td>25–30m</td><td>1 phía</td></tr>
-<tr><td>9m – 15m (đường tỉnh lộ)</td><td>80W – 100W</td><td>30–35m</td><td>2 phía so le</td></tr>
-<tr><td>15m – 22m (đường đô thị)</td><td>120W – 150W</td><td>35–40m</td><td>2 phía đối xứng</td></tr>
-<tr><td>Trên 22m (quốc lộ)</td><td>180W – 250W</td><td>40–45m</td><td>2 phía đối xứng</td></tr>
-</table>
-<div class="note-box">📐 Độ cao trụ đèn tiêu chuẩn: 7–10m. Chiều cao trụ = 0.7–0.8 lần chiều rộng đường.</div>` },
-  { q:"Chip & nguồn đèn đường TDL", a:`<div class="stag">Linh kiện</div><br>
-<ul>
-<li>Chip LED: <strong>Bridgelux 3030</strong> hoặc <strong>Philips Lumileds</strong></li>
-<li>Nguồn: <strong>Done Power</strong> hoặc <strong>Philips Xitanium</strong>, IP67</li>
-<li>Vỏ nhôm đúc nguyên khối, IP66, IK09</li>
-<li>Góc chiếu: 120° × 90° (Type II / Type III theo tiêu chuẩn IES)</li>
-<li>Nhiệt độ màu: 4000K hoặc 5700K</li>
-<li>Hệ số hoàn màu CRI ≥ 70 (khuyến nghị CRI ≥ 80 cho khu dân cư)</li>
-</ul>` },
-  { q:"Cảm biến & hẹn giờ tự động", a:`<div class="stag">Thông minh</div><br>
-TDL cung cấp đèn đường tích hợp:
-<ul>
-<li><strong>Cảm biến quang điện (photocell)</strong> — tự bật lúc hoàng hôn, tắt lúc bình minh</li>
-<li><strong>Hẹn giờ điện tử</strong> — lập trình bật/tắt theo giờ cố định</li>
-<li><strong>Dimming tự động</strong> — giảm 30–50% sau 23:00 tiết kiệm điện</li>
-<li><strong>Đèn đường năng lượng mặt trời</strong> — tích hợp pin lithium, không cần kéo dây (tùy dự án)</li>
-</ul>` },
-  { q:"Xem báo giá đèn đường", a:`Báo giá đèn đường LED theo công suất, loại trụ và số lượng.`, sheet:true },
-]},
-
-den_nha_xuong: { label:"Đèn Nhà Xưởng LED", icon:"🏭", items:[
-  { q:"Chọn loại đèn theo chiều cao trần", a:`<div class="stag">Chọn loại đèn</div><br>
-<table>
-<tr><th>Chiều cao trần</th><th>Loại đèn phù hợp</th><th>Công suất</th></tr>
-<tr><td>3m – 5m</td><td>Đèn Panel 60×60cm, Tube LED</td><td>36W – 60W</td></tr>
-<tr><td>5m – 8m</td><td>Linear HighBay (đèn thanh)</td><td>80W – 150W</td></tr>
-<tr><td>8m – 12m</td><td>UFO HighBay (đèn tròn)</td><td>150W – 240W</td></tr>
-<tr><td>12m – 18m</td><td>UFO HighBay công suất cao</td><td>300W – 400W</td></tr>
-<tr><td>Trên 18m</td><td>Đèn pha chuyên dụng nhà xưởng</td><td>400W – 600W</td></tr>
-</table>` },
-  { q:"Tiêu chuẩn độ rọi nhà xưởng", a:`<div class="stag">Độ rọi chuẩn</div><br>
-<table>
-<tr><th>Loại không gian</th><th>Độ rọi (lux)</th></tr>
-<tr><td>Kho hàng đơn giản, bốc xếp</td><td>100 – 150 lux</td></tr>
-<tr><td>Xưởng sản xuất thủ công, lắp ráp thô</td><td>200 – 300 lux</td></tr>
-<tr><td>Cơ khí, hàn, sơn phun</td><td>300 – 500 lux</td></tr>
-<tr><td>Điện tử, may mặc, in ấn</td><td>500 – 750 lux</td></tr>
-<tr><td>Kiểm tra chất lượng QC, đo lường chính xác</td><td>750 – 1500 lux</td></tr>
-</table>
-<div class="note-box">📋 Tiêu chuẩn: TCVN 7114 / EN 12464-1. TDL tính toán và thiết kế miễn phí.</div>` },
-  { q:"Tiết kiệm điện so với đèn cũ", a:`<div class="stag">Tiết kiệm điện</div><br>
-<ul>
-<li>Thay <strong>đèn cao áp HPS 400W</strong> → <strong>đèn UFO LED 150W</strong>: cùng độ sáng, tiết kiệm <strong>62%</strong> điện</li>
-<li>Thay <strong>đèn huỳnh quang T8 36W×2</strong> → <strong>Tube LED 18W×2</strong>: tiết kiệm <strong>50%</strong></li>
-<li>ROI (hoàn vốn) trung bình: <strong>12–24 tháng</strong></li>
-<li>Không cần khởi động, sáng ngay tức thì — phù hợp sản xuất ca đêm</li>
-<li>Không phát tia UV, không thu hút côn trùng — tốt cho xưởng thực phẩm</li>
-</ul>` },
-  { q:"Xem báo giá đèn nhà xưởng", a:`<div class="stag">📊 Báo Giá Đèn Nhà Xưởng</div><br>
-<strong>Chọn loại đèn theo chiều cao trần xưởng:</strong>
-<table>
-<tr><th>Chiều cao trần</th><th>Loại đèn phù hợp</th><th>Công suất</th></tr>
-<tr><td>3m – 5m</td><td>Đèn Panel 60×60cm, Tube LED</td><td>36W – 60W</td></tr>
-<tr><td>5m – 8m</td><td>Linear HighBay (đèn thanh)</td><td>80W – 150W</td></tr>
-<tr><td>8m – 12m</td><td>UFO HighBay (đèn tròn)</td><td>150W – 240W</td></tr>
-<tr><td>12m – 18m</td><td>UFO HighBay công suất cao</td><td>300W – 400W</td></tr>
-<tr><td>Trên 18m</td><td>Đèn pha chuyên dụng nhà xưởng</td><td>400W – 600W</td></tr>
-</table>
-<div class="note-box">💡 Giá cụ thể theo công suất & số lượng — xem bảng báo giá đầy đủ bên dưới hoặc gọi hotline để được báo giá nhanh nhất.</div>`, sheet:true },
-]},
-
-den_san_vuon: { label:"Đèn Sân Vườn LED", icon:"🌿", items:[
-  { q:"Các loại đèn sân vườn TDL cung cấp", a:`<div class="stag">Danh mục</div><br>
-<ul>
-<li>🔦 <strong>Đèn rọi cột (đèn pha mini)</strong> — 10W–50W, chiếu sáng cổng, bờ tường, mặt tiền nhà. IP65, vỏ nhôm đúc.</li>
-<li>🌳 <strong>Đèn chiếu cây (uplight)</strong> — 5W–20W, góc chiếu hẹp 15°–30°, chôn hoặc cắm đất, làm nổi bật cây cảnh, cây cau, cây bóng mát. IP67.</li>
-<li>🪨 <strong>Đèn âm đất</strong> — 3W–9W, IP68, kính cường lực chịu lực 2 tấn, lắp âm nền lối đi, thảm cỏ, sân gạch.</li>
-<li>📏 <strong>Đèn LED thanh / dây LED 12V–24V</strong> — trang trí viền bậc thang, bồn hoa, hàng rào, tiểu cảnh nước. Cắt được theo kích thước.</li>
-<li>🪑 <strong>Đèn cột sân vườn</strong> — 20W–40W, cột nhôm sơn tĩnh điện hoặc inox, cao 0.6m–1.2m, phong cách hiện đại hoặc cổ điển.</li>
-</ul>` },
-  { q:"Đèn rọi cột — tư vấn kỹ thuật", a:`<div class="stag">Đèn Rọi Cột</div><br>
-Đèn rọi cột (spotlight ngoài trời) là lựa chọn phổ biến nhất của TDL:
-<ul>
-<li>Chip: <strong>Bridgelux / Philips</strong>, CRI ≥ 80, nhiệt độ màu 3000K (vàng ấm) hoặc 4000K (trắng trung tính)</li>
-<li>Công suất phù hợp theo khoảng cách chiếu:
-  <ul>
-  <li>Chiều cao 1–2m (rọi gần, trang trí): <strong>10W–20W</strong></li>
-  <li>Chiều cao 2–4m (cổng, bờ tường): <strong>20W–30W</strong></li>
-  <li>Chiều cao 4–6m (mặt nhà, biển hiệu): <strong>30W–50W</strong></li>
-  </ul>
-</li>
-<li>Góc chiếu: 30° (tập trung) hoặc 60° (lan rộng)</li>
-<li>IP65 chịu mưa, cấp IK07 chống va đập</li>
-</ul>` },
-  { q:"Đèn chiếu cây — tư vấn kỹ thuật", a:`<div class="stag">Đèn Chiếu Cây</div><br>
-<ul>
-<li>Lắp cách gốc cây <strong>0.3–0.8m</strong>, hướng lên tán — tạo hiệu ứng bóng nghệ thuật</li>
-<li>Công suất theo chiều cao cây:
-  <ul>
-  <li>Cây thấp dưới 3m: <strong>5W–10W</strong>, góc 15°–30°</li>
-  <li>Cây 3–6m (cau, dừa, cây bóng mát): <strong>10W–20W</strong>, góc 20°–45°</li>
-  <li>Cây trên 6m (cây lớn, cây đa): <strong>20W–30W</strong>, góc 45°–60°</li>
-  </ul>
-</li>
-<li>Nhiệt độ màu 2700K–3000K — ánh sáng vàng ấm làm nổi bật màu xanh lá</li>
-<li>IP67, cắm đất bằng cọc inox hoặc cố định bê tông</li>
-</ul>` },
-  { q:"Đèn âm đất — tư vấn kỹ thuật", a:`<div class="stag">Đèn Âm Đất</div><br>
-<ul>
-<li><strong>IP68</strong> — chịu ngập nước hoàn toàn, dùng được ở hồ cạn, sân mưa</li>
-<li>Kính cường lực 8–10mm chịu lực đi bộ, không dùng cho đường xe tải</li>
-<li>Công suất: 3W (trang trí nhẹ), 5W (lối đi chính), 9W (chiếu sáng cây)</li>
-<li>Góc chiếu: 30° (chiếu thẳng lên), 60° (tỏa rộng)</li>
-<li>Lắp đặt: đào hố 15–20cm, lót cát vàng, dây điện luồn ống nhựa chôn ngầm</li>
-<li>Khoảng cách đặt đèn lối đi: <strong>0.8–1.5m/đèn</strong></li>
-</ul>` },
-  { q:"Xem báo giá đèn sân vườn", a:`Báo giá đèn rọi cột, chiếu cây, âm đất, LED thanh — phân theo chủng loại và công suất.`, sheet:true },
-]},
-
-san_tennis: { label:"Sân Tennis", icon:"🎾", items:[
-  { q:"Tiêu chuẩn chiếu sáng sân tennis (ITF)", a:`<div class="stag">Tiêu chuẩn ITF / EN 12193</div><br>
-<table>
-<tr><th>Cấp độ sử dụng</th><th>Eh ngang (lux)</th><th>Ev đứng (lux)</th><th>Emin/Emax</th></tr>
-<tr><td>Luyện tập, giải trí</td><td>≥ 300</td><td>—</td><td>≥ 0.5</td></tr>
-<tr><td>Thi đấu phong trào</td><td>≥ 500</td><td>≥ 300</td><td>≥ 0.6</td></tr>
-<tr><td>Thi đấu chuyên nghiệp</td><td>≥ 750</td><td>≥ 500</td><td>≥ 0.7</td></tr>
-<tr><td>Truyền hình HD (camera cố định)</td><td>≥ 1000</td><td>≥ 750</td><td>≥ 0.7</td></tr>
-</table>
-<div class="note-box">💡 CRI ≥ 80, nhiệt độ màu 4000–5700K. GR (Glare Rating) ≤ 50 — tránh lóa khi nhìn bóng trên không.</div>` },
-  { q:"Bố trí đèn sân tennis tiêu chuẩn", a:`<div class="stag">Bố trí (1 sân đơn 36×18m)</div><br>
-<strong>Phương án 4 cột góc sân (phổ biến nhất):</strong>
-<ul>
-<li>4 cột thép mạ kẽm, cao <strong>8–10m</strong>, đặt cách đường biên 1–2m</li>
-<li>Mỗi cột lắp <strong>2–3 bộ đèn pha 200–300W</strong> chip Bridgelux/Philips</li>
-<li>Góc cột nghiêng 15° ra ngoài sân — dây cáp neo cố định</li>
-<li>Góc chiếu đèn: nghiêng <strong>55°–65°</strong> so với phương ngang, hướng vào tâm sân</li>
-<li>Tổng: <strong>8–12 bộ đèn/sân</strong>, đạt 300–500 lux (luyện tập đến thi đấu phong trào)</li>
-</ul>
-<strong>Phương án 2 hàng cột dọc sân (thi đấu chuyên nghiệp):</strong>
-<ul>
-<li>6–8 cột, cao 10–12m, bố trí 3–4 cột/bên dọc sân</li>
-<li>Mỗi cột 2–4 bộ đèn 300–400W</li>
-<li>Tổng 12–20 bộ, đạt 750–1000 lux</li>
-</ul>
-<div class="note-box">⚠️ Không đặt cột ở giữa 2 đầu sân (phía sau baseline) — người chơi sẽ nhìn thẳng vào đèn khi phục vụ.</div>` },
-  { q:"Thiết bị TDL dùng cho sân tennis", a:`<div class="stag">Sản phẩm TDL</div><br>
-<ul>
-<li><strong>Đèn pha 200W–300W</strong> chip Bridgelux 5050 hoặc Philips Lumileds</li>
-<li>Nguồn Done Power hoặc Philips Xitanium, IP67, dimming 0–10V</li>
-<li>Góc chiếu module: <strong>30°×60°</strong> (bất đối xứng — chiếu dài theo sân)</li>
-<li>Trụ thép tròn D114, dày 4mm, mạ kẽm nhúng nóng</li>
-<li>Tủ điện: MCCB chống giật, timer hẹn giờ, đồng hồ điện kWh</li>
-</ul>` },
-  { q:"Chi phí điện sân tennis", a:`<div class="stag">Tiêu thụ điện</div><br>
-<strong>Ví dụ: 1 sân tennis, 8 bộ đèn 200W:</strong>
-<ul>
-<li>Tổng công suất: 8 × 200W = <strong>1.600W = 1,6 kW</strong></li>
-<li>Sử dụng 4 giờ/đêm: 6,4 kWh/ngày</li>
-<li>30 ngày: ~192 kWh ≈ <strong>480.000 – 600.000đ/tháng</strong></li>
-</ul>
-<strong>So với đèn cao áp Metal Halide cũ 400W×8 bộ:</strong>
-<ul><li>Tiết kiệm điện: ~<strong>65%</strong></li><li>Không cần 5–10 phút khởi động, bật tắt ngay tức thì</li></ul>` },
-  { q:"Xem báo giá sân tennis", a:`Báo giá trọn gói hệ thống chiếu sáng sân tennis: đèn, trụ, tủ điện, thi công.`, sheet:true },
-]},
-
-san_cau_long: { label:"Sân Cầu Lông", icon:"🏸", items:[
-  { q:"Tiêu chuẩn chiếu sáng sân cầu lông (BWF)", a:`<div class="stag">Tiêu chuẩn BWF / EN 12193</div><br>
-<table>
-<tr><th>Cấp độ</th><th>Eh ngang (lux)</th><th>Ev đứng (lux)</th><th>Emin/Emax</th></tr>
-<tr><td>Luyện tập, phong trào</td><td>≥ 300</td><td>—</td><td>≥ 0.5</td></tr>
-<tr><td>Thi đấu cấp tỉnh, CLB</td><td>≥ 500</td><td>≥ 300</td><td>≥ 0.6</td></tr>
-<tr><td>Thi đấu quốc gia</td><td>≥ 750</td><td>≥ 500</td><td>≥ 0.7</td></tr>
-<tr><td>Quốc tế, truyền hình</td><td>≥ 1000</td><td>≥ 750</td><td>≥ 0.7</td></tr>
-</table>
-<div class="note-box">🏸 Sân cầu lông đặc biệt quan trọng: <strong>Flicker-free 100%</strong> (chống nhấp nháy). Quả cầu bay nhanh 200–300 km/h — flicker gây mỏi mắt nặng. TDL dùng nguồn tần số cao ≥ 100kHz, Flicker Index &lt; 0.1.</div>` },
-  { q:"Bố trí đèn sân cầu lông trong nhà", a:`<div class="stag">Bố trí (1 sân đơn 13.4×6.1m)</div><br>
-<strong>Trần cao 7–9m (nhà thi đấu, nhà xưởng cải tạo):</strong>
-<ul>
-<li>Dùng đèn <strong>UFO HighBay 150W–200W</strong> hoặc Linear HighBay</li>
-<li>Bố trí <strong>2 hàng song song</strong> dọc theo chiều dài sân, cách nhau 3m</li>
-<li>Mỗi hàng: 3–4 bộ đèn, khoảng cách 2.5–3m/bộ</li>
-<li>Tổng: <strong>6–8 bộ/sân đơn</strong>, đạt 300–500 lux</li>
-<li>Treo đèn cách trần 0.5–1m, hướng thẳng xuống (góc 0°), dùng chụp che để tránh lóa ngang</li>
-</ul>
-<strong>Trần cao 9–12m:</strong>
-<ul>
-<li>UFO HighBay 200W–240W hoặc đèn pha góc hẹp 200W</li>
-<li>Số lượng: 6–8 bộ/sân, bố trí tương tự</li>
-</ul>
-<div class="note-box">⚠️ Không bố trí đèn nằm trên đường bay của cầu (trục giữa sân theo chiều ngang) — vận động viên ngước nhìn sẽ bị lóa.</div>` },
-  { q:"Bố trí đèn sân cầu lông ngoài trời", a:`<div class="stag">Sân ngoài trời</div><br>
-<ul>
-<li>4 cột đèn 4 góc sân, cao <strong>7–9m</strong></li>
-<li>Mỗi cột: <strong>2–3 bộ đèn pha 150W–200W</strong>, góc chiếu 30°×60°</li>
-<li>Tổng: <strong>8–12 bộ/sân</strong></li>
-<li>Góc chiếu đèn nghiêng 55°–60° so với phương ngang</li>
-<li>IP66, chịu mưa và gió cấp 8</li>
-</ul>
-<div class="note-box">💡 Cụm 4 sân ngoài trời: có thể dùng 4 cột cao 10m ở giữa chia 4 sân, mỗi cột 4–6 bộ 200W.</div>` },
-  { q:"Xem báo giá sân cầu lông", a:`Báo giá trọn gói đèn sân cầu lông trong nhà và ngoài trời.`, sheet:true },
-]},
-
-san_bong_chuyen: { label:"Sân Bóng Chuyền", icon:"🏐", items:[
-  { q:"Tiêu chuẩn chiếu sáng sân bóng chuyền (FIVB)", a:`<div class="stag">Tiêu chuẩn FIVB / EN 12193</div><br>
-<table>
-<tr><th>Cấp độ</th><th>Eh ngang (lux)</th><th>Ev đứng (lux)</th><th>Emin/Emax</th></tr>
-<tr><td>Luyện tập, phong trào</td><td>≥ 300</td><td>—</td><td>≥ 0.5</td></tr>
-<tr><td>Thi đấu cấp CLB, tỉnh</td><td>≥ 500</td><td>≥ 300</td><td>≥ 0.6</td></tr>
-<tr><td>Thi đấu quốc gia</td><td>≥ 750</td><td>≥ 500</td><td>≥ 0.7</td></tr>
-<tr><td>Quốc tế, truyền hình</td><td>≥ 1400</td><td>≥ 1000</td><td>≥ 0.7</td></tr>
-</table>
-<div class="note-box">🏐 Chú ý quan trọng: Bóng chuyền có pha <strong>đập bóng và chắn bóng</strong> — vận động viên nhìn lên góc cao. Phải kiểm soát GR (Glare Rating) ≤ 50 phương đứng, không để đèn chiếu thẳng vào mắt.</div>` },
-  { q:"Bố trí đèn sân bóng chuyền trong nhà", a:`<div class="stag">Bố trí trong nhà (9×18m)</div><br>
-<strong>Trần cao 7–9m:</strong>
-<ul>
-<li>Dùng đèn <strong>UFO HighBay 150W–200W</strong></li>
-<li>Bố trí <strong>2 hàng × 4 bộ = 8 bộ/sân</strong></li>
-<li>Hàng đèn cách nhau 4.5m (chia đôi chiều rộng sân), khoảng cách dọc 3–4m</li>
-<li>Lắp cách trần 0.5–1m, dùng chụp che chống lóa ngang 90°</li>
-<li>Đạt 300–500 lux mặt sân</li>
-</ul>
-<strong>Trần cao 9–12m (phổ biến nhà thi đấu):</strong>
-<ul>
-<li>UFO 200W–240W hoặc Linear HighBay 200W</li>
-<li>2 hàng × 4–5 bộ = 8–10 bộ/sân</li>
-<li>Đạt 500–750 lux</li>
-</ul>` },
-  { q:"Bố trí đèn sân bóng chuyền ngoài trời", a:`<div class="stag">Sân ngoài trời</div><br>
-Sân bóng chuyền bãi biển hoặc sân luyện tập ngoài trời (9×18m):
-<ul>
-<li>4 cột góc sân, cao <strong>8–10m</strong></li>
-<li>Mỗi cột: <strong>2–3 bộ đèn pha 200W–300W</strong> chip Bridgelux/Philips</li>
-<li>Góc chiếu 30°×60°, nghiêng 55°–65°</li>
-<li>Tổng: <strong>8–12 bộ/sân</strong>, đạt 300–500 lux</li>
-<li>IP66, trụ thép D89–D114, cao 8–10m, móng bê tông 0.8×0.8×1m</li>
-</ul>` },
-  { q:"Xem báo giá sân bóng chuyền", a:`Báo giá hệ thống chiếu sáng sân bóng chuyền trong nhà và ngoài trời.`, sheet:true },
-]},
-
-san_pickleball: { label:"Sân Pickleball", icon:"🏓", items:[
-  { q:"Tiêu chuẩn chiếu sáng sân pickleball", a:`<div class="stag">Tiêu chuẩn USA Pickleball</div><br>
-Sân Pickleball đơn: <strong>6.1m × 13.4m</strong> (giống sân cầu lông đôi).
-<table>
-<tr><th>Mục đích</th><th>Độ rọi (lux)</th><th>Ghi chú</th></tr>
-<tr><td>Giải trí, phong trào buổi tối</td><td>200 – 300 lux</td><td>Mức tối thiểu</td></tr>
-<tr><td>Thi đấu CLB, giải địa phương</td><td>400 – 500 lux</td><td>Phổ biến nhất</td></tr>
-<tr><td>Thi đấu chuyên nghiệp</td><td>500 – 750 lux</td><td>CRI ≥ 80</td></tr>
-</table>
-<div class="note-box">🏓 Pickleball dùng bóng nhựa đục lỗ, bay chậm hơn cầu lông — nhưng vẫn cần <strong>Flicker-free</strong> và không chói (GR ≤ 50) vì vận động viên thường nhìn lên khi lốp bóng cao.</div>` },
-  { q:"Bố trí đèn sân pickleball", a:`<div class="stag">Bố trí đèn</div><br>
-<strong>1 sân đơn ngoài trời (6.1×13.4m):</strong>
-<ul>
-<li>4 cột góc sân, cao <strong>6–8m</strong></li>
-<li>Mỗi cột: <strong>1–2 bộ đèn pha 100W–150W</strong></li>
-<li>Góc chiếu 30°×60°, hướng vào tâm sân, nghiêng 55°–60°</li>
-<li>Tổng: <strong>4–8 bộ/sân</strong>, đạt 300–500 lux</li>
-</ul>
-<strong>Cụm 4 sân liền kề (mô hình club Pickleball):</strong>
-<ul>
-<li>4 cột cao 8–10m bố trí ở 4 góc ngoài cùng + 2–4 cột giữa chia sân</li>
-<li>Mỗi cột: 2–4 bộ đèn 150W–200W, chiếu đa hướng</li>
-<li>Tổng: 12–20 bộ đèn cho 4 sân</li>
-<li>Tiết kiệm 30–40% trụ đèn so với bố trí 4 sân độc lập</li>
-</ul>` },
-  { q:"Sân Pickleball trong nhà", a:`<div class="stag">Trong nhà</div><br>
-<ul>
-<li>Trần cao 5–7m: dùng <strong>UFO HighBay 100W–150W</strong> hoặc Linear 80W</li>
-<li>Bố trí 2 hàng × 3 bộ = <strong>6 bộ/sân đơn</strong></li>
-<li>Khoảng cách đèn: 3–4m/bộ dọc sân, hàng đèn cách nhau 3m</li>
-<li>Flicker-free bắt buộc, nguồn Done Power hoặc Philips Xitanium</li>
-<li>Đạt 300–500 lux mặt sân</li>
-</ul>` },
-  { q:"Xem báo giá sân pickleball", a:`Báo giá đèn và trụ sân Pickleball — tính theo số sân và phương án bố trí.`, sheet:true },
-]},
-
-san_bong_da: { label:"Sân Bóng Đá", icon:"⚽", items:[
-  { q:"Tiêu chuẩn FIFA các loại sân bóng đá", a:`<div class="stag">Tiêu chuẩn FIFA / EN 12193</div><br>
-<table>
-<tr><th>Loại sân</th><th>Kích thước</th><th>Eh (lux)</th><th>Ev (lux)</th><th>Emin/Emax</th></tr>
-<tr><td>Sân mini 5 người (cỏ nhân tạo)</td><td>20×40m</td><td>300–500</td><td>—</td><td>≥ 0.5</td></tr>
-<tr><td>Sân 7 người (phong trào)</td><td>50×70m</td><td>500</td><td>300</td><td>≥ 0.6</td></tr>
-<tr><td>FIFA Quality (7–9 người)</td><td>50–80×70–100m</td><td>≥ 500</td><td>≥ 300</td><td>≥ 0.6</td></tr>
-<tr><td>FIFA Quality Pro (11 người)</td><td>68×105m</td><td>≥ 1400</td><td>≥ 1000</td><td>≥ 0.7</td></tr>
-<tr><td>Sân vận động truyền hình 4K</td><td>68×105m</td><td>≥ 2500</td><td>≥ 1500</td><td>≥ 0.75</td></tr>
-</table>` },
-  { q:"Sân bóng đá mini 5 người — bố trí đèn", a:`<div class="stag">Sân 5 người (20×40m)</div><br>
-<ul>
-<li><strong>4 cột thép</strong> đặt 4 góc sân, ngoài đường biên 1–2m, cao <strong>6–8m</strong></li>
-<li>Mỗi cột: <strong>2–3 bộ đèn pha 200W</strong> chip Bridgelux/Philips, nguồn Done/Philips</li>
-<li>Góc chiếu module: 30°×60° hoặc 45°×90° — hướng vào phần sân đối diện</li>
-<li>Góc nghiêng đèn: <strong>55°–65°</strong> so với phương ngang</li>
-<li>Tổng: <strong>8–12 bộ đèn</strong>, đạt 300–500 lux mặt cỏ</li>
-<li>Móng cột bê tông: 0.6×0.6×0.8m, bu lông M20×4</li>
-</ul>
-<div class="note-box">⚽ Sân cỏ nhân tạo trong nhà mái tôn: dùng đèn Linear HighBay 200W treo xà, tiết kiệm chi phí trụ đèn.</div>` },
-  { q:"Sân bóng đá 7 người — bố trí đèn", a:`<div class="stag">Sân 7 người (~50×70m)</div><br>
-<ul>
-<li><strong>6 cột thép</strong> bố trí 2 bên dọc sân (mỗi bên 3 cột), cách biên 2–3m, cao <strong>10–12m</strong></li>
-<li>Khoảng cách giữa các cột: 20–25m</li>
-<li>Mỗi cột: <strong>3–5 bộ đèn pha 300W–400W</strong></li>
-<li>Tổng: <strong>18–30 bộ đèn</strong>, đạt 500–750 lux</li>
-<li>Góc chiếu module: 30°×60°, mỗi bộ chiếu vào phần sân đối diện (tránh hướng lên trời)</li>
-<li>Trụ D140–D168, dày 5mm, mạ kẽm nhúng nóng, bích đế hàn</li>
-</ul>
-<div class="note-box">📐 TDL thiết kế photometric DIALux — cam kết đạt độ đồng đều Emin/Emax ≥ 0.6 trên toàn mặt sân trước khi thi công.</div>` },
-  { q:"Sân bóng đá 11 người — bố trí đèn", a:`<div class="stag">Sân 11 người (68×105m)</div><br>
-<strong>Phương án 4 tháp đèn 4 góc (phổ biến cho sân cộng đồng):</strong>
-<ul>
-<li>4 tháp thép cao <strong>18–22m</strong>, đặt 4 góc sân cách biên 3–5m</li>
-<li>Mỗi tháp: <strong>8–12 bộ đèn pha 500W–600W</strong></li>
-<li>Tổng: 32–48 bộ đèn, tổng công suất 16–29 kW</li>
-<li>Đạt 500–750 lux (sân phong trào) hoặc 1000+ lux (FIFA Quality)</li>
-</ul>
-<strong>Phương án 6–8 cột dọc sân (thi đấu chuyên nghiệp):</strong>
-<ul>
-<li>Bố trí 3–4 cột/bên, cao 20–30m</li>
-<li>Mỗi cột 6–10 bộ đèn 800W–1000W</li>
-<li>Đạt 1400–2500 lux, đáp ứng FIFA Quality Pro + truyền hình 4K</li>
-</ul>` },
-  { q:"Chi phí điện sân bóng đá", a:`<div class="stag">Tiêu thụ điện</div><br>
-<strong>Sân 5 người — 8 bộ đèn 200W:</strong>
-<ul>
-<li>Tổng: 1,6 kW — 3h/đêm = 4,8 kWh/ngày</li>
-<li>30 ngày ≈ 144 kWh ≈ <strong>360.000 – 450.000đ/tháng</strong></li>
-</ul>
-<strong>Sân 7 người — 24 bộ đèn 300W:</strong>
-<ul>
-<li>Tổng: 7,2 kW — 3h/đêm = 21,6 kWh/ngày</li>
-<li>30 ngày ≈ 648 kWh ≈ <strong>1.600.000 – 2.000.000đ/tháng</strong></li>
-</ul>
-<div class="note-box">⚡ Tiết kiệm 60–70% điện so với đèn cao áp Metal Halide cùng độ rọi. ROI (hoàn vốn) 18–30 tháng.</div>` },
-  { q:"Xem báo giá sân bóng đá", a:`Báo giá trọn gói: đèn pha, trụ thép, tủ điện, thi công — phân theo loại sân 5/7/11 người.`, sheet:true },
-]},
-
-};
-
-const MAIN_MENU = [
-  { key:"chinh_sach",    label:"📋 Chính Sách & Dịch Vụ" },
-  { key:"den_pha",       label:"💡 Đèn Pha LED" },
-  { key:"den_duong",     label:"🛣️ Đèn Đường LED" },
-  { key:"den_nha_xuong", label:"🏭 Đèn Nhà Xưởng" },
-  { key:"den_san_vuon",  label:"🌿 Đèn Sân Vườn" },
-  { key:"san_tennis",    label:"🎾 Sân Tennis" },
-  { key:"san_cau_long",  label:"🏸 Sân Cầu Lông" },
-  { key:"san_bong_chuyen",label:"🏐 Sân Bóng Chuyền" },
-  { key:"san_pickleball",label:"🏓 Sân Pickleball" },
-  { key:"san_bong_da",   label:"⚽ Sân Bóng Đá" },
-];
-
-const chatArea = document.getElementById('chatArea');
-let busy = false;
-
-function scrollBot() { chatArea.scrollTop = chatArea.scrollHeight; }
-
-function addMsg(html, type, btns=[]) {
-  const row = document.createElement('div');
-  row.className = 'msg ' + type;
-  const av = document.createElement('div');
-  av.className = 'avatar ' + type;
-  av.textContent = type === 'bot' ? 'TDL' : 'Bạn';
-  const bub = document.createElement('div');
-  bub.className = 'bubble ' + type;
-  bub.innerHTML = html;
-  row.appendChild(av); row.appendChild(bub);
-  chatArea.appendChild(row);
-  if (btns.length) {
-    const qr = document.createElement('div');
-    qr.className = 'quick-replies';
-    btns.forEach(b => {
-      const el = document.createElement('button');
-      el.className = 'qr-btn' + (b.cls ? ' '+b.cls : '');
-      el.textContent = b.label;
-      el.onclick = () => { qr.remove(); b.fn(); };
-      qr.appendChild(el);
-    });
-    chatArea.appendChild(qr);
-  }
-  scrollBot();
-}
-
-function wait(ms) { return new Promise(r => setTimeout(r, ms)); }
-
-async function typing(fn) {
-  const row = document.createElement('div');
-  row.className = 'msg bot'; row.id = 'tdl-typing';
-  const av = document.createElement('div');
-  av.className = 'avatar bot'; av.textContent = 'TDL';
-  const bub = document.createElement('div');
-  bub.className = 'bubble bot';
-  bub.innerHTML = '<div class="typing"><span></span><span></span><span></span></div>';
-  row.appendChild(av); row.appendChild(bub);
-  chatArea.appendChild(row); scrollBot();
-  await wait(800 + Math.random() * 600);
-  document.getElementById('tdl-typing')?.remove();
-  fn();
-}
-
-function openSheet(key) { window.open(sheetFor(key), '_blank'); }
-function openWP(key)    { if(WP[key]) window.open(WP[key], '_blank'); }
-function call()         { window.open('tel:0986474671'); }
-function zalo()         { window.open('https://zalo.me/0986474671', '_blank'); }
-
-function backBtns(key) {
-  return [
-    { label:'📞 Gọi ngay tư vấn', cls:'green', fn: call },
-    { label:'⬅️ Câu hỏi khác',    cls:'cat',   fn: () => { addMsg(FAQ[key].icon+' '+FAQ[key].label, 'user'); typing(() => showCat(key)); } },
-    { label:'🏠 Menu chính',                    fn: () => { addMsg('🏠 Menu chính', 'user'); typing(showMenu); } },
-  ];
-}
-
-function showMenu() {
-  addMsg(
-    '<div class="stag">Tư vấn 24/7</div><br>Xin chào! Tôi là nhân viên tư vấn <strong>Thành Đạt LED</strong>.<br>Chip LED Bridgelux/Philips · Nguồn Done/Philips · Bảo hành 3 năm<br><br>Chọn danh mục cần hỗ trợ 👇',
-    'bot',
-    [
-      ...MAIN_MENU.map(m => ({ label: m.label, cls:'cat', fn: () => { addMsg(m.label, 'user'); typing(() => showCat(m.key)); } })),
-      { label:'📋 Để lại thông tin báo giá', cls:'hot', fn: () => { addMsg('📋 Để lại thông tin báo giá','user'); typing(() => showLeadForm('')); } }
-    ]
-  );
-}
-
-function showCat(key) {
-  const cat = FAQ[key];
-  if (!cat) return;
-  const btns = cat.items.map((item, i) => ({
-    label: item.q,
-    fn: () => { addMsg(item.q, 'user'); typing(() => showFAQ(key, i)); }
-  }));
-  btns.push({ label:'📋 Yêu cầu báo giá', cls:'hot', fn: () => { addMsg('📋 Yêu cầu báo giá','user'); typing(() => showLeadForm(FAQ[key]?.label || '')); } });
-  btns.push({ label:'🏠 Menu chính', fn: () => { addMsg('🏠 Menu chính','user'); typing(showMenu); } });
-  addMsg(`<div class="stag">${cat.icon} ${cat.label}</div><br>Chọn câu hỏi bạn cần tư vấn:`, 'bot', btns);
-}
-
-async function showFAQ(key, idx) {
-  // Chính sách dùng hàm riêng để đọc thêm từ Sheet
-  if (key === 'chinh_sach') { showChinhSach(idx); return; }
-
-  const item = FAQ[key].items[idx];
-  let html = item.a;
-
-  if (item.sheet) {
-    const tabName = KEY_TO_TAB[key] || "BaoGia";
-    // Hiện thông báo đang tải dữ liệu Sheet
-    const loadId = "sheet-loading-" + Date.now();
-    html += `<div id="${loadId}" style="margin-top:10px;color:#8ab4d4;font-size:13px;">
-      ⏳ Đang tải bảng giá từ Google Sheet...
-    </div>`;
-    addMsg(html, 'bot', []);
-
-    // Tải dữ liệu Sheet song song với hiển thị câu trả lời cơ bản
-    const rows = await fetchSheetData(tabName);
-    const loadEl = document.getElementById(loadId);
-    if (loadEl) {
-      if (rows && rows.length > 0) {
-        // Lọc theo danh mục nếu Sheet có cột "Danh mục"
-        const catLabel = FAQ[key].label;
-        let filtered = rows;
-        if (rows[0] && rows[0]["Danh mục"]) {
-          filtered = filterRows(rows, "Danh mục", catLabel);
-          if (!filtered.length) filtered = rows; // fallback toàn bộ nếu không khớp
-        }
-        // Giới hạn hiển thị 15 dòng để chat không quá dài
-        const preview = filtered.slice(0, 15);
-        const more = filtered.length > 15 ? `<div style="font-size:12px;color:#8ab4d4;margin-top:6px;">
-          ... và ${filtered.length - 15} sản phẩm khác — <a href="${sheetFor(key)}" target="_blank" style="color:#f5a623">xem đầy đủ trong Sheet</a>
-        </div>` : "";
-
-        loadEl.outerHTML = `
-          <div style="margin-top:12px">
-            <div class="stag">📋 Bảng Giá Cập Nhật</div><br>
-            ${renderTable(preview, "Đơn giá")}
-            ${more}
-            <a class="link-card" href="${sheetFor(key)}" target="_blank">
-              <strong>📊 Mở Bảng Báo Giá Đầy Đủ — Google Sheet</strong>
-              Giá theo công suất, số lượng · Cập nhật liên tục
-            </a>
-            ${WP[key] ? `<a class="link-card" href="${WP[key]}" target="_blank">
-              <strong>🌐 Xem sản phẩm trên Website TDL</strong>
-              ${WP[key]}
-            </a>` : ""}
-          </div>`;
-      } else {
-        // Sheet chưa có ID thật hoặc chưa publish → fallback link
-        loadEl.outerHTML = `
-          <div style="margin-top:10px">
-            <a class="link-card" href="${sheetFor(key)}" target="_blank">
-              <strong>📊 Xem Bảng Báo Giá — Google Sheet</strong>
-              Giá theo công suất, số lượng · Cập nhật liên tục
-            </a>
-            ${WP[key] ? `<a class="link-card" href="${WP[key]}" target="_blank">
-              <strong>🌐 Xem sản phẩm trên Website TDL</strong>
-              ${WP[key]}
-            </a>` : ""}
-          </div>`;
-      }
-      scrollBot();
-    }
-    // Thêm nút điều hướng sau khi dữ liệu tải xong
-    const lastMsg = chatArea.lastElementChild;
-    if (lastMsg && !lastMsg.classList.contains('quick-replies')) {
-      const qr = document.createElement('div');
-      qr.className = 'quick-replies';
-      backBtns(key).forEach(b => {
-        const el = document.createElement('button');
-        el.className = 'qr-btn' + (b.cls ? ' '+b.cls : '');
-        el.textContent = b.label;
-        el.onclick = () => { qr.remove(); b.fn(); };
-        qr.appendChild(el);
-      });
-      chatArea.appendChild(qr);
-      scrollBot();
-    }
-  } else {
-    addMsg(html, 'bot', backBtns(key));
-  }
-}
-
-// ══════════════════════════════════════════════════════
-//  THU THẬP LEAD & GHI VÀO GOOGLE SHEET (tab BaoGia)
-// ══════════════════════════════════════════════════════
-
-async function saveLead(data) {
-  if (!APPS_SCRIPT_URL || APPS_SCRIPT_URL === "YOUR_APPS_SCRIPT_URL") {
-    console.warn("Chưa cấu hình APPS_SCRIPT_URL");
-    return false;
-  }
-  try {
-    await fetch(APPS_SCRIPT_URL, {
-      method: "POST",
-      mode: "no-cors",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(data)
-    });
-    return true;
-  } catch(e) {
-    console.error("Lỗi ghi lead:", e);
-    return false;
-  }
-}
-
-function showLeadForm(prefillNote) {
-  // Xóa quick-replies cũ
-  document.querySelectorAll('.quick-replies').forEach(el => el.remove());
-
-  const formId = 'lead-' + Date.now();
-  const html = `
-    <div class="stag">📋 Để Lại Thông Tin — Tư Vấn Miễn Phí</div><br>
-    <div id="${formId}" style="display:flex;flex-direction:column;gap:10px;margin-top:8px">
-      <input id="${formId}-name" type="text" placeholder="Họ và tên *"
-        style="padding:9px 12px;border-radius:8px;border:1px solid #334;background:#1a2230;color:#e8f0fe;font-size:13px;outline:none"/>
-      <input id="${formId}-phone" type="tel" placeholder="Số điện thoại / Zalo *"
-        style="padding:9px 12px;border-radius:8px;border:1px solid #334;background:#1a2230;color:#e8f0fe;font-size:13px;outline:none"/>
-      <input id="${formId}-note" type="text" placeholder="Yêu cầu (vd: đèn pha 200W, sân tennis 2 sân...)"
-        value="${prefillNote || ''}"
-        style="padding:9px 12px;border-radius:8px;border:1px solid #334;background:#1a2230;color:#e8f0fe;font-size:13px;outline:none"/>
-      <button onclick="submitLead('${formId}')"
-        style="padding:10px;border-radius:8px;background:#f5a623;color:#0a1628;font-weight:700;font-size:13px;border:none;cursor:pointer">
-        📨 Gửi Yêu Cầu Tư Vấn
-      </button>
-      <div style="font-size:11px;color:#8ab4d4;text-align:center">Thông tin bảo mật · Phản hồi trong 30 phút</div>
-    </div>`;
-
-  addMsg(html, 'bot', []);
-}
-
-async function submitLead(formId) {
-  const name  = document.getElementById(formId + '-name')?.value.trim();
-  const phone = document.getElementById(formId + '-phone')?.value.trim();
-  const note  = document.getElementById(formId + '-note')?.value.trim();
-
-  if (!name || !phone) {
-    const btn = document.querySelector(`#${formId} button`);
-    if (btn) { btn.textContent = '⚠️ Vui lòng nhập họ tên và số điện thoại!'; btn.style.background='#c0392b'; }
-    setTimeout(() => { if(btn){btn.textContent='📨 Gửi Yêu Cầu Tư Vấn';btn.style.background='#f5a623';} }, 2000);
-    return;
-  }
-
-  // Disable form
-  const btn = document.querySelector(`#${formId} button`);
-  if (btn) { btn.textContent = '⏳ Đang gửi...'; btn.disabled = true; }
-
-  const now = new Date();
-  const timestamp = now.toLocaleString('vi-VN');
-  const data = { timestamp, name, phone, note, source: 'Chatbot TDL' };
-
-  const ok = await saveLead(data);
-
-  // Ẩn form, hiện xác nhận
-  const formEl = document.getElementById(formId);
-  if (formEl) formEl.closest('.bubble').innerHTML = `
-    <div class="stag">✅ Đã Nhận Yêu Cầu!</div><br>
-    <strong>${name}</strong> — <strong>${phone}</strong><br>
-    ${note ? `<em>${note}</em><br>` : ''}
-    <br>Đội tư vấn TDL sẽ liên hệ bạn trong <strong>30 phút</strong> (8:00–22:00).<br><br>
-    <a class="link-card green" href="https://zalo.me/0986474671" target="_blank">
-      <strong>💬 Nhắn ngay qua Zalo để được nhanh hơn</strong>
-      Zalo: 0986.474.671
-    </a>`;
-
-  scrollBot();
-  addQuickBtns('den_pha');
-}
-
-// ── Hiển thị nội dung ChinhSach từ Sheet ──
-async function showChinhSach(itemIdx) {
-  const DANH_MUC_MAP = {
-    0: 'Bảo hành',
-    1: 'Thi công',
-    2: 'Thanh toán',
-    3: 'Thiết kế',
-    4: 'Giao hàng',
-  };
-  const dmFilter = DANH_MUC_MAP[itemIdx] || '';
-
-  // Hiện skeleton chờ — CHỈ 1 bubble duy nhất
-  const loadId = 'cs-' + Date.now();
-  const row = document.createElement('div');
-  row.className = 'msg bot';
-  const av = document.createElement('div');
-  av.className = 'avatar bot'; av.textContent = 'TDL';
-  const bub = document.createElement('div');
-  bub.className = 'bubble bot';
-  bub.innerHTML = `<span id="${loadId}">⏳ Đang tải <strong>${dmFilter}</strong>...</span>`;
-  row.appendChild(av); row.appendChild(bub);
-  chatArea.appendChild(row); scrollBot();
-
-  const rows = await fetchSheetData('ChinhSach');
-  const el = document.getElementById(loadId);
-  if (!el) return;
-
-  // Fallback nếu Sheet lỗi → dùng nội dung cứng
-  if (!rows || !rows.length) {
-    el.outerHTML = FAQ['chinh_sach'].items[itemIdx].a;
-    addQuickBtns('chinh_sach');
-    scrollBot();
-    return;
-  }
-
-  // Lọc theo Danh mục khớp chính xác
-  const matched = dmFilter
-    ? rows.filter(r => (r['Danh mục'] || '').toLowerCase() === dmFilter.toLowerCase())
-    : rows;
-
-  // Fallback nếu không có dữ liệu trong Sheet
-  if (!matched.length) {
-    el.outerHTML = FAQ['chinh_sach'].items[itemIdx].a;
-    addQuickBtns('chinh_sach');
-    scrollBot();
-    return;
-  }
-
-  // Phân loại list vs note theo cột Loại
-  const listItems = matched.filter(r => !r['Loại'] || r['Loại'] === 'list');
-  const noteItems = matched.filter(r => r['Loại'] === 'note');
-
-  // Build HTML hoàn toàn từ Sheet
-  let html = `<div class="stag">📋 ${dmFilter}</div><br>`;
-
-  if (listItems.length) {
-    html += `<strong>Chi tiết ${dmFilter.toLowerCase()}:</strong><ul>`;
-    listItems.forEach(r => {
-      const nd = r['Nội dung'] || r['Noi dung'] || '';
-      const ct = r['Chi tiết'] || r['Chi tiet'] || '';
-      html += `<li><strong>${nd}:</strong> ${ct}</li>`;
-    });
-    html += '</ul>';
-  }
-
-  noteItems.forEach(r => {
-    const nd = r['Nội dung'] || r['Noi dung'] || '';
-    const ct = r['Chi tiết'] || r['Chi tiet'] || '';
-    html += `<div class="note-box">📌 <strong>${nd}:</strong> ${ct}</div>`;
-  });
-
-  el.outerHTML = html;
-  scrollBot();
-  addQuickBtns('chinh_sach');
-}
-
-// ── Chuẩn hóa chuỗi tiếng Việt để so sánh ──
+// ── Chuẩn hoá tiếng Việt để tìm kiếm ──
 function norm(s) {
   return (s||'').toLowerCase()
     .replace(/đ/g,'d')
@@ -1079,198 +385,556 @@ function norm(s) {
     .replace(/[ýỳỷỹỵ]/g,'y');
 }
 
-// ── Nhận diện danh mục từ câu hỏi ──
-function detectKey(t) {
-  const map = [
-    [/bong ?da|bong ?do|san ?5|san ?7|san ?11|football|soccer/, 'san_bong_da'],
-    [/tennis/, 'san_tennis'],
-    [/cau ?long|cau ?luong|badminton/, 'san_cau_long'],
-    [/bong ?chuyen|volleyball/, 'san_bong_chuyen'],
-    [/pickleball|pickle/, 'san_pickleball'],
-    [/den ?pha|floodlight|pha led/, 'den_pha'],
-    [/den ?duong|duong pho|street/, 'den_duong'],
-    [/nha ?xuong|kho|xuong|highbay|ufo/, 'den_nha_xuong'],
-    [/san ?vuon|vuon|canh quan|am ?dat|chieu ?cay|roi ?cot/, 'den_san_vuon'],
-    [/chinh ?sach|bao ?hanh|lap ?dat|thanh ?toan|thiet ?ke/, 'chinh_sach'],
-  ];
-  for (const [re, key] of map) { if (re.test(t)) return key; }
-  return null;
+// ══════════════════════════════════════════════════════════════════
+//  UI HELPERS
+// ══════════════════════════════════════════════════════════════════
+const chatArea = document.getElementById('chatArea');
+let busy = false;
+
+function scrollBot() { chatArea.scrollTop = chatArea.scrollHeight; }
+
+function addMsg(html, type, btns=[]) {
+  const row = document.createElement('div');
+  row.className = 'msg '+type;
+  const av = document.createElement('div');
+  av.className = 'avatar '+type;
+  av.textContent = type==='bot'?'TDL':'Bạn';
+  const bub = document.createElement('div');
+  bub.className = 'bubble '+type;
+  bub.innerHTML = html;
+  row.appendChild(av); row.appendChild(bub);
+  chatArea.appendChild(row);
+  if (btns.length) addBtns(btns);
+  scrollBot();
+  return bub;
 }
 
-// ── Tìm công suất trong câu hỏi: "200w", "200 w", "200 watt" ──
-function detectWatt(t) {
-  const m = t.match(/(\d+)\s*w(?:att)?/);
-  return m ? m[1] + 'w' : null;
+function addBtns(btns) {
+  const qr = document.createElement('div');
+  qr.className = 'quick-replies';
+  btns.forEach(b=>{
+    const el = document.createElement('button');
+    el.className = 'qr-btn'+(b.cls?' '+b.cls:'');
+    el.textContent = b.label;
+    el.onclick = ()=>{ qr.remove(); b.fn(); };
+    qr.appendChild(el);
+  });
+  chatArea.appendChild(qr);
+  scrollBot();
+  return qr;
 }
 
-// ── Hỏi giá theo công suất: đọc Sheet, lọc, trả lời ngay trong chat ──
-async function answerPriceQuery(raw, catKey, watt) {
-  const tabName = KEY_TO_TAB[catKey];
-  const catLabel = FAQ[catKey] ? FAQ[catKey].label : catKey;
+function wait(ms) { return new Promise(r=>setTimeout(r,ms)); }
 
-  // Hiện bubble chờ
-  const loadId = 'pq-' + Date.now();
+// Tạo bubble loading, trả về {el, bub} để thay thế sau
+function addLoadingBubble(msg) {
+  const loadId = 'load-'+Date.now();
   const row = document.createElement('div');
   row.className = 'msg bot';
   const av = document.createElement('div');
-  av.className = 'avatar bot'; av.textContent = 'TDL';
+  av.className = 'avatar bot'; av.textContent='TDL';
   const bub = document.createElement('div');
   bub.className = 'bubble bot';
-  bub.innerHTML = `<span id="${loadId}">⏳ Đang tra bảng giá <strong>${watt ? watt.toUpperCase() : ''}</strong>...</span>`;
+  bub.innerHTML = `<span id="${loadId}">⏳ ${msg||'Đang tải...'}</span>`;
   row.appendChild(av); row.appendChild(bub);
   chatArea.appendChild(row); scrollBot();
+  return { loadId, bub };
+}
 
+function typing(fn) {
+  return new Promise(res=>{
+    const row=document.createElement('div');
+    row.className='msg bot'; row.id='tdl-typing';
+    const av=document.createElement('div');
+    av.className='avatar bot'; av.textContent='TDL';
+    const bub=document.createElement('div');
+    bub.className='bubble bot';
+    bub.innerHTML='<div class="typing"><span></span><span></span><span></span></div>';
+    row.appendChild(av); row.appendChild(bub);
+    chatArea.appendChild(row); scrollBot();
+    setTimeout(()=>{
+      document.getElementById('tdl-typing')?.remove();
+      fn(); res();
+    }, 700+Math.random()*500);
+  });
+}
+
+function navBtns(catLabel) {
+  return [
+    { label:'📞 Gọi ngay tư vấn', cls:'green', fn:()=>window.open('tel:0986474671') },
+    { label:'⬅️ Câu hỏi khác', cls:'cat', fn:()=>{ addMsg(catLabel,'user'); typing(()=>showCat(catLabel)); } },
+    { label:'🏠 Menu chính', fn:()=>{ addMsg('🏠 Menu chính','user'); typing(showMenu); } },
+  ];
+}
+
+// ══════════════════════════════════════════════════════════════════
+//  MENU CHÍNH — đọc động từ Sheet ChinhSach & ThongSoDen
+// ══════════════════════════════════════════════════════════════════
+
+// Lấy danh sách danh mục kỹ thuật (ThongSoDen) + chính sách (ChinhSach)
+async function getMenuItems() {
+  // Đọc song song 2 sheet
+  const [csRows, tsRows] = await Promise.all([
+    fetchSheetData('ChinhSach'),
+    fetchSheetData('ThongSoDen'),
+  ]);
+
+  const items = [];
+
+  // Nhóm danh mục từ ThongSoDen (đèn, sân thể thao...)
+  if (tsRows && tsRows.length) {
+    const seen = new Set();
+    tsRows.forEach(r=>{
+      const dm = (r['Danh mục']||r['Danh muc']||'').trim();
+      if (dm && !seen.has(dm)) { seen.add(dm); items.push({ type:'product', label:dm }); }
+    });
+  }
+
+  // Nhóm danh mục từ ChinhSach
+  if (csRows && csRows.length) {
+    const seen = new Set();
+    csRows.forEach(r=>{
+      const dm = (r['Danh mục']||r['Danh muc']||'').trim();
+      if (dm && !seen.has(dm)) { seen.add(dm); items.push({ type:'policy', label:dm }); }
+    });
+  }
+
+  return items;
+}
+
+async function showMenu() {
+  const { loadId, bub } = addLoadingBubble('Đang tải menu...');
+
+  const items = await getMenuItems();
+  const el = document.getElementById(loadId);
+  if (!el) return;
+
+  el.outerHTML = '<div class="stag">Tư vấn 24/7</div><br>Xin chào! Tôi là nhân viên tư vấn <strong>Thành Đạt LED</strong>.<br>Chip LED Bridgelux/Philips · Nguồn Done/Philips · Bảo hành 3 năm<br><br>Chọn danh mục cần hỗ trợ 👇';
+
+  if (!items.length) {
+    // Fallback menu cứng nếu Sheet chưa có dữ liệu
+    addBtns(FALLBACK_MENU.map(m=>({
+      label: m.label, cls:'cat',
+      fn:()=>{ addMsg(m.label,'user'); typing(()=>showCat(m.label)); }
+    })));
+    return;
+  }
+
+  const btns = items.map(m=>({
+    label: m.label, cls:'cat',
+    fn:()=>{ addMsg(m.label,'user'); typing(()=>showCat(m.label)); }
+  }));
+  btns.push({ label:'📋 Để lại thông tin báo giá', cls:'hot', fn:()=>{ addMsg('📋 Để lại thông tin báo giá','user'); typing(()=>showLeadForm('')); } });
+  addBtns(btns);
+}
+
+// Fallback nếu Sheet chưa setup
+const FALLBACK_MENU = [
+  {label:'📋 Chính Sách & Dịch Vụ'},{label:'💡 Đèn Pha LED'},
+  {label:'🛣️ Đèn Đường LED'},{label:'🏭 Đèn Nhà Xưởng LED'},
+  {label:'🌿 Đèn Sân Vườn LED'},{label:'🎾 Sân Tennis'},
+  {label:'🏸 Sân Cầu Lông'},{label:'🏐 Sân Bóng Chuyền'},
+  {label:'🏓 Sân Pickleball'},{label:'⚽ Sân Bóng Đá'},
+];
+
+// ══════════════════════════════════════════════════════════════════
+//  SHOW CATEGORY — đọc câu hỏi theo danh mục từ ThongSoDen / ChinhSach
+// ══════════════════════════════════════════════════════════════════
+async function showCat(catLabel) {
+  const { loadId } = addLoadingBubble(`Đang tải danh mục <strong>${catLabel}</strong>...`);
+
+  // Xác định đây là danh mục chính sách hay sản phẩm
+  const csRows = await fetchSheetData('ChinhSach');
+  const isPolicy = csRows && csRows.some(r=>(r['Danh mục']||r['Danh muc']||'').trim()===catLabel);
+
+  if (isPolicy) {
+    await showPolicyCat(catLabel, loadId);
+  } else {
+    await showProductCat(catLabel, loadId);
+  }
+}
+
+// ── Danh mục chính sách (ChinhSach) ──
+async function showPolicyCat(catLabel, loadId) {
+  const rows = await fetchSheetData('ChinhSach');
+  const el = document.getElementById(loadId);
+  if (!el) return;
+
+  if (!rows || !rows.length) {
+    el.outerHTML = `Không thể tải dữ liệu. <a class="link-card green" href="tel:0986474671"><strong>📞 0986.474.671</strong></a>`;
+    return;
+  }
+
+  // Lọc theo danh mục
+  const matched = rows.filter(r=>(r['Danh mục']||r['Danh muc']||'').trim()===catLabel);
+
+  // Lấy danh sách câu hỏi duy nhất
+  const questions = [...new Set(matched.map(r=>(r['Câu hỏi']||r['Cau hoi']||'').trim()).filter(Boolean))];
+
+  if (!questions.length) {
+    el.outerHTML = `Chưa có nội dung cho danh mục <strong>${catLabel}</strong>. Vui lòng liên hệ hotline!`;
+    addBtns(navBtns(catLabel));
+    return;
+  }
+
+  el.outerHTML = `<div class="stag">📋 ${catLabel}</div><br>Chọn nội dung cần xem:`;
+
+  const btns = questions.map(q=>({
+    label: q,
+    fn:()=>{ addMsg(q,'user'); typing(()=>showPolicyDetail(catLabel, q)); }
+  }));
+  btns.push({ label:'🏠 Menu chính', fn:()=>{ addMsg('🏠 Menu chính','user'); typing(showMenu); } });
+  addBtns(btns);
+}
+
+// ── Chi tiết chính sách ──
+async function showPolicyDetail(catLabel, cauHoi) {
+  const { loadId, bub } = addLoadingBubble(`Đang tải <strong>${cauHoi}</strong>...`);
+  const rows = await fetchSheetData('ChinhSach');
+  const el = document.getElementById(loadId);
+  if (!el) return;
+
+  const matched = (rows||[]).filter(r=>
+    (r['Danh mục']||r['Danh muc']||'').trim()===catLabel &&
+    (r['Câu hỏi']||r['Cau hoi']||'').trim()===cauHoi
+  );
+
+  const html = buildHtmlFromRows(matched);
+  if (html) {
+    el.outerHTML = `<div class="stag">📋 ${cauHoi}</div><br>${html}`;
+  } else {
+    el.outerHTML = `Chưa có dữ liệu. Vui lòng liên hệ hotline để được hỗ trợ!`;
+  }
+  scrollBot();
+  addBtns(navBtns(catLabel));
+}
+
+// ── Danh mục sản phẩm (ThongSoDen) ──
+async function showProductCat(catLabel, loadId) {
+  const rows = await fetchSheetData('ThongSoDen');
+  const el = document.getElementById(loadId);
+  if (!el) return;
+
+  if (!rows || !rows.length) {
+    el.outerHTML = `Không thể tải dữ liệu. <a class="link-card green" href="tel:0986474671"><strong>📞 0986.474.671</strong></a>`;
+    return;
+  }
+
+  const matched = rows.filter(r=>(r['Danh mục']||r['Danh muc']||'').trim()===catLabel);
+  const questions = [...new Set(matched.map(r=>(r['Câu hỏi']||r['Cau hoi']||'').trim()).filter(Boolean))];
+
+  if (!questions.length) {
+    el.outerHTML = `Chưa có nội dung cho <strong>${catLabel}</strong>. Vui lòng liên hệ hotline!`;
+    addBtns(navBtns(catLabel));
+    return;
+  }
+
+  el.outerHTML = `<div class="stag">${catLabel}</div><br>Chọn thông tin cần xem:`;
+
+  const btns = questions.map(q=>({
+    label: q,
+    fn:()=>{ addMsg(q,'user'); typing(()=>showProductDetail(catLabel, q)); }
+  }));
+  // Thêm nút xem báo giá nếu có tab báo giá
+  const priceTab = BAO_GIA_TAB[catLabel];
+  if (priceTab) {
+    btns.push({
+      label:'💰 Xem bảng báo giá',
+      cls:'hot',
+      fn:()=>{ addMsg('💰 Xem bảng báo giá','user'); typing(()=>showPriceTable(catLabel)); }
+    });
+  }
+  btns.push({ label:'📋 Yêu cầu báo giá', cls:'hot', fn:()=>{ addMsg('📋 Yêu cầu báo giá','user'); typing(()=>showLeadForm(catLabel)); } });
+  btns.push({ label:'🏠 Menu chính', fn:()=>{ addMsg('🏠 Menu chính','user'); typing(showMenu); } });
+  addBtns(btns);
+}
+
+// ── Chi tiết thông số kỹ thuật ──
+async function showProductDetail(catLabel, cauHoi) {
+  const { loadId } = addLoadingBubble(`Đang tải <strong>${cauHoi}</strong>...`);
+  const rows = await fetchSheetData('ThongSoDen');
+  const el = document.getElementById(loadId);
+  if (!el) return;
+
+  const matched = (rows||[]).filter(r=>
+    (r['Danh mục']||r['Danh muc']||'').trim()===catLabel &&
+    (r['Câu hỏi']||r['Cau hoi']||'').trim()===cauHoi
+  );
+
+  const html = buildHtmlFromRows(matched);
+  if (html) {
+    let finalHtml = `<div class="stag">${catLabel}</div><br>${html}`;
+    if (WP[catLabel]) {
+      finalHtml += `<a class="link-card" href="${WP[catLabel]}" target="_blank">
+        <strong>🌐 Xem sản phẩm trên Website TDL</strong>${WP[catLabel]}
+      </a>`;
+    }
+    el.outerHTML = finalHtml;
+  } else {
+    el.outerHTML = `Chưa có dữ liệu. Vui lòng liên hệ hotline!`;
+  }
+  scrollBot();
+  addBtns(navBtns(catLabel));
+}
+
+// ══════════════════════════════════════════════════════════════════
+//  BẢNG BÁO GIÁ — đọc từ tab DenPha, DenDuong, NhaXuong, ...
+// ══════════════════════════════════════════════════════════════════
+async function showPriceTable(catLabel) {
+  const tabName = BAO_GIA_TAB[catLabel] || 'BaoGia';
+  const { loadId } = addLoadingBubble(`Đang tải bảng giá <strong>${catLabel}</strong>...`);
   const rows = await fetchSheetData(tabName);
   const el = document.getElementById(loadId);
   if (!el) return;
 
   if (!rows || !rows.length) {
-    el.outerHTML = `Chưa có dữ liệu trong bảng giá. Vui lòng liên hệ hotline để được báo giá ngay!
-      <a class="link-card green" href="tel:0986474671"><strong>📞 0986.474.671</strong></a>`;
-    addQuickBtns(catKey); scrollBot(); return;
-  }
-
-  // Lọc theo công suất nếu có
-  let filtered = rows;
-  if (watt) {
-    filtered = rows.filter(r => {
-      const cs = norm(r['Công suất'] || r['Cong suat'] || '');
-      return cs.includes(watt) || cs.includes(watt.replace('w','') + 'w');
-    });
-  }
-
-  if (filtered.length === 0) {
-    // Không tìm thấy đúng W → hỏi lại và hiện toàn bộ bảng
-    filtered = rows;
-    el.outerHTML = `<div class="stag">💡 ${catLabel}</div><br>
-      Không tìm thấy đèn <strong>${watt ? watt.toUpperCase() : ''}</strong> trong danh sách. Dưới đây là toàn bộ bảng giá hiện có:<br><br>
-      ${renderTable(filtered.slice(0,15), 'Đơn giá')}
-      <div class="note-box">📞 Cần tư vấn công suất phù hợp? Gọi <strong>0986.474.671</strong> để được hỗ trợ ngay.</div>`;
-  } else if (filtered.length === 1) {
-    const r = filtered[0];
-    const gia = r['Đơn giá'] || r['Don gia'] || '—';
-    const cs  = r['Công suất'] || r['Cong suat'] || watt;
-    const chip = r['Chip LED'] || '';
-    const nguon = r['Nguồn'] || r['Nguon'] || '';
-    const bh   = r['Bảo hành'] || r['Bao hanh'] || '';
-    const note = r['Ghi chú'] || r['Ghi chu'] || '';
     el.outerHTML = `<div class="stag">💰 Báo Giá ${catLabel}</div><br>
-      <table>
-        <tr><th>Thông số</th><th>Chi tiết</th></tr>
-        <tr><td>Công suất</td><td><strong>${cs}</strong></td></tr>
-        <tr><td>Chip LED</td><td>${chip}</td></tr>
-        <tr><td>Nguồn driver</td><td>${nguon}</td></tr>
-        <tr><td>Đơn giá</td><td style="color:#f5a623;font-weight:700;font-size:15px">${gia}</td></tr>
-        <tr><td>Bảo hành</td><td>${bh}</td></tr>
-        ${note ? `<tr><td>Ghi chú</td><td>${note}</td></tr>` : ''}
-      </table>
-      <div class="note-box">💡 Giá trên chưa bao gồm VAT và chi phí lắp đặt. Đặt số lượng lớn có chiết khấu thêm.</div>`;
-  } else {
-    el.outerHTML = `<div class="stag">💰 Báo Giá ${catLabel} — ${watt ? watt.toUpperCase() : 'Tất cả'}</div><br>
-      ${renderTable(filtered.slice(0,15), 'Đơn giá')}
-      <div class="note-box">💡 Giá trên chưa bao gồm VAT. Số lượng lớn có chiết khấu thêm.</div>`;
+      Chưa có dữ liệu bảng giá. Vui lòng liên hệ trực tiếp để được báo giá!
+      <a class="link-card green" href="tel:0986474671"><strong>📞 0986.474.671</strong></a>`;
+    addBtns(navBtns(catLabel)); scrollBot(); return;
   }
 
+  // Lọc theo danh mục nếu sheet dùng chung (SanTheThao)
+  let filtered = rows;
+  if (rows[0] && (rows[0]['Danh mục']||rows[0]['Danh muc'])) {
+    filtered = rows.filter(r=>(r['Danh mục']||r['Danh muc']||'').trim()===catLabel);
+    if (!filtered.length) filtered = rows;
+  }
+
+  const preview = filtered.slice(0,20);
+  const more = filtered.length>20
+    ? `<div style="font-size:12px;color:#8ab4d4;margin-top:6px">
+        ... và ${filtered.length-20} sản phẩm khác —
+        <a href="${sheetEditUrl(tabName)}" target="_blank" style="color:#f5a623">xem đầy đủ trong Sheet</a>
+      </div>` : '';
+
+  // Tự động highlight cột giá
+  const priceCol = Object.keys(filtered[0]).find(k=>/đơn giá|giá|price/i.test(k)) || null;
+
+  el.outerHTML = `
+    <div class="stag">💰 Bảng Giá ${catLabel}</div><br>
+    ${renderPriceTable(preview, priceCol)}
+    ${more}
+    <a class="link-card" href="${sheetEditUrl(tabName)}" target="_blank">
+      <strong>📊 Xem Bảng Giá Đầy Đủ — Google Sheet</strong>
+      Giá theo công suất & số lượng · Cập nhật liên tục
+    </a>
+    ${WP[catLabel]?`<a class="link-card" href="${WP[catLabel]}" target="_blank">
+      <strong>🌐 Xem sản phẩm trên Website TDL</strong>${WP[catLabel]}
+    </a>`:''}`;
   scrollBot();
-  addQuickBtns(catKey);
+  addBtns(navBtns(catLabel));
 }
 
-function addQuickBtns(key) {
-  const qr = document.createElement('div');
-  qr.className = 'quick-replies';
-  // Thêm nút lead nhanh
-  const leadBtn = document.createElement('button');
-  leadBtn.className = 'qr-btn hot';
-  leadBtn.textContent = '📋 Yêu cầu báo giá';
-  leadBtn.onclick = () => { qr.remove(); addMsg('📋 Yêu cầu báo giá','user'); typing(() => showLeadForm('')); };
-  qr.appendChild(leadBtn);
-  backBtns(key || 'den_pha').forEach(b => {
-    const el = document.createElement('button');
-    el.className = 'qr-btn' + (b.cls ? ' '+b.cls : '');
-    el.textContent = b.label;
-    el.onclick = () => { qr.remove(); b.fn(); };
-    qr.appendChild(el);
-  });
-  chatArea.appendChild(qr); scrollBot();
+// ── Tra giá theo công suất ──
+async function showPriceByWatt(catLabel, watt) {
+  const tabName = BAO_GIA_TAB[catLabel] || 'BaoGia';
+  const { loadId } = addLoadingBubble(`Đang tra giá <strong>${watt.toUpperCase()}</strong>...`);
+  const rows = await fetchSheetData(tabName);
+  const el = document.getElementById(loadId);
+  if (!el) return;
+
+  if (!rows||!rows.length) {
+    el.outerHTML = `Chưa có dữ liệu bảng giá. Vui lòng gọi <strong>0986.474.671</strong>!`;
+    addBtns(navBtns(catLabel)); scrollBot(); return;
+  }
+
+  // Lọc theo công suất
+  const csCol = Object.keys(rows[0]).find(k=>/công suất|cong suat|cs/i.test(k));
+  let filtered = rows;
+  if (csCol) {
+    filtered = rows.filter(r=>norm(r[csCol]||'').includes(watt.replace('w','')+'w')||
+                              norm(r[csCol]||'').includes(watt));
+  }
+
+  const priceCol = Object.keys(rows[0]).find(k=>/đơn giá|giá|price/i.test(k))||null;
+
+  if (!filtered.length) {
+    el.outerHTML = `<div class="stag">💰 Báo Giá ${catLabel}</div><br>
+      Không tìm thấy đèn <strong>${watt.toUpperCase()}</strong>. Dưới đây là toàn bộ bảng giá:<br><br>
+      ${renderPriceTable(rows.slice(0,15), priceCol)}
+      <div class="note-box">📞 Gọi <strong>0986.474.671</strong> để tư vấn công suất phù hợp.</div>`;
+  } else if (filtered.length===1) {
+    const r = filtered[0];
+    const keys = Object.keys(r);
+    let tbl = '<table>';
+    keys.forEach(k=>{ if(r[k]) tbl += `<tr><td><strong>${k}</strong></td><td style="${/giá|price/i.test(k)?'color:#f5a623;font-weight:700':''}">${r[k]}</td></tr>`; });
+    tbl += '</table>';
+    el.outerHTML = `<div class="stag">💰 Báo Giá ${catLabel} — ${watt.toUpperCase()}</div><br>${tbl}
+      <div class="note-box">💡 Giá chưa bao gồm VAT. Số lượng lớn có chiết khấu thêm.</div>`;
+  } else {
+    el.outerHTML = `<div class="stag">💰 Báo Giá ${catLabel} — ${watt.toUpperCase()}</div><br>
+      ${renderPriceTable(filtered, priceCol)}
+      <div class="note-box">💡 Giá chưa bao gồm VAT. Số lượng lớn có chiết khấu thêm.</div>`;
+  }
+  scrollBot();
+  addBtns(navBtns(catLabel));
+}
+
+// ══════════════════════════════════════════════════════════════════
+//  LEAD FORM
+// ══════════════════════════════════════════════════════════════════
+async function saveLead(data) {
+  if (!APPS_SCRIPT_URL || APPS_SCRIPT_URL.includes('YOUR_')) return false;
+  try {
+    await fetch(APPS_SCRIPT_URL,{
+      method:'POST', mode:'no-cors',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify(data)
+    });
+    return true;
+  } catch(e) { return false; }
+}
+
+function showLeadForm(prefill) {
+  document.querySelectorAll('.quick-replies').forEach(el=>el.remove());
+  const fid = 'lead-'+Date.now();
+  addMsg(`
+    <div class="stag">📋 Để Lại Thông Tin — Tư Vấn Miễn Phí</div><br>
+    <div id="${fid}" style="display:flex;flex-direction:column;gap:10px;margin-top:8px">
+      <input id="${fid}-name" type="text" placeholder="Họ và tên *"
+        style="padding:9px 12px;border-radius:8px;border:1px solid #334;background:#1a2230;color:#e8f0fe;font-size:13px;outline:none"/>
+      <input id="${fid}-phone" type="tel" placeholder="Số điện thoại / Zalo *"
+        style="padding:9px 12px;border-radius:8px;border:1px solid #334;background:#1a2230;color:#e8f0fe;font-size:13px;outline:none"/>
+      <input id="${fid}-note" type="text" placeholder="Yêu cầu (vd: đèn pha 200W, sân tennis 2 sân...)"
+        value="${prefill||''}"
+        style="padding:9px 12px;border-radius:8px;border:1px solid #334;background:#1a2230;color:#e8f0fe;font-size:13px;outline:none"/>
+      <button onclick="submitLead('${fid}')"
+        style="padding:10px;border-radius:8px;background:#f5a623;color:#0a1628;font-weight:700;font-size:13px;border:none;cursor:pointer">
+        📨 Gửi Yêu Cầu Tư Vấn
+      </button>
+      <div style="font-size:11px;color:#8ab4d4;text-align:center">Thông tin bảo mật · Phản hồi trong 30 phút</div>
+    </div>`, 'bot', []);
+}
+
+async function submitLead(fid) {
+  const name  = document.getElementById(fid+'-name')?.value.trim();
+  const phone = document.getElementById(fid+'-phone')?.value.trim();
+  const note  = document.getElementById(fid+'-note')?.value.trim();
+  if (!name||!phone) {
+    const btn = document.querySelector(`#${fid} button`);
+    if(btn){btn.textContent='⚠️ Vui lòng nhập họ tên và số điện thoại!';btn.style.background='#c0392b';}
+    setTimeout(()=>{if(btn){btn.textContent='📨 Gửi Yêu Cầu Tư Vấn';btn.style.background='#f5a623';}},2000);
+    return;
+  }
+  const btn = document.querySelector(`#${fid} button`);
+  if(btn){btn.textContent='⏳ Đang gửi...';btn.disabled=true;}
+  await saveLead({ timestamp:new Date().toLocaleString('vi-VN'), name, phone, note, source:'Chatbot TDL' });
+  const formEl = document.getElementById(fid);
+  if(formEl) formEl.closest('.bubble').innerHTML = `
+    <div class="stag">✅ Đã Nhận Yêu Cầu!</div><br>
+    <strong>${name}</strong> — <strong>${phone}</strong><br>
+    ${note?`<em>${note}</em><br>`:''}
+    <br>Đội tư vấn TDL sẽ liên hệ bạn trong <strong>30 phút</strong> (8:00–22:00).<br><br>
+    <a class="link-card green" href="https://zalo.me/0986474671" target="_blank">
+      <strong>💬 Nhắn ngay qua Zalo để được nhanh hơn</strong>Zalo: 0986.474.671
+    </a>`;
+  scrollBot();
+  addBtns([{label:'🏠 Menu chính',fn:()=>{addMsg('🏠 Menu chính','user');typing(showMenu);}}]);
+}
+
+// ══════════════════════════════════════════════════════════════════
+//  XỬ LÝ TIN NHẮN TỰ DO
+// ══════════════════════════════════════════════════════════════════
+function detectWatt(t) {
+  const m = t.match(/(\d+)\s*w(?:att)?/);
+  return m ? m[1]+'w' : null;
+}
+
+function detectCat(t) {
+  const map = [
+    [/bong ?da|bong ?do|san ?5|san ?7|san ?11|football|soccer/,'Sân Bóng Đá'],
+    [/tennis/,'Sân Tennis'],
+    [/cau ?long|badminton/,'Sân Cầu Lông'],
+    [/bong ?chuyen|volleyball/,'Sân Bóng Chuyền'],
+    [/pickleball|pickle/,'Sân Pickleball'],
+    [/den ?pha|floodlight/,'Đèn Pha LED'],
+    [/den ?duong|duong pho|street/,'Đèn Đường LED'],
+    [/nha ?xuong|kho|highbay|ufo/,'Đèn Nhà Xưởng LED'],
+    [/san ?vuon|vuon|canh quan|am ?dat/,'Đèn Sân Vườn LED'],
+    [/chinh ?sach|bao ?hanh|lap ?dat|thanh ?toan/,'Chính Sách & Dịch Vụ'],
+  ];
+  for (const [re,cat] of map) { if(re.test(t)) return cat; }
+  return null;
 }
 
 async function handleText(raw) {
   const t = norm(raw);
   const watt = detectWatt(t);
-  const catKey = detectKey(t);
+  const cat  = detectCat(t);
 
-  // Câu hỏi có công suất + danh mục → tra giá ngay từ Sheet
-  if (watt && catKey) {
-    await answerPriceQuery(raw, catKey, watt);
+  if (watt && cat) { await showPriceByWatt(cat, watt); return; }
+
+  if (watt && !cat) {
+    // Hỏi danh mục
+    const items = await getMenuItems();
+    addMsg(`Bạn cần hỏi giá đèn <strong>${watt.toUpperCase()}</strong> thuộc danh mục nào? 👇`, 'bot');
+    addBtns(items.filter(i=>i.type==='product').map(m=>({
+      label:m.label, cls:'cat',
+      fn:()=>{ addMsg(m.label,'user'); typing(()=>showPriceByWatt(m.label, watt)); }
+    })));
     return;
   }
 
-  // Câu hỏi có công suất nhưng không rõ danh mục → hỏi lại
-  if (watt && !catKey) {
-    addMsg(`Bạn cần hỏi giá đèn <strong>${watt.toUpperCase()}</strong> thuộc danh mục nào? 👇`, 'bot',
-      MAIN_MENU.map(m => ({ label: m.label, cls:'cat', fn: () => {
-        addMsg(m.label,'user');
-        typing(() => answerPriceQuery(raw + ' ' + m.label, m.key, watt));
-      }}))
-    );
+  if (cat) { showCat(cat); return; }
+
+  if (/bao ?gia|gia ?bao|gia tien|bao nhieu|cost|price|quote/.test(t)) {
+    const items = await getMenuItems();
+    addMsg('Để báo giá chính xác, vui lòng chọn danh mục sản phẩm 👇', 'bot');
+    addBtns(items.map(m=>({
+      label:m.label, cls:'cat',
+      fn:()=>{ addMsg(m.label,'user'); typing(()=>showCat(m.label)); }
+    })));
     return;
   }
 
-  // Câu hỏi có danh mục → vào menu danh mục
-  if (catKey) { showCat(catKey); return; }
-
-  // Hỏi giá chung → chọn danh mục
-  if (/bao ?gia|gia ?bao|gia tien|tien|cost|price|quote|bao nhieu|bao nhieu tien/.test(t)) {
-    addMsg('Để báo giá chính xác, vui lòng chọn danh mục sản phẩm 👇', 'bot',
-      MAIN_MENU.map(m => ({ label: m.label, cls:'cat', fn: () => { addMsg(m.label,'user'); typing(() => showCat(m.key)); } }))
-    );
-    return;
-  }
-
+  // Không nhận ra → gợi ý menu
+  const items = await getMenuItems();
   addMsg(
-    'Cảm ơn bạn đã liên hệ! Tôi chưa tìm được câu trả lời phù hợp.<br>Vui lòng chọn danh mục hoặc gọi trực tiếp để được tư vấn ngay:<br>' +
-    `<a class="link-card green" href="tel:0986474671"><strong>📞 Hotline: 0986.474.671</strong>Hỗ trợ 8:00 – 22:00 hàng ngày</a>` +
-    `<a class="link-card green" href="https://zalo.me/0986474671" target="_blank"><strong>💬 Zalo: 0986.474.671</strong>Gửi ảnh, bản vẽ, yêu cầu chi tiết qua Zalo</a>`,
-    'bot',
-    MAIN_MENU.slice(0,6).map(m => ({ label: m.label, cls:'cat', fn: () => { addMsg(m.label,'user'); typing(() => showCat(m.key)); } }))
+    'Cảm ơn bạn đã liên hệ! Vui lòng chọn danh mục hoặc gọi trực tiếp:<br>' +
+    `<a class="link-card green" href="tel:0986474671"><strong>📞 Hotline: 0986.474.671</strong>Hỗ trợ 8:00–22:00 hàng ngày</a>` +
+    `<a class="link-card green" href="https://zalo.me/0986474671" target="_blank"><strong>💬 Zalo: 0986.474.671</strong></a>`,
+    'bot'
   );
+  addBtns(items.slice(0,6).map(m=>({label:m.label,cls:'cat',fn:()=>{addMsg(m.label,'user');typing(()=>showCat(m.label));}})));
 }
 
+// ── Gửi tin nhắn ──
 function sendMessage() {
   if (busy) return;
   const inp = document.getElementById('userInput');
   const txt = inp.value.trim();
   if (!txt) return;
-  inp.value = ''; inp.style.height = 'auto';
-  addMsg(txt, 'user');
-  busy = true;
-  // Xóa typing indicator sau 600ms rồi gọi handleText async
-  const row = document.createElement('div');
-  row.className = 'msg bot'; row.id = 'tdl-typing';
-  const av = document.createElement('div');
-  av.className = 'avatar bot'; av.textContent = 'TDL';
-  const bub = document.createElement('div');
-  bub.className = 'bubble bot';
-  bub.innerHTML = '<div class="typing"><span></span><span></span><span></span></div>';
+  inp.value=''; inp.style.height='auto';
+  addMsg(txt,'user');
+  busy=true;
+  const row=document.createElement('div');
+  row.className='msg bot'; row.id='tdl-typing';
+  const av=document.createElement('div');
+  av.className='avatar bot'; av.textContent='TDL';
+  const bub=document.createElement('div');
+  bub.className='bubble bot';
+  bub.innerHTML='<div class="typing"><span></span><span></span><span></span></div>';
   row.appendChild(av); row.appendChild(bub);
   chatArea.appendChild(row); scrollBot();
-  setTimeout(async () => {
+  setTimeout(async()=>{
     document.getElementById('tdl-typing')?.remove();
-    busy = false;
+    busy=false;
     await handleText(txt);
-  }, 700 + Math.random() * 500);
+  }, 700+Math.random()*500);
 }
 
 const inp = document.getElementById('userInput');
-inp.addEventListener('input', () => {
-  inp.style.height = 'auto';
-  inp.style.height = Math.min(inp.scrollHeight, 120) + 'px';
+inp.addEventListener('input',()=>{
+  inp.style.height='auto';
+  inp.style.height=Math.min(inp.scrollHeight,120)+'px';
 });
-inp.addEventListener('keydown', e => {
-  if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendMessage(); }
+inp.addEventListener('keydown',e=>{
+  if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();sendMessage();}
 });
 
-setTimeout(() => typing(showMenu), 500);
+// Khởi động
+setTimeout(()=>typing(showMenu), 500);
 </script>
 </body>
 </html>
