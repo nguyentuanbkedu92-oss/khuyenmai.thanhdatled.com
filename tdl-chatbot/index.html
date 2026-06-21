@@ -732,11 +732,8 @@ async function showPriceByWatt(sheetLabel, watt) {
       ${renderPriceTable(rows.slice(0,15),priceCol)}
       <div class="note-box">📞 Gọi <strong>0986.474.671</strong> để tư vấn công suất phù hợp.</div>`;
   } else if (filtered.length===1) {
-    const r=filtered[0];
-    let tbl="<table>";
-    Object.keys(r).forEach(k=>{ if(r[k]) tbl+=`<tr><td><strong>${k}</strong></td><td style="${/giá|price/i.test(k)?"color:#f5a623;font-weight:700":""}">${r[k]}</td></tr>`; });
-    tbl+="</table>";
-    el.outerHTML=`<div class="stag">💰 Báo Giá ${sheetLabel} — ${watt.toUpperCase()}</div><br>${wrapTable(tbl)}
+    el.outerHTML=`<div class="stag">💰 Báo Giá ${sheetLabel} — ${watt.toUpperCase()}</div><br>
+      ${renderPriceTable(filtered, priceCol)}
       <div class="note-box">💡 Giá chưa bao gồm VAT. Số lượng lớn có chiết khấu thêm.</div>`;
   } else {
     el.outerHTML=`<div class="stag">💰 Báo Giá ${sheetLabel} — ${watt.toUpperCase()}</div><br>
