@@ -2,62 +2,73 @@
 <html lang="vi">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 <title>Thành Đạt LED - Tư Vấn 24/7</title>
 <style>
-* { margin:0; padding:0; box-sizing:border-box; }
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html, body { width:100%; max-width:100%; overflow-x:hidden; }
 body { font-family:'Segoe UI',Arial,sans-serif; background:#0a0a0f; color:#e8e8e8; min-height:100vh; display:flex; flex-direction:column; }
 .header {
   background:linear-gradient(135deg,#0d1b2a 0%,#1a2a3a 100%);
   border-bottom:2px solid #f5a623;
-  padding:12px 20px; display:flex; align-items:center; gap:14px;
+  padding:10px 12px; display:flex; align-items:center; gap:10px;
   position:sticky; top:0; z-index:100;
   box-shadow:0 2px 20px rgba(245,166,35,0.15);
+  width:100%; min-width:0;
 }
 .logo-circle {
-  width:46px; height:46px; border-radius:50%;
+  width:40px; height:40px; border-radius:50%;
   background:linear-gradient(135deg,#f5a623,#e8850a);
   display:flex; align-items:center; justify-content:center;
-  font-weight:800; font-size:14px; color:#0d1b2a; flex-shrink:0;
+  font-weight:800; font-size:13px; color:#0d1b2a; flex-shrink:0;
 }
-.header-info { flex:1; }
-.header-name { font-size:16px; font-weight:700; color:#f5a623; }
-.header-sub { font-size:11px; color:#8ab4d4; margin-top:2px; }
-.status-wrap { display:flex; align-items:center; gap:6px; flex-shrink:0; }
+.header-info { flex:1; min-width:0; overflow:hidden; }
+.header-name { font-size:14px; font-weight:700; color:#f5a623; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.header-sub { font-size:10px; color:#8ab4d4; margin-top:2px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.status-wrap { display:flex; align-items:center; gap:5px; flex-shrink:0; }
 .status-dot { width:8px; height:8px; border-radius:50%; background:#22c55e; box-shadow:0 0 6px #22c55e; animation:pulse 2s infinite; }
-.status-txt { font-size:11px; color:#22c55e; }
+.status-txt { font-size:11px; color:#22c55e; white-space:nowrap; }
 @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.5} }
-.header-contact { text-align:right; font-size:11px; color:#8ab4d4; line-height:1.8; }
+.header-contact { text-align:right; font-size:11px; color:#8ab4d4; line-height:1.8; flex-shrink:0; }
 .header-contact a { color:#f5a623; text-decoration:none; font-weight:600; }
 .chat-area {
-  flex:1; overflow-y:auto; padding:20px;
-  display:flex; flex-direction:column; gap:14px;
+  flex:1; overflow-y:auto; overflow-x:hidden; padding:14px 12px;
+  display:flex; flex-direction:column; gap:12px;
   max-width:800px; width:100%; margin:0 auto;
+  min-width:0;
 }
 .chat-area::-webkit-scrollbar { width:4px; }
 .chat-area::-webkit-scrollbar-thumb { background:#2a4060; border-radius:4px; }
-.msg { display:flex; gap:10px; animation:fadeIn 0.3s ease; }
+.msg { display:flex; gap:8px; animation:fadeIn 0.3s ease; min-width:0; width:100%; }
 @keyframes fadeIn { from{opacity:0;transform:translateY(8px)} to{opacity:1;transform:translateY(0)} }
 .msg.user { flex-direction:row-reverse; }
-.avatar { width:34px; height:34px; border-radius:50%; flex-shrink:0; display:flex; align-items:center; justify-content:center; font-size:11px; font-weight:700; }
+.avatar { width:32px; height:32px; border-radius:50%; flex-shrink:0; display:flex; align-items:center; justify-content:center; font-size:10px; font-weight:700; }
 .avatar.bot { background:linear-gradient(135deg,#f5a623,#e8850a); color:#0d1b2a; }
 .avatar.user { background:#1e3a5f; color:#8ab4d4; }
-.bubble { max-width:78%; padding:12px 16px; border-radius:18px; line-height:1.65; font-size:14px; }
+.bubble {
+  max-width:calc(100% - 44px);
+  min-width:0;
+  padding:11px 13px; border-radius:18px; line-height:1.65; font-size:13.5px;
+  word-break:break-word; overflow-wrap:break-word;
+}
 .bubble.bot { background:#132030; border:1px solid #1e3550; border-radius:4px 18px 18px 18px; color:#d8e8f0; }
 .bubble.user { background:linear-gradient(135deg,#1a4a7a,#0d3060); border-radius:18px 4px 18px 18px; color:#e8f4ff; text-align:right; }
 .bubble.bot a { color:#f5a623; }
-.bubble.bot ul { margin:4px 0 4px 18px; }
+.bubble.bot ul { margin:4px 0 4px 16px; }
 .bubble.bot li { margin:3px 0; }
 .bubble.bot strong { color:#f5a623; }
-.bubble.bot table { width:100%; border-collapse:collapse; margin:10px 0; font-size:13px; }
-.bubble.bot th { background:#0d2a3a; color:#f5a623; padding:6px 10px; text-align:left; border:1px solid #1e4a5a; font-weight:600; }
-.bubble.bot td { padding:6px 10px; border:1px solid #1e3550; color:#c8d8e8; }
+/* Table: scroll ngang thay vì tràn */
+.bubble.bot .table-wrap { width:100%; overflow-x:auto; -webkit-overflow-scrolling:touch; margin:8px 0; }
+.bubble.bot table { width:100%; min-width:280px; border-collapse:collapse; font-size:12px; }
+.bubble.bot th { background:#0d2a3a; color:#f5a623; padding:5px 8px; text-align:left; border:1px solid #1e4a5a; font-weight:600; white-space:nowrap; }
+.bubble.bot td { padding:5px 8px; border:1px solid #1e3550; color:#c8d8e8; }
 .bubble.bot tr:nth-child(even) td { background:#0d1e2e; }
-.quick-replies { display:flex; flex-wrap:wrap; gap:8px; padding:4px 0 4px 44px; }
+.quick-replies { display:flex; flex-wrap:wrap; gap:7px; padding:4px 0 4px 40px; width:100%; }
 .qr-btn {
-  padding:7px 14px; border-radius:20px; font-size:13px; cursor:pointer;
+  padding:7px 12px; border-radius:20px; font-size:12.5px; cursor:pointer;
   border:1px solid #2a4a6a; background:#0d1b2a; color:#8ab4d4;
   transition:all 0.2s; white-space:nowrap; line-height:1.3;
+  max-width:100%;
 }
 .qr-btn:hover { background:#f5a623; border-color:#f5a623; color:#0d1b2a; font-weight:600; }
 .qr-btn.cat { border-color:#f5a623; color:#f5a623; font-weight:600; }
@@ -67,18 +78,18 @@ body { font-family:'Segoe UI',Arial,sans-serif; background:#0a0a0f; color:#e8e8e
 .qr-btn.hot { border-color:#f5a623; background:rgba(245,166,35,0.1); color:#f5a623; font-weight:600; }
 .qr-btn.hot:hover { background:#f5a623; color:#0d1b2a; }
 .input-wrap-outer { max-width:800px; width:100%; margin:0 auto; }
-.input-area { background:#0d1420; border-top:1px solid #1e3550; padding:12px 20px; display:flex; gap:10px; align-items:flex-end; }
-.input-inner { flex:1; }
+.input-area { background:#0d1420; border-top:1px solid #1e3550; padding:10px 12px; display:flex; gap:8px; align-items:flex-end; width:100%; }
+.input-inner { flex:1; min-width:0; }
 #userInput {
-  width:100%; padding:11px 16px; border-radius:24px;
+  width:100%; padding:10px 14px; border-radius:24px;
   background:#132030; border:1px solid #2a4a6a; color:#d8e8f0;
   font-size:14px; resize:none; outline:none; font-family:inherit; line-height:1.5;
-  transition:border-color 0.2s;
+  transition:border-color 0.2s; display:block;
 }
 #userInput:focus { border-color:#f5a623; }
 #userInput::placeholder { color:#4a6a8a; }
 #sendBtn {
-  width:44px; height:44px; border-radius:50%;
+  width:42px; height:42px; border-radius:50%;
   background:linear-gradient(135deg,#f5a623,#e8850a);
   border:none; cursor:pointer; flex-shrink:0;
   display:flex; align-items:center; justify-content:center;
@@ -87,44 +98,48 @@ body { font-family:'Segoe UI',Arial,sans-serif; background:#0a0a0f; color:#e8e8e
 #sendBtn:hover { transform:scale(1.08); }
 #sendBtn:active { transform:scale(0.95); }
 #sendBtn svg { width:18px; height:18px; fill:#0d1b2a; }
-.typing { display:flex; gap:4px; align-items:center; padding:14px 16px; }
+.typing { display:flex; gap:4px; align-items:center; padding:12px 14px; }
 .typing span { width:7px; height:7px; border-radius:50%; background:#4a7a9b; animation:bounce 1.2s infinite; }
 .typing span:nth-child(2) { animation-delay:0.2s; }
 .typing span:nth-child(3) { animation-delay:0.4s; }
 @keyframes bounce { 0%,60%,100%{transform:translateY(0)} 30%{transform:translateY(-6px)} }
 .link-card {
-  display:block; margin-top:10px; padding:10px 14px;
+  display:block; margin-top:10px; padding:9px 12px;
   background:#0d2a3a; border:1px solid #1e4a5a;
   border-left:3px solid #f5a623; border-radius:0 6px 6px 0;
-  text-decoration:none; color:#8ab4d4; font-size:13px;
-  transition:background 0.2s;
+  text-decoration:none; color:#8ab4d4; font-size:12.5px;
+  transition:background 0.2s; word-break:break-all;
 }
 .link-card:hover { background:#132a3a; }
 .link-card strong { color:#f5a623; display:block; margin-bottom:2px; }
 .link-card.green { border-left-color:#22c55e; }
 .link-card.green strong { color:#22c55e; }
 .stag {
-  display:inline-block; padding:3px 10px; border-radius:12px;
+  display:inline-block; padding:2px 9px; border-radius:12px;
   background:rgba(245,166,35,0.15); color:#f5a623;
-  font-size:11px; font-weight:600; margin-bottom:8px;
+  font-size:11px; font-weight:600; margin-bottom:6px;
   text-transform:uppercase; letter-spacing:0.5px;
 }
 .note-box {
-  margin-top:10px; padding:9px 13px;
+  margin-top:8px; padding:8px 11px;
   background:rgba(245,166,35,0.08); border:1px solid rgba(245,166,35,0.25);
-  border-radius:6px; font-size:12.5px; color:#c8b87a; line-height:1.6;
+  border-radius:6px; font-size:12px; color:#c8b87a; line-height:1.6;
 }
+/* Desktop */
+@media (min-width:601px) {
+  .header { padding:12px 20px; gap:14px; }
+  .logo-circle { width:46px; height:46px; font-size:14px; }
+  .header-name { font-size:16px; }
+  .bubble { max-width:78%; font-size:14px; }
+  .quick-replies { padding-left:44px; }
+  .input-area { padding:12px 20px; }
+  .chat-area { padding:20px; gap:14px; }
+  .bubble.bot table { font-size:13px; }
+  .bubble.bot th,.bubble.bot td { padding:6px 10px; }
+}
+/* Mobile */
 @media (max-width:600px) {
-  .header { padding:10px 14px; gap:10px; }
-  .logo-circle { width:38px; height:38px; font-size:12px; }
-  .header-name { font-size:14px; }
   .header-contact,.status-txt { display:none; }
-  .chat-area { padding:12px; gap:12px; }
-  .bubble { max-width:88%; font-size:13.5px; }
-  .quick-replies { padding-left:0; }
-  .input-area { padding:10px 12px; }
-  .bubble.bot table { font-size:12px; }
-  .bubble.bot th,.bubble.bot td { padding:5px 7px; }
 }
 </style>
 </head>
@@ -134,7 +149,7 @@ body { font-family:'Segoe UI',Arial,sans-serif; background:#0a0a0f; color:#e8e8e
   <div class="logo-circle">TDL</div>
   <div class="header-info">
     <div class="header-name">Thành Đạt LED — Tư Vấn 24/7</div>
-    <div class="header-sub">938 Quang Trung, Yên Nghĩa, Hà Đông, Hà Nội &nbsp;|&nbsp; thanhdatled.com</div>
+    <div class="header-sub">938 Quang Trung, Yên Nghĩa, Hà Đông, Hà Nội</div>
   </div>
   <div class="status-wrap">
     <div class="status-dot"></div>
@@ -160,9 +175,6 @@ body { font-family:'Segoe UI',Arial,sans-serif; background:#0a0a0f; color:#e8e8e
 </div>
 
 <script>
-// ══════════════════════════════════════════════════════════════════
-//  CẤU HÌNH — CHỈ CẦN SỬA PHẦN NÀY
-// ══════════════════════════════════════════════════════════════════
 const SHEET_ID        = "1SLHuE9nLNpxwlwAjW_y1FQEtJhwqw8s1l7NjqHVr6Eg";
 const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyGT7JU5-JnWw4lNgfglqMbOqqoDc0GHXVsWdCPQlBZpRhYVdpiyLBywfmIY8rDKIkl/exec";
 
@@ -189,7 +201,6 @@ const WP = {
   "Sân Bóng Đá":       "https://thanhdatled.com/san-bong-da/",
 };
 
-// Tab báo giá theo tên Sheet thật
 const BAO_GIA_TAB = {
   "Đèn Pha LED":       "DenPha",
   "Đèn Đường LED":     "DenDuong",
@@ -202,7 +213,6 @@ const BAO_GIA_TAB = {
   "Sân Bóng Đá":       "SanTheThao",
 };
 
-// Map nhãn menu (có emoji) → tên Danh mục trong Sheet
 const LABEL_TO_SHEET = {
   "📋 Chính Sách & Dịch Vụ": "Chính Sách & Dịch Vụ",
   "💡 Đèn Pha LED":           "Đèn Pha LED",
@@ -216,7 +226,6 @@ const LABEL_TO_SHEET = {
   "⚽ Sân Bóng Đá":           "Sân Bóng Đá",
 };
 
-// Menu cố định hiện ngay không cần chờ Sheet
 const MENU_ITEMS = [
   { label:"📋 Chính Sách & Dịch Vụ" },
   { label:"💡 Đèn Pha LED" },
@@ -230,9 +239,6 @@ const MENU_ITEMS = [
   { label:"⚽ Sân Bóng Đá" },
 ];
 
-// ══════════════════════════════════════════════════════════════════
-//  SHEET HELPERS
-// ══════════════════════════════════════════════════════════════════
 const csvUrl = (tabName) => {
   const gid = TAB_GID[tabName];
   if (!gid) return null;
@@ -284,14 +290,14 @@ function parseCSV(text) {
   });
 }
 
-// ══════════════════════════════════════════════════════════════════
-//  BUILD HTML TỪ ROWS (ThongSoDen / ChinhSach)
-//  Cột: Danh mục | Câu hỏi | Loại | Nội dung | Chi tiết
-//  Loại: title | subtitle | list | note | table_header | table_row
-// ══════════════════════════════════════════════════════════════════
+// Bọc bảng trong div scroll để không tràn ngang
+function wrapTable(tableHtml) {
+  return `<div class="table-wrap">${tableHtml}</div>`;
+}
+
 function buildHtmlFromRows(matched) {
   if (!matched||!matched.length) return null;
-  let html="", inTable=false, tableHeaders=[], prevWasList=false;
+  let html="", inTable=false, tableHeaders=[], prevWasList=false, tableRows="";
 
   matched.forEach(r=>{
     const loai    = (r["Loại"]||r["Loai"]||"list").trim().toLowerCase();
@@ -300,7 +306,9 @@ function buildHtmlFromRows(matched) {
     const ghichu  = (r["Ghi chú"]||r["Ghi chu"]||"").trim();
 
     if (inTable && loai!=="table_row") {
-      html+="</table>"; inTable=false; tableHeaders=[];
+      tableRows+="</table>";
+      html+=wrapTable(tableRows);
+      tableRows=""; inTable=false; tableHeaders=[];
     }
 
     switch(loai) {
@@ -328,13 +336,13 @@ function buildHtmlFromRows(matched) {
       case "table_header":
         if (prevWasList) { html+="</ul>"; prevWasList=false; }
         tableHeaders=noidung.split("|").map(s=>s.trim());
-        html+="<table><tr>";
-        tableHeaders.forEach(h=>{ html+=`<th>${h}</th>`; });
-        html+="</tr>";
+        tableRows="<table><tr>";
+        tableHeaders.forEach(h=>{ tableRows+=`<th>${h}</th>`; });
+        tableRows+="</tr>";
         inTable=true;
         break;
       case "table_row":
-        if (!inTable) { html+="<table>"; inTable=true; }
+        if (!inTable) { tableRows="<table>"; inTable=true; }
         let cells;
         if (noidung.includes("|")) {
           cells=noidung.split("|").map(s=>s.trim());
@@ -342,43 +350,37 @@ function buildHtmlFromRows(matched) {
           cells=[noidung,chitiet].filter(x=>x!=="");
           if (ghichu) cells.push(ghichu);
         }
-        html+="<tr>";
+        tableRows+="<tr>";
         cells.forEach((c,i)=>{
           const isPrice=tableHeaders[i]&&/giá|price|đơn giá/i.test(tableHeaders[i]);
-          html+=`<td${isPrice?" style=\"color:#f5a623;font-weight:700\"":""}}>${c}</td>`;
+          tableRows+=`<td${isPrice?" style=\"color:#f5a623;font-weight:700\"":""}>${c}</td>`;
         });
-        html+="</tr>";
+        tableRows+="</tr>";
         break;
     }
   });
 
   if (prevWasList) html+="</ul>";
-  if (inTable) html+="</table>";
+  if (inTable) { tableRows+="</table>"; html+=wrapTable(tableRows); }
   return html||null;
 }
 
-// ══════════════════════════════════════════════════════════════════
-//  RENDER BẢNG BÁO GIÁ
-//  - Bỏ cột "Danh mục" (đã lọc rồi, không cần hiện lại)
-//  - Highlight cột giá màu vàng
-// ══════════════════════════════════════════════════════════════════
 function renderPriceTable(rows, highlightCol) {
   if (!rows||!rows.length) return "<em>Chưa có dữ liệu</em>";
-  // Bỏ cột Danh mục khỏi hiển thị
   const allKeys = Object.keys(rows[0]);
   const keys = allKeys.filter(k => !/^danh.?m[uụ]c$/i.test(k.trim()));
-  let html=`<table><tr>${keys.map(k=>`<th>${k}</th>`).join("")}</tr>`;
+  let tbl=`<table><tr>${keys.map(k=>`<th>${k}</th>`).join("")}</tr>`;
   rows.forEach(row=>{
-    html+=`<tr>${keys.map(k=>{
+    tbl+=`<tr>${keys.map(k=>{
       const v=row[k]||"";
       const isHL=highlightCol&&k===highlightCol;
       return `<td${isHL?" style=\"color:#f5a623;font-weight:700\"":""}>${v}</td>`;
     }).join("")}</tr>`;
   });
-  return html+"</table>";
+  tbl+="</table>";
+  return wrapTable(tbl);
 }
 
-// ── Chuẩn hoá tiếng Việt ──
 function norm(s) {
   return (s||"").toLowerCase()
     .replace(/đ/g,"d")
@@ -390,9 +392,6 @@ function norm(s) {
     .replace(/[ýỳỷỹỵ]/g,"y");
 }
 
-// ══════════════════════════════════════════════════════════════════
-//  UI HELPERS
-// ══════════════════════════════════════════════════════════════════
 const chatArea = document.getElementById("chatArea");
 let busy = false;
 
@@ -458,9 +457,6 @@ function navBtns(sheetLabel) {
   ];
 }
 
-// ══════════════════════════════════════════════════════════════════
-//  MENU CHÍNH
-// ══════════════════════════════════════════════════════════════════
 function showMenu() {
   addMsg(
     "<div class=\"stag\">Tư vấn 24/7</div><br>Xin chào! Tôi là nhân viên tư vấn <strong>Thành Đạt LED</strong>.<br>Chip LED Bridgelux/Philips · Nguồn Done/Philips · Bảo hành 3 năm<br><br>Chọn danh mục cần hỗ trợ 👇",
@@ -478,49 +474,33 @@ function showMenu() {
   ]);
 }
 
-// ══════════════════════════════════════════════════════════════════
-//  SHOW CATEGORY
-// ══════════════════════════════════════════════════════════════════
 async function showCat(catLabel) {
   const sheetLabel = LABEL_TO_SHEET[catLabel] || catLabel;
-
-  // Chính Sách & Dịch Vụ → hiện sub-menu động từ Sheet
   if (norm(sheetLabel).includes("chinh") && norm(sheetLabel).includes("sach")) {
     const { loadId } = addLoadingBubble("Đang tải danh sách chính sách...");
     await showPolicyMenu(loadId);
     return;
   }
-
   const { loadId } = addLoadingBubble(`Đang tải <strong>${sheetLabel}</strong>...`);
   await showProductCat(sheetLabel, loadId);
 }
 
-// ── Menu chính sách: tự đọc tất cả Danh mục từ Sheet ChinhSach ──
 async function showPolicyMenu(loadId) {
   const rows = await fetchSheetData("ChinhSach");
   const el = document.getElementById(loadId);
   if (!el) return;
-
   if (!rows || !rows.length) {
-    el.outerHTML = `Không thể tải dữ liệu chính sách.
-      <a class="link-card green" href="tel:0986474671"><strong>📞 0986.474.671</strong></a>`;
+    el.outerHTML = `Không thể tải dữ liệu chính sách.<a class="link-card green" href="tel:0986474671"><strong>📞 0986.474.671</strong></a>`;
     return;
   }
-
-  // Tự tìm cột Danh mục dù tên có dấu hay không
   const dmKey = Object.keys(rows[0]).find(k => norm(k).includes("danh") && norm(k).includes("muc")) || "Danh mục";
-
-  // Lấy danh sách Danh mục duy nhất — ĐỘNG từ Sheet, thêm dòng mới tự hiện
   const danhMucs = [...new Set(rows.map(r => (r[dmKey]||"").trim()).filter(Boolean))];
-
   if (!danhMucs.length) {
     el.outerHTML = `Chưa có dữ liệu chính sách. Vui lòng liên hệ hotline!`;
     addBtns([{ label:"🏠 Menu chính", fn:()=>{ addMsg("🏠 Menu chính","user"); typing(showMenu); } }]);
     return;
   }
-
   el.outerHTML = `<div class="stag">📋 Chính Sách & Dịch Vụ</div><br>Chọn nội dung cần xem:`;
-
   const btns = danhMucs.map(dm => ({
     label: dm,
     fn: () => { addMsg(dm, "user"); typing(() => showPolicyDetail(dm)); }
@@ -529,20 +509,16 @@ async function showPolicyMenu(loadId) {
   addBtns(btns);
 }
 
-// ── Chi tiết một Danh mục chính sách (Bảo hành / Thi công / ...) ──
 async function showPolicyDetail(dmLabel) {
   const { loadId } = addLoadingBubble(`Đang tải <strong>${dmLabel}</strong>...`);
   const rows = await fetchSheetData("ChinhSach");
   const el = document.getElementById(loadId);
   if (!el) return;
-
   const dmKey   = Object.keys(rows[0]).find(k => norm(k).includes("danh") && norm(k).includes("muc")) || "Danh mục";
   const ndKey   = Object.keys(rows[0]).find(k => norm(k).includes("noi") && norm(k).includes("dung")) || "Nội dung";
   const ctKey   = Object.keys(rows[0]).find(k => norm(k).includes("chi") && norm(k).includes("tiet")) || "Chi tiết";
   const loaiKey = Object.keys(rows[0]).find(k => norm(k).includes("loai")) || "Loại";
-
   const matched = rows.filter(r => (r[dmKey]||"").trim() === dmLabel);
-
   if (!matched.length) {
     el.outerHTML = `Chưa có dữ liệu cho <strong>${dmLabel}</strong>. Vui lòng liên hệ hotline!`;
     addBtns([
@@ -551,8 +527,6 @@ async function showPolicyDetail(dmLabel) {
     ]);
     return;
   }
-
-  // Build HTML theo cột Loại (list / note)
   let html = "", inList = false;
   matched.forEach(r => {
     const loai = (r[loaiKey]||"list").trim().toLowerCase();
@@ -567,7 +541,6 @@ async function showPolicyDetail(dmLabel) {
     }
   });
   if (inList) html += "</ul>";
-
   el.outerHTML = `<div class="stag">📋 ${dmLabel}</div><br>${html}`;
   scrollBot();
   addBtns([
@@ -577,11 +550,9 @@ async function showPolicyDetail(dmLabel) {
   ]);
 }
 
-// ── Danh mục sản phẩm (ThongSoDen → fallback báo giá) ──
 async function showProductCat(sheetLabel, loadId) {
   const el = document.getElementById(loadId);
   if (!el) return;
-
   const rows = await fetchSheetData("ThongSoDen");
   const matched = (rows||[]).filter(r=>
     norm(r["Danh mục"]||r["Danh muc"]||"").trim() === norm(sheetLabel).trim()
@@ -589,10 +560,7 @@ async function showProductCat(sheetLabel, loadId) {
   const questions = [...new Set(
     matched.map(r=>(r["Câu hỏi"]||r["Cau hoi"]||"").trim()).filter(Boolean)
   )];
-
   const priceTab = BAO_GIA_TAB[sheetLabel];
-
-  // Có thông số kỹ thuật → hiện menu câu hỏi
   if (questions.length) {
     el.outerHTML=`<div class="stag">${sheetLabel}</div><br>Chọn thông tin cần xem:`;
     const btns=questions.map(q=>({
@@ -607,8 +575,6 @@ async function showProductCat(sheetLabel, loadId) {
     addBtns(btns);
     return;
   }
-
-  // Không có ThongSoDen → fallback hiện bảng báo giá
   if (priceTab) {
     el.outerHTML=`<div class="stag">${sheetLabel}</div><br>Chọn thông tin cần xem:`;
     addBtns([
@@ -619,8 +585,6 @@ async function showProductCat(sheetLabel, loadId) {
     ]);
     return;
   }
-
-  // Không có gì → hotline
   el.outerHTML=`Vui lòng liên hệ hotline để được tư vấn trực tiếp!
     <a class="link-card green" href="tel:0986474671">
       <strong>📞 0986.474.671</strong>Hỗ trợ 8:00–22:00 hàng ngày
@@ -628,18 +592,15 @@ async function showProductCat(sheetLabel, loadId) {
   addBtns(navBtns(sheetLabel));
 }
 
-// ── Chi tiết thông số kỹ thuật ──
 async function showProductDetail(sheetLabel, cauHoi) {
   const { loadId } = addLoadingBubble(`Đang tải <strong>${cauHoi}</strong>...`);
   const rows = await fetchSheetData("ThongSoDen");
   const el = document.getElementById(loadId);
   if (!el) return;
-
   const matched = (rows||[]).filter(r=>
     norm(r["Danh mục"]||r["Danh muc"]||"").trim()===norm(sheetLabel).trim() &&
     (r["Câu hỏi"]||r["Cau hoi"]||"").trim()===cauHoi
   );
-
   const html = buildHtmlFromRows(matched);
   let finalHtml = html
     ? `<div class="stag">${sheetLabel}</div><br>${html}`
@@ -654,42 +615,30 @@ async function showProductDetail(sheetLabel, cauHoi) {
   addBtns(navBtns(sheetLabel));
 }
 
-// ══════════════════════════════════════════════════════════════════
-//  BẢNG BÁO GIÁ
-// ══════════════════════════════════════════════════════════════════
 async function showPriceTable(sheetLabel) {
   const tabName = BAO_GIA_TAB[sheetLabel]||"BaoGia";
   const { loadId } = addLoadingBubble(`Đang tải bảng giá <strong>${sheetLabel}</strong>...`);
   const rows = await fetchSheetData(tabName);
   const el = document.getElementById(loadId);
   if (!el) return;
-
   if (!rows||!rows.length) {
     el.outerHTML=`<div class="stag">💰 Báo Giá ${sheetLabel}</div><br>
       Chưa có dữ liệu bảng giá. Vui lòng liên hệ trực tiếp!
       <a class="link-card green" href="tel:0986474671"><strong>📞 0986.474.671</strong></a>`;
     addBtns(navBtns(sheetLabel)); scrollBot(); return;
   }
-
-  // ── Lọc theo Danh mục (dùng norm để tránh lỗi dấu) ──
   let filtered = rows;
   const dmKey = Object.keys(rows[0]).find(k => norm(k).includes("danh") && norm(k).includes("muc"));
   if (dmKey) {
     const f = rows.filter(r => norm(r[dmKey]||"").trim() === norm(sheetLabel).trim());
     if (f.length) filtered = f;
   }
-
-  // ── Tìm cột giá để highlight ──
   const priceCol = Object.keys(filtered[0]).find(k => /đơn giá|don gia|price/i.test(k)) || null;
-
   const preview = filtered.slice(0, 20);
   const more = filtered.length > 20
     ? `<div style="font-size:12px;color:#8ab4d4;margin-top:8px">
-        ⬇️ Còn ${filtered.length - 20} sản phẩm khác —
-        <a href="${sheetEditUrl(tabName)}" target="_blank" style="color:#f5a623;text-decoration:underline">xem đầy đủ trong Sheet</a>
+        ⬇️ Còn ${filtered.length - 20} sản phẩm — <a href="${sheetEditUrl(tabName)}" target="_blank" style="color:#f5a623">xem đầy đủ trong Sheet</a>
        </div>` : "";
-
-  // ── Render — KHÔNG có text thừa trước bảng ──
   el.outerHTML = `
     <div class="stag">💰 Bảng Giá ${sheetLabel}</div><br>
     ${renderPriceTable(preview, priceCol)}
@@ -705,26 +654,19 @@ async function showPriceTable(sheetLabel) {
   addBtns(navBtns(sheetLabel));
 }
 
-// ── Tra giá theo công suất ──
 async function showPriceByWatt(sheetLabel, watt) {
   const tabName = BAO_GIA_TAB[sheetLabel]||"BaoGia";
   const { loadId } = addLoadingBubble(`Đang tra giá <strong>${watt.toUpperCase()}</strong>...`);
   const rows = await fetchSheetData(tabName);
   const el = document.getElementById(loadId);
   if (!el) return;
-
   if (!rows||!rows.length) {
     el.outerHTML=`Chưa có dữ liệu bảng giá. Vui lòng gọi <strong>0986.474.671</strong>!`;
     addBtns(navBtns(sheetLabel)); scrollBot(); return;
   }
-
   const csCol = Object.keys(rows[0]).find(k=>/công suất|cong suat/i.test(k));
-  let filtered = csCol
-    ? rows.filter(r=>norm(r[csCol]||"").includes(watt))
-    : rows;
-
+  let filtered = csCol ? rows.filter(r=>norm(r[csCol]||"").includes(watt)) : rows;
   const priceCol = Object.keys(rows[0]).find(k=>/đơn giá|giá|price/i.test(k))||null;
-
   if (!filtered.length) {
     el.outerHTML=`<div class="stag">💰 Báo Giá ${sheetLabel}</div><br>
       Không tìm thấy đèn <strong>${watt.toUpperCase()}</strong>. Toàn bộ bảng giá:<br><br>
@@ -735,7 +677,7 @@ async function showPriceByWatt(sheetLabel, watt) {
     let tbl="<table>";
     Object.keys(r).forEach(k=>{ if(r[k]) tbl+=`<tr><td><strong>${k}</strong></td><td style="${/giá|price/i.test(k)?"color:#f5a623;font-weight:700":""}">${r[k]}</td></tr>`; });
     tbl+="</table>";
-    el.outerHTML=`<div class="stag">💰 Báo Giá ${sheetLabel} — ${watt.toUpperCase()}</div><br>${tbl}
+    el.outerHTML=`<div class="stag">💰 Báo Giá ${sheetLabel} — ${watt.toUpperCase()}</div><br>${wrapTable(tbl)}
       <div class="note-box">💡 Giá chưa bao gồm VAT. Số lượng lớn có chiết khấu thêm.</div>`;
   } else {
     el.outerHTML=`<div class="stag">💰 Báo Giá ${sheetLabel} — ${watt.toUpperCase()}</div><br>
@@ -746,9 +688,6 @@ async function showPriceByWatt(sheetLabel, watt) {
   addBtns(navBtns(sheetLabel));
 }
 
-// ══════════════════════════════════════════════════════════════════
-//  LEAD FORM
-// ══════════════════════════════════════════════════════════════════
 async function saveLead(data) {
   if (!APPS_SCRIPT_URL||APPS_SCRIPT_URL.includes("YOUR_")) return false;
   try {
@@ -766,16 +705,16 @@ function showLeadForm(prefill) {
   const fid="lead-"+Date.now();
   addMsg(`
     <div class="stag">📋 Để Lại Thông Tin — Tư Vấn Miễn Phí</div><br>
-    <div id="${fid}" style="display:flex;flex-direction:column;gap:10px;margin-top:8px">
+    <div id="${fid}" style="display:flex;flex-direction:column;gap:9px;margin-top:8px">
       <input id="${fid}-name" type="text" placeholder="Họ và tên *"
-        style="padding:9px 12px;border-radius:8px;border:1px solid #334;background:#1a2230;color:#e8f0fe;font-size:13px;outline:none"/>
+        style="padding:9px 12px;border-radius:8px;border:1px solid #334;background:#1a2230;color:#e8f0fe;font-size:13px;outline:none;width:100%"/>
       <input id="${fid}-phone" type="tel" placeholder="Số điện thoại / Zalo *"
-        style="padding:9px 12px;border-radius:8px;border:1px solid #334;background:#1a2230;color:#e8f0fe;font-size:13px;outline:none"/>
-      <input id="${fid}-note" type="text" placeholder="Yêu cầu (vd: đèn pha 200W, sân tennis 2 sân...)"
+        style="padding:9px 12px;border-radius:8px;border:1px solid #334;background:#1a2230;color:#e8f0fe;font-size:13px;outline:none;width:100%"/>
+      <input id="${fid}-note" type="text" placeholder="Yêu cầu (vd: đèn pha 200W...)"
         value="${prefill||""}"
-        style="padding:9px 12px;border-radius:8px;border:1px solid #334;background:#1a2230;color:#e8f0fe;font-size:13px;outline:none"/>
+        style="padding:9px 12px;border-radius:8px;border:1px solid #334;background:#1a2230;color:#e8f0fe;font-size:13px;outline:none;width:100%"/>
       <button onclick="submitLead('${fid}')"
-        style="padding:10px;border-radius:8px;background:#f5a623;color:#0a1628;font-weight:700;font-size:13px;border:none;cursor:pointer">
+        style="padding:10px;border-radius:8px;background:#f5a623;color:#0a1628;font-weight:700;font-size:13px;border:none;cursor:pointer;width:100%">
         📨 Gửi Yêu Cầu Tư Vấn
       </button>
       <div style="font-size:11px;color:#8ab4d4;text-align:center">Thông tin bảo mật · Phản hồi trong 30 phút</div>
@@ -808,9 +747,6 @@ async function submitLead(fid) {
   addBtns([{label:"🏠 Menu chính",fn:()=>{addMsg("🏠 Menu chính","user");typing(showMenu);}}]);
 }
 
-// ══════════════════════════════════════════════════════════════════
-//  XỬ LÝ TIN NHẮN TỰ DO
-// ══════════════════════════════════════════════════════════════════
 function detectWatt(t) {
   const m=t.match(/(\d+)\s*w(?:att)?/);
   return m?m[1]+"w":null;
@@ -837,9 +773,7 @@ async function handleText(raw) {
   const t=norm(raw);
   const watt=detectWatt(t);
   const cat=detectCat(t);
-
   if (watt&&cat) { await showPriceByWatt(cat,watt); return; }
-
   if (watt&&!cat) {
     addMsg(`Bạn cần hỏi giá đèn <strong>${watt.toUpperCase()}</strong> thuộc danh mục nào? 👇`,"bot");
     addBtns(MENU_ITEMS.filter(m=>BAO_GIA_TAB[LABEL_TO_SHEET[m.label]]).map(m=>({
@@ -848,7 +782,6 @@ async function handleText(raw) {
     })));
     return;
   }
-
   if (cat) {
     const { loadId }=addLoadingBubble(`Đang tải <strong>${cat}</strong>...`);
     const csRows=await fetchSheetData("ChinhSach");
@@ -857,13 +790,11 @@ async function handleText(raw) {
     else await showProductCat(cat,loadId);
     return;
   }
-
   if (/bao ?gia|gia ?bao|gia tien|bao nhieu|cost|price|quote/.test(t)) {
     addMsg("Để báo giá chính xác, vui lòng chọn danh mục sản phẩm 👇","bot");
     addBtns(MENU_ITEMS.map(m=>({ label:m.label, cls:"cat", fn:()=>{ addMsg(m.label,"user"); typing(()=>showCat(m.label)); } })));
     return;
   }
-
   addMsg(
     "Cảm ơn bạn đã liên hệ! Vui lòng chọn danh mục hoặc gọi trực tiếp:<br>"+
     `<a class="link-card green" href="tel:0986474671"><strong>📞 Hotline: 0986.474.671</strong>Hỗ trợ 8:00–22:00 hàng ngày</a>`+
