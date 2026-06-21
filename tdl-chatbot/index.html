@@ -2,73 +2,66 @@
 <html lang="vi">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Thành Đạt LED - Tư Vấn 24/7</title>
 <style>
-*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
-html, body { width:100%; max-width:100%; overflow-x:hidden; }
+* { margin:0; padding:0; box-sizing:border-box; }
 body { font-family:'Segoe UI',Arial,sans-serif; background:#0a0a0f; color:#e8e8e8; min-height:100vh; display:flex; flex-direction:column; }
+
 .header {
   background:linear-gradient(135deg,#0d1b2a 0%,#1a2a3a 100%);
   border-bottom:2px solid #f5a623;
-  padding:10px 12px; display:flex; align-items:center; gap:10px;
+  padding:12px 20px; display:flex; align-items:center; gap:14px;
   position:sticky; top:0; z-index:100;
   box-shadow:0 2px 20px rgba(245,166,35,0.15);
-  width:100%; min-width:0;
 }
 .logo-circle {
-  width:40px; height:40px; border-radius:50%;
+  width:46px; height:46px; border-radius:50%;
   background:linear-gradient(135deg,#f5a623,#e8850a);
   display:flex; align-items:center; justify-content:center;
-  font-weight:800; font-size:13px; color:#0d1b2a; flex-shrink:0;
+  font-weight:800; font-size:14px; color:#0d1b2a; flex-shrink:0;
 }
-.header-info { flex:1; min-width:0; overflow:hidden; }
-.header-name { font-size:14px; font-weight:700; color:#f5a623; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
-.header-sub { font-size:10px; color:#8ab4d4; margin-top:2px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
-.status-wrap { display:flex; align-items:center; gap:5px; flex-shrink:0; }
+.header-info { flex:1; }
+.header-name { font-size:16px; font-weight:700; color:#f5a623; }
+.header-sub { font-size:11px; color:#8ab4d4; margin-top:2px; }
+.status-wrap { display:flex; align-items:center; gap:6px; flex-shrink:0; }
 .status-dot { width:8px; height:8px; border-radius:50%; background:#22c55e; box-shadow:0 0 6px #22c55e; animation:pulse 2s infinite; }
-.status-txt { font-size:11px; color:#22c55e; white-space:nowrap; }
+.status-txt { font-size:11px; color:#22c55e; }
 @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.5} }
-.header-contact { text-align:right; font-size:11px; color:#8ab4d4; line-height:1.8; flex-shrink:0; }
+.header-contact { text-align:right; font-size:11px; color:#8ab4d4; line-height:1.8; }
 .header-contact a { color:#f5a623; text-decoration:none; font-weight:600; }
+
 .chat-area {
-  flex:1; overflow-y:auto; overflow-x:hidden; padding:14px 12px;
-  display:flex; flex-direction:column; gap:12px;
+  flex:1; overflow-y:auto; padding:20px;
+  display:flex; flex-direction:column; gap:14px;
   max-width:800px; width:100%; margin:0 auto;
-  min-width:0;
 }
 .chat-area::-webkit-scrollbar { width:4px; }
 .chat-area::-webkit-scrollbar-thumb { background:#2a4060; border-radius:4px; }
-.msg { display:flex; gap:8px; animation:fadeIn 0.3s ease; min-width:0; width:100%; }
+
+.msg { display:flex; gap:10px; animation:fadeIn 0.3s ease; }
 @keyframes fadeIn { from{opacity:0;transform:translateY(8px)} to{opacity:1;transform:translateY(0)} }
 .msg.user { flex-direction:row-reverse; }
-.avatar { width:32px; height:32px; border-radius:50%; flex-shrink:0; display:flex; align-items:center; justify-content:center; font-size:10px; font-weight:700; }
+.avatar { width:34px; height:34px; border-radius:50%; flex-shrink:0; display:flex; align-items:center; justify-content:center; font-size:11px; font-weight:700; }
 .avatar.bot { background:linear-gradient(135deg,#f5a623,#e8850a); color:#0d1b2a; }
 .avatar.user { background:#1e3a5f; color:#8ab4d4; }
-.bubble {
-  max-width:calc(100% - 44px);
-  min-width:0;
-  padding:11px 13px; border-radius:18px; line-height:1.65; font-size:13.5px;
-  word-break:break-word; overflow-wrap:break-word;
-}
+.bubble { max-width:78%; padding:12px 16px; border-radius:18px; line-height:1.65; font-size:14px; }
 .bubble.bot { background:#132030; border:1px solid #1e3550; border-radius:4px 18px 18px 18px; color:#d8e8f0; }
 .bubble.user { background:linear-gradient(135deg,#1a4a7a,#0d3060); border-radius:18px 4px 18px 18px; color:#e8f4ff; text-align:right; }
 .bubble.bot a { color:#f5a623; }
-.bubble.bot ul { margin:4px 0 4px 16px; }
+.bubble.bot ul { margin:4px 0 4px 18px; }
 .bubble.bot li { margin:3px 0; }
 .bubble.bot strong { color:#f5a623; }
-/* Table: scroll ngang thay vì tràn */
-.bubble.bot .table-wrap { width:100%; overflow-x:auto; -webkit-overflow-scrolling:touch; margin:8px 0; }
-.bubble.bot table { width:100%; min-width:280px; border-collapse:collapse; font-size:12px; }
-.bubble.bot th { background:#0d2a3a; color:#f5a623; padding:5px 8px; text-align:left; border:1px solid #1e4a5a; font-weight:600; white-space:nowrap; }
-.bubble.bot td { padding:5px 8px; border:1px solid #1e3550; color:#c8d8e8; }
+.bubble.bot table { width:100%; border-collapse:collapse; margin:10px 0; font-size:13px; }
+.bubble.bot th { background:#0d2a3a; color:#f5a623; padding:6px 10px; text-align:left; border:1px solid #1e4a5a; font-weight:600; }
+.bubble.bot td { padding:6px 10px; border:1px solid #1e3550; color:#c8d8e8; }
 .bubble.bot tr:nth-child(even) td { background:#0d1e2e; }
-.quick-replies { display:flex; flex-wrap:wrap; gap:7px; padding:4px 0 4px 40px; width:100%; }
+
+.quick-replies { display:flex; flex-wrap:wrap; gap:8px; padding:4px 0 4px 44px; }
 .qr-btn {
-  padding:7px 12px; border-radius:20px; font-size:12.5px; cursor:pointer;
+  padding:7px 14px; border-radius:20px; font-size:13px; cursor:pointer;
   border:1px solid #2a4a6a; background:#0d1b2a; color:#8ab4d4;
   transition:all 0.2s; white-space:nowrap; line-height:1.3;
-  max-width:100%;
 }
 .qr-btn:hover { background:#f5a623; border-color:#f5a623; color:#0d1b2a; font-weight:600; }
 .qr-btn.cat { border-color:#f5a623; color:#f5a623; font-weight:600; }
@@ -77,19 +70,20 @@ body { font-family:'Segoe UI',Arial,sans-serif; background:#0a0a0f; color:#e8e8e
 .qr-btn.green:hover { background:#22c55e; color:#0d1b2a; }
 .qr-btn.hot { border-color:#f5a623; background:rgba(245,166,35,0.1); color:#f5a623; font-weight:600; }
 .qr-btn.hot:hover { background:#f5a623; color:#0d1b2a; }
+
 .input-wrap-outer { max-width:800px; width:100%; margin:0 auto; }
-.input-area { background:#0d1420; border-top:1px solid #1e3550; padding:10px 12px; display:flex; gap:8px; align-items:flex-end; width:100%; }
-.input-inner { flex:1; min-width:0; }
+.input-area { background:#0d1420; border-top:1px solid #1e3550; padding:12px 20px; display:flex; gap:10px; align-items:flex-end; }
+.input-inner { flex:1; }
 #userInput {
-  width:100%; padding:10px 14px; border-radius:24px;
+  width:100%; padding:11px 16px; border-radius:24px;
   background:#132030; border:1px solid #2a4a6a; color:#d8e8f0;
   font-size:14px; resize:none; outline:none; font-family:inherit; line-height:1.5;
-  transition:border-color 0.2s; display:block;
+  transition:border-color 0.2s;
 }
 #userInput:focus { border-color:#f5a623; }
 #userInput::placeholder { color:#4a6a8a; }
 #sendBtn {
-  width:42px; height:42px; border-radius:50%;
+  width:44px; height:44px; border-radius:50%;
   background:linear-gradient(135deg,#f5a623,#e8850a);
   border:none; cursor:pointer; flex-shrink:0;
   display:flex; align-items:center; justify-content:center;
@@ -98,48 +92,48 @@ body { font-family:'Segoe UI',Arial,sans-serif; background:#0a0a0f; color:#e8e8e
 #sendBtn:hover { transform:scale(1.08); }
 #sendBtn:active { transform:scale(0.95); }
 #sendBtn svg { width:18px; height:18px; fill:#0d1b2a; }
-.typing { display:flex; gap:4px; align-items:center; padding:12px 14px; }
+
+.typing { display:flex; gap:4px; align-items:center; padding:14px 16px; }
 .typing span { width:7px; height:7px; border-radius:50%; background:#4a7a9b; animation:bounce 1.2s infinite; }
 .typing span:nth-child(2) { animation-delay:0.2s; }
 .typing span:nth-child(3) { animation-delay:0.4s; }
 @keyframes bounce { 0%,60%,100%{transform:translateY(0)} 30%{transform:translateY(-6px)} }
+
 .link-card {
-  display:block; margin-top:10px; padding:9px 12px;
+  display:block; margin-top:10px; padding:10px 14px;
   background:#0d2a3a; border:1px solid #1e4a5a;
   border-left:3px solid #f5a623; border-radius:0 6px 6px 0;
-  text-decoration:none; color:#8ab4d4; font-size:12.5px;
-  transition:background 0.2s; word-break:break-all;
+  text-decoration:none; color:#8ab4d4; font-size:13px;
+  transition:background 0.2s;
 }
 .link-card:hover { background:#132a3a; }
 .link-card strong { color:#f5a623; display:block; margin-bottom:2px; }
 .link-card.green { border-left-color:#22c55e; }
 .link-card.green strong { color:#22c55e; }
+
 .stag {
-  display:inline-block; padding:2px 9px; border-radius:12px;
+  display:inline-block; padding:3px 10px; border-radius:12px;
   background:rgba(245,166,35,0.15); color:#f5a623;
-  font-size:11px; font-weight:600; margin-bottom:6px;
+  font-size:11px; font-weight:600; margin-bottom:8px;
   text-transform:uppercase; letter-spacing:0.5px;
 }
 .note-box {
-  margin-top:8px; padding:8px 11px;
+  margin-top:10px; padding:9px 13px;
   background:rgba(245,166,35,0.08); border:1px solid rgba(245,166,35,0.25);
-  border-radius:6px; font-size:12px; color:#c8b87a; line-height:1.6;
+  border-radius:6px; font-size:12.5px; color:#c8b87a; line-height:1.6;
 }
-/* Desktop */
-@media (min-width:601px) {
-  .header { padding:12px 20px; gap:14px; }
-  .logo-circle { width:46px; height:46px; font-size:14px; }
-  .header-name { font-size:16px; }
-  .bubble { max-width:78%; font-size:14px; }
-  .quick-replies { padding-left:44px; }
-  .input-area { padding:12px 20px; }
-  .chat-area { padding:20px; gap:14px; }
-  .bubble.bot table { font-size:13px; }
-  .bubble.bot th,.bubble.bot td { padding:6px 10px; }
-}
-/* Mobile */
+
 @media (max-width:600px) {
+  .header { padding:10px 14px; gap:10px; }
+  .logo-circle { width:38px; height:38px; font-size:12px; }
+  .header-name { font-size:14px; }
   .header-contact,.status-txt { display:none; }
+  .chat-area { padding:12px; gap:12px; }
+  .bubble { max-width:88%; font-size:13.5px; }
+  .quick-replies { padding-left:0; }
+  .input-area { padding:10px 12px; }
+  .bubble.bot table { font-size:12px; }
+  .bubble.bot th,.bubble.bot td { padding:5px 7px; }
 }
 </style>
 </head>
@@ -149,7 +143,7 @@ body { font-family:'Segoe UI',Arial,sans-serif; background:#0a0a0f; color:#e8e8e
   <div class="logo-circle">TDL</div>
   <div class="header-info">
     <div class="header-name">Thành Đạt LED — Tư Vấn 24/7</div>
-    <div class="header-sub">938 Quang Trung, Yên Nghĩa, Hà Đông, Hà Nội</div>
+    <div class="header-sub">938 Quang Trung, Yên Nghĩa, Hà Đông, Hà Nội &nbsp;|&nbsp; thanhdatled.com</div>
   </div>
   <div class="status-wrap">
     <div class="status-dot"></div>
@@ -175,85 +169,83 @@ body { font-family:'Segoe UI',Arial,sans-serif; background:#0a0a0f; color:#e8e8e
 </div>
 
 <script>
-const SHEET_ID        = "1SLHuE9nLNpxwlwAjW_y1FQEtJhwqw8s1l7NjqHVr6Eg";
+// ══════════════════════════════════════════════════════════════════
+//  CẤU HÌNH — CHỈ CẦN SỬA PHẦN NÀY
+// ══════════════════════════════════════════════════════════════════
+const SHEET_ID = "1SLHuE9nLNpxwlwAjW_y1FQEtJhwqw8s1l7NjqHVr6Eg";
 const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyGT7JU5-JnWw4lNgfglqMbOqqoDc0GHXVsWdCPQlBZpRhYVdpiyLBywfmIY8rDKIkl/exec";
 
+// GID của từng tab — lấy từ URL khi click vào tab trong Sheet
 const TAB_GID = {
   ChinhSach:  "0",
-  ThongSoDen: "606273873",
-  DenPha:     "890151671",
-  DenDuong:   "1046671824",
-  NhaXuong:   "1561603537",
-  SanTheThao: "141301098",
-  SanVuon:    "1171981915",
-  BaoGia:     "1215299338",
+  ThongSoDen: "606273873",   // Tab thông số kỹ thuật tất cả đèn
+  DenPha:     "890151671",   // Tab báo giá đèn pha
+  DenDuong:   "1046671824",  // Tab báo giá đèn đường
+  NhaXuong:   "1561603537",  // Tab báo giá nhà xưởng
+  SanTheThao: "141301098",   // Tab báo giá sân thể thao
+  SanVuon:    "1171981915",  // Tab báo giá sân vườn
+  BaoGia:     "1215299338",  // Tab báo giá tổng (Lead form)
 };
 
+// Website sản phẩm
 const WP = {
-  "Đèn Pha LED":       "https://thanhdatled.com/den-pha-led/",
-  "Đèn Đường LED":     "https://thanhdatled.com/den-duong-led/",
-  "Đèn Nhà Xưởng LED": "https://thanhdatled.com/den-nha-xuong-led/",
-  "Đèn Sân Vườn LED":  "https://thanhdatled.com/den-san-vuon/",
-  "Sân Tennis":        "https://thanhdatled.com/san-tennis/",
-  "Sân Cầu Lông":      "https://thanhdatled.com/san-cau-long/",
-  "Sân Bóng Chuyền":   "https://thanhdatled.com/san-bong-chuyen/",
-  "Sân Pickleball":    "https://thanhdatled.com/san-pickleball/",
-  "Sân Bóng Đá":       "https://thanhdatled.com/san-bong-da/",
+  "Đèn Pha LED":    "https://thanhdatled.com/den-pha-led/",
+  "Đèn Đường LED":  "https://thanhdatled.com/den-duong-led/",
+  "Nhà Xưởng":      "https://thanhdatled.com/den-nha-xuong-led/",
+  "Sân Vườn":       "https://thanhdatled.com/den-san-vuon/",
+  "Sân Tennis":     "https://thanhdatled.com/san-tennis/",
+  "Sân Cầu Lông":   "https://thanhdatled.com/san-cau-long/",
+  "Sân Bóng Chuyền":"https://thanhdatled.com/san-bong-chuyen/",
+  "Sân Pickleball": "https://thanhdatled.com/san-pickleball/",
+  "Sân Bóng Đá":    "https://thanhdatled.com/san-bong-da/",
 };
 
+// Tab báo giá theo danh mục (dùng tên Sheet thật)
 const BAO_GIA_TAB = {
-  "Đèn Pha LED":       "DenPha",
-  "Đèn Đường LED":     "DenDuong",
-  "Đèn Nhà Xưởng LED": "NhaXuong",
-  "Đèn Sân Vườn LED":  "SanVuon",
-  "Sân Tennis":        "SanTheThao",
-  "Sân Cầu Lông":      "SanTheThao",
-  "Sân Bóng Chuyền":   "SanTheThao",
-  "Sân Pickleball":    "SanTheThao",
-  "Sân Bóng Đá":       "SanTheThao",
+  "Đèn Pha LED":    "DenPha",
+  "Đèn Đường LED":  "DenDuong",
+  "Nhà Xưởng":      "NhaXuong",
+  "Sân Vườn":       "SanVuon",
+  "Sân Tennis":     "SanTheThao",
+  "Sân Cầu Lông":   "SanTheThao",
+  "Sân Bóng Chuyền":"SanTheThao",
+  "Sân Pickleball": "SanTheThao",
+  "Sân Bóng Đá":    "SanTheThao",
 };
 
+// ══════════════════════════════════════════════════════════════════
+//  MAP: Nhãn menu (có emoji) → Tên danh mục trong Sheet
+// ══════════════════════════════════════════════════════════════════
 const LABEL_TO_SHEET = {
-  "📋 Chính Sách & Dịch Vụ": "Chính Sách & Dịch Vụ",
-  "💡 Đèn Pha LED":           "Đèn Pha LED",
-  "🛣️ Đèn Đường LED":         "Đèn Đường LED",
-  "🏭 Đèn Nhà Xưởng":         "Đèn Nhà Xưởng LED",
-  "🌿 Đèn Sân Vườn":          "Đèn Sân Vườn LED",
-  "🎾 Sân Tennis":            "Sân Tennis",
-  "🏸 Sân Cầu Lông":          "Sân Cầu Lông",
-  "🏐 Sân Bóng Chuyền":       "Sân Bóng Chuyền",
-  "🏓 Sân Pickleball":        "Sân Pickleball",
-  "⚽ Sân Bóng Đá":           "Sân Bóng Đá",
+  '📋 Chính Sách & Dịch Vụ': 'Chính Sách & Dịch Vụ',
+  '💡 Đèn Pha LED':           'Đèn Pha LED',
+  '🛣️ Đèn Đường LED':         'Đèn Đường LED',
+  '🏭 Đèn Nhà Xưởng':         'Nhà Xưởng',
+  '🌿 Đèn Sân Vườn':          'Sân Vườn',
+  '🎾 Sân Tennis':            'Sân Tennis',
+  '🏸 Sân Cầu Lông':          'Sân Cầu Lông',
+  '🏐 Sân Bóng Chuyền':       'Sân Bóng Chuyền',
+  '🏓 Sân Pickleball':        'Sân Pickleball',
+  '⚽ Sân Bóng Đá':           'Sân Bóng Đá',
 };
 
-const MENU_ITEMS = [
-  { label:"📋 Chính Sách & Dịch Vụ" },
-  { label:"💡 Đèn Pha LED" },
-  { label:"🛣️ Đèn Đường LED" },
-  { label:"🏭 Đèn Nhà Xưởng" },
-  { label:"🌿 Đèn Sân Vườn" },
-  { label:"🎾 Sân Tennis" },
-  { label:"🏸 Sân Cầu Lông" },
-  { label:"🏐 Sân Bóng Chuyền" },
-  { label:"🏓 Sân Pickleball" },
-  { label:"⚽ Sân Bóng Đá" },
-];
-
+// ── Helpers Sheet URL ──
 const csvUrl = (tabName) => {
   const gid = TAB_GID[tabName];
   if (!gid) return null;
   return `https://docs.google.com/spreadsheets/d/${SHEET_ID}/export?format=csv&gid=${gid}`;
 };
 const sheetEditUrl = (tabName) =>
-  `https://docs.google.com/spreadsheets/d/${SHEET_ID}/edit#gid=${TAB_GID[tabName]||0}`;
+  `https://docs.google.com/spreadsheets/d/${SHEET_ID}/edit#gid=${TAB_GID[tabName] || 0}`;
 
+// ── Cache ──
 const sheetCache = {};
 async function fetchSheetData(tabName) {
   if (sheetCache[tabName]) return sheetCache[tabName];
   const url = csvUrl(tabName);
   if (!url) return null;
   try {
-    const resp = await fetch(url, { redirect:"follow" });
+    const resp = await fetch(url, { redirect:'follow' });
     if (!resp.ok) throw new Error("HTTP " + resp.status);
     const text = await resp.text();
     const rows = parseCSV(text);
@@ -265,6 +257,7 @@ async function fetchSheetData(tabName) {
   }
 }
 
+// ── CSV Parser ──
 function parseCSV(text) {
   const lines = [];
   let cur=[], cell="", inQ=false;
@@ -283,209 +276,178 @@ function parseCSV(text) {
   if (cell||cur.length) { cur.push(cell.trim()); if(cur.some(x=>x)) lines.push(cur); }
   if (!lines.length) return [];
   const headers = lines[0];
-  return lines.slice(1).map(row=>{
+  return lines.slice(1).map(row => {
     const obj={};
     headers.forEach((h,i)=>{ obj[h]=row[i]||""; });
     return obj;
   });
 }
 
-// Bọc bảng trong div scroll để không tràn ngang
-function wrapTable(tableHtml) {
-  return `<div class="table-wrap">${tableHtml}</div>`;
-}
-
+// ══════════════════════════════════════════════════════════════════
+//  BUILD HTML TỪ SHEET
+//  Cột: Danh mục | Câu hỏi | Loại | Nội dung | Chi tiết
+//  Loại: title | subtitle | list | note | table_header | table_row
+// ══════════════════════════════════════════════════════════════════
 function buildHtmlFromRows(matched) {
-  if (!matched||!matched.length) return null;
-  let html="", inTable=false, tableHeaders=[], prevWasList=false, tableRows="";
+  if (!matched || !matched.length) return null;
+  let html = '';
+  let inTable = false;
+  let tableHeaders = [];
+  let prevWasList = false;
 
-  matched.forEach(r=>{
-    const loai    = (r["Loại"]||r["Loai"]||"list").trim().toLowerCase();
-    const noidung = (r["Nội dung"]||r["Noi dung"]||"").trim();
-    const chitiet = (r["Chi tiết"]||r["Chi tiet"]||"").trim();
-    const ghichu  = (r["Ghi chú"]||r["Ghi chu"]||"").trim();
+  matched.forEach((r) => {
+    const loai    = (r['Loại']||r['Loai']||'list').trim().toLowerCase();
+    const noidung = (r['Nội dung']||r['Noi dung']||'').trim();
+    const chitiet = (r['Chi tiết']||r['Chi tiet']||'').trim();
 
-    if (inTable && loai!=="table_row") {
-      tableRows+="</table>";
-      html+=wrapTable(tableRows);
-      tableRows=""; inTable=false; tableHeaders=[];
+    if (inTable && loai !== 'table_row') {
+      html += '</table>';
+      inTable = false;
+      tableHeaders = [];
     }
 
     switch(loai) {
-      case "title":
-        if (prevWasList) { html+="</ul>"; prevWasList=false; }
-        html+=`<br><strong style="color:#f5a623;font-size:14px">${noidung}</strong><br>`;
+      case 'title':
+        if (prevWasList) html += '</ul>';
+        prevWasList = false;
+        html += `<br><strong style="color:#f5a623;font-size:14px">${noidung}</strong><br>`;
         break;
-      case "subtitle":
-        if (prevWasList) { html+="</ul>"; prevWasList=false; }
-        html+=`<br><strong style="color:#d8e8f0">${noidung}</strong>`;
-        if (chitiet) html+=` <span style="color:#8ab4d4;font-size:12px">${chitiet}</span>`;
-        html+="<br>";
+
+      case 'subtitle':
+        if (prevWasList) html += '</ul>';
+        prevWasList = false;
+        html += `<br><strong style="color:#d8e8f0">${noidung}</strong>`;
+        if (chitiet) html += ` <span style="color:#8ab4d4;font-size:12px">${chitiet}</span>`;
+        html += '<br>';
         break;
-      case "list":
-        if (!prevWasList) { html+="<ul>"; prevWasList=true; }
-        html+="<li>";
-        if (chitiet) html+=`<strong>${noidung}</strong> — ${chitiet}`;
-        else html+=noidung;
-        html+="</li>";
+
+      case 'list':
+        if (!prevWasList) { html += '<ul>'; prevWasList = true; }
+        html += `<li>`;
+        if (chitiet) html += `<strong>${noidung}</strong> — ${chitiet}`;
+        else html += noidung;
+        html += `</li>`;
         break;
-      case "note":
-        if (prevWasList) { html+="</ul>"; prevWasList=false; }
-        html+=`<div class="note-box">📌 <strong>${noidung}:</strong> ${chitiet}</div>`;
+
+      case 'note':
+        if (prevWasList) { html += '</ul>'; prevWasList = false; }
+        html += `<div class="note-box">📌 <strong>${noidung}:</strong> ${chitiet}</div>`;
         break;
-      case "table_header":
-        if (prevWasList) { html+="</ul>"; prevWasList=false; }
-        tableHeaders=noidung.split("|").map(s=>s.trim());
-        tableRows="<table><tr>";
-        tableHeaders.forEach(h=>{ tableRows+=`<th>${h}</th>`; });
-        tableRows+="</tr>";
-        inTable=true;
+
+      case 'table_header':
+        if (prevWasList) { html += '</ul>'; prevWasList = false; }
+        tableHeaders = noidung.split('|').map(s=>s.trim());
+        html += '<table><tr>';
+        tableHeaders.forEach(h=>{ html += `<th>${h}</th>`; });
+        html += '</tr>';
+        inTable = true;
         break;
-      case "table_row":
-        if (!inTable) { tableRows="<table>"; inTable=true; }
+
+      case 'table_row':
+        if (!inTable) { html += '<table>'; inTable = true; }
         let cells;
-        if (noidung.includes("|")) {
-          cells=noidung.split("|").map(s=>s.trim());
+        if (noidung.includes('|')) {
+          cells = noidung.split('|').map(s=>s.trim());
         } else {
-          cells=[noidung,chitiet].filter(x=>x!=="");
+          cells = [noidung, chitiet].filter(x=>x!=='');
+          const ghichu = (r['Ghi chú']||r['Ghi chu']||'').trim();
           if (ghichu) cells.push(ghichu);
         }
-        tableRows+="<tr>";
+        html += '<tr>';
         cells.forEach((c,i)=>{
-          const isPrice=tableHeaders[i]&&/giá|price|đơn giá/i.test(tableHeaders[i]);
-          tableRows+=`<td${isPrice?" style=\"color:#f5a623;font-weight:700\"":""}>${c}</td>`;
+          const isPrice = tableHeaders[i] && /giá|price|đơn giá/i.test(tableHeaders[i]);
+          html += `<td${isPrice?' style="color:#f5a623;font-weight:700"':''}>${c}</td>`;
         });
-        tableRows+="</tr>";
+        html += '</tr>';
         break;
     }
   });
 
-  if (prevWasList) html+="</ul>";
-  if (inTable) { tableRows+="</table>"; html+=wrapTable(tableRows); }
-  return html||null;
+  if (prevWasList) html += '</ul>';
+  if (inTable) html += '</table>';
+  return html || null;
 }
 
-function fixDriveUrl(url) {
-  if (!url) return null;
-  // Google Drive: thử nhiều dạng URL khác nhau
-  const m = url.match(/\/d\/([a-zA-Z0-9_-]+)/);
-  if (m) {
-    const id = m[1];
-    // Thử lần lượt: uc?export=download → uc?id= → thumbnail
-    return `https://lh3.googleusercontent.com/d/${id}`;
-  }
-  const m2 = url.match(/[?&]id=([a-zA-Z0-9_-]+)/);
-  if (m2) return `https://lh3.googleusercontent.com/d/${m2[1]}`;
-  // Không phải Drive → trả nguyên link (website bình thường load được)
-  return url;
-}
-
+// ══════════════════════════════════════════════════════════════════
+//  RENDER BẢNG BÁO GIÁ
+// ══════════════════════════════════════════════════════════════════
 function renderPriceTable(rows, highlightCol) {
   if (!rows||!rows.length) return "<em>Chưa có dữ liệu</em>";
-  const allKeys = Object.keys(rows[0]);
-  // Bỏ cột Danh mục khỏi hiển thị
-  const skipKeys = k => /^danh.?m[uụ]c$/i.test(k.trim());
-  // Tìm cột ảnh
-  const imgKey = allKeys.find(k => /^(ảnh|anh|hình|hinh|image|img|photo)$/i.test(k.trim()));
-  const keys = allKeys.filter(k => !skipKeys(k) && k !== imgKey);
-
-  // Nếu có cột ảnh → render dạng card
-  if (imgKey) {
-    let html = `<div style="display:flex;flex-direction:column;gap:10px;margin:6px 0">`;
-    rows.forEach(row => {
-      const rawImg = (row[imgKey]||"").trim();
-      // fixDriveUrl trả null nếu không xử lý được, fallback dùng rawImg
-      const imgUrl = rawImg ? (fixDriveUrl(rawImg) || rawImg) : null;
-      const priceKey = keys.find(k => /đơn giá|don gia|price|giá/i.test(k));
-      const nameKey  = keys.find(k => /tên|ten|model|sản phẩm|san pham|loại|loai/i.test(k)) || keys[0];
-      html += `<div style="display:flex;gap:10px;background:#0d2030;border:1px solid #1e3550;border-radius:10px;overflow:hidden;align-items:stretch">`;
-      if (imgUrl) {
-        html += `<div style="flex-shrink:0;width:90px;min-height:80px;background:#091520;display:flex;align-items:center;justify-content:center;overflow:hidden">
-          <img src="${imgUrl}" alt="${row[nameKey]||''}"
-            style="width:90px;height:90px;object-fit:contain;display:block"
-            onerror="this.style.display='none'"
-          />
-        </div>`;
-      }
-      html += `<div style="flex:1;padding:10px 12px;min-width:0">`;
-      keys.forEach(k => {
-        const v = (row[k]||"").trim();
-        if (!v) return;
-        const isPrice = k === priceKey;
-        const isName  = k === nameKey;
-        if (isName) {
-          html += `<div style="font-weight:700;font-size:13.5px;color:#d8e8f0;margin-bottom:4px">${v}</div>`;
-        } else if (isPrice) {
-          html += `<div style="color:#f5a623;font-weight:700;font-size:14px;margin:3px 0">${v}</div>`;
-        } else {
-          html += `<div style="font-size:12px;color:#8ab4d4;margin:1px 0"><span style="color:#6a8aaa">${k}:</span> ${v}</div>`;
-        }
-      });
-      html += `</div></div>`;
-    });
-    html += `</div>`;
-    return html;
-  }
-
-  // Không có ảnh → bảng thông thường
-  let tbl=`<table><tr>${keys.map(k=>`<th>${k}</th>`).join("")}</tr>`;
+  const keys = Object.keys(rows[0]);
+  let html = `<table><tr>${keys.map(k=>`<th>${k}</th>`).join('')}</tr>`;
   rows.forEach(row=>{
-    tbl+=`<tr>${keys.map(k=>{
-      const v=row[k]||"";
-      const isHL=highlightCol&&k===highlightCol;
-      return `<td${isHL?" style=\"color:#f5a623;font-weight:700\"":""}>${v}</td>`;
-    }).join("")}</tr>`;
+    html += `<tr>${keys.map(k=>{
+      const v=row[k]||'';
+      const isHL = highlightCol && k===highlightCol;
+      return `<td${isHL?' style="color:#f5a623;font-weight:700"':''}>${v}</td>`;
+    }).join('')}</tr>`;
   });
-  tbl+="</table>";
-  return wrapTable(tbl);
+  html += '</table>';
+  return html;
 }
 
+// ── Chuẩn hoá tiếng Việt để tìm kiếm ──
 function norm(s) {
-  return (s||"").toLowerCase()
-    .replace(/đ/g,"d")
-    .replace(/[áàảãạăắằẳẵặâấầẩẫậ]/g,"a")
-    .replace(/[éèẻẽẹêếềểễệ]/g,"e")
-    .replace(/[íìỉĩị]/g,"i")
-    .replace(/[óòỏõọôốồổỗộơớờởỡợ]/g,"o")
-    .replace(/[úùủũụưứừửữự]/g,"u")
-    .replace(/[ýỳỷỹỵ]/g,"y");
+  return (s||'').toLowerCase()
+    .replace(/đ/g,'d')
+    .replace(/[áàảãạăắằẳẵặâấầẩẫậ]/g,'a')
+    .replace(/[éèẻẽẹêếềểễệ]/g,'e')
+    .replace(/[íìỉĩị]/g,'i')
+    .replace(/[óòỏõọôốồổỗộơớờởỡợ]/g,'o')
+    .replace(/[úùủũụưứừửữự]/g,'u')
+    .replace(/[ýỳỷỹỵ]/g,'y');
 }
 
-const chatArea = document.getElementById("chatArea");
+// ══════════════════════════════════════════════════════════════════
+//  UI HELPERS
+// ══════════════════════════════════════════════════════════════════
+const chatArea = document.getElementById('chatArea');
 let busy = false;
 
-function scrollBot() { chatArea.scrollTop=chatArea.scrollHeight; }
+function scrollBot() { chatArea.scrollTop = chatArea.scrollHeight; }
 
-function addMsg(html, type) {
-  const row=document.createElement("div"); row.className="msg "+type;
-  const av=document.createElement("div"); av.className="avatar "+type;
-  av.textContent=type==="bot"?"TDL":"Bạn";
-  const bub=document.createElement("div"); bub.className="bubble "+type;
-  bub.innerHTML=html;
+function addMsg(html, type, btns=[]) {
+  const row = document.createElement('div');
+  row.className = 'msg '+type;
+  const av = document.createElement('div');
+  av.className = 'avatar '+type;
+  av.textContent = type==='bot'?'TDL':'Bạn';
+  const bub = document.createElement('div');
+  bub.className = 'bubble '+type;
+  bub.innerHTML = html;
   row.appendChild(av); row.appendChild(bub);
-  chatArea.appendChild(row); scrollBot();
+  chatArea.appendChild(row);
+  if (btns.length) addBtns(btns);
+  scrollBot();
   return bub;
 }
 
 function addBtns(btns) {
-  const qr=document.createElement("div"); qr.className="quick-replies";
+  const qr = document.createElement('div');
+  qr.className = 'quick-replies';
   btns.forEach(b=>{
-    const el=document.createElement("button");
-    el.className="qr-btn"+(b.cls?" "+b.cls:"");
-    el.textContent=b.label;
-    el.onclick=()=>{ qr.remove(); b.fn(); };
+    const el = document.createElement('button');
+    el.className = 'qr-btn'+(b.cls?' '+b.cls:'');
+    el.textContent = b.label;
+    el.onclick = ()=>{ qr.remove(); b.fn(); };
     qr.appendChild(el);
   });
-  chatArea.appendChild(qr); scrollBot();
+  chatArea.appendChild(qr);
+  scrollBot();
   return qr;
 }
 
+function wait(ms) { return new Promise(r=>setTimeout(r,ms)); }
+
 function addLoadingBubble(msg) {
-  const loadId="load-"+Date.now();
-  const row=document.createElement("div"); row.className="msg bot";
-  const av=document.createElement("div"); av.className="avatar bot"; av.textContent="TDL";
-  const bub=document.createElement("div"); bub.className="bubble bot";
-  bub.innerHTML=`<span id="${loadId}">⏳ ${msg||"Đang tải..."}</span>`;
+  const loadId = 'load-'+Date.now();
+  const row = document.createElement('div');
+  row.className = 'msg bot';
+  const av = document.createElement('div');
+  av.className = 'avatar bot'; av.textContent='TDL';
+  const bub = document.createElement('div');
+  bub.className = 'bubble bot';
+  bub.innerHTML = `<span id="${loadId}">⏳ ${msg||'Đang tải...'}</span>`;
   row.appendChild(av); row.appendChild(bub);
   chatArea.appendChild(row); scrollBot();
   return { loadId, bub };
@@ -493,211 +455,315 @@ function addLoadingBubble(msg) {
 
 function typing(fn) {
   return new Promise(res=>{
-    const row=document.createElement("div");
-    row.className="msg bot"; row.id="tdl-typing";
-    const av=document.createElement("div"); av.className="avatar bot"; av.textContent="TDL";
-    const bub=document.createElement("div"); bub.className="bubble bot";
-    bub.innerHTML="<div class=\"typing\"><span></span><span></span><span></span></div>";
+    const row=document.createElement('div');
+    row.className='msg bot'; row.id='tdl-typing';
+    const av=document.createElement('div');
+    av.className='avatar bot'; av.textContent='TDL';
+    const bub=document.createElement('div');
+    bub.className='bubble bot';
+    bub.innerHTML='<div class="typing"><span></span><span></span><span></span></div>';
     row.appendChild(av); row.appendChild(bub);
     chatArea.appendChild(row); scrollBot();
     setTimeout(()=>{
-      document.getElementById("tdl-typing")?.remove();
+      document.getElementById('tdl-typing')?.remove();
       fn(); res();
     }, 700+Math.random()*500);
   });
 }
 
+// navBtns nhận sheetLabel (tên Sheet thật), tìm lại displayLabel (có emoji) để hiển thị
 function navBtns(sheetLabel) {
-  const displayLabel=Object.entries(LABEL_TO_SHEET).find(([k,v])=>v===sheetLabel)?.[0]||sheetLabel;
+  const displayLabel = Object.entries(LABEL_TO_SHEET).find(([k,v]) => v === sheetLabel)?.[0] || sheetLabel;
   return [
-    { label:"📞 Gọi ngay tư vấn", cls:"green", fn:()=>window.open("tel:0986474671") },
-    { label:"⬅️ Câu hỏi khác", cls:"cat", fn:()=>{ addMsg(displayLabel,"user"); typing(()=>showCat(displayLabel)); } },
-    { label:"🏠 Menu chính", fn:()=>{ addMsg("🏠 Menu chính","user"); typing(showMenu); } },
+    { label:'📞 Gọi ngay tư vấn', cls:'green', fn:()=>window.open('tel:0986474671') },
+    { label:'⬅️ Câu hỏi khác', cls:'cat', fn:()=>{ addMsg(displayLabel,'user'); typing(()=>showCat(displayLabel)); } },
+    { label:'🏠 Menu chính', fn:()=>{ addMsg('🏠 Menu chính','user'); typing(showMenu); } },
   ];
 }
 
-function showMenu() {
+// ══════════════════════════════════════════════════════════════════
+//  MENU CHÍNH — cố định, hiện ngay không cần chờ Sheet
+// ══════════════════════════════════════════════════════════════════
+const MENU_ITEMS = [
+  { label:'📋 Chính Sách & Dịch Vụ' },
+  { label:'💡 Đèn Pha LED' },
+  { label:'🛣️ Đèn Đường LED' },
+  { label:'🏭 Đèn Nhà Xưởng' },
+  { label:'🌿 Đèn Sân Vườn' },
+  { label:'🎾 Sân Tennis' },
+  { label:'🏸 Sân Cầu Lông' },
+  { label:'🏐 Sân Bóng Chuyền' },
+  { label:'🏓 Sân Pickleball' },
+  { label:'⚽ Sân Bóng Đá' },
+];
+
+async function debugSheet() {
+  const { loadId } = addLoadingBubble('Đang đọc dữ liệu Sheet...');
+  const [csRows, tsRows] = await Promise.all([
+    fetchSheetData('ChinhSach'),
+    fetchSheetData('ThongSoDen'),
+  ]);
+  const el = document.getElementById(loadId);
+  if (!el) return;
+
+  const csCats = getActualCats(csRows);
+  const tsCats = getActualCats(tsRows);
+
+  el.outerHTML = `
+    <div class="stag">🔍 DEBUG — Tên danh mục thực tế trong Sheet</div><br>
+    <strong style="color:#f5a623">Tab ChinhSach (GID 0):</strong><br>
+    ${csCats.length ? csCats.map(c=>`• <code style="color:#22c55e">${c}</code>`).join('<br>') : '<em style="color:#f55">Không đọc được / trống</em>'}<br><br>
+    <strong style="color:#f5a623">Tab ThongSoDen (GID 606273873):</strong><br>
+    ${tsCats.length ? tsCats.map(c=>`• <code style="color:#22c55e">${c}</code>`).join('<br>') : '<em style="color:#f55">Không đọc được / trống</em>'}
+  `;
+  scrollBot();
+  addBtns([{ label:'🏠 Menu chính', fn:()=>{ addMsg('🏠 Menu chính','user'); typing(showMenu); } }]);
+}
+
+async function showMenu() {
   addMsg(
-    "<div class=\"stag\">Tư vấn 24/7</div><br>Xin chào! Tôi là nhân viên tư vấn <strong>Thành Đạt LED</strong>.<br>Chip LED Bridgelux/Philips · Nguồn Done/Philips · Bảo hành 3 năm<br><br>Chọn danh mục cần hỗ trợ 👇",
-    "bot"
+    '<div class="stag">Tư vấn 24/7</div><br>Xin chào! Tôi là nhân viên tư vấn <strong>Thành Đạt LED</strong>.<br>Chip LED Bridgelux/Philips · Nguồn Done/Philips · Bảo hành 3 năm<br><br>Chọn danh mục cần hỗ trợ 👇',
+    'bot'
   );
+
   addBtns([
-    ...MENU_ITEMS.map(m=>({
-      label:m.label, cls:"cat",
-      fn:()=>{ addMsg(m.label,"user"); typing(()=>showCat(m.label)); }
+    ...MENU_ITEMS.map(m => ({
+      label: m.label,
+      cls: 'cat',
+      fn: () => { addMsg(m.label, 'user'); typing(() => showCat(m.label)); }
     })),
     {
-      label:"📋 Để lại thông tin báo giá", cls:"hot",
-      fn:()=>{ addMsg("📋 Để lại thông tin báo giá","user"); typing(()=>showLeadForm("")); }
+      label: '📋 Để lại thông tin báo giá',
+      cls: 'hot',
+      fn: () => { addMsg('📋 Để lại thông tin báo giá', 'user'); typing(() => showLeadForm('')); }
     }
   ]);
+}
+
+// ══════════════════════════════════════════════════════════════════
+//  SHOW CATEGORY — map emoji label → tên Sheet, rồi load nội dung
+// ══════════════════════════════════════════════════════════════════
+// Lấy tất cả tên danh mục thực tế trong rows
+function getActualCats(rows) {
+  if (!rows || !rows.length) return [];
+  return [...new Set(rows.map(r =>
+    (r['Danh mục'] || r['Danh muc'] || '').trim()
+  ).filter(Boolean))];
+}
+
+// Fuzzy match: tìm tên thật trong Sheet gần với candidate nhất
+function fuzzyMatch(candidate, actualCats) {
+  if (!candidate || !actualCats.length) return null;
+  // 1. Khớp chính xác
+  if (actualCats.includes(candidate)) return candidate;
+  // 2. Khớp không phân biệt hoa thường / dấu
+  const nc = norm(candidate);
+  for (const a of actualCats) {
+    if (norm(a) === nc) return a;
+  }
+  // 3. Khớp một phần
+  for (const a of actualCats) {
+    const na = norm(a);
+    if (na.includes(nc) || nc.includes(na)) return a;
+  }
+  return null;
 }
 
 async function showCat(catLabel) {
-  const sheetLabel = LABEL_TO_SHEET[catLabel] || catLabel;
-  if (norm(sheetLabel).includes("chinh") && norm(sheetLabel).includes("sach")) {
-    const { loadId } = addLoadingBubble("Đang tải danh sách chính sách...");
-    await showPolicyMenu(loadId);
-    return;
+  const preferred = LABEL_TO_SHEET[catLabel] || catLabel;
+  const { loadId } = addLoadingBubble(`Đang tải <strong>${preferred}</strong>...`);
+
+  // Đọc song song cả 2 sheet
+  const [csRows, tsRows] = await Promise.all([
+    fetchSheetData('ChinhSach'),
+    fetchSheetData('ThongSoDen'),
+  ]);
+
+  const csCats = getActualCats(csRows);
+  const tsCats = getActualCats(tsRows);
+
+  // Fuzzy match với preferred, fallback thử catLabel gốc
+  const csMatch = fuzzyMatch(preferred, csCats) || fuzzyMatch(catLabel, csCats);
+  const tsMatch = fuzzyMatch(preferred, tsCats) || fuzzyMatch(catLabel, tsCats);
+
+  // Debug log — bỏ sau khi xác nhận ok
+  console.log('[showCat] catLabel='+catLabel+' preferred='+preferred);
+  console.log('[showCat] csCats:', csCats);
+  console.log('[showCat] tsCats:', tsCats);
+  console.log('[showCat] csMatch='+csMatch+' tsMatch='+tsMatch);
+
+  if (csMatch && csCats.includes(csMatch)) {
+    await showPolicyCat(csMatch, loadId);
+  } else {
+    await showProductCat(tsMatch || preferred, loadId);
   }
-  const { loadId } = addLoadingBubble(`Đang tải <strong>${sheetLabel}</strong>...`);
-  await showProductCat(sheetLabel, loadId);
 }
 
-async function showPolicyMenu(loadId) {
-  const rows = await fetchSheetData("ChinhSach");
+// ── Danh mục chính sách (ChinhSach) ──
+async function showPolicyCat(sheetLabel, loadId) {
+  const rows = await fetchSheetData('ChinhSach');
   const el = document.getElementById(loadId);
   if (!el) return;
+
   if (!rows || !rows.length) {
-    el.outerHTML = `Không thể tải dữ liệu chính sách.<a class="link-card green" href="tel:0986474671"><strong>📞 0986.474.671</strong></a>`;
+    el.outerHTML = `Không thể tải dữ liệu. <a class="link-card green" href="tel:0986474671"><strong>📞 0986.474.671</strong></a>`;
     return;
   }
-  const dmKey = Object.keys(rows[0]).find(k => norm(k).includes("danh") && norm(k).includes("muc")) || "Danh mục";
-  const danhMucs = [...new Set(rows.map(r => (r[dmKey]||"").trim()).filter(Boolean))];
-  if (!danhMucs.length) {
-    el.outerHTML = `Chưa có dữ liệu chính sách. Vui lòng liên hệ hotline!`;
-    addBtns([{ label:"🏠 Menu chính", fn:()=>{ addMsg("🏠 Menu chính","user"); typing(showMenu); } }]);
+
+  const matched = rows.filter(r=>(r['Danh mục']||r['Danh muc']||'').trim()===sheetLabel);
+  const questions = [...new Set(matched.map(r=>(r['Câu hỏi']||r['Cau hoi']||'').trim()).filter(Boolean))];
+
+  if (!questions.length) {
+    el.outerHTML = `Chưa có nội dung cho danh mục <strong>${sheetLabel}</strong>. Vui lòng liên hệ hotline!`;
+    addBtns(navBtns(sheetLabel));
     return;
   }
-  el.outerHTML = `<div class="stag">📋 Chính Sách & Dịch Vụ</div><br>Chọn nội dung cần xem:`;
-  const btns = danhMucs.map(dm => ({
-    label: dm,
-    fn: () => { addMsg(dm, "user"); typing(() => showPolicyDetail(dm)); }
+
+  el.outerHTML = `<div class="stag">📋 ${sheetLabel}</div><br>Chọn nội dung cần xem:`;
+
+  const btns = questions.map(q=>({
+    label: q,
+    fn:()=>{ addMsg(q,'user'); typing(()=>showPolicyDetail(sheetLabel, q)); }
   }));
-  btns.push({ label:"🏠 Menu chính", fn:()=>{ addMsg("🏠 Menu chính","user"); typing(showMenu); } });
+  btns.push({ label:'🏠 Menu chính', fn:()=>{ addMsg('🏠 Menu chính','user'); typing(showMenu); } });
   addBtns(btns);
 }
 
-async function showPolicyDetail(dmLabel) {
-  const { loadId } = addLoadingBubble(`Đang tải <strong>${dmLabel}</strong>...`);
-  const rows = await fetchSheetData("ChinhSach");
+// ── Chi tiết chính sách ──
+async function showPolicyDetail(sheetLabel, cauHoi) {
+  const { loadId, bub } = addLoadingBubble(`Đang tải <strong>${cauHoi}</strong>...`);
+  const rows = await fetchSheetData('ChinhSach');
   const el = document.getElementById(loadId);
   if (!el) return;
-  const dmKey   = Object.keys(rows[0]).find(k => norm(k).includes("danh") && norm(k).includes("muc")) || "Danh mục";
-  const ndKey   = Object.keys(rows[0]).find(k => norm(k).includes("noi") && norm(k).includes("dung")) || "Nội dung";
-  const ctKey   = Object.keys(rows[0]).find(k => norm(k).includes("chi") && norm(k).includes("tiet")) || "Chi tiết";
-  const loaiKey = Object.keys(rows[0]).find(k => norm(k).includes("loai")) || "Loại";
-  const matched = rows.filter(r => (r[dmKey]||"").trim() === dmLabel);
-  if (!matched.length) {
-    el.outerHTML = `Chưa có dữ liệu cho <strong>${dmLabel}</strong>. Vui lòng liên hệ hotline!`;
-    addBtns([
-      { label:"⬅️ Chính sách khác", cls:"cat", fn:()=>{ addMsg("📋 Chính Sách & Dịch Vụ","user"); typing(()=>showCat("📋 Chính Sách & Dịch Vụ")); } },
-      { label:"🏠 Menu chính", fn:()=>{ addMsg("🏠 Menu chính","user"); typing(showMenu); } },
-    ]);
-    return;
+
+  const matched = (rows||[]).filter(r=>
+    (r['Danh mục']||r['Danh muc']||'').trim()===sheetLabel &&
+    (r['Câu hỏi']||r['Cau hoi']||'').trim()===cauHoi
+  );
+
+  const html = buildHtmlFromRows(matched);
+  if (html) {
+    el.outerHTML = `<div class="stag">📋 ${cauHoi}</div><br>${html}`;
+  } else {
+    el.outerHTML = `Chưa có dữ liệu. Vui lòng liên hệ hotline để được hỗ trợ!`;
   }
-  let html = "", inList = false;
-  matched.forEach(r => {
-    const loai = (r[loaiKey]||"list").trim().toLowerCase();
-    const nd   = (r[ndKey]||"").trim();
-    const ct   = (r[ctKey]||"").trim();
-    if (loai === "note") {
-      if (inList) { html += "</ul>"; inList = false; }
-      html += `<div class="note-box">📌 <strong>${nd}:</strong> ${ct}</div>`;
-    } else {
-      if (!inList) { html += "<ul>"; inList = true; }
-      html += ct ? `<li><strong>${nd}</strong> — ${ct}</li>` : `<li>${nd}</li>`;
-    }
-  });
-  if (inList) html += "</ul>";
-  el.outerHTML = `<div class="stag">📋 ${dmLabel}</div><br>${html}`;
   scrollBot();
-  addBtns([
-    { label:"⬅️ Chính sách khác", cls:"cat", fn:()=>{ addMsg("📋 Chính Sách & Dịch Vụ","user"); typing(()=>showCat("📋 Chính Sách & Dịch Vụ")); } },
-    { label:"📞 Gọi ngay tư vấn", cls:"green", fn:()=>window.open("tel:0986474671") },
-    { label:"🏠 Menu chính", fn:()=>{ addMsg("🏠 Menu chính","user"); typing(showMenu); } },
-  ]);
+  addBtns(navBtns(sheetLabel));
 }
 
+// ── Danh mục sản phẩm (ThongSoDen) ──
 async function showProductCat(sheetLabel, loadId) {
+  const rows = await fetchSheetData('ThongSoDen');
   const el = document.getElementById(loadId);
   if (!el) return;
-  const rows = await fetchSheetData("ThongSoDen");
-  const matched = (rows||[]).filter(r=>
-    norm(r["Danh mục"]||r["Danh muc"]||"").trim() === norm(sheetLabel).trim()
-  );
-  const questions = [...new Set(
-    matched.map(r=>(r["Câu hỏi"]||r["Cau hoi"]||"").trim()).filter(Boolean)
-  )];
+
+  const matched = (rows || []).filter(r=>(r['Danh mục']||r['Danh muc']||'').trim()===sheetLabel);
+  const questions = [...new Set(matched.map(r=>(r['Câu hỏi']||r['Cau hoi']||'').trim()).filter(Boolean))];
+
   const priceTab = BAO_GIA_TAB[sheetLabel];
-  if (questions.length) {
-    el.outerHTML=`<div class="stag">${sheetLabel}</div><br>Chọn thông tin cần xem:`;
-    const btns=questions.map(q=>({
-      label:q, fn:()=>{ addMsg(q,"user"); typing(()=>showProductDetail(sheetLabel,q)); }
-    }));
-    if (priceTab) btns.push({
-      label:"💰 Xem bảng báo giá", cls:"hot",
-      fn:()=>{ addMsg("💰 Xem bảng báo giá","user"); typing(()=>showPriceTable(sheetLabel)); }
-    });
-    btns.push({ label:"📋 Yêu cầu báo giá", cls:"hot", fn:()=>{ addMsg("📋 Yêu cầu báo giá","user"); typing(()=>showLeadForm(sheetLabel)); } });
-    btns.push({ label:"🏠 Menu chính", fn:()=>{ addMsg("🏠 Menu chính","user"); typing(showMenu); } });
+  const hasQuestions = questions.length > 0;
+
+  // Nếu không có câu hỏi kỹ thuật nhưng có bảng giá → thẳng vào báo giá
+  if (!hasQuestions) {
+    el.outerHTML = `<div class="stag">${sheetLabel}</div><br>Chọn nội dung cần xem:`;
+    const btns = [];
+    if (priceTab) {
+      btns.push({
+        label:'💰 Xem bảng báo giá',
+        cls:'hot',
+        fn:()=>{ addMsg('💰 Xem bảng báo giá','user'); typing(()=>showPriceTable(sheetLabel)); }
+      });
+    }
+    btns.push({ label:'📋 Yêu cầu báo giá', cls:'hot', fn:()=>{ addMsg('📋 Yêu cầu báo giá','user'); typing(()=>showLeadForm(sheetLabel)); } });
+    btns.push({ label:'📞 Gọi tư vấn ngay', cls:'green', fn:()=>window.open('tel:0986474671') });
+    btns.push({ label:'🏠 Menu chính', fn:()=>{ addMsg('🏠 Menu chính','user'); typing(showMenu); } });
     addBtns(btns);
     return;
   }
+
+  el.outerHTML = `<div class="stag">${sheetLabel}</div><br>Chọn thông tin cần xem:`;
+
+  const btns = questions.map(q=>({
+    label: q,
+    fn:()=>{ addMsg(q,'user'); typing(()=>showProductDetail(sheetLabel, q)); }
+  }));
+
   if (priceTab) {
-    el.outerHTML=`<div class="stag">${sheetLabel}</div><br>Chọn thông tin cần xem:`;
-    addBtns([
-      { label:"💰 Xem bảng báo giá", cls:"hot", fn:()=>{ addMsg("💰 Xem bảng báo giá","user"); typing(()=>showPriceTable(sheetLabel)); } },
-      { label:"📋 Yêu cầu báo giá", cls:"hot", fn:()=>{ addMsg("📋 Yêu cầu báo giá","user"); typing(()=>showLeadForm(sheetLabel)); } },
-      { label:"📞 Gọi ngay tư vấn", cls:"green", fn:()=>window.open("tel:0986474671") },
-      { label:"🏠 Menu chính", fn:()=>{ addMsg("🏠 Menu chính","user"); typing(showMenu); } },
-    ]);
-    return;
+    btns.push({
+      label:'💰 Xem bảng báo giá',
+      cls:'hot',
+      fn:()=>{ addMsg('💰 Xem bảng báo giá','user'); typing(()=>showPriceTable(sheetLabel)); }
+    });
   }
-  el.outerHTML=`Vui lòng liên hệ hotline để được tư vấn trực tiếp!
-    <a class="link-card green" href="tel:0986474671">
-      <strong>📞 0986.474.671</strong>Hỗ trợ 8:00–22:00 hàng ngày
-    </a>`;
-  addBtns(navBtns(sheetLabel));
+  btns.push({ label:'📋 Yêu cầu báo giá', cls:'hot', fn:()=>{ addMsg('📋 Yêu cầu báo giá','user'); typing(()=>showLeadForm(sheetLabel)); } });
+  btns.push({ label:'🏠 Menu chính', fn:()=>{ addMsg('🏠 Menu chính','user'); typing(showMenu); } });
+  addBtns(btns);
 }
 
+// ── Chi tiết thông số kỹ thuật ──
 async function showProductDetail(sheetLabel, cauHoi) {
   const { loadId } = addLoadingBubble(`Đang tải <strong>${cauHoi}</strong>...`);
-  const rows = await fetchSheetData("ThongSoDen");
+  const rows = await fetchSheetData('ThongSoDen');
   const el = document.getElementById(loadId);
   if (!el) return;
+
   const matched = (rows||[]).filter(r=>
-    norm(r["Danh mục"]||r["Danh muc"]||"").trim()===norm(sheetLabel).trim() &&
-    (r["Câu hỏi"]||r["Cau hoi"]||"").trim()===cauHoi
+    (r['Danh mục']||r['Danh muc']||'').trim()===sheetLabel &&
+    (r['Câu hỏi']||r['Cau hoi']||'').trim()===cauHoi
   );
+
   const html = buildHtmlFromRows(matched);
-  let finalHtml = html
-    ? `<div class="stag">${sheetLabel}</div><br>${html}`
-    : `Chưa có dữ liệu. Vui lòng liên hệ hotline!`;
-  if (html && WP[sheetLabel]) {
-    finalHtml+=`<a class="link-card" href="${WP[sheetLabel]}" target="_blank">
-      <strong>🌐 Xem sản phẩm trên Website TDL</strong>${WP[sheetLabel]}
-    </a>`;
+  if (html) {
+    let finalHtml = `<div class="stag">${sheetLabel}</div><br>${html}`;
+    if (WP[sheetLabel]) {
+      finalHtml += `<a class="link-card" href="${WP[sheetLabel]}" target="_blank">
+        <strong>🌐 Xem sản phẩm trên Website TDL</strong>${WP[sheetLabel]}
+      </a>`;
+    }
+    el.outerHTML = finalHtml;
+  } else {
+    el.outerHTML = `Chưa có dữ liệu. Vui lòng liên hệ hotline!`;
   }
-  el.outerHTML=finalHtml;
   scrollBot();
   addBtns(navBtns(sheetLabel));
 }
 
+// ══════════════════════════════════════════════════════════════════
+//  BẢNG BÁO GIÁ
+// ══════════════════════════════════════════════════════════════════
 async function showPriceTable(sheetLabel) {
-  const tabName = BAO_GIA_TAB[sheetLabel]||"BaoGia";
+  const tabName = BAO_GIA_TAB[sheetLabel] || 'BaoGia';
   const { loadId } = addLoadingBubble(`Đang tải bảng giá <strong>${sheetLabel}</strong>...`);
   const rows = await fetchSheetData(tabName);
   const el = document.getElementById(loadId);
   if (!el) return;
-  if (!rows||!rows.length) {
-    el.outerHTML=`<div class="stag">💰 Báo Giá ${sheetLabel}</div><br>
-      Chưa có dữ liệu bảng giá. Vui lòng liên hệ trực tiếp!
+
+  if (!rows || !rows.length) {
+    el.outerHTML = `<div class="stag">💰 Báo Giá ${sheetLabel}</div><br>
+      Chưa có dữ liệu bảng giá. Vui lòng liên hệ trực tiếp để được báo giá!
       <a class="link-card green" href="tel:0986474671"><strong>📞 0986.474.671</strong></a>`;
     addBtns(navBtns(sheetLabel)); scrollBot(); return;
   }
+
+  // Lọc theo Danh mục nếu cột đó tồn tại trong sheet (tab dùng chung như SanTheThao)
+  // Tab riêng lẻ (DenPha, DenDuong...) không có cột Danh mục → lấy toàn bộ
   let filtered = rows;
-  const dmKey = Object.keys(rows[0]).find(k => norm(k).includes("danh") && norm(k).includes("muc"));
-  if (dmKey) {
-    const f = rows.filter(r => norm(r[dmKey]||"").trim() === norm(sheetLabel).trim());
-    if (f.length) filtered = f;
+  const firstRow = rows[0] || {};
+  const hasCatCol = 'Danh mục' in firstRow || 'Danh muc' in firstRow;
+  if (hasCatCol) {
+    const f = rows.filter(r=>(r['Danh mục']||r['Danh muc']||'').trim()===sheetLabel);
+    filtered = f.length ? f : rows; // fallback toàn bộ nếu không match
   }
-  const priceCol = Object.keys(filtered[0]).find(k => /đơn giá|don gia|price/i.test(k)) || null;
-  const preview = filtered.slice(0, 20);
-  const more = filtered.length > 20
-    ? `<div style="font-size:12px;color:#8ab4d4;margin-top:8px">
-        ⬇️ Còn ${filtered.length - 20} sản phẩm — <a href="${sheetEditUrl(tabName)}" target="_blank" style="color:#f5a623">xem đầy đủ trong Sheet</a>
-       </div>` : "";
+
+  const preview = filtered.slice(0,20);
+  const more = filtered.length>20
+    ? `<div style="font-size:12px;color:#8ab4d4;margin-top:6px">
+        ... và ${filtered.length-20} sản phẩm khác —
+        <a href="${sheetEditUrl(tabName)}" target="_blank" style="color:#f5a623">xem đầy đủ trong Sheet</a>
+      </div>` : '';
+
+  const priceCol = Object.keys(filtered[0]).find(k=>/đơn giá|giá|price/i.test(k)) || null;
+
   el.outerHTML = `
     <div class="stag">💰 Bảng Giá ${sheetLabel}</div><br>
     ${renderPriceTable(preview, priceCol)}
@@ -706,50 +772,66 @@ async function showPriceTable(sheetLabel) {
       <strong>📊 Xem Bảng Giá Đầy Đủ — Google Sheet</strong>
       Giá theo công suất & số lượng · Cập nhật liên tục
     </a>
-    ${WP[sheetLabel] ? `<a class="link-card" href="${WP[sheetLabel]}" target="_blank">
+    ${WP[sheetLabel]?`<a class="link-card" href="${WP[sheetLabel]}" target="_blank">
       <strong>🌐 Xem sản phẩm trên Website TDL</strong>${WP[sheetLabel]}
-    </a>` : ""}`;
+    </a>`:''}`;
   scrollBot();
   addBtns(navBtns(sheetLabel));
 }
 
+// ── Tra giá theo công suất ──
 async function showPriceByWatt(sheetLabel, watt) {
-  const tabName = BAO_GIA_TAB[sheetLabel]||"BaoGia";
+  const tabName = BAO_GIA_TAB[sheetLabel] || 'BaoGia';
   const { loadId } = addLoadingBubble(`Đang tra giá <strong>${watt.toUpperCase()}</strong>...`);
   const rows = await fetchSheetData(tabName);
   const el = document.getElementById(loadId);
   if (!el) return;
+
   if (!rows||!rows.length) {
-    el.outerHTML=`Chưa có dữ liệu bảng giá. Vui lòng gọi <strong>0986.474.671</strong>!`;
+    el.outerHTML = `Chưa có dữ liệu bảng giá. Vui lòng gọi <strong>0986.474.671</strong>!`;
     addBtns(navBtns(sheetLabel)); scrollBot(); return;
   }
-  const csCol = Object.keys(rows[0]).find(k=>/công suất|cong suat/i.test(k));
-  let filtered = csCol ? rows.filter(r=>norm(r[csCol]||"").includes(watt)) : rows;
+
+  const csCol = Object.keys(rows[0]).find(k=>/công suất|cong suat|cs/i.test(k));
+  let filtered = rows;
+  if (csCol) {
+    filtered = rows.filter(r=>norm(r[csCol]||'').includes(watt.replace('w','')+'w')||
+                              norm(r[csCol]||'').includes(watt));
+  }
+
   const priceCol = Object.keys(rows[0]).find(k=>/đơn giá|giá|price/i.test(k))||null;
+
   if (!filtered.length) {
-    el.outerHTML=`<div class="stag">💰 Báo Giá ${sheetLabel}</div><br>
-      Không tìm thấy đèn <strong>${watt.toUpperCase()}</strong>. Toàn bộ bảng giá:<br><br>
-      ${renderPriceTable(rows.slice(0,15),priceCol)}
+    el.outerHTML = `<div class="stag">💰 Báo Giá ${sheetLabel}</div><br>
+      Không tìm thấy đèn <strong>${watt.toUpperCase()}</strong>. Dưới đây là toàn bộ bảng giá:<br><br>
+      ${renderPriceTable(rows.slice(0,15), priceCol)}
       <div class="note-box">📞 Gọi <strong>0986.474.671</strong> để tư vấn công suất phù hợp.</div>`;
   } else if (filtered.length===1) {
-    el.outerHTML=`<div class="stag">💰 Báo Giá ${sheetLabel} — ${watt.toUpperCase()}</div><br>
-      ${renderPriceTable(filtered, priceCol)}
+    const r = filtered[0];
+    const keys = Object.keys(r);
+    let tbl = '<table>';
+    keys.forEach(k=>{ if(r[k]) tbl += `<tr><td><strong>${k}</strong></td><td style="${/giá|price/i.test(k)?'color:#f5a623;font-weight:700':''}">${r[k]}</td></tr>`; });
+    tbl += '</table>';
+    el.outerHTML = `<div class="stag">💰 Báo Giá ${sheetLabel} — ${watt.toUpperCase()}</div><br>${tbl}
       <div class="note-box">💡 Giá chưa bao gồm VAT. Số lượng lớn có chiết khấu thêm.</div>`;
   } else {
-    el.outerHTML=`<div class="stag">💰 Báo Giá ${sheetLabel} — ${watt.toUpperCase()}</div><br>
-      ${renderPriceTable(filtered,priceCol)}
+    el.outerHTML = `<div class="stag">💰 Báo Giá ${sheetLabel} — ${watt.toUpperCase()}</div><br>
+      ${renderPriceTable(filtered, priceCol)}
       <div class="note-box">💡 Giá chưa bao gồm VAT. Số lượng lớn có chiết khấu thêm.</div>`;
   }
   scrollBot();
   addBtns(navBtns(sheetLabel));
 }
 
+// ══════════════════════════════════════════════════════════════════
+//  LEAD FORM
+// ══════════════════════════════════════════════════════════════════
 async function saveLead(data) {
-  if (!APPS_SCRIPT_URL||APPS_SCRIPT_URL.includes("YOUR_")) return false;
+  if (!APPS_SCRIPT_URL || APPS_SCRIPT_URL.includes('YOUR_')) return false;
   try {
     await fetch(APPS_SCRIPT_URL,{
-      method:"POST", mode:"no-cors",
-      headers:{"Content-Type":"application/json"},
+      method:'POST', mode:'no-cors',
+      headers:{'Content-Type':'application/json'},
       body:JSON.stringify(data)
     });
     return true;
@@ -757,139 +839,162 @@ async function saveLead(data) {
 }
 
 function showLeadForm(prefill) {
-  document.querySelectorAll(".quick-replies").forEach(el=>el.remove());
-  const fid="lead-"+Date.now();
+  document.querySelectorAll('.quick-replies').forEach(el=>el.remove());
+  const fid = 'lead-'+Date.now();
   addMsg(`
     <div class="stag">📋 Để Lại Thông Tin — Tư Vấn Miễn Phí</div><br>
-    <div id="${fid}" style="display:flex;flex-direction:column;gap:9px;margin-top:8px">
+    <div id="${fid}" style="display:flex;flex-direction:column;gap:10px;margin-top:8px">
       <input id="${fid}-name" type="text" placeholder="Họ và tên *"
-        style="padding:9px 12px;border-radius:8px;border:1px solid #334;background:#1a2230;color:#e8f0fe;font-size:13px;outline:none;width:100%"/>
+        style="padding:9px 12px;border-radius:8px;border:1px solid #334;background:#1a2230;color:#e8f0fe;font-size:13px;outline:none"/>
       <input id="${fid}-phone" type="tel" placeholder="Số điện thoại / Zalo *"
-        style="padding:9px 12px;border-radius:8px;border:1px solid #334;background:#1a2230;color:#e8f0fe;font-size:13px;outline:none;width:100%"/>
-      <input id="${fid}-note" type="text" placeholder="Yêu cầu (vd: đèn pha 200W...)"
-        value="${prefill||""}"
-        style="padding:9px 12px;border-radius:8px;border:1px solid #334;background:#1a2230;color:#e8f0fe;font-size:13px;outline:none;width:100%"/>
+        style="padding:9px 12px;border-radius:8px;border:1px solid #334;background:#1a2230;color:#e8f0fe;font-size:13px;outline:none"/>
+      <input id="${fid}-note" type="text" placeholder="Yêu cầu (vd: đèn pha 200W, sân tennis 2 sân...)"
+        value="${prefill||''}"
+        style="padding:9px 12px;border-radius:8px;border:1px solid #334;background:#1a2230;color:#e8f0fe;font-size:13px;outline:none"/>
       <button onclick="submitLead('${fid}')"
-        style="padding:10px;border-radius:8px;background:#f5a623;color:#0a1628;font-weight:700;font-size:13px;border:none;cursor:pointer;width:100%">
+        style="padding:10px;border-radius:8px;background:#f5a623;color:#0a1628;font-weight:700;font-size:13px;border:none;cursor:pointer">
         📨 Gửi Yêu Cầu Tư Vấn
       </button>
       <div style="font-size:11px;color:#8ab4d4;text-align:center">Thông tin bảo mật · Phản hồi trong 30 phút</div>
-    </div>`, "bot");
+    </div>`, 'bot', []);
 }
 
 async function submitLead(fid) {
-  const name  = document.getElementById(fid+"-name")?.value.trim();
-  const phone = document.getElementById(fid+"-phone")?.value.trim();
-  const note  = document.getElementById(fid+"-note")?.value.trim();
+  const name  = document.getElementById(fid+'-name')?.value.trim();
+  const phone = document.getElementById(fid+'-phone')?.value.trim();
+  const note  = document.getElementById(fid+'-note')?.value.trim();
   if (!name||!phone) {
-    const btn=document.querySelector(`#${fid} button`);
-    if(btn){btn.textContent="⚠️ Vui lòng nhập họ tên và số điện thoại!";btn.style.background="#c0392b";}
-    setTimeout(()=>{if(btn){btn.textContent="📨 Gửi Yêu Cầu Tư Vấn";btn.style.background="#f5a623";}},2000);
+    const btn = document.querySelector(`#${fid} button`);
+    if(btn){btn.textContent='⚠️ Vui lòng nhập họ tên và số điện thoại!';btn.style.background='#c0392b';}
+    setTimeout(()=>{if(btn){btn.textContent='📨 Gửi Yêu Cầu Tư Vấn';btn.style.background='#f5a623';}},2000);
     return;
   }
-  const btn=document.querySelector(`#${fid} button`);
-  if(btn){btn.textContent="⏳ Đang gửi...";btn.disabled=true;}
-  await saveLead({ timestamp:new Date().toLocaleString("vi-VN"), name, phone, note, source:"Chatbot TDL" });
-  const formEl=document.getElementById(fid);
-  if(formEl) formEl.closest(".bubble").innerHTML=`
+  const btn = document.querySelector(`#${fid} button`);
+  if(btn){btn.textContent='⏳ Đang gửi...';btn.disabled=true;}
+  await saveLead({ timestamp:new Date().toLocaleString('vi-VN'), name, phone, note, source:'Chatbot TDL' });
+  const formEl = document.getElementById(fid);
+  if(formEl) formEl.closest('.bubble').innerHTML = `
     <div class="stag">✅ Đã Nhận Yêu Cầu!</div><br>
     <strong>${name}</strong> — <strong>${phone}</strong><br>
-    ${note?`<em>${note}</em><br>`:""}
+    ${note?`<em>${note}</em><br>`:''}
     <br>Đội tư vấn TDL sẽ liên hệ bạn trong <strong>30 phút</strong> (8:00–22:00).<br><br>
     <a class="link-card green" href="https://zalo.me/0986474671" target="_blank">
       <strong>💬 Nhắn ngay qua Zalo để được nhanh hơn</strong>Zalo: 0986.474.671
     </a>`;
   scrollBot();
-  addBtns([{label:"🏠 Menu chính",fn:()=>{addMsg("🏠 Menu chính","user");typing(showMenu);}}]);
+  addBtns([{label:'🏠 Menu chính',fn:()=>{addMsg('🏠 Menu chính','user');typing(showMenu);}}]);
 }
 
+// ══════════════════════════════════════════════════════════════════
+//  XỬ LÝ TIN NHẮN TỰ DO
+// ══════════════════════════════════════════════════════════════════
 function detectWatt(t) {
-  const m=t.match(/(\d+)\s*w(?:att)?/);
-  return m?m[1]+"w":null;
+  const m = t.match(/(\d+)\s*w(?:att)?/);
+  return m ? m[1]+'w' : null;
 }
 
+// detectCat trả về tên Sheet thật (không emoji)
 function detectCat(t) {
-  const map=[
-    [/bong ?da|bong ?do|san ?5|san ?7|san ?11|football|soccer/,"Sân Bóng Đá"],
-    [/tennis/,"Sân Tennis"],
-    [/cau ?long|badminton/,"Sân Cầu Lông"],
-    [/bong ?chuyen|volleyball/,"Sân Bóng Chuyền"],
-    [/pickleball|pickle/,"Sân Pickleball"],
-    [/den ?pha|floodlight/,"Đèn Pha LED"],
-    [/den ?duong|duong pho|street/,"Đèn Đường LED"],
-    [/nha ?xuong|kho|highbay|ufo/,"Đèn Nhà Xưởng LED"],
-    [/san ?vuon|vuon|canh quan|am ?dat/,"Đèn Sân Vườn LED"],
-    [/chinh ?sach|bao ?hanh|lap ?dat|thanh ?toan/,"Chính Sách & Dịch Vụ"],
+  const map = [
+    [/bong ?da|bong ?do|san ?5|san ?7|san ?11|football|soccer/,'Sân Bóng Đá'],
+    [/tennis/,'Sân Tennis'],
+    [/cau ?long|badminton/,'Sân Cầu Lông'],
+    [/bong ?chuyen|volleyball/,'Sân Bóng Chuyền'],
+    [/pickleball|pickle/,'Sân Pickleball'],
+    [/den ?pha|floodlight/,'Đèn Pha LED'],
+    [/den ?duong|duong pho|street/,'Đèn Đường LED'],
+    [/nha ?xuong|kho|highbay|ufo/,'Đèn Nhà Xưởng LED'],
+    [/san ?vuon|vuon|canh quan|am ?dat/,'Đèn Sân Vườn LED'],
+    [/chinh ?sach|bao ?hanh|lap ?dat|thanh ?toan/,'Chính Sách & Dịch Vụ'],
   ];
   for (const [re,cat] of map) { if(re.test(t)) return cat; }
   return null;
 }
 
 async function handleText(raw) {
-  const t=norm(raw);
-  const watt=detectWatt(t);
-  const cat=detectCat(t);
-  if (watt&&cat) { await showPriceByWatt(cat,watt); return; }
-  if (watt&&!cat) {
-    addMsg(`Bạn cần hỏi giá đèn <strong>${watt.toUpperCase()}</strong> thuộc danh mục nào? 👇`,"bot");
-    addBtns(MENU_ITEMS.filter(m=>BAO_GIA_TAB[LABEL_TO_SHEET[m.label]]).map(m=>({
-      label:m.label, cls:"cat",
-      fn:()=>{ addMsg(m.label,"user"); typing(()=>showPriceByWatt(LABEL_TO_SHEET[m.label],watt)); }
+  const t = norm(raw);
+  const watt = detectWatt(t);
+  const cat  = detectCat(t); // tên Sheet thật
+
+  if (watt && cat) { await showPriceByWatt(cat, watt); return; }
+
+  if (watt && !cat) {
+    // Hỏi danh mục — dùng MENU_ITEMS để hiển thị, map sang sheetLabel khi gọi
+    addMsg(`Bạn cần hỏi giá đèn <strong>${watt.toUpperCase()}</strong> thuộc danh mục nào? 👇`, 'bot');
+    addBtns(MENU_ITEMS.filter(m => {
+      const sl = LABEL_TO_SHEET[m.label];
+      return sl && BAO_GIA_TAB[sl]; // chỉ hiện danh mục có bảng giá
+    }).map(m => ({
+      label: m.label, cls:'cat',
+      fn:()=>{ addMsg(m.label,'user'); typing(()=>showPriceByWatt(LABEL_TO_SHEET[m.label], watt)); }
     })));
     return;
   }
+
   if (cat) {
-    const { loadId }=addLoadingBubble(`Đang tải <strong>${cat}</strong>...`);
-    const csRows=await fetchSheetData("ChinhSach");
-    const isPolicy=csRows&&csRows.some(r=>(r["Danh mục"]||r["Danh muc"]||"").trim()===cat);
-    if (isPolicy) await showPolicyCat(cat,loadId);
-    else await showProductCat(cat,loadId);
+    // cat là tên Sheet thật, gọi trực tiếp showPolicyCat/showProductCat
+    const { loadId } = addLoadingBubble(`Đang tải <strong>${cat}</strong>...`);
+    const csRows = await fetchSheetData('ChinhSach');
+    const isPolicy = csRows && csRows.some(r=>(r['Danh mục']||r['Danh muc']||'').trim()===cat);
+    if (isPolicy) { await showPolicyCat(cat, loadId); }
+    else { await showProductCat(cat, loadId); }
     return;
   }
+
   if (/bao ?gia|gia ?bao|gia tien|bao nhieu|cost|price|quote/.test(t)) {
-    addMsg("Để báo giá chính xác, vui lòng chọn danh mục sản phẩm 👇","bot");
-    addBtns(MENU_ITEMS.map(m=>({ label:m.label, cls:"cat", fn:()=>{ addMsg(m.label,"user"); typing(()=>showCat(m.label)); } })));
+    addMsg('Để báo giá chính xác, vui lòng chọn danh mục sản phẩm 👇', 'bot');
+    addBtns(MENU_ITEMS.map(m=>({
+      label:m.label, cls:'cat',
+      fn:()=>{ addMsg(m.label,'user'); typing(()=>showCat(m.label)); }
+    })));
     return;
   }
+
+  // Không nhận ra → gợi ý menu
   addMsg(
-    "Cảm ơn bạn đã liên hệ! Vui lòng chọn danh mục hoặc gọi trực tiếp:<br>"+
-    `<a class="link-card green" href="tel:0986474671"><strong>📞 Hotline: 0986.474.671</strong>Hỗ trợ 8:00–22:00 hàng ngày</a>`+
+    'Cảm ơn bạn đã liên hệ! Vui lòng chọn danh mục hoặc gọi trực tiếp:<br>' +
+    `<a class="link-card green" href="tel:0986474671"><strong>📞 Hotline: 0986.474.671</strong>Hỗ trợ 8:00–22:00 hàng ngày</a>` +
     `<a class="link-card green" href="https://zalo.me/0986474671" target="_blank"><strong>💬 Zalo: 0986.474.671</strong></a>`,
-    "bot"
+    'bot'
   );
-  addBtns(MENU_ITEMS.slice(0,6).map(m=>({ label:m.label, cls:"cat", fn:()=>{ addMsg(m.label,"user"); typing(()=>showCat(m.label)); } })));
+  addBtns(MENU_ITEMS.slice(0,6).map(m=>({label:m.label,cls:'cat',fn:()=>{addMsg(m.label,'user');typing(()=>showCat(m.label));}})));
 }
 
+// ── Gửi tin nhắn ──
 function sendMessage() {
   if (busy) return;
-  const inp=document.getElementById("userInput");
-  const txt=inp.value.trim();
+  const inp = document.getElementById('userInput');
+  const txt = inp.value.trim();
   if (!txt) return;
-  inp.value=""; inp.style.height="auto";
-  addMsg(txt,"user");
+  inp.value=''; inp.style.height='auto';
+  addMsg(txt,'user');
   busy=true;
-  const row=document.createElement("div"); row.className="msg bot"; row.id="tdl-typing";
-  const av=document.createElement("div"); av.className="avatar bot"; av.textContent="TDL";
-  const bub=document.createElement("div"); bub.className="bubble bot";
-  bub.innerHTML="<div class=\"typing\"><span></span><span></span><span></span></div>";
+  const row=document.createElement('div');
+  row.className='msg bot'; row.id='tdl-typing';
+  const av=document.createElement('div');
+  av.className='avatar bot'; av.textContent='TDL';
+  const bub=document.createElement('div');
+  bub.className='bubble bot';
+  bub.innerHTML='<div class="typing"><span></span><span></span><span></span></div>';
   row.appendChild(av); row.appendChild(bub);
   chatArea.appendChild(row); scrollBot();
   setTimeout(async()=>{
-    document.getElementById("tdl-typing")?.remove();
+    document.getElementById('tdl-typing')?.remove();
     busy=false;
     await handleText(txt);
   }, 700+Math.random()*500);
 }
 
-const inp=document.getElementById("userInput");
-inp.addEventListener("input",()=>{
-  inp.style.height="auto";
-  inp.style.height=Math.min(inp.scrollHeight,120)+"px";
+const inp = document.getElementById('userInput');
+inp.addEventListener('input',()=>{
+  inp.style.height='auto';
+  inp.style.height=Math.min(inp.scrollHeight,120)+'px';
 });
-inp.addEventListener("keydown",e=>{
-  if(e.key==="Enter"&&!e.shiftKey){e.preventDefault();sendMessage();}
+inp.addEventListener('keydown',e=>{
+  if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();sendMessage();}
 });
 
+// Khởi động
 setTimeout(()=>typing(showMenu), 500);
 </script>
 </body>
