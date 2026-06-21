@@ -365,15 +365,18 @@ function buildHtmlFromRows(matched) {
   return html||null;
 }
 
-function isImgUrl(v) {
-  return /^https?:\/\/.+\.(jpg|jpeg|png|webp|gif|svg)(\?.*)?$/i.test(v.trim()) ||
-         /drive\.google\.com\/(uc|file|thumbnail)/i.test(v.trim());
-}
-
 function fixDriveUrl(url) {
-  // Chuyển link share Google Drive → link ảnh trực tiếp
+  if (!url) return null;
+  // Google Drive: thử nhiều dạng URL khác nhau
   const m = url.match(/\/d\/([a-zA-Z0-9_-]+)/);
-  if (m) return `https://drive.google.com/uc?export=view&id=${m[1]}`;
+  if (m) {
+    const id = m[1];
+    // Thử lần lượt: uc?export=download → uc?id= → thumbnail
+    return `https://lh3.googleusercontent.com/d/${id}`;
+  }
+  const m2 = url.match(/[?&]id=([a-zA-Z0-9_-]+)/);
+  if (m2) return `https://lh3.googleusercontent.com/d/${m2[1]}`;
+  // Không phải Drive → trả nguyên link (website bình thường load được)
   return url;
 }
 
@@ -391,7 +394,8 @@ function renderPriceTable(rows, highlightCol) {
     let html = `<div style="display:flex;flex-direction:column;gap:10px;margin:6px 0">`;
     rows.forEach(row => {
       const rawImg = (row[imgKey]||"").trim();
-      const imgUrl = rawImg ? fixDriveUrl(rawImg) : "";
+      // fixDriveUrl trả null nếu không xử lý được, fallback dùng rawImg
+      const imgUrl = rawImg ? (fixDriveUrl(rawImg) || rawImg) : null;
       const priceKey = keys.find(k => /đơn giá|don gia|price|giá/i.test(k));
       const nameKey  = keys.find(k => /tên|ten|model|sản phẩm|san pham|loại|loai/i.test(k)) || keys[0];
       html += `<div style="display:flex;gap:10px;background:#0d2030;border:1px solid #1e3550;border-radius:10px;overflow:hidden;align-items:stretch">`;
@@ -399,7 +403,7 @@ function renderPriceTable(rows, highlightCol) {
         html += `<div style="flex-shrink:0;width:90px;min-height:80px;background:#091520;display:flex;align-items:center;justify-content:center;overflow:hidden">
           <img src="${imgUrl}" alt="${row[nameKey]||''}"
             style="width:90px;height:90px;object-fit:contain;display:block"
-            onerror="this.parentElement.innerHTML='<span style=\\'font-size:11px;color:#4a6a8a;text-align:center;padding:6px\\'>Không tải được ảnh</span>'"
+            onerror="this.style.display='none'"
           />
         </div>`;
       }
