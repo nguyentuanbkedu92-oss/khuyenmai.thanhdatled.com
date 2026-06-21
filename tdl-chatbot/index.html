@@ -365,10 +365,65 @@ function buildHtmlFromRows(matched) {
   return html||null;
 }
 
+function isImgUrl(v) {
+  return /^https?:\/\/.+\.(jpg|jpeg|png|webp|gif|svg)(\?.*)?$/i.test(v.trim()) ||
+         /drive\.google\.com\/(uc|file|thumbnail)/i.test(v.trim());
+}
+
+function fixDriveUrl(url) {
+  // Chuyển link share Google Drive → link ảnh trực tiếp
+  const m = url.match(/\/d\/([a-zA-Z0-9_-]+)/);
+  if (m) return `https://drive.google.com/uc?export=view&id=${m[1]}`;
+  return url;
+}
+
 function renderPriceTable(rows, highlightCol) {
   if (!rows||!rows.length) return "<em>Chưa có dữ liệu</em>";
   const allKeys = Object.keys(rows[0]);
-  const keys = allKeys.filter(k => !/^danh.?m[uụ]c$/i.test(k.trim()));
+  // Bỏ cột Danh mục khỏi hiển thị
+  const skipKeys = k => /^danh.?m[uụ]c$/i.test(k.trim());
+  // Tìm cột ảnh
+  const imgKey = allKeys.find(k => /^(ảnh|anh|hình|hinh|image|img|photo)$/i.test(k.trim()));
+  const keys = allKeys.filter(k => !skipKeys(k) && k !== imgKey);
+
+  // Nếu có cột ảnh → render dạng card
+  if (imgKey) {
+    let html = `<div style="display:flex;flex-direction:column;gap:10px;margin:6px 0">`;
+    rows.forEach(row => {
+      const rawImg = (row[imgKey]||"").trim();
+      const imgUrl = rawImg ? fixDriveUrl(rawImg) : "";
+      const priceKey = keys.find(k => /đơn giá|don gia|price|giá/i.test(k));
+      const nameKey  = keys.find(k => /tên|ten|model|sản phẩm|san pham|loại|loai/i.test(k)) || keys[0];
+      html += `<div style="display:flex;gap:10px;background:#0d2030;border:1px solid #1e3550;border-radius:10px;overflow:hidden;align-items:stretch">`;
+      if (imgUrl) {
+        html += `<div style="flex-shrink:0;width:90px;min-height:80px;background:#091520;display:flex;align-items:center;justify-content:center;overflow:hidden">
+          <img src="${imgUrl}" alt="${row[nameKey]||''}"
+            style="width:90px;height:90px;object-fit:contain;display:block"
+            onerror="this.parentElement.innerHTML='<span style=\\'font-size:11px;color:#4a6a8a;text-align:center;padding:6px\\'>Không tải được ảnh</span>'"
+          />
+        </div>`;
+      }
+      html += `<div style="flex:1;padding:10px 12px;min-width:0">`;
+      keys.forEach(k => {
+        const v = (row[k]||"").trim();
+        if (!v) return;
+        const isPrice = k === priceKey;
+        const isName  = k === nameKey;
+        if (isName) {
+          html += `<div style="font-weight:700;font-size:13.5px;color:#d8e8f0;margin-bottom:4px">${v}</div>`;
+        } else if (isPrice) {
+          html += `<div style="color:#f5a623;font-weight:700;font-size:14px;margin:3px 0">${v}</div>`;
+        } else {
+          html += `<div style="font-size:12px;color:#8ab4d4;margin:1px 0"><span style="color:#6a8aaa">${k}:</span> ${v}</div>`;
+        }
+      });
+      html += `</div></div>`;
+    });
+    html += `</div>`;
+    return html;
+  }
+
+  // Không có ảnh → bảng thông thường
   let tbl=`<table><tr>${keys.map(k=>`<th>${k}</th>`).join("")}</tr>`;
   rows.forEach(row=>{
     tbl+=`<tr>${keys.map(k=>{
